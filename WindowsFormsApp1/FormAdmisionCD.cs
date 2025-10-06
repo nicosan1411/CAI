@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ResultadoCostoVentas : Form
+    public partial class FormAdmisionCD : Form
     {
-        public ResultadoCostoVentas()
+        public FormAdmisionCD()
         {
             InitializeComponent();
+        }
+
+        private void btnvolvermenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

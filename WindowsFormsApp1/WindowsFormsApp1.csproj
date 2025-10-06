@@ -46,53 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ResultadoCostoVentas.cs">
+    <Compile Include="FormResultadosCostosVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResultadoCostoVentas.Designer.cs">
-      <DependentUpon>ResultadoCostoVentas.cs</DependentUpon>
+    <Compile Include="FormResultadosCostosVentas.Designer.cs">
+      <DependentUpon>FormResultadosCostosVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsultaEstadoGuia.cs">
+    <Compile Include="FormEstadoGuia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsultaEstadoGuia.Designer.cs">
-      <DependentUpon>ConsultaEstadoGuia.cs</DependentUpon>
+    <Compile Include="FormEstadoGuia.Designer.cs">
+      <DependentUpon>FormEstadoGuia.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmitirFactura.cs">
+    <Compile Include="FormEmitirFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmitirFactura.Designer.cs">
-      <DependentUpon>EmitirFactura.cs</DependentUpon>
+    <Compile Include="FormEmitirFactura.Designer.cs">
+      <DependentUpon>FormEmitirFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsultaCtaCteCliente.cs">
+    <Compile Include="FormCuentaCorriente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsultaCtaCteCliente.Designer.cs">
-      <DependentUpon>ConsultaCtaCteCliente.cs</DependentUpon>
+    <Compile Include="FormCuentaCorriente.Designer.cs">
+      <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImposicionCallCenter.cs">
+    <Compile Include="FormImposicionCallCenter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImposicionCallCenter.Designer.cs">
-      <DependentUpon>ImposicionCallCenter.cs</DependentUpon>
+    <Compile Include="FormImposicionCallCenter.Designer.cs">
+      <DependentUpon>FormImposicionCallCenter.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImposicionyAdmisionDeEncomiendasEnCD.cs">
+    <Compile Include="FormAdmisionCD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImposicionyAdmisionDeEncomiendasEnCD.Designer.cs">
-      <DependentUpon>ImposicionyAdmisionDeEncomiendasEnCD.cs</DependentUpon>
+    <Compile Include="FormAdmisionCD.Designer.cs">
+      <DependentUpon>FormAdmisionCD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="RendicionyAsignacionPrimeraMilla.cs">
+    <Compile Include="FormRendicionPrimeraMilla.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RendicionyAsignacionPrimeraMilla.Designer.cs">
-      <DependentUpon>RendicionyAsignacionPrimeraMilla.cs</DependentUpon>
+    <Compile Include="FormRendicionPrimeraMilla.Designer.cs">
+      <DependentUpon>FormRendicionPrimeraMilla.cs</DependentUpon>
     </Compile>
     <Compile Include="Form4.cs">
       <SubType>Form</SubType>
@@ -102,29 +102,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ResultadoCostoVentas.resx">
-      <DependentUpon>ResultadoCostoVentas.cs</DependentUpon>
+    <EmbeddedResource Include="FormResultadosCostosVentas.resx">
+      <DependentUpon>FormResultadosCostosVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaEstadoGuia.resx">
-      <DependentUpon>ConsultaEstadoGuia.cs</DependentUpon>
+    <EmbeddedResource Include="FormEstadoGuia.resx">
+      <DependentUpon>FormEstadoGuia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmitirFactura.resx">
-      <DependentUpon>EmitirFactura.cs</DependentUpon>
+    <EmbeddedResource Include="FormEmitirFactura.resx">
+      <DependentUpon>FormEmitirFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaCtaCteCliente.resx">
-      <DependentUpon>ConsultaCtaCteCliente.cs</DependentUpon>
+    <EmbeddedResource Include="FormCuentaCorriente.resx">
+      <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImposicionCallCenter.resx">
-      <DependentUpon>ImposicionCallCenter.cs</DependentUpon>
+    <EmbeddedResource Include="FormImposicionCallCenter.resx">
+      <DependentUpon>FormImposicionCallCenter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImposicionyAdmisionDeEncomiendasEnCD.resx">
-      <DependentUpon>ImposicionyAdmisionDeEncomiendasEnCD.cs</DependentUpon>
+    <EmbeddedResource Include="FormAdmisionCD.resx">
+      <DependentUpon>FormAdmisionCD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="FormInicio.resx">
+      <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RendicionyAsignacionPrimeraMilla.resx">
-      <DependentUpon>RendicionyAsignacionPrimeraMilla.cs</DependentUpon>
+    <EmbeddedResource Include="FormRendicionPrimeraMilla.resx">
+      <DependentUpon>FormRendicionPrimeraMilla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>

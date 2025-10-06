@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class EmitirFactura : Form
+    public partial class FormEmitirFactura : Form
     {
-        public EmitirFactura()
+        public FormEmitirFactura()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnvolvermenu_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

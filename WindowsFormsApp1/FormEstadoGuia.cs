@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ConsultaEstadoCtaCte : Form
+    public partial class FormEstadoGuia : Form
     {
-        public ConsultaEstadoCtaCte()
+        public FormEstadoGuia()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnvolvermenu_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

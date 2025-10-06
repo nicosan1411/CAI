@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class EmitirFactura
+    partial class FormEmitirFactura
     {
         /// <summary>
         /// Required designer variable.
@@ -33,12 +33,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnvolvermenu = new System.Windows.Forms.Button();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NrodeGuia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnvolvermenu = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -52,13 +52,12 @@
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Clientes:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(69, 18);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(403, 21);
             this.comboBox1.TabIndex = 1;
@@ -66,21 +65,20 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(476, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 27);
             this.button1.TabIndex = 2;
             this.button1.Text = "Seleccionar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(11, 50);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(583, 159);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -95,32 +93,12 @@
             this.Monto,
             this.Concepto});
             this.dataGridView1.Location = new System.Drawing.Point(13, 23);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(557, 122);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(329, 220);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 27);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Emitir Factura";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnvolvermenu
-            // 
-            this.btnvolvermenu.Location = new System.Drawing.Point(451, 220);
-            this.btnvolvermenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnvolvermenu.Name = "btnvolvermenu";
-            this.btnvolvermenu.Size = new System.Drawing.Size(145, 27);
-            this.btnvolvermenu.TabIndex = 18;
-            this.btnvolvermenu.Text = "Volver al Menú Principal";
-            this.btnvolvermenu.UseVisualStyleBackColor = true;
             // 
             // Cliente
             // 
@@ -154,7 +132,28 @@
             this.Concepto.ReadOnly = true;
             this.Concepto.Width = 125;
             // 
-            // EmitirFactura
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(329, 220);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(118, 27);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Emitir Factura";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnvolvermenu
+            // 
+            this.btnvolvermenu.Location = new System.Drawing.Point(451, 220);
+            this.btnvolvermenu.Margin = new System.Windows.Forms.Padding(2);
+            this.btnvolvermenu.Name = "btnvolvermenu";
+            this.btnvolvermenu.Size = new System.Drawing.Size(145, 27);
+            this.btnvolvermenu.TabIndex = 18;
+            this.btnvolvermenu.Text = "Volver al Menú Principal";
+            this.btnvolvermenu.UseVisualStyleBackColor = true;
+            this.btnvolvermenu.Click += new System.EventHandler(this.btnvolvermenu_Click);
+            // 
+            // FormEmitirFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,8 +164,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "EmitirFactura";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FormEmitirFactura";
             this.Text = "EmitirFactura";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

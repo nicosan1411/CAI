@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Main : Form
+    public partial class FormResultadosCostosVentas : Form
     {
-        public Main()
+        public FormResultadosCostosVentas()
         {
             InitializeComponent();
+        }
+
+        private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ImposicionyAdmisionDeEncomiendasEnCD : Form
+    public partial class FormRendicionPrimeraMilla : Form
     {
-        public ImposicionyAdmisionDeEncomiendasEnCD()
+        public FormRendicionPrimeraMilla()
         {
             InitializeComponent();
+        }
+
+        private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

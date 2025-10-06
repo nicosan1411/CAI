@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jtorr\\source\\repos\\caitp3.prototipo\\",
+  "WorkspaceRootPath": "C:\\Users\\jtorr\\source\\repos\\CAI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9A3B9ED5-7783-4820-8281-C79D6FD3DD8F}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\jtorr\\source\\repos\\caitp3.prototipo\\windowsformsapp1\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9A3B9ED5-7783-4820-8281-C79D6FD3DD8F}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9A3B9ED5-7783-4820-8281-C79D6FD3DD8F}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\jtorr\\source\\repos\\cai\\windowsformsapp1\\forminicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9A3B9ED5-7783-4820-8281-C79D6FD3DD8F}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forminicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,14 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form4.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\jtorr\\source\\repos\\caitp3.prototipo\\WindowsFormsApp1\\Form4.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Form4.cs",
-              "ToolTip": "C:\\Users\\jtorr\\source\\repos\\caitp3.prototipo\\WindowsFormsApp1\\Form4.cs [Dise\u00F1o]",
-              "RelativeToolTip": "WindowsFormsApp1\\Form4.cs [Dise\u00F1o]",
+              "Title": "FormInicio.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jtorr\\source\\repos\\CAI\\WindowsFormsApp1\\FormInicio.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\FormInicio.cs",
+              "ToolTip": "C:\\Users\\jtorr\\source\\repos\\CAI\\WindowsFormsApp1\\FormInicio.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp1\\FormInicio.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T20:59:13.759Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-10-06T01:22:59.734Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
