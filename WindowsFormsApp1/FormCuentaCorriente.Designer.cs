@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class ConsultaEstadoCtaCte
+    partial class FormCuentaCorriente
     {
         /// <summary>
         /// Required designer variable.

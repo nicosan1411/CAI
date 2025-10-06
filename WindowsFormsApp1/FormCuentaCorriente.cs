@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1; // Ensure this using directive is present if FormCuentaCorriente is in the same namespace
 
 namespace WindowsFormsApp1
 {
-    public partial class ConsultaEstadoCtaCte : Form
+    public partial class FormCuentaCorriente : Form
     {
-        public ConsultaEstadoCtaCte()
+        public FormCuentaCorriente()
         {
             InitializeComponent();
         }
 
+        // Add this method to the FormCuentaCorriente class to fix CS1061
         private void button2_Click(object sender, EventArgs e)
         {
-
+            // TODO: Implement export logic here
+            MessageBox.Show("Exportar button clicked.");
         }
     }
 }

@@ -82,11 +82,11 @@
     <Compile Include="FormAdmisionCD.Designer.cs">
       <DependentUpon>FormAdmisionCD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRendicionPrimeraMilla.cs">
       <SubType>Form</SubType>
@@ -120,8 +120,8 @@
     <EmbeddedResource Include="FormAdmisionCD.resx">
       <DependentUpon>FormAdmisionCD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="FormInicio.resx">
+      <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRendicionPrimeraMilla.resx">
       <DependentUpon>FormRendicionPrimeraMilla.cs</DependentUpon>
