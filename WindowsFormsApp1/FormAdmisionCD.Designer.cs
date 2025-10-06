@@ -67,9 +67,9 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Location = new System.Drawing.Point(104, 195);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(186, 92);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
@@ -78,7 +78,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(61, 60);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(95, 20);
             this.textBox3.TabIndex = 6;
@@ -86,7 +86,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(61, 26);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(95, 20);
             this.textBox2.TabIndex = 6;
@@ -129,9 +129,9 @@
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Location = new System.Drawing.Point(240, 74);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(248, 111);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
@@ -151,7 +151,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(95, 83);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(100, 17);
             this.radioButton3.TabIndex = 8;
@@ -163,7 +163,7 @@
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.Location = new System.Drawing.Point(95, 64);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(104, 17);
             this.radioButton4.TabIndex = 7;
@@ -175,7 +175,7 @@
             // 
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(95, 26);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(95, 21);
             this.comboBox3.TabIndex = 6;
@@ -208,9 +208,9 @@
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(21, 67);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(182, 118);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
@@ -219,7 +219,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(95, 83);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 20);
             this.button2.TabIndex = 5;
@@ -229,7 +229,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(19, 83);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 20);
             this.button1.TabIndex = 4;
@@ -239,7 +239,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(73, 55);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(95, 20);
             this.textBox1.TabIndex = 3;
@@ -258,7 +258,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(73, 24);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(95, 21);
             this.comboBox2.TabIndex = 1;
@@ -278,9 +278,9 @@
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(21, 6);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(492, 57);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
@@ -289,7 +289,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(108, 24);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(95, 21);
             this.comboBox1.TabIndex = 1;
@@ -307,7 +307,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(329, 252);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 20);
             this.button3.TabIndex = 6;
@@ -323,8 +323,9 @@
             this.btnvolvermenu.TabIndex = 19;
             this.btnvolvermenu.Text = "Volver al Menú Principal";
             this.btnvolvermenu.UseVisualStyleBackColor = true;
+            this.btnvolvermenu.Click += new System.EventHandler(this.btnvolvermenu_Click);
             // 
-            // ImposicionyAdmisionDeEncomiendasEnCD
+            // FormAdmisionCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -335,8 +336,8 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "ImposicionyAdmisionDeEncomiendasEnCD";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FormAdmisionCD";
             this.Text = "Imposición y Admisión de encomiendas en CD";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

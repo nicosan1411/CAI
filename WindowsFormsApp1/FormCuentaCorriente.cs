@@ -24,5 +24,10 @@ namespace WindowsFormsApp1
             // TODO: Implement export logic here
             MessageBox.Show("Exportar button clicked.");
         }
+
+        private void btnVolverAlMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

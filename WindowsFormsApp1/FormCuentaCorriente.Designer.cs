@@ -219,8 +219,9 @@
             this.btnVolverAlMenuPrincipal.TabIndex = 12;
             this.btnVolverAlMenuPrincipal.Text = "Volver al Menú Principal";
             this.btnVolverAlMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnVolverAlMenuPrincipal.Click += new System.EventHandler(this.btnVolverAlMenuPrincipal_Click);
             // 
-            // ConsultaEstadoCtaCte
+            // FormCuentaCorriente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -236,7 +237,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "ConsultaEstadoCtaCte";
+            this.Name = "FormCuentaCorriente";
             this.Text = "Consulta Estado Cuenta Corriente";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
