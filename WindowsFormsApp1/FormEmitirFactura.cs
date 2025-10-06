@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class EmitirFactura : Form
+    public partial class FormEmitirFactura : Form
     {
-        public EmitirFactura()
+        public FormEmitirFactura()
         {
             InitializeComponent();
         }

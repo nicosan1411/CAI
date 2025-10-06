@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class ConsultaEstadoGuia
+    partial class FormEstadoGuia
     {
         /// <summary>
         /// Required designer variable.

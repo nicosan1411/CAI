@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class ImposicionCallCenter
+    partial class FormImposicionCallCenter
     {
         /// <summary>
         /// Variable del diseñador necesaria.

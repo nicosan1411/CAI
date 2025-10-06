@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ImposicionCallCenter : Form
+    public partial class FormImposicionCallCenter : Form
     {
-        public ImposicionCallCenter()
+        public FormImposicionCallCenter()
         {
             InitializeComponent();
         }

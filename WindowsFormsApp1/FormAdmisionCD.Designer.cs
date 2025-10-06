@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class ImposicionyAdmisionDeEncomiendasEnCD
+    partial class FormAdmisionCD
     {
         /// <summary>
         /// Required designer variable.

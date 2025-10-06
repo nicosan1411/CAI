@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ConsultaEstadoGuia : Form
+    public partial class FormResultadosCostosVentas : Form
     {
-        public ConsultaEstadoGuia()
+        public FormResultadosCostosVentas()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnvolvermenu_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

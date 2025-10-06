@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class ResultadoCostoVentas
+    partial class FormResultadosCostosVentas
     {
         /// <summary>
         /// Required designer variable.

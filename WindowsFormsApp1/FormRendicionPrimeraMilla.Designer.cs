@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class RendicionyAsignacionPrimeraMilla
+    partial class FormRendicionPrimeraMilla
     {
         /// <summary>
         /// Required designer variable.

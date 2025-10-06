@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class RendicionyAsignacionPrimeraMilla : Form
+    public partial class FormRendicionPrimeraMilla : Form
     {
-        public RendicionyAsignacionPrimeraMilla()
+        public FormRendicionPrimeraMilla()
         {
             InitializeComponent();
         }
