@@ -14,6 +14,5 @@ C:\Users\jtorr\source\repos\CAI\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\jtorr\source\repos\CAI\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
 C:\Users\jtorr\source\repos\CAI\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\jtorr\source\repos\CAI\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-C:\Users\jtorr\source\repos\CAI\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
 C:\Users\jtorr\source\repos\CAI\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormInicio.resources
 C:\Users\jtorr\source\repos\CAI\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormCuentaCorriente.resources
