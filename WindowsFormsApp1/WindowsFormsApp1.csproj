@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntregaEnCD\EntregaEnCDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntregaEnCD\EntregaEnCDForm.Designer.cs">
+      <DependentUpon>EntregaEnCDForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResultadosCostosVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EntregaEnCD\EntregaEnCDForm.resx">
+      <DependentUpon>EntregaEnCDForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResultadosCostosVentas.resx">
       <DependentUpon>FormResultadosCostosVentas.cs</DependentUpon>
     </EmbeddedResource>
