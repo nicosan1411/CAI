@@ -52,58 +52,58 @@
     <Compile Include="EntregaEnCD\EntregaEnCDForm.Designer.cs">
       <DependentUpon>EntregaEnCDForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormResultadosCostosVentas.cs">
+    <Compile Include="ResultadosCostosVentas\FormResultadosCostosVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormResultadosCostosVentas.Designer.cs">
+    <Compile Include="ResultadosCostosVentas\FormResultadosCostosVentas.Designer.cs">
       <DependentUpon>FormResultadosCostosVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEstadoGuia.cs">
+    <Compile Include="EstadoGuia\FormEstadoGuia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEstadoGuia.Designer.cs">
+    <Compile Include="EstadoGuia\FormEstadoGuia.Designer.cs">
       <DependentUpon>FormEstadoGuia.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEmitirFactura.cs">
+    <Compile Include="EmitirFactura\FormEmitirFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEmitirFactura.Designer.cs">
+    <Compile Include="EmitirFactura\FormEmitirFactura.Designer.cs">
       <DependentUpon>FormEmitirFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCuentaCorriente.cs">
+    <Compile Include="CuentaCorriente\FormCuentaCorriente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCuentaCorriente.Designer.cs">
+    <Compile Include="CuentaCorriente\FormCuentaCorriente.Designer.cs">
       <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormImposicionCallCenter.cs">
+    <Compile Include="ImposicionCallCenter\FormImposicionCallCenter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormImposicionCallCenter.Designer.cs">
+    <Compile Include="ImposicionCallCenter\FormImposicionCallCenter.Designer.cs">
       <DependentUpon>FormImposicionCallCenter.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAdmisionCD.cs">
+    <Compile Include="AdmisionEnCD\FormAdmisionCD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAdmisionCD.Designer.cs">
+    <Compile Include="AdmisionEnCD\FormAdmisionCD.Designer.cs">
       <DependentUpon>FormAdmisionCD.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormInicio.cs">
+    <Compile Include="Inicio\FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormInicio.Designer.cs">
+    <Compile Include="Inicio\FormInicio.Designer.cs">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRendicionPrimeraMilla.cs">
+    <Compile Include="RendicionFletero\FormRendicionPrimeraMilla.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRendicionPrimeraMilla.Designer.cs">
+    <Compile Include="RendicionFletero\FormRendicionPrimeraMilla.Designer.cs">
       <DependentUpon>FormRendicionPrimeraMilla.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEntregasyRecepcionMicros.cs">
+    <Compile Include="EntregasyRecepcionMicros\FormEntregasyRecepcionMicros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEntregasyRecepcionMicros.Designer.cs">
+    <Compile Include="EntregasyRecepcionMicros\FormEntregasyRecepcionMicros.Designer.cs">
       <DependentUpon>FormEntregasyRecepcionMicros.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -111,31 +111,31 @@
     <EmbeddedResource Include="EntregaEnCD\EntregaEnCDForm.resx">
       <DependentUpon>EntregaEnCDForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormResultadosCostosVentas.resx">
+    <EmbeddedResource Include="ResultadosCostosVentas\FormResultadosCostosVentas.resx">
       <DependentUpon>FormResultadosCostosVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEstadoGuia.resx">
+    <EmbeddedResource Include="EstadoGuia\FormEstadoGuia.resx">
       <DependentUpon>FormEstadoGuia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEmitirFactura.resx">
+    <EmbeddedResource Include="EmitirFactura\FormEmitirFactura.resx">
       <DependentUpon>FormEmitirFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCuentaCorriente.resx">
+    <EmbeddedResource Include="CuentaCorriente\FormCuentaCorriente.resx">
       <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormImposicionCallCenter.resx">
+    <EmbeddedResource Include="ImposicionCallCenter\FormImposicionCallCenter.resx">
       <DependentUpon>FormImposicionCallCenter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAdmisionCD.resx">
+    <EmbeddedResource Include="AdmisionEnCD\FormAdmisionCD.resx">
       <DependentUpon>FormAdmisionCD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormInicio.resx">
+    <EmbeddedResource Include="Inicio\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRendicionPrimeraMilla.resx">
+    <EmbeddedResource Include="RendicionFletero\FormRendicionPrimeraMilla.resx">
       <DependentUpon>FormRendicionPrimeraMilla.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEntregasyRecepcionMicros.resx">
+    <EmbeddedResource Include="EntregasyRecepcionMicros\FormEntregasyRecepcionMicros.resx">
       <DependentUpon>FormEntregasyRecepcionMicros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
