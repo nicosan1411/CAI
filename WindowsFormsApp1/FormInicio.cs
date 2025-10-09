@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
 
         private void btnForm4_Click(object sender, EventArgs e)
         {
-            OpenAsDialog(new Form4());
+            OpenAsDialog(new FormEntregasyRecepcionMicros());
         }
 
         private void btnEmitirFactura_Click(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form4
+    partial class FormEntregasyRecepcionMicros
     {
         /// <summary>
         /// Required designer variable.
@@ -178,7 +178,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
-            // Form4
+            // FormEntregasyRecepcionMicros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -191,8 +191,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form4";
-            this.Text = "Form4";
+            this.Name = "FormEntregasyRecepcionMicros";
+            this.Text = "Entregas y Recepción Micros";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
