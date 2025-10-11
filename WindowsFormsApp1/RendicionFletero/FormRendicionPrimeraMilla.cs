@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
 
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormUtils.VolverAlMenu(this);
         }
     }
 }

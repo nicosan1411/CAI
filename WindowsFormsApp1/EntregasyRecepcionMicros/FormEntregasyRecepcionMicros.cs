@@ -16,10 +16,9 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormUtils.VolverAlMenu(this);
         }
     }
 }

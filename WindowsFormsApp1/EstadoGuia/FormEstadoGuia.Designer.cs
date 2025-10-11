@@ -163,7 +163,7 @@
             this.btnVolverMenuPrincipal.TabIndex = 5;
             this.btnVolverMenuPrincipal.Text = "Volver al &Menú Principal";
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnvolvermenu_Click);
+            this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
             // FormEstadoGuia
             // 

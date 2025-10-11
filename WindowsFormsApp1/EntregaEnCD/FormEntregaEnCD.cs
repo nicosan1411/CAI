@@ -16,20 +16,9 @@ namespace WindowsFormsApp1.EntregaEnCD
         {
             InitializeComponent();
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormEntregaEnCD_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormUtils.VolverAlMenu(this);
         }
     }
 }

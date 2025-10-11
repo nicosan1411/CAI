@@ -17,9 +17,9 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void btnvolvermenu_Click(object sender, EventArgs e)
+        private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormUtils.VolverAlMenu(this);
         }
     }
 }

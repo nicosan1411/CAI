@@ -70,7 +70,7 @@
             // 
             // gbDetalleEncomiendas
             // 
-            this.gbDetalleEncomiendas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbDetalleEncomiendas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbDetalleEncomiendas.Controls.Add(this.btnBorrarEncomienda);
             this.gbDetalleEncomiendas.Controls.Add(this.btnGuardarEncomienda);
@@ -163,7 +163,7 @@
             // 
             // gbDetalleEnvio
             // 
-            this.gbDetalleEnvio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbDetalleEnvio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbDetalleEnvio.Controls.Add(this.lblTipoServicioEnvio);
             this.gbDetalleEnvio.Controls.Add(this.rbEnvioAgencia);
@@ -248,7 +248,7 @@
             // 
             // gbDatosDestinatario
             // 
-            this.gbDatosDestinatario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbDatosDestinatario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbDatosDestinatario.Controls.Add(this.txtDomicilioDestinatario);
             this.gbDatosDestinatario.Controls.Add(this.txtLocalidadDestinatario);
@@ -367,7 +367,7 @@
             // 
             // gbEmpresaCliente
             // 
-            this.gbEmpresaCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbEmpresaCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbEmpresaCliente.Controls.Add(this.cbEmpresaCliente);
             this.gbEmpresaCliente.Controls.Add(this.lblEmpresaCliente);
@@ -381,7 +381,7 @@
             // 
             // gbDetalleRetiro
             // 
-            this.gbDetalleRetiro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbDetalleRetiro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbDetalleRetiro.Controls.Add(this.lblTipoServicioRetiro);
             this.gbDetalleRetiro.Controls.Add(this.rbRetiroAgencia);
@@ -518,4 +518,3 @@
         private System.Windows.Forms.TextBox txtDomicilioDestinatario;
     }
 }
-

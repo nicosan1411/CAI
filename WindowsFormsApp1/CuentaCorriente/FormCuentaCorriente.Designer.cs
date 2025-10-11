@@ -51,22 +51,23 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(833, 18);
+            this.btnBuscar.Location = new System.Drawing.Point(891, 18);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(67, 27);
-            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // cbCliente
             // 
+            this.cbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCliente.FormattingEnabled = true;
             this.cbCliente.Location = new System.Drawing.Point(66, 21);
             this.cbCliente.Margin = new System.Windows.Forms.Padding(2);
             this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Size = new System.Drawing.Size(481, 21);
-            this.cbCliente.TabIndex = 4;
+            this.cbCliente.Size = new System.Drawing.Size(539, 21);
+            this.cbCliente.TabIndex = 1;
             // 
             // lblClientes
             // 
@@ -75,56 +76,59 @@
             this.lblClientes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClientes.Name = "lblClientes";
             this.lblClientes.Size = new System.Drawing.Size(42, 13);
-            this.lblClientes.TabIndex = 3;
+            this.lblClientes.TabIndex = 0;
             this.lblClientes.Text = "Cliente:";
             // 
             // dtpDesde
             // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(596, 22);
+            this.dtpDesde.Location = new System.Drawing.Point(654, 22);
             this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(88, 20);
-            this.dtpDesde.TabIndex = 6;
+            this.dtpDesde.TabIndex = 3;
             // 
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(551, 25);
+            this.lblDesde.Location = new System.Drawing.Point(609, 25);
             this.lblDesde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(41, 13);
-            this.lblDesde.TabIndex = 7;
+            this.lblDesde.TabIndex = 2;
             this.lblDesde.Text = "Desde:";
             // 
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(688, 25);
+            this.lblHasta.Location = new System.Drawing.Point(746, 25);
             this.lblHasta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(38, 13);
-            this.lblHasta.TabIndex = 9;
+            this.lblHasta.TabIndex = 4;
             this.lblHasta.Text = "Hasta:";
             // 
             // dtpHasta
             // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(730, 22);
+            this.dtpHasta.Location = new System.Drawing.Point(788, 22);
             this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(88, 20);
-            this.dtpHasta.TabIndex = 8;
+            this.dtpHasta.TabIndex = 5;
             // 
             // gbEstadoCuenta
             // 
+            this.gbEstadoCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbEstadoCuenta.Controls.Add(this.lvCuentasCorrientes);
             this.gbEstadoCuenta.Location = new System.Drawing.Point(11, 59);
             this.gbEstadoCuenta.Margin = new System.Windows.Forms.Padding(2);
             this.gbEstadoCuenta.Name = "gbEstadoCuenta";
             this.gbEstadoCuenta.Padding = new System.Windows.Forms.Padding(2);
-            this.gbEstadoCuenta.Size = new System.Drawing.Size(889, 174);
-            this.gbEstadoCuenta.TabIndex = 10;
+            this.gbEstadoCuenta.Size = new System.Drawing.Size(949, 174);
+            this.gbEstadoCuenta.TabIndex = 7;
             this.gbEstadoCuenta.TabStop = false;
             this.gbEstadoCuenta.Text = "Estado de Cuenta";
             // 
@@ -139,15 +143,16 @@
             this.columnMonto,
             this.columnPago,
             this.columnSaldo});
+            this.lvCuentasCorrientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvCuentasCorrientes.FullRowSelect = true;
             this.lvCuentasCorrientes.GridLines = true;
             this.lvCuentasCorrientes.HideSelection = false;
-            this.lvCuentasCorrientes.Location = new System.Drawing.Point(12, 28);
+            this.lvCuentasCorrientes.Location = new System.Drawing.Point(2, 15);
             this.lvCuentasCorrientes.Margin = new System.Windows.Forms.Padding(2);
             this.lvCuentasCorrientes.MultiSelect = false;
             this.lvCuentasCorrientes.Name = "lvCuentasCorrientes";
-            this.lvCuentasCorrientes.Size = new System.Drawing.Size(860, 122);
-            this.lvCuentasCorrientes.TabIndex = 13;
+            this.lvCuentasCorrientes.Size = new System.Drawing.Size(945, 157);
+            this.lvCuentasCorrientes.TabIndex = 0;
             this.lvCuentasCorrientes.UseCompatibleStateImageBehavior = false;
             this.lvCuentasCorrientes.View = System.Windows.Forms.View.Details;
             // 
@@ -159,12 +164,12 @@
             // columnFecha
             // 
             this.columnFecha.Text = "Fecha";
-            this.columnFecha.Width = 80;
+            this.columnFecha.Width = 90;
             // 
             // columnNroComprobante
             // 
             this.columnNroComprobante.Text = "N° Comprobante";
-            this.columnNroComprobante.Width = 110;
+            this.columnNroComprobante.Width = 120;
             // 
             // columnConcepto
             // 
@@ -174,45 +179,50 @@
             // columnMonto
             // 
             this.columnMonto.Text = "Monto";
-            this.columnMonto.Width = 70;
+            this.columnMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnMonto.Width = 90;
             // 
             // columnPago
             // 
             this.columnPago.Text = "Pago";
-            this.columnPago.Width = 70;
+            this.columnPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnPago.Width = 90;
             // 
             // columnSaldo
             // 
             this.columnSaldo.Text = "Saldo";
-            this.columnSaldo.Width = 66;
+            this.columnSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnSaldo.Width = 90;
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(663, 246);
+            this.btnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportar.Location = new System.Drawing.Point(723, 246);
             this.btnExportar.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(88, 27);
-            this.btnExportar.TabIndex = 11;
+            this.btnExportar.TabIndex = 8;
             this.btnExportar.Text = "&Exportar";
             this.btnExportar.UseVisualStyleBackColor = true;
-            this.btnExportar.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnVolverMenuPrincipal
             // 
-            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(755, 246);
+            this.btnVolverMenuPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(815, 246);
             this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
             this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
-            this.btnVolverMenuPrincipal.TabIndex = 21;
+            this.btnVolverMenuPrincipal.TabIndex = 9;
             this.btnVolverMenuPrincipal.Text = "Volver al &Menú Principal";
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
             // FormCuentaCorriente
             // 
+            this.AcceptButton = this.btnBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 284);
+            this.ClientSize = new System.Drawing.Size(971, 284);
             this.Controls.Add(this.btnVolverMenuPrincipal);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.gbEstadoCuenta);
@@ -226,12 +236,14 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(927, 323);
             this.Name = "FormCuentaCorriente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Consulta Estado Cuenta Corriente";
             this.gbEstadoCuenta.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
 
         #endregion
 

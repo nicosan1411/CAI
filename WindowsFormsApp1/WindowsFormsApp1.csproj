@@ -52,6 +52,7 @@
     <Compile Include="EntregaEnCD\FormEntregaEnCD.Designer.cs">
       <DependentUpon>FormEntregaEnCD.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUtils.cs" />
     <Compile Include="ResultadosCostosVentas\FormResultadosCostosVentas.cs">
       <SubType>Form</SubType>
     </Compile>

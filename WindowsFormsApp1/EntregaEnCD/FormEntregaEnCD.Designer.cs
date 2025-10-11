@@ -156,7 +156,6 @@
             this.MinimumSize = new System.Drawing.Size(559, 292);
             this.Name = "FormEntregaEnCD";
             this.Text = "Entrega en Centro de Distribución";
-            this.Load += new System.EventHandler(this.FormEntregaEnCD_Load);
             this.gbComprobante.ResumeLayout(false);
             this.gbComprobante.PerformLayout();
             this.ResumeLayout(false);

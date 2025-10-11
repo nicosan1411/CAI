@@ -32,12 +32,12 @@
             this.cbCliente = new System.Windows.Forms.ComboBox();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.gbClientesAFacturar = new System.Windows.Forms.GroupBox();
-            this.btnEmitirFactura = new System.Windows.Forms.Button();
-            this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
-            this.lvCuentasCorrientes = new System.Windows.Forms.ListView();
-            this.columnGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvFacturasClientes = new System.Windows.Forms.ListView();
+            this.columnNroGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnConcepto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnMonto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnEmitirFactura = new System.Windows.Forms.Button();
+            this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
             this.gbClientesAFacturar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +72,7 @@
             // 
             // gbClientesAFacturar
             // 
-            this.gbClientesAFacturar.Controls.Add(this.lvCuentasCorrientes);
+            this.gbClientesAFacturar.Controls.Add(this.lvFacturasClientes);
             this.gbClientesAFacturar.Location = new System.Drawing.Point(11, 50);
             this.gbClientesAFacturar.Margin = new System.Windows.Forms.Padding(2);
             this.gbClientesAFacturar.Name = "gbClientesAFacturar";
@@ -81,6 +81,40 @@
             this.gbClientesAFacturar.TabIndex = 3;
             this.gbClientesAFacturar.TabStop = false;
             this.gbClientesAFacturar.Text = "Clientes a Facturar";
+            // 
+            // lvFacturasClientes
+            // 
+            this.lvFacturasClientes.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvFacturasClientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnNroGuia,
+            this.columnConcepto,
+            this.columnMonto});
+            this.lvFacturasClientes.FullRowSelect = true;
+            this.lvFacturasClientes.GridLines = true;
+            this.lvFacturasClientes.HideSelection = false;
+            this.lvFacturasClientes.Location = new System.Drawing.Point(12, 20);
+            this.lvFacturasClientes.Margin = new System.Windows.Forms.Padding(2);
+            this.lvFacturasClientes.MultiSelect = false;
+            this.lvFacturasClientes.Name = "lvFacturasClientes";
+            this.lvFacturasClientes.Size = new System.Drawing.Size(435, 143);
+            this.lvFacturasClientes.TabIndex = 23;
+            this.lvFacturasClientes.UseCompatibleStateImageBehavior = false;
+            this.lvFacturasClientes.View = System.Windows.Forms.View.Details;
+            // 
+            // columnNroGuia
+            // 
+            this.columnNroGuia.Text = "N° Guía";
+            this.columnNroGuia.Width = 90;
+            // 
+            // columnConcepto
+            // 
+            this.columnConcepto.Text = "Concepto";
+            this.columnConcepto.Width = 260;
+            // 
+            // columnMonto
+            // 
+            this.columnMonto.Text = "Monto";
+            this.columnMonto.Width = 80;
             // 
             // btnEmitirFactura
             // 
@@ -101,40 +135,7 @@
             this.btnVolverMenuPrincipal.TabIndex = 22;
             this.btnVolverMenuPrincipal.Text = "Volver al &Menú Principal";
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
-            // 
-            // lvCuentasCorrientes
-            // 
-            this.lvCuentasCorrientes.BackColor = System.Drawing.Color.Gainsboro;
-            this.lvCuentasCorrientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnGuia,
-            this.columnConcepto,
-            this.columnMonto});
-            this.lvCuentasCorrientes.FullRowSelect = true;
-            this.lvCuentasCorrientes.GridLines = true;
-            this.lvCuentasCorrientes.HideSelection = false;
-            this.lvCuentasCorrientes.Location = new System.Drawing.Point(12, 20);
-            this.lvCuentasCorrientes.Margin = new System.Windows.Forms.Padding(2);
-            this.lvCuentasCorrientes.MultiSelect = false;
-            this.lvCuentasCorrientes.Name = "lvCuentasCorrientes";
-            this.lvCuentasCorrientes.Size = new System.Drawing.Size(435, 143);
-            this.lvCuentasCorrientes.TabIndex = 23;
-            this.lvCuentasCorrientes.UseCompatibleStateImageBehavior = false;
-            this.lvCuentasCorrientes.View = System.Windows.Forms.View.Details;
-            // 
-            // columnGuia
-            // 
-            this.columnGuia.Text = "N° Guía";
-            this.columnGuia.Width = 90;
-            // 
-            // columnConcepto
-            // 
-            this.columnConcepto.Text = "Concepto";
-            this.columnConcepto.Width = 260;
-            // 
-            // columnMonto
-            // 
-            this.columnMonto.Text = "Monto";
-            this.columnMonto.Width = 80;
+            this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
             // FormEmitirFactura
             // 
@@ -165,8 +166,8 @@
         private System.Windows.Forms.GroupBox gbClientesAFacturar;
         private System.Windows.Forms.Button btnEmitirFactura;
         private System.Windows.Forms.Button btnVolverMenuPrincipal;
-        private System.Windows.Forms.ListView lvCuentasCorrientes;
-        private System.Windows.Forms.ColumnHeader columnGuia;
+        private System.Windows.Forms.ListView lvFacturasClientes;
+        private System.Windows.Forms.ColumnHeader columnNroGuia;
         private System.Windows.Forms.ColumnHeader columnConcepto;
         private System.Windows.Forms.ColumnHeader columnMonto;
     }
