@@ -28,219 +28,206 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NºComprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.cbCliente = new System.Windows.Forms.ComboBox();
+            this.lblClientes = new System.Windows.Forms.Label();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.lblHasta = new System.Windows.Forms.Label();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.gbEstadoCuenta = new System.Windows.Forms.GroupBox();
+            this.lvCuentasCorrientes = new System.Windows.Forms.ListView();
+            this.columnCliente = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnFecha = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnNroComprobante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnConcepto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnMonto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnPago = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnSaldo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnExportar = new System.Windows.Forms.Button();
-            this.btnVolverAlMenuPrincipal = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
+            this.gbEstadoCuenta.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(812, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 27);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscar.Location = new System.Drawing.Point(833, 18);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(67, 27);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "&Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbCliente
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(75, 19);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(443, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cbCliente.FormattingEnabled = true;
+            this.cbCliente.Location = new System.Drawing.Point(66, 21);
+            this.cbCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.cbCliente.Name = "cbCliente";
+            this.cbCliente.Size = new System.Drawing.Size(481, 21);
+            this.cbCliente.TabIndex = 4;
             // 
-            // label1
+            // lblClientes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Cliente:";
+            this.lblClientes.AutoSize = true;
+            this.lblClientes.Location = new System.Drawing.Point(20, 25);
+            this.lblClientes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblClientes.Name = "lblClientes";
+            this.lblClientes.Size = new System.Drawing.Size(42, 13);
+            this.lblClientes.TabIndex = 3;
+            this.lblClientes.Text = "Cliente:";
             // 
-            // dateTimePicker1
+            // dtpDesde
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(565, 19);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(88, 20);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDesde.Location = new System.Drawing.Point(596, 22);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(88, 20);
+            this.dtpDesde.TabIndex = 6;
             // 
-            // label2
+            // lblDesde
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(522, 22);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Desde:";
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(551, 25);
+            this.lblDesde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(41, 13);
+            this.lblDesde.TabIndex = 7;
+            this.lblDesde.Text = "Desde:";
             // 
-            // label3
+            // lblHasta
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(662, 22);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Hasta:";
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(688, 25);
+            this.lblHasta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(38, 13);
+            this.lblHasta.TabIndex = 9;
+            this.lblHasta.Text = "Hasta:";
             // 
-            // dateTimePicker2
+            // dtpHasta
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(705, 19);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(88, 20);
-            this.dateTimePicker2.TabIndex = 8;
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(730, 22);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(88, 20);
+            this.dtpHasta.TabIndex = 8;
             // 
-            // groupBox1
+            // gbEstadoCuenta
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 59);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(878, 174);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estado de Cuenta";
+            this.gbEstadoCuenta.Controls.Add(this.lvCuentasCorrientes);
+            this.gbEstadoCuenta.Location = new System.Drawing.Point(11, 59);
+            this.gbEstadoCuenta.Margin = new System.Windows.Forms.Padding(2);
+            this.gbEstadoCuenta.Name = "gbEstadoCuenta";
+            this.gbEstadoCuenta.Padding = new System.Windows.Forms.Padding(2);
+            this.gbEstadoCuenta.Size = new System.Drawing.Size(889, 174);
+            this.gbEstadoCuenta.TabIndex = 10;
+            this.gbEstadoCuenta.TabStop = false;
+            this.gbEstadoCuenta.Text = "Estado de Cuenta";
             // 
-            // dataGridView1
+            // lvCuentasCorrientes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cliente,
-            this.Fecha,
-            this.NºComprobante,
-            this.Concepto,
-            this.Monto,
-            this.Pago,
-            this.Saldo});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 28);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(856, 122);
-            this.dataGridView1.TabIndex = 0;
+            this.lvCuentasCorrientes.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvCuentasCorrientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnCliente,
+            this.columnFecha,
+            this.columnNroComprobante,
+            this.columnConcepto,
+            this.columnMonto,
+            this.columnPago,
+            this.columnSaldo});
+            this.lvCuentasCorrientes.FullRowSelect = true;
+            this.lvCuentasCorrientes.GridLines = true;
+            this.lvCuentasCorrientes.HideSelection = false;
+            this.lvCuentasCorrientes.Location = new System.Drawing.Point(12, 28);
+            this.lvCuentasCorrientes.Margin = new System.Windows.Forms.Padding(2);
+            this.lvCuentasCorrientes.MultiSelect = false;
+            this.lvCuentasCorrientes.Name = "lvCuentasCorrientes";
+            this.lvCuentasCorrientes.Size = new System.Drawing.Size(860, 122);
+            this.lvCuentasCorrientes.TabIndex = 13;
+            this.lvCuentasCorrientes.UseCompatibleStateImageBehavior = false;
+            this.lvCuentasCorrientes.View = System.Windows.Forms.View.Details;
             // 
-            // Cliente
+            // columnCliente
             // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 6;
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Width = 125;
+            this.columnCliente.Text = "Cliente";
+            this.columnCliente.Width = 200;
             // 
-            // Fecha
+            // columnFecha
             // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.MinimumWidth = 6;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 125;
+            this.columnFecha.Text = "Fecha";
+            this.columnFecha.Width = 80;
             // 
-            // NºComprobante
+            // columnNroComprobante
             // 
-            this.NºComprobante.HeaderText = "Nº Comprobante";
-            this.NºComprobante.MinimumWidth = 6;
-            this.NºComprobante.Name = "NºComprobante";
-            this.NºComprobante.ReadOnly = true;
-            this.NºComprobante.Width = 125;
+            this.columnNroComprobante.Text = "N° Comprobante";
+            this.columnNroComprobante.Width = 110;
             // 
-            // Concepto
+            // columnConcepto
             // 
-            this.Concepto.HeaderText = "Concepto";
-            this.Concepto.MinimumWidth = 6;
-            this.Concepto.Name = "Concepto";
-            this.Concepto.ReadOnly = true;
+            this.columnConcepto.Text = "Concepto";
+            this.columnConcepto.Width = 260;
             // 
-            // Monto
+            // columnMonto
             // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.MinimumWidth = 6;
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
+            this.columnMonto.Text = "Monto";
+            this.columnMonto.Width = 70;
             // 
-            // Pago
+            // columnPago
             // 
-            this.Pago.HeaderText = "Pago";
-            this.Pago.Name = "Pago";
+            this.columnPago.Text = "Pago";
+            this.columnPago.Width = 70;
             // 
-            // Saldo
+            // columnSaldo
             // 
-            this.Saldo.HeaderText = "Saldo";
-            this.Saldo.MinimumWidth = 6;
-            this.Saldo.Name = "Saldo";
-            this.Saldo.ReadOnly = true;
-            this.Saldo.Width = 125;
+            this.columnSaldo.Text = "Saldo";
+            this.columnSaldo.Width = 66;
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(602, 237);
+            this.btnExportar.Location = new System.Drawing.Point(663, 246);
             this.btnExportar.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(119, 36);
+            this.btnExportar.Size = new System.Drawing.Size(88, 27);
             this.btnExportar.TabIndex = 11;
-            this.btnExportar.Text = "Exportar";
+            this.btnExportar.Text = "&Exportar";
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnVolverAlMenuPrincipal
+            // btnVolverMenuPrincipal
             // 
-            this.btnVolverAlMenuPrincipal.Location = new System.Drawing.Point(735, 237);
-            this.btnVolverAlMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
-            this.btnVolverAlMenuPrincipal.Name = "btnVolverAlMenuPrincipal";
-            this.btnVolverAlMenuPrincipal.Size = new System.Drawing.Size(144, 36);
-            this.btnVolverAlMenuPrincipal.TabIndex = 12;
-            this.btnVolverAlMenuPrincipal.Text = "Volver al Menú Principal";
-            this.btnVolverAlMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnVolverAlMenuPrincipal.Click += new System.EventHandler(this.btnVolverAlMenuPrincipal_Click);
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(755, 246);
+            this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
+            this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
+            this.btnVolverMenuPrincipal.TabIndex = 21;
+            this.btnVolverMenuPrincipal.Text = "Volver al &Menú Principal";
+            this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
             // FormCuentaCorriente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 284);
-            this.Controls.Add(this.btnVolverAlMenuPrincipal);
+            this.ClientSize = new System.Drawing.Size(911, 284);
+            this.Controls.Add(this.btnVolverMenuPrincipal);
             this.Controls.Add(this.btnExportar);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.gbEstadoCuenta);
+            this.Controls.Add(this.lblHasta);
+            this.Controls.Add(this.dtpHasta);
+            this.Controls.Add(this.lblDesde);
+            this.Controls.Add(this.dtpDesde);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.cbCliente);
+            this.Controls.Add(this.lblClientes);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(927, 323);
             this.Name = "FormCuentaCorriente";
             this.Text = "Consulta Estado Cuenta Corriente";
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.gbEstadoCuenta.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,23 +235,23 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.ComboBox cbCliente;
+        private System.Windows.Forms.Label lblClientes;
+        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.Label lblDesde;
+        private System.Windows.Forms.Label lblHasta;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.GroupBox gbEstadoCuenta;
         private System.Windows.Forms.Button btnExportar;
-        private System.Windows.Forms.Button btnVolverAlMenuPrincipal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NºComprobante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Concepto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
+        private System.Windows.Forms.ListView lvCuentasCorrientes;
+        private System.Windows.Forms.ColumnHeader columnCliente;
+        private System.Windows.Forms.ColumnHeader columnFecha;
+        private System.Windows.Forms.ColumnHeader columnNroComprobante;
+        private System.Windows.Forms.ColumnHeader columnConcepto;
+        private System.Windows.Forms.ColumnHeader columnMonto;
+        private System.Windows.Forms.ColumnHeader columnPago;
+        private System.Windows.Forms.ColumnHeader columnSaldo;
+        private System.Windows.Forms.Button btnVolverMenuPrincipal;
     }
 }

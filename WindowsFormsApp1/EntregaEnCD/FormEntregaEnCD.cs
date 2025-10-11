@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1.EntregaEnCD
 {
-    public partial class EntregaEnCDForm : Form
+    public partial class FormEntregaEnCD : Form
     {
-        public EntregaEnCDForm()
+        public FormEntregaEnCD()
         {
             InitializeComponent();
         }
@@ -22,9 +22,14 @@ namespace WindowsFormsApp1.EntregaEnCD
 
         }
 
-        private void EntregaEnCDForm_Load(object sender, EventArgs e)
+        private void FormEntregaEnCD_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

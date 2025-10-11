@@ -29,17 +29,16 @@
         private void InitializeComponent()
         {
             this.lblCliente = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnvolvermenu = new System.Windows.Forms.Button();
-            this.NrodeGuia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cbCliente = new System.Windows.Forms.ComboBox();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.gbClientesAFacturar = new System.Windows.Forms.GroupBox();
+            this.btnEmitirFactura = new System.Windows.Forms.Button();
+            this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
+            this.lvCuentasCorrientes = new System.Windows.Forms.ListView();
+            this.columnGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnConcepto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnMonto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gbClientesAFacturar.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCliente
@@ -52,113 +51,107 @@
             this.lblCliente.TabIndex = 0;
             this.lblCliente.Text = "Cliente:";
             // 
-            // comboBox1
+            // cbCliente
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(69, 18);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(276, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cbCliente.FormattingEnabled = true;
+            this.cbCliente.Location = new System.Drawing.Point(69, 18);
+            this.cbCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.cbCliente.Name = "cbCliente";
+            this.cbCliente.Size = new System.Drawing.Size(307, 21);
+            this.cbCliente.TabIndex = 1;
             // 
-            // button1
+            // btnSeleccionar
             // 
-            this.button1.Location = new System.Drawing.Point(349, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 27);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Location = new System.Drawing.Point(380, 14);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(87, 27);
+            this.btnSeleccionar.TabIndex = 2;
+            this.btnSeleccionar.Text = "&Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // gbClientesAFacturar
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 50);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(456, 159);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Clientes a Facturar";
+            this.gbClientesAFacturar.Controls.Add(this.lvCuentasCorrientes);
+            this.gbClientesAFacturar.Location = new System.Drawing.Point(11, 50);
+            this.gbClientesAFacturar.Margin = new System.Windows.Forms.Padding(2);
+            this.gbClientesAFacturar.Name = "gbClientesAFacturar";
+            this.gbClientesAFacturar.Padding = new System.Windows.Forms.Padding(2);
+            this.gbClientesAFacturar.Size = new System.Drawing.Size(456, 169);
+            this.gbClientesAFacturar.TabIndex = 3;
+            this.gbClientesAFacturar.TabStop = false;
+            this.gbClientesAFacturar.Text = "Clientes a Facturar";
             // 
-            // dataGridView1
+            // btnEmitirFactura
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NrodeGuia,
-            this.Monto,
-            this.Concepto});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 23);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(431, 122);
-            this.dataGridView1.TabIndex = 0;
+            this.btnEmitirFactura.Location = new System.Drawing.Point(200, 223);
+            this.btnEmitirFactura.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEmitirFactura.Name = "btnEmitirFactura";
+            this.btnEmitirFactura.Size = new System.Drawing.Size(118, 27);
+            this.btnEmitirFactura.TabIndex = 4;
+            this.btnEmitirFactura.Text = "&Emitir Factura";
+            this.btnEmitirFactura.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnVolverMenuPrincipal
             // 
-            this.button2.Location = new System.Drawing.Point(200, 220);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 27);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Emitir Factura";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(322, 223);
+            this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
+            this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
+            this.btnVolverMenuPrincipal.TabIndex = 22;
+            this.btnVolverMenuPrincipal.Text = "Volver al &Menú Principal";
+            this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             // 
-            // btnvolvermenu
+            // lvCuentasCorrientes
             // 
-            this.btnvolvermenu.Location = new System.Drawing.Point(322, 220);
-            this.btnvolvermenu.Margin = new System.Windows.Forms.Padding(2);
-            this.btnvolvermenu.Name = "btnvolvermenu";
-            this.btnvolvermenu.Size = new System.Drawing.Size(145, 27);
-            this.btnvolvermenu.TabIndex = 18;
-            this.btnvolvermenu.Text = "Volver al Menú Principal";
-            this.btnvolvermenu.UseVisualStyleBackColor = true;
-            this.btnvolvermenu.Click += new System.EventHandler(this.btnvolvermenu_Click);
+            this.lvCuentasCorrientes.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvCuentasCorrientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnGuia,
+            this.columnConcepto,
+            this.columnMonto});
+            this.lvCuentasCorrientes.FullRowSelect = true;
+            this.lvCuentasCorrientes.GridLines = true;
+            this.lvCuentasCorrientes.HideSelection = false;
+            this.lvCuentasCorrientes.Location = new System.Drawing.Point(12, 20);
+            this.lvCuentasCorrientes.Margin = new System.Windows.Forms.Padding(2);
+            this.lvCuentasCorrientes.MultiSelect = false;
+            this.lvCuentasCorrientes.Name = "lvCuentasCorrientes";
+            this.lvCuentasCorrientes.Size = new System.Drawing.Size(435, 143);
+            this.lvCuentasCorrientes.TabIndex = 23;
+            this.lvCuentasCorrientes.UseCompatibleStateImageBehavior = false;
+            this.lvCuentasCorrientes.View = System.Windows.Forms.View.Details;
             // 
-            // NrodeGuia
+            // columnGuia
             // 
-            this.NrodeGuia.HeaderText = "№ de Guía";
-            this.NrodeGuia.MinimumWidth = 6;
-            this.NrodeGuia.Name = "NrodeGuia";
-            this.NrodeGuia.ReadOnly = true;
-            this.NrodeGuia.Width = 125;
+            this.columnGuia.Text = "N° Guía";
+            this.columnGuia.Width = 90;
             // 
-            // Monto
+            // columnConcepto
             // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.MinimumWidth = 6;
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
-            this.Monto.Width = 125;
+            this.columnConcepto.Text = "Concepto";
+            this.columnConcepto.Width = 260;
             // 
-            // Concepto
+            // columnMonto
             // 
-            this.Concepto.HeaderText = "Concepto";
-            this.Concepto.MinimumWidth = 6;
-            this.Concepto.Name = "Concepto";
-            this.Concepto.ReadOnly = true;
-            this.Concepto.Width = 125;
+            this.columnMonto.Text = "Monto";
+            this.columnMonto.Width = 80;
             // 
             // FormEmitirFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 258);
-            this.Controls.Add(this.btnvolvermenu);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(484, 261);
+            this.Controls.Add(this.btnVolverMenuPrincipal);
+            this.Controls.Add(this.btnEmitirFactura);
+            this.Controls.Add(this.gbClientesAFacturar);
+            this.Controls.Add(this.btnSeleccionar);
+            this.Controls.Add(this.cbCliente);
             this.Controls.Add(this.lblCliente);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(500, 300);
             this.Name = "FormEmitirFactura";
-            this.Text = "EmitirFactura";
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Emitir Factura";
+            this.gbClientesAFacturar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,14 +160,14 @@
         #endregion
 
         private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnvolvermenu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NrodeGuia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Concepto;
+        private System.Windows.Forms.ComboBox cbCliente;
+        private System.Windows.Forms.Button btnSeleccionar;
+        private System.Windows.Forms.GroupBox gbClientesAFacturar;
+        private System.Windows.Forms.Button btnEmitirFactura;
+        private System.Windows.Forms.Button btnVolverMenuPrincipal;
+        private System.Windows.Forms.ListView lvCuentasCorrientes;
+        private System.Windows.Forms.ColumnHeader columnGuia;
+        private System.Windows.Forms.ColumnHeader columnConcepto;
+        private System.Windows.Forms.ColumnHeader columnMonto;
     }
 }

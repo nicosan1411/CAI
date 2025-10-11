@@ -28,154 +28,159 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Guias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dimension = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoDeServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNIDestinatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnvolvermenu = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lblGuia = new System.Windows.Forms.Label();
+            this.cbGuia = new System.Windows.Forms.ComboBox();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.gbGuiasEntregadas = new System.Windows.Forms.GroupBox();
+            this.lvGuias = new System.Windows.Forms.ListView();
+            this.columnNroGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDimensión = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnCantidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnCDDestino = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnTipoServicio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDniDestinatario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnFechaIngreso = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEstado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
+            this.gbGuiasEntregadas.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblGuia
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Guía:";
+            this.lblGuia.AutoSize = true;
+            this.lblGuia.Location = new System.Drawing.Point(23, 15);
+            this.lblGuia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGuia.Name = "lblGuia";
+            this.lblGuia.Size = new System.Drawing.Size(34, 13);
+            this.lblGuia.TabIndex = 0;
+            this.lblGuia.Text = "Guía:";
             // 
-            // comboBox1
+            // cbGuia
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(73, 25);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(228, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cbGuia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbGuia.FormattingEnabled = true;
+            this.cbGuia.Location = new System.Drawing.Point(61, 12);
+            this.cbGuia.Margin = new System.Windows.Forms.Padding(2);
+            this.cbGuia.Name = "cbGuia";
+            this.cbGuia.Size = new System.Drawing.Size(228, 21);
+            this.cbGuia.TabIndex = 1;
             // 
-            // button1
+            // btnSeleccionar
             // 
-            this.button1.Location = new System.Drawing.Point(305, 24);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 20);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSeleccionar.Location = new System.Drawing.Point(293, 11);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(82, 21);
+            this.btnSeleccionar.TabIndex = 2;
+            this.btnSeleccionar.Text = "&Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // gbGuiasEntregadas
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(20, 64);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(911, 157);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Guías entregadas";
+            this.gbGuiasEntregadas.Controls.Add(this.lvGuias);
+            this.gbGuiasEntregadas.Location = new System.Drawing.Point(17, 43);
+            this.gbGuiasEntregadas.Margin = new System.Windows.Forms.Padding(2);
+            this.gbGuiasEntregadas.Name = "gbGuiasEntregadas";
+            this.gbGuiasEntregadas.Padding = new System.Windows.Forms.Padding(2);
+            this.gbGuiasEntregadas.Size = new System.Drawing.Size(892, 157);
+            this.gbGuiasEntregadas.TabIndex = 3;
+            this.gbGuiasEntregadas.TabStop = false;
+            this.gbGuiasEntregadas.Text = "Guías entregadas";
             // 
-            // dataGridView1
+            // lvGuias
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Guias,
-            this.Dimension,
-            this.Cantidad,
-            this.CDDestino,
-            this.TipoDeServicio,
-            this.DNIDestinatario,
-            this.FechaIngreso,
-            this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(18, 23);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(880, 122);
-            this.dataGridView1.TabIndex = 0;
+            this.lvGuias.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvGuias.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnNroGuia,
+            this.columnDimensión,
+            this.columnCantidad,
+            this.columnCDDestino,
+            this.columnTipoServicio,
+            this.columnDniDestinatario,
+            this.columnFechaIngreso,
+            this.columnEstado});
+            this.lvGuias.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lvGuias.FullRowSelect = true;
+            this.lvGuias.GridLines = true;
+            this.lvGuias.HideSelection = false;
+            this.lvGuias.Location = new System.Drawing.Point(18, 23);
+            this.lvGuias.Margin = new System.Windows.Forms.Padding(2);
+            this.lvGuias.MultiSelect = false;
+            this.lvGuias.Name = "lvGuias";
+            this.lvGuias.Size = new System.Drawing.Size(854, 119);
+            this.lvGuias.TabIndex = 4;
+            this.lvGuias.UseCompatibleStateImageBehavior = false;
+            this.lvGuias.View = System.Windows.Forms.View.Details;
             // 
-            // Guias
+            // columnNroGuia
             // 
-            this.Guias.HeaderText = "№ de Guia";
-            this.Guias.MinimumWidth = 6;
-            this.Guias.Name = "Guias";
-            this.Guias.ReadOnly = true;
-            this.Guias.Width = 125;
+            this.columnNroGuia.Text = "N° Guía";
+            this.columnNroGuia.Width = 100;
             // 
-            // Dimension
+            // columnDimensión
             // 
-            this.Dimension.HeaderText = "Dimensión";
-            this.Dimension.Name = "Dimension";
+            this.columnDimensión.Text = "Dimensión";
+            this.columnDimensión.Width = 80;
             // 
-            // Cantidad
+            // columnCantidad
             // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
+            this.columnCantidad.Text = "Cantidad";
+            this.columnCantidad.Width = 80;
             // 
-            // CDDestino
+            // columnCDDestino
             // 
-            this.CDDestino.HeaderText = "CD Destino";
-            this.CDDestino.Name = "CDDestino";
+            this.columnCDDestino.Text = "CD Destino";
+            this.columnCDDestino.Width = 210;
             // 
-            // TipoDeServicio
+            // columnTipoServicio
             // 
-            this.TipoDeServicio.HeaderText = "Tipo De Servicio";
-            this.TipoDeServicio.Name = "TipoDeServicio";
+            this.columnTipoServicio.Text = "Tipo de Servicio";
+            this.columnTipoServicio.Width = 100;
             // 
-            // DNIDestinatario
+            // columnDniDestinatario
             // 
-            this.DNIDestinatario.HeaderText = "DNI Destinatario";
-            this.DNIDestinatario.Name = "DNIDestinatario";
+            this.columnDniDestinatario.Text = "DNI Destinatario";
+            this.columnDniDestinatario.Width = 90;
             // 
-            // FechaIngreso
+            // columnFechaIngreso
             // 
-            this.FechaIngreso.HeaderText = "Fecha Ingreso";
-            this.FechaIngreso.Name = "FechaIngreso";
+            this.columnFechaIngreso.Text = "Fecha de Ingreso";
+            this.columnFechaIngreso.Width = 100;
             // 
-            // Estado
+            // columnEstado
             // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
+            this.columnEstado.Text = "Estado";
+            this.columnEstado.Width = 90;
             // 
-            // btnvolvermenu
+            // btnVolverMenuPrincipal
             // 
-            this.btnvolvermenu.Location = new System.Drawing.Point(773, 239);
-            this.btnvolvermenu.Margin = new System.Windows.Forms.Padding(2);
-            this.btnvolvermenu.Name = "btnvolvermenu";
-            this.btnvolvermenu.Size = new System.Drawing.Size(145, 27);
-            this.btnvolvermenu.TabIndex = 19;
-            this.btnvolvermenu.Text = "Volver al Menú Principal";
-            this.btnvolvermenu.UseVisualStyleBackColor = true;
-            this.btnvolvermenu.Click += new System.EventHandler(this.btnvolvermenu_Click);
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(764, 207);
+            this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
+            this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
+            this.btnVolverMenuPrincipal.TabIndex = 5;
+            this.btnVolverMenuPrincipal.Text = "Volver al &Menú Principal";
+            this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnvolvermenu_Click);
             // 
             // FormEstadoGuia
             // 
+            this.AcceptButton = this.btnSeleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 284);
-            this.Controls.Add(this.btnvolvermenu);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(925, 245);
+            this.Controls.Add(this.btnVolverMenuPrincipal);
+            this.Controls.Add(this.gbGuiasEntregadas);
+            this.Controls.Add(this.btnSeleccionar);
+            this.Controls.Add(this.cbGuia);
+            this.Controls.Add(this.lblGuia);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(941, 284);
             this.Name = "FormEstadoGuia";
             this.Text = "Consulta Estado Guia";
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.gbGuiasEntregadas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,19 +188,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnvolvermenu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Guias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dimension;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDDestino;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoDeServicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DNIDestinatario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaIngreso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Label lblGuia;
+        private System.Windows.Forms.ComboBox cbGuia;
+        private System.Windows.Forms.Button btnSeleccionar;
+        private System.Windows.Forms.GroupBox gbGuiasEntregadas;
+        private System.Windows.Forms.Button btnVolverMenuPrincipal;
+        private System.Windows.Forms.ListView lvGuias;
+        private System.Windows.Forms.ColumnHeader columnNroGuia;
+        private System.Windows.Forms.ColumnHeader columnDimensión;
+        private System.Windows.Forms.ColumnHeader columnCantidad;
+        private System.Windows.Forms.ColumnHeader columnCDDestino;
+        private System.Windows.Forms.ColumnHeader columnTipoServicio;
+        private System.Windows.Forms.ColumnHeader columnDniDestinatario;
+        private System.Windows.Forms.ColumnHeader columnFechaIngreso;
+        private System.Windows.Forms.ColumnHeader columnEstado;
     }
 }

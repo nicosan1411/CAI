@@ -295,6 +295,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(743, 505);
             this.Name = "FormRendicionPrimeraMilla";
             this.Text = "Rendición y asignación primera milla";
             this.groupBox2.ResumeLayout(false);

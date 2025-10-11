@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntregaEnCD\EntregaEnCDForm.cs">
+    <Compile Include="EntregaEnCD\FormEntregaEnCD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntregaEnCD\EntregaEnCDForm.Designer.cs">
-      <DependentUpon>EntregaEnCDForm.cs</DependentUpon>
+    <Compile Include="EntregaEnCD\FormEntregaEnCD.Designer.cs">
+      <DependentUpon>FormEntregaEnCD.cs</DependentUpon>
     </Compile>
     <Compile Include="ResultadosCostosVentas\FormResultadosCostosVentas.cs">
       <SubType>Form</SubType>
@@ -108,8 +108,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="EntregaEnCD\EntregaEnCDForm.resx">
-      <DependentUpon>EntregaEnCDForm.cs</DependentUpon>
+    <EmbeddedResource Include="EntregaEnCD\FormEntregaEnCD.resx">
+      <DependentUpon>FormEntregaEnCD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResultadosCostosVentas\FormResultadosCostosVentas.resx">
       <DependentUpon>FormResultadosCostosVentas.cs</DependentUpon>

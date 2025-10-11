@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.EntregaEnCD;
 
 namespace WindowsFormsApp1
 {
@@ -72,6 +73,11 @@ namespace WindowsFormsApp1
         private void btnCuentaCorriente_Click(object sender, EventArgs e)
         {
             OpenAsDialog(new FormCuentaCorriente());
+        }
+
+        private void btnEntregasEnCD_Click(object sender, EventArgs e)
+        {
+            OpenAsDialog(new FormEntregaEnCD());
         }
     }
 }

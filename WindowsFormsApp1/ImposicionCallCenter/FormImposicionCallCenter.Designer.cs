@@ -28,480 +28,494 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnvolvermenu = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.groupBox2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.gbDetalleEncomiendas = new System.Windows.Forms.GroupBox();
+            this.btnBorrarEncomienda = new System.Windows.Forms.Button();
+            this.btnGuardarEncomienda = new System.Windows.Forms.Button();
+            this.numericCantidadEncomienda = new System.Windows.Forms.NumericUpDown();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.cbDimension = new System.Windows.Forms.ComboBox();
+            this.lblDimension = new System.Windows.Forms.Label();
+            this.gbDetalleEnvio = new System.Windows.Forms.GroupBox();
+            this.lblTipoServicioEnvio = new System.Windows.Forms.Label();
+            this.rbEnvioAgencia = new System.Windows.Forms.RadioButton();
+            this.rbEnvioCentroDistribucion = new System.Windows.Forms.RadioButton();
+            this.rbEnvioDomicilio = new System.Windows.Forms.RadioButton();
+            this.cbProvinciaEnvio = new System.Windows.Forms.ComboBox();
+            this.lblProvinciaEnvio = new System.Windows.Forms.Label();
+            this.gbDatosDestinatario = new System.Windows.Forms.GroupBox();
+            this.txtDomicilioDestinatario = new System.Windows.Forms.TextBox();
+            this.txtLocalidadDestinatario = new System.Windows.Forms.TextBox();
+            this.lblDomicilio = new System.Windows.Forms.Label();
+            this.txtDniDestinatario = new System.Windows.Forms.TextBox();
+            this.lblLocalidad = new System.Windows.Forms.Label();
+            this.lblDni = new System.Windows.Forms.Label();
+            this.btnAceptarPedido = new System.Windows.Forms.Button();
+            this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
+            this.lblEmpresaCliente = new System.Windows.Forms.Label();
+            this.cbEmpresaCliente = new System.Windows.Forms.ComboBox();
+            this.gbEmpresaCliente = new System.Windows.Forms.GroupBox();
+            this.gbDetalleRetiro = new System.Windows.Forms.GroupBox();
+            this.lblTipoServicioRetiro = new System.Windows.Forms.Label();
+            this.rbRetiroAgencia = new System.Windows.Forms.RadioButton();
+            this.rbRetiroDomicilio = new System.Windows.Forms.RadioButton();
+            this.cbAgenciaRetiro = new System.Windows.Forms.ComboBox();
+            this.lblAgencia = new System.Windows.Forms.Label();
+            this.gbDetalleEncomiendas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericCantidadEncomienda)).BeginInit();
+            this.gbDetalleEnvio.SuspendLayout();
+            this.gbDatosDestinatario.SuspendLayout();
+            this.gbEmpresaCliente.SuspendLayout();
+            this.gbDetalleRetiro.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 570);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(483, 150);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Detalle de encomiendas";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(365, 110);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 25);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Borrar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(273, 110);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 25);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(108, 68);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(344, 22);
-            this.textBox1.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Cantidad";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(108, 28);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(344, 24);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Dimensión";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.radioButton5);
-            this.groupBox5.Controls.Add(this.radioButton3);
-            this.groupBox5.Controls.Add(this.radioButton4);
-            this.groupBox5.Controls.Add(this.comboBox3);
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Location = new System.Drawing.Point(15, 226);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(483, 161);
-            this.groupBox5.TabIndex = 7;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Detalle de envío";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 76);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 16);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Tipo de servicio";
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(143, 126);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(125, 20);
-            this.radioButton5.TabIndex = 8;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Envío a agencia";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(143, 100);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(203, 20);
-            this.radioButton3.TabIndex = 8;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Envío a centro de distribución";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(143, 74);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(130, 20);
-            this.radioButton4.TabIndex = 7;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Envio a domicilio";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(143, 31);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(309, 24);
-            this.comboBox3.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 16);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Provincia";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(327, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 16);
-            this.label4.TabIndex = 2;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Location = new System.Drawing.Point(12, 394);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(483, 172);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Datos Destinatario";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(97, 122);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(355, 22);
-            this.textBox4.TabIndex = 6;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(97, 74);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(355, 22);
-            this.textBox3.TabIndex = 6;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 126);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 16);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Domicilio";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(97, 32);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(355, 22);
-            this.textBox2.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 16);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Localidad";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 36);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 16);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "DNI";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(327, 32);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 16);
-            this.label9.TabIndex = 2;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(159, 735);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 33);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Aceptar pedido";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btnvolvermenu
-            // 
-            this.btnvolvermenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnvolvermenu.Location = new System.Drawing.Point(305, 735);
-            this.btnvolvermenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnvolvermenu.Name = "btnvolvermenu";
-            this.btnvolvermenu.Size = new System.Drawing.Size(193, 33);
-            this.btnvolvermenu.TabIndex = 19;
-            this.btnvolvermenu.Text = "Volver al Menú Principal";
-            this.btnvolvermenu.UseVisualStyleBackColor = true;
-            this.btnvolvermenu.Click += new System.EventHandler(this.btnvolvermenu_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Empresa/Cliente";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(136, 26);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(316, 24);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 11);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(483, 70);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.radioButton1);
-            this.groupBox4.Controls.Add(this.radioButton2);
-            this.groupBox4.Controls.Add(this.comboBox4);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Location = new System.Drawing.Point(15, 85);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(483, 137);
-            this.groupBox4.TabIndex = 10;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Detalle de retiro";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 31);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 16);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Tipo de servicio";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(145, 54);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(134, 20);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Retiro en agencia";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(145, 28);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(139, 20);
-            this.radioButton2.TabIndex = 7;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Retiro en domicilio";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(143, 90);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(309, 24);
-            this.comboBox4.TabIndex = 6;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(327, 32);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(0, 16);
-            this.label12.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 94);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 16);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Agencia";
+            // gbDetalleEncomiendas
+            // 
+            this.gbDetalleEncomiendas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDetalleEncomiendas.Controls.Add(this.btnBorrarEncomienda);
+            this.gbDetalleEncomiendas.Controls.Add(this.btnGuardarEncomienda);
+            this.gbDetalleEncomiendas.Controls.Add(this.numericCantidadEncomienda);
+            this.gbDetalleEncomiendas.Controls.Add(this.lblCantidad);
+            this.gbDetalleEncomiendas.Controls.Add(this.cbDimension);
+            this.gbDetalleEncomiendas.Controls.Add(this.lblDimension);
+            this.gbDetalleEncomiendas.Location = new System.Drawing.Point(9, 463);
+            this.gbDetalleEncomiendas.Margin = new System.Windows.Forms.Padding(2);
+            this.gbDetalleEncomiendas.Name = "gbDetalleEncomiendas";
+            this.gbDetalleEncomiendas.Padding = new System.Windows.Forms.Padding(2);
+            this.gbDetalleEncomiendas.Size = new System.Drawing.Size(362, 122);
+            this.gbDetalleEncomiendas.TabIndex = 4;
+            this.gbDetalleEncomiendas.TabStop = false;
+            this.gbDetalleEncomiendas.Text = "Detalle de encomiendas";
+            // 
+            // btnBorrarEncomienda
+            // 
+            this.btnBorrarEncomienda.Location = new System.Drawing.Point(274, 89);
+            this.btnBorrarEncomienda.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBorrarEncomienda.Name = "btnBorrarEncomienda";
+            this.btnBorrarEncomienda.Size = new System.Drawing.Size(68, 21);
+            this.btnBorrarEncomienda.TabIndex = 7;
+            this.btnBorrarEncomienda.Text = "&Borrar";
+            this.btnBorrarEncomienda.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardarEncomienda
+            // 
+            this.btnGuardarEncomienda.Location = new System.Drawing.Point(205, 89);
+            this.btnGuardarEncomienda.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardarEncomienda.Name = "btnGuardarEncomienda";
+            this.btnGuardarEncomienda.Size = new System.Drawing.Size(68, 21);
+            this.btnGuardarEncomienda.TabIndex = 6;
+            this.btnGuardarEncomienda.Text = "&Guardar";
+            this.btnGuardarEncomienda.UseVisualStyleBackColor = true;
+            // 
+            // numericCantidadEncomienda
+            // 
+            this.numericCantidadEncomienda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericCantidadEncomienda.Location = new System.Drawing.Point(81, 55);
+            this.numericCantidadEncomienda.Margin = new System.Windows.Forms.Padding(2);
+            this.numericCantidadEncomienda.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericCantidadEncomienda.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericCantidadEncomienda.Name = "numericCantidadEncomienda";
+            this.numericCantidadEncomienda.Size = new System.Drawing.Size(258, 20);
+            this.numericCantidadEncomienda.TabIndex = 3;
+            this.numericCantidadEncomienda.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(13, 58);
+            this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(49, 13);
+            this.lblCantidad.TabIndex = 2;
+            this.lblCantidad.Text = "Cantidad";
+            // 
+            // cbDimension
+            // 
+            this.cbDimension.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbDimension.FormattingEnabled = true;
+            this.cbDimension.Location = new System.Drawing.Point(81, 23);
+            this.cbDimension.Margin = new System.Windows.Forms.Padding(2);
+            this.cbDimension.Name = "cbDimension";
+            this.cbDimension.Size = new System.Drawing.Size(259, 21);
+            this.cbDimension.TabIndex = 1;
+            // 
+            // lblDimension
+            // 
+            this.lblDimension.AutoSize = true;
+            this.lblDimension.Location = new System.Drawing.Point(13, 26);
+            this.lblDimension.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDimension.Name = "lblDimension";
+            this.lblDimension.Size = new System.Drawing.Size(56, 13);
+            this.lblDimension.TabIndex = 0;
+            this.lblDimension.Text = "Dimensión";
+            // 
+            // gbDetalleEnvio
+            // 
+            this.gbDetalleEnvio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDetalleEnvio.Controls.Add(this.lblTipoServicioEnvio);
+            this.gbDetalleEnvio.Controls.Add(this.rbEnvioAgencia);
+            this.gbDetalleEnvio.Controls.Add(this.rbEnvioCentroDistribucion);
+            this.gbDetalleEnvio.Controls.Add(this.rbEnvioDomicilio);
+            this.gbDetalleEnvio.Controls.Add(this.cbProvinciaEnvio);
+            this.gbDetalleEnvio.Controls.Add(this.lblProvinciaEnvio);
+            this.gbDetalleEnvio.Location = new System.Drawing.Point(11, 184);
+            this.gbDetalleEnvio.Margin = new System.Windows.Forms.Padding(2);
+            this.gbDetalleEnvio.Name = "gbDetalleEnvio";
+            this.gbDetalleEnvio.Padding = new System.Windows.Forms.Padding(2);
+            this.gbDetalleEnvio.Size = new System.Drawing.Size(362, 131);
+            this.gbDetalleEnvio.TabIndex = 2;
+            this.gbDetalleEnvio.TabStop = false;
+            this.gbDetalleEnvio.Text = "Detalle de envío";
+            // 
+            // lblTipoServicioEnvio
+            // 
+            this.lblTipoServicioEnvio.AutoSize = true;
+            this.lblTipoServicioEnvio.Location = new System.Drawing.Point(13, 62);
+            this.lblTipoServicioEnvio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTipoServicioEnvio.Name = "lblTipoServicioEnvio";
+            this.lblTipoServicioEnvio.Size = new System.Drawing.Size(82, 13);
+            this.lblTipoServicioEnvio.TabIndex = 9;
+            this.lblTipoServicioEnvio.Text = "Tipo de servicio";
+            // 
+            // rbEnvioAgencia
+            // 
+            this.rbEnvioAgencia.AutoSize = true;
+            this.rbEnvioAgencia.Location = new System.Drawing.Point(107, 102);
+            this.rbEnvioAgencia.Margin = new System.Windows.Forms.Padding(2);
+            this.rbEnvioAgencia.Name = "rbEnvioAgencia";
+            this.rbEnvioAgencia.Size = new System.Drawing.Size(104, 17);
+            this.rbEnvioAgencia.TabIndex = 8;
+            this.rbEnvioAgencia.TabStop = true;
+            this.rbEnvioAgencia.Text = "Envío a agencia";
+            this.rbEnvioAgencia.UseVisualStyleBackColor = true;
+            // 
+            // rbEnvioCentroDistribucion
+            // 
+            this.rbEnvioCentroDistribucion.AutoSize = true;
+            this.rbEnvioCentroDistribucion.Location = new System.Drawing.Point(107, 81);
+            this.rbEnvioCentroDistribucion.Margin = new System.Windows.Forms.Padding(2);
+            this.rbEnvioCentroDistribucion.Name = "rbEnvioCentroDistribucion";
+            this.rbEnvioCentroDistribucion.Size = new System.Drawing.Size(167, 17);
+            this.rbEnvioCentroDistribucion.TabIndex = 8;
+            this.rbEnvioCentroDistribucion.TabStop = true;
+            this.rbEnvioCentroDistribucion.Text = "Envío a centro de distribución";
+            this.rbEnvioCentroDistribucion.UseVisualStyleBackColor = true;
+            // 
+            // rbEnvioDomicilio
+            // 
+            this.rbEnvioDomicilio.AutoSize = true;
+            this.rbEnvioDomicilio.Location = new System.Drawing.Point(107, 60);
+            this.rbEnvioDomicilio.Margin = new System.Windows.Forms.Padding(2);
+            this.rbEnvioDomicilio.Name = "rbEnvioDomicilio";
+            this.rbEnvioDomicilio.Size = new System.Drawing.Size(104, 17);
+            this.rbEnvioDomicilio.TabIndex = 7;
+            this.rbEnvioDomicilio.TabStop = true;
+            this.rbEnvioDomicilio.Text = "Envio a domicilio";
+            this.rbEnvioDomicilio.UseVisualStyleBackColor = true;
+            // 
+            // cbProvinciaEnvio
+            // 
+            this.cbProvinciaEnvio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbProvinciaEnvio.FormattingEnabled = true;
+            this.cbProvinciaEnvio.Location = new System.Drawing.Point(107, 25);
+            this.cbProvinciaEnvio.Margin = new System.Windows.Forms.Padding(2);
+            this.cbProvinciaEnvio.Name = "cbProvinciaEnvio";
+            this.cbProvinciaEnvio.Size = new System.Drawing.Size(233, 21);
+            this.cbProvinciaEnvio.TabIndex = 6;
+            // 
+            // lblProvinciaEnvio
+            // 
+            this.lblProvinciaEnvio.AutoSize = true;
+            this.lblProvinciaEnvio.Location = new System.Drawing.Point(13, 28);
+            this.lblProvinciaEnvio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProvinciaEnvio.Name = "lblProvinciaEnvio";
+            this.lblProvinciaEnvio.Size = new System.Drawing.Size(51, 13);
+            this.lblProvinciaEnvio.TabIndex = 4;
+            this.lblProvinciaEnvio.Text = "Provincia";
+            // 
+            // gbDatosDestinatario
+            // 
+            this.gbDatosDestinatario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDatosDestinatario.Controls.Add(this.txtDomicilioDestinatario);
+            this.gbDatosDestinatario.Controls.Add(this.txtLocalidadDestinatario);
+            this.gbDatosDestinatario.Controls.Add(this.lblDomicilio);
+            this.gbDatosDestinatario.Controls.Add(this.txtDniDestinatario);
+            this.gbDatosDestinatario.Controls.Add(this.lblLocalidad);
+            this.gbDatosDestinatario.Controls.Add(this.lblDni);
+            this.gbDatosDestinatario.Location = new System.Drawing.Point(9, 320);
+            this.gbDatosDestinatario.Margin = new System.Windows.Forms.Padding(2);
+            this.gbDatosDestinatario.Name = "gbDatosDestinatario";
+            this.gbDatosDestinatario.Padding = new System.Windows.Forms.Padding(2);
+            this.gbDatosDestinatario.Size = new System.Drawing.Size(362, 140);
+            this.gbDatosDestinatario.TabIndex = 3;
+            this.gbDatosDestinatario.TabStop = false;
+            this.gbDatosDestinatario.Text = "Datos Destinatario";
+            // 
+            // txtDomicilioDestinatario
+            // 
+            this.txtDomicilioDestinatario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDomicilioDestinatario.Location = new System.Drawing.Point(73, 99);
+            this.txtDomicilioDestinatario.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDomicilioDestinatario.Name = "txtDomicilioDestinatario";
+            this.txtDomicilioDestinatario.Size = new System.Drawing.Size(267, 20);
+            this.txtDomicilioDestinatario.TabIndex = 6;
+            // 
+            // txtLocalidadDestinatario
+            // 
+            this.txtLocalidadDestinatario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLocalidadDestinatario.Location = new System.Drawing.Point(73, 60);
+            this.txtLocalidadDestinatario.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLocalidadDestinatario.Name = "txtLocalidadDestinatario";
+            this.txtLocalidadDestinatario.Size = new System.Drawing.Size(267, 20);
+            this.txtLocalidadDestinatario.TabIndex = 6;
+            // 
+            // lblDomicilio
+            // 
+            this.lblDomicilio.AutoSize = true;
+            this.lblDomicilio.Location = new System.Drawing.Point(13, 102);
+            this.lblDomicilio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDomicilio.Name = "lblDomicilio";
+            this.lblDomicilio.Size = new System.Drawing.Size(49, 13);
+            this.lblDomicilio.TabIndex = 9;
+            this.lblDomicilio.Text = "Domicilio";
+            // 
+            // txtDniDestinatario
+            // 
+            this.txtDniDestinatario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDniDestinatario.Location = new System.Drawing.Point(73, 26);
+            this.txtDniDestinatario.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDniDestinatario.Name = "txtDniDestinatario";
+            this.txtDniDestinatario.Size = new System.Drawing.Size(267, 20);
+            this.txtDniDestinatario.TabIndex = 6;
+            // 
+            // lblLocalidad
+            // 
+            this.lblLocalidad.AutoSize = true;
+            this.lblLocalidad.Location = new System.Drawing.Point(13, 63);
+            this.lblLocalidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLocalidad.Name = "lblLocalidad";
+            this.lblLocalidad.Size = new System.Drawing.Size(53, 13);
+            this.lblLocalidad.TabIndex = 9;
+            this.lblLocalidad.Text = "Localidad";
+            // 
+            // lblDni
+            // 
+            this.lblDni.AutoSize = true;
+            this.lblDni.Location = new System.Drawing.Point(13, 29);
+            this.lblDni.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(26, 13);
+            this.lblDni.TabIndex = 4;
+            this.lblDni.Text = "DNI";
+            // 
+            // btnAceptarPedido
+            // 
+            this.btnAceptarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAceptarPedido.Location = new System.Drawing.Point(119, 597);
+            this.btnAceptarPedido.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAceptarPedido.Name = "btnAceptarPedido";
+            this.btnAceptarPedido.Size = new System.Drawing.Size(106, 27);
+            this.btnAceptarPedido.TabIndex = 5;
+            this.btnAceptarPedido.Text = "&Aceptar pedido";
+            this.btnAceptarPedido.UseVisualStyleBackColor = true;
+            // 
+            // btnVolverMenuPrincipal
+            // 
+            this.btnVolverMenuPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(229, 597);
+            this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
+            this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
+            this.btnVolverMenuPrincipal.TabIndex = 6;
+            this.btnVolverMenuPrincipal.Text = "Volver al &Menú Principal";
+            this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
+            this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
+            // 
+            // lblEmpresaCliente
+            // 
+            this.lblEmpresaCliente.AutoSize = true;
+            this.lblEmpresaCliente.Location = new System.Drawing.Point(13, 24);
+            this.lblEmpresaCliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmpresaCliente.Name = "lblEmpresaCliente";
+            this.lblEmpresaCliente.Size = new System.Drawing.Size(85, 13);
+            this.lblEmpresaCliente.TabIndex = 0;
+            this.lblEmpresaCliente.Text = "Empresa/Cliente";
+            // 
+            // cbEmpresaCliente
+            // 
+            this.cbEmpresaCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEmpresaCliente.FormattingEnabled = true;
+            this.cbEmpresaCliente.Location = new System.Drawing.Point(102, 21);
+            this.cbEmpresaCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.cbEmpresaCliente.Name = "cbEmpresaCliente";
+            this.cbEmpresaCliente.Size = new System.Drawing.Size(238, 21);
+            this.cbEmpresaCliente.TabIndex = 1;
+            // 
+            // gbEmpresaCliente
+            // 
+            this.gbEmpresaCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbEmpresaCliente.Controls.Add(this.cbEmpresaCliente);
+            this.gbEmpresaCliente.Controls.Add(this.lblEmpresaCliente);
+            this.gbEmpresaCliente.Location = new System.Drawing.Point(11, 9);
+            this.gbEmpresaCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.gbEmpresaCliente.Name = "gbEmpresaCliente";
+            this.gbEmpresaCliente.Padding = new System.Windows.Forms.Padding(2);
+            this.gbEmpresaCliente.Size = new System.Drawing.Size(362, 57);
+            this.gbEmpresaCliente.TabIndex = 0;
+            this.gbEmpresaCliente.TabStop = false;
+            // 
+            // gbDetalleRetiro
+            // 
+            this.gbDetalleRetiro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDetalleRetiro.Controls.Add(this.lblTipoServicioRetiro);
+            this.gbDetalleRetiro.Controls.Add(this.rbRetiroAgencia);
+            this.gbDetalleRetiro.Controls.Add(this.rbRetiroDomicilio);
+            this.gbDetalleRetiro.Controls.Add(this.cbAgenciaRetiro);
+            this.gbDetalleRetiro.Controls.Add(this.lblAgencia);
+            this.gbDetalleRetiro.Location = new System.Drawing.Point(11, 69);
+            this.gbDetalleRetiro.Margin = new System.Windows.Forms.Padding(2);
+            this.gbDetalleRetiro.Name = "gbDetalleRetiro";
+            this.gbDetalleRetiro.Padding = new System.Windows.Forms.Padding(2);
+            this.gbDetalleRetiro.Size = new System.Drawing.Size(362, 111);
+            this.gbDetalleRetiro.TabIndex = 1;
+            this.gbDetalleRetiro.TabStop = false;
+            this.gbDetalleRetiro.Text = "Detalle de retiro";
+            // 
+            // lblTipoServicioRetiro
+            // 
+            this.lblTipoServicioRetiro.AutoSize = true;
+            this.lblTipoServicioRetiro.Location = new System.Drawing.Point(13, 25);
+            this.lblTipoServicioRetiro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTipoServicioRetiro.Name = "lblTipoServicioRetiro";
+            this.lblTipoServicioRetiro.Size = new System.Drawing.Size(82, 13);
+            this.lblTipoServicioRetiro.TabIndex = 9;
+            this.lblTipoServicioRetiro.Text = "Tipo de servicio";
+            // 
+            // rbRetiroAgencia
+            // 
+            this.rbRetiroAgencia.AutoSize = true;
+            this.rbRetiroAgencia.Location = new System.Drawing.Point(109, 44);
+            this.rbRetiroAgencia.Margin = new System.Windows.Forms.Padding(2);
+            this.rbRetiroAgencia.Name = "rbRetiroAgencia";
+            this.rbRetiroAgencia.Size = new System.Drawing.Size(109, 17);
+            this.rbRetiroAgencia.TabIndex = 8;
+            this.rbRetiroAgencia.TabStop = true;
+            this.rbRetiroAgencia.Text = "Retiro en agencia";
+            this.rbRetiroAgencia.UseVisualStyleBackColor = true;
+            // 
+            // rbRetiroDomicilio
+            // 
+            this.rbRetiroDomicilio.AutoSize = true;
+            this.rbRetiroDomicilio.Location = new System.Drawing.Point(109, 23);
+            this.rbRetiroDomicilio.Margin = new System.Windows.Forms.Padding(2);
+            this.rbRetiroDomicilio.Name = "rbRetiroDomicilio";
+            this.rbRetiroDomicilio.Size = new System.Drawing.Size(111, 17);
+            this.rbRetiroDomicilio.TabIndex = 7;
+            this.rbRetiroDomicilio.TabStop = true;
+            this.rbRetiroDomicilio.Text = "Retiro en domicilio";
+            this.rbRetiroDomicilio.UseVisualStyleBackColor = true;
+            // 
+            // cbAgenciaRetiro
+            // 
+            this.cbAgenciaRetiro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbAgenciaRetiro.FormattingEnabled = true;
+            this.cbAgenciaRetiro.Location = new System.Drawing.Point(107, 73);
+            this.cbAgenciaRetiro.Margin = new System.Windows.Forms.Padding(2);
+            this.cbAgenciaRetiro.Name = "cbAgenciaRetiro";
+            this.cbAgenciaRetiro.Size = new System.Drawing.Size(233, 21);
+            this.cbAgenciaRetiro.TabIndex = 6;
+            // 
+            // lblAgencia
+            // 
+            this.lblAgencia.AutoSize = true;
+            this.lblAgencia.Location = new System.Drawing.Point(13, 76);
+            this.lblAgencia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAgencia.Name = "lblAgencia";
+            this.lblAgencia.Size = new System.Drawing.Size(46, 13);
+            this.lblAgencia.TabIndex = 4;
+            this.lblAgencia.Text = "Agencia";
             // 
             // FormImposicionCallCenter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.btnAceptarPedido;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 782);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.btnvolvermenu);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ClientSize = new System.Drawing.Size(385, 635);
+            this.Controls.Add(this.gbDetalleRetiro);
+            this.Controls.Add(this.gbEmpresaCliente);
+            this.Controls.Add(this.gbDetalleEnvio);
+            this.Controls.Add(this.gbDatosDestinatario);
+            this.Controls.Add(this.gbDetalleEncomiendas);
+            this.Controls.Add(this.btnAceptarPedido);
+            this.Controls.Add(this.btnVolverMenuPrincipal);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(401, 674);
             this.Name = "FormImposicionCallCenter";
             this.Text = "Imposición Call Center";
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.gbDetalleEncomiendas.ResumeLayout(false);
+            this.gbDetalleEncomiendas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericCantidadEncomienda)).EndInit();
+            this.gbDetalleEnvio.ResumeLayout(false);
+            this.gbDetalleEnvio.PerformLayout();
+            this.gbDatosDestinatario.ResumeLayout(false);
+            this.gbDatosDestinatario.PerformLayout();
+            this.gbEmpresaCliente.ResumeLayout(false);
+            this.gbEmpresaCliente.PerformLayout();
+            this.gbDetalleRetiro.ResumeLayout(false);
+            this.gbDetalleRetiro.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnvolvermenu;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox gbDetalleEncomiendas;
+        private System.Windows.Forms.NumericUpDown numericCantidadEncomienda;
+        private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.ComboBox cbDimension;
+        private System.Windows.Forms.Label lblDimension;
+        private System.Windows.Forms.GroupBox gbDetalleEnvio;
+        private System.Windows.Forms.ComboBox cbProvinciaEnvio;
+        private System.Windows.Forms.Label lblProvinciaEnvio;
+        private System.Windows.Forms.Label lblTipoServicioEnvio;
+        private System.Windows.Forms.RadioButton rbEnvioCentroDistribucion;
+        private System.Windows.Forms.RadioButton rbEnvioDomicilio;
+        private System.Windows.Forms.GroupBox gbDatosDestinatario;
+        private System.Windows.Forms.Label lblLocalidad;
+        private System.Windows.Forms.Label lblDni;
+        private System.Windows.Forms.Label lblDomicilio;
+        private System.Windows.Forms.TextBox txtLocalidadDestinatario;
+        private System.Windows.Forms.TextBox txtDniDestinatario;
+        private System.Windows.Forms.Button btnAceptarPedido;
+        private System.Windows.Forms.Button btnVolverMenuPrincipal;
+        private System.Windows.Forms.Button btnBorrarEncomienda;
+        private System.Windows.Forms.Button btnGuardarEncomienda;
+        private System.Windows.Forms.Label lblEmpresaCliente;
+        private System.Windows.Forms.ComboBox cbEmpresaCliente;
+        private System.Windows.Forms.GroupBox gbEmpresaCliente;
+        private System.Windows.Forms.GroupBox gbDetalleRetiro;
+        private System.Windows.Forms.Label lblTipoServicioRetiro;
+        private System.Windows.Forms.RadioButton rbRetiroAgencia;
+        private System.Windows.Forms.RadioButton rbRetiroDomicilio;
+        private System.Windows.Forms.ComboBox cbAgenciaRetiro;
+        private System.Windows.Forms.Label lblAgencia;
+        private System.Windows.Forms.RadioButton rbEnvioAgencia;
+        private System.Windows.Forms.TextBox txtDomicilioDestinatario;
     }
 }
 

@@ -28,163 +28,155 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblHasta = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Envíos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Resultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Margen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.lvCuentasCorrientes = new System.Windows.Forms.ListView();
+            this.columnEmpresa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEnvios = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnCostoTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnVentasTotales = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnResultado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnMargen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label3
+            // lblHasta
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(155, 22);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Hasta:";
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(148, 19);
+            this.lblHasta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(38, 13);
+            this.lblHasta.TabIndex = 2;
+            this.lblHasta.Text = "Hasta:";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(306, 15);
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(282, 12);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(95, 27);
             this.btnBuscar.TabIndex = 12;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // dtpDesde
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(56, 19);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(88, 20);
-            this.dateTimePicker1.TabIndex = 13;
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDesde.Location = new System.Drawing.Point(56, 16);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(88, 20);
+            this.dtpDesde.TabIndex = 1;
             // 
-            // label2
+            // lblDesde
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 22);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Desde:";
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(11, 19);
+            this.lblDesde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(41, 13);
+            this.lblDesde.TabIndex = 0;
+            this.lblDesde.Text = "Desde:";
             // 
-            // dateTimePicker2
+            // dtpHasta
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(197, 19);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(88, 20);
-            this.dateTimePicker2.TabIndex = 15;
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(190, 16);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(88, 20);
+            this.dtpHasta.TabIndex = 3;
             // 
-            // dataGridView1
+            // lvCuentasCorrientes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Empresa,
-            this.Envíos,
-            this.CostoTotal,
-            this.VentasTotales,
-            this.Resultado,
-            this.Margen});
-            this.dataGridView1.Location = new System.Drawing.Point(11, 56);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(772, 162);
-            this.dataGridView1.TabIndex = 17;
+            this.lvCuentasCorrientes.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvCuentasCorrientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnEmpresa,
+            this.columnEnvios,
+            this.columnCostoTotal,
+            this.columnVentasTotales,
+            this.columnResultado,
+            this.columnMargen});
+            this.lvCuentasCorrientes.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lvCuentasCorrientes.FullRowSelect = true;
+            this.lvCuentasCorrientes.GridLines = true;
+            this.lvCuentasCorrientes.HideSelection = false;
+            this.lvCuentasCorrientes.Location = new System.Drawing.Point(11, 43);
+            this.lvCuentasCorrientes.Margin = new System.Windows.Forms.Padding(2);
+            this.lvCuentasCorrientes.MultiSelect = false;
+            this.lvCuentasCorrientes.Name = "lvCuentasCorrientes";
+            this.lvCuentasCorrientes.Size = new System.Drawing.Size(724, 122);
+            this.lvCuentasCorrientes.TabIndex = 5;
+            this.lvCuentasCorrientes.UseCompatibleStateImageBehavior = false;
+            this.lvCuentasCorrientes.View = System.Windows.Forms.View.Details;
             // 
-            // Empresa
+            // columnEmpresa
             // 
-            this.Empresa.HeaderText = "Empresa";
-            this.Empresa.MinimumWidth = 6;
-            this.Empresa.Name = "Empresa";
-            this.Empresa.ReadOnly = true;
-            this.Empresa.Width = 125;
+            this.columnEmpresa.Text = "Empresa";
+            this.columnEmpresa.Width = 280;
             // 
-            // Envíos
+            // columnEnvios
             // 
-            this.Envíos.HeaderText = "Envíos";
-            this.Envíos.MinimumWidth = 6;
-            this.Envíos.Name = "Envíos";
-            this.Envíos.ReadOnly = true;
-            this.Envíos.Width = 90;
+            this.columnEnvios.Text = "Envíos";
+            this.columnEnvios.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnEnvios.Width = 80;
             // 
-            // CostoTotal
+            // columnCostoTotal
             // 
-            this.CostoTotal.HeaderText = "Costo Total";
-            this.CostoTotal.MinimumWidth = 6;
-            this.CostoTotal.Name = "CostoTotal";
-            this.CostoTotal.ReadOnly = true;
-            this.CostoTotal.Width = 125;
+            this.columnCostoTotal.Text = "Costo Total";
+            this.columnCostoTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnCostoTotal.Width = 110;
             // 
-            // VentasTotales
+            // columnVentasTotales
             // 
-            this.VentasTotales.HeaderText = "Ventas Totales";
-            this.VentasTotales.MinimumWidth = 6;
-            this.VentasTotales.Name = "VentasTotales";
-            this.VentasTotales.ReadOnly = true;
-            this.VentasTotales.Width = 125;
+            this.columnVentasTotales.Text = "Ventas Totales";
+            this.columnVentasTotales.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnVentasTotales.Width = 110;
             // 
-            // Resultado
+            // columnResultado
             // 
-            this.Resultado.HeaderText = "Resultado";
-            this.Resultado.MinimumWidth = 6;
-            this.Resultado.Name = "Resultado";
-            this.Resultado.ReadOnly = true;
-            this.Resultado.Width = 125;
+            this.columnResultado.Text = "Resultado";
+            this.columnResultado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnResultado.Width = 70;
             // 
-            // Margen
+            // columnMargen
             // 
-            this.Margen.HeaderText = "Margen";
-            this.Margen.MinimumWidth = 6;
-            this.Margen.Name = "Margen";
-            this.Margen.ReadOnly = true;
-            this.Margen.Width = 125;
+            this.columnMargen.Text = "Margen";
+            this.columnMargen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnMargen.Width = 70;
             // 
             // btnVolverMenuPrincipal
             // 
-            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(638, 232);
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(590, 178);
             this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
             this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
-            this.btnVolverMenuPrincipal.TabIndex = 20;
-            this.btnVolverMenuPrincipal.Text = "Volver al Menú Principal";
+            this.btnVolverMenuPrincipal.TabIndex = 22;
+            this.btnVolverMenuPrincipal.Text = "Volver al &Menú Principal";
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
             // FormResultadosCostosVentas
             // 
+            this.AcceptButton = this.btnBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 271);
+            this.ClientSize = new System.Drawing.Size(746, 218);
             this.Controls.Add(this.btnVolverMenuPrincipal);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.lvCuentasCorrientes);
+            this.Controls.Add(this.lblHasta);
+            this.Controls.Add(this.dtpHasta);
+            this.Controls.Add(this.lblDesde);
+            this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.btnBuscar);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormResultadosCostosVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Resultado Costos-Ventas";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,18 +184,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblHasta;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Empresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Envíos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotales;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Resultado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Margen;
+        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.Label lblDesde;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.ListView lvCuentasCorrientes;
+        private System.Windows.Forms.ColumnHeader columnEmpresa;
+        private System.Windows.Forms.ColumnHeader columnEnvios;
+        private System.Windows.Forms.ColumnHeader columnCostoTotal;
+        private System.Windows.Forms.ColumnHeader columnVentasTotales;
+        private System.Windows.Forms.ColumnHeader columnResultado;
+        private System.Windows.Forms.ColumnHeader columnMargen;
         private System.Windows.Forms.Button btnVolverMenuPrincipal;
     }
 }
