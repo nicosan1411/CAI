@@ -21,5 +21,10 @@ namespace WindowsFormsApp1
         {
             FormUtils.VolverAlMenu(this);
         }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

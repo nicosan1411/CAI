@@ -73,30 +73,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(43, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fletero";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(75, 14);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Location = new System.Drawing.Point(100, 17);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(613, 21);
+            this.comboBox1.Size = new System.Drawing.Size(816, 24);
             this.comboBox1.TabIndex = 1;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listView3);
-            this.groupBox2.Location = new System.Drawing.Point(25, 51);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Location = new System.Drawing.Point(480, 63);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(327, 181);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(436, 223);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "A retirar en domicilio";
@@ -112,10 +111,11 @@
             listViewItem1.StateImageIndex = 0;
             this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView3.Location = new System.Drawing.Point(10, 23);
+            this.listView3.Location = new System.Drawing.Point(13, 28);
+            this.listView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView3.MultiSelect = false;
             this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(305, 148);
+            this.listView3.Size = new System.Drawing.Size(405, 181);
             this.listView3.TabIndex = 23;
             this.listView3.UseCompatibleStateImageBehavior = false;
             this.listView3.View = System.Windows.Forms.View.Details;
@@ -128,11 +128,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Location = new System.Drawing.Point(373, 51);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(33, 63);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(327, 181);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(436, 223);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Retiros a domicilio a admitir";
@@ -155,10 +155,11 @@
             listViewItem2,
             listViewItem3,
             listViewItem4});
-            this.listView1.Location = new System.Drawing.Point(10, 23);
+            this.listView1.Location = new System.Drawing.Point(13, 28);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(304, 148);
+            this.listView1.Size = new System.Drawing.Size(404, 181);
             this.listView1.TabIndex = 21;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -178,11 +179,11 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.listView2);
-            this.groupBox3.Location = new System.Drawing.Point(25, 236);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Location = new System.Drawing.Point(33, 290);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(327, 181);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(436, 223);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Entregas a domicilio realizadas";
@@ -201,13 +202,15 @@
             listViewItem5.StateImageIndex = 1;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem5});
-            this.listView2.Location = new System.Drawing.Point(10, 23);
+            this.listView2.Location = new System.Drawing.Point(13, 28);
+            this.listView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(305, 148);
+            this.listView2.Size = new System.Drawing.Size(405, 181);
             this.listView2.TabIndex = 22;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -224,11 +227,11 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.listView4);
-            this.groupBox4.Location = new System.Drawing.Point(373, 236);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Location = new System.Drawing.Point(497, 290);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(327, 181);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(436, 223);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Entregas a domicilio a realizar";
@@ -244,10 +247,11 @@
             listViewItem6.StateImageIndex = 0;
             this.listView4.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem6});
-            this.listView4.Location = new System.Drawing.Point(10, 23);
+            this.listView4.Location = new System.Drawing.Point(13, 28);
+            this.listView4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView4.MultiSelect = false;
             this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(305, 148);
+            this.listView4.Size = new System.Drawing.Size(405, 181);
             this.listView4.TabIndex = 23;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.View = System.Windows.Forms.View.Details;
@@ -260,10 +264,10 @@
             // btnVolverMenuPrincipal
             // 
             this.btnVolverMenuPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(555, 428);
-            this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(740, 527);
+            this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
-            this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
+            this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(193, 33);
             this.btnVolverMenuPrincipal.TabIndex = 19;
             this.btnVolverMenuPrincipal.Text = "Volver al Menú Principal";
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
@@ -272,10 +276,10 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(467, 428);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(623, 527);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 27);
+            this.button1.Size = new System.Drawing.Size(112, 33);
             this.button1.TabIndex = 19;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
@@ -283,9 +287,9 @@
             // 
             // FormRendicionPrimeraMilla
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 466);
+            this.ClientSize = new System.Drawing.Size(969, 574);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVolverMenuPrincipal);
             this.Controls.Add(this.groupBox1);
@@ -294,8 +298,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(743, 505);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(985, 611);
             this.Name = "FormRendicionPrimeraMilla";
             this.Text = "Rendición y asignación primera milla";
             this.groupBox2.ResumeLayout(false);
