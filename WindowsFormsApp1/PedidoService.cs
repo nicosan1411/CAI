@@ -66,17 +66,17 @@ namespace WindowsFormsApp1
             return (true, "OK");
         }
 
-        public (bool ok, string message) GuardarPedido(PedidoHeader header)
+        public (bool ok, string message, string guiaId) GuardarPedido(PedidoHeader header)
         {
             if (_encomiendas.Count == 0)
-                return (false, "Debe agregar al menos una encomienda antes de aceptar el pedido.");
+                return (false, "Debe agregar al menos una encomienda antes de aceptar el pedido.", null);
 
             var (ok, msg) = ValidarHeader(header);
-            if (!ok) return (ok, msg);
+            if (!ok) return (ok, msg, null);
 
-            _repo.AppendLines(header, _encomiendas.ToArray());
+            var guiaId = _repo.AppendLines(header, _encomiendas.ToArray(), "Impuesta");
             _encomiendas.Clear();
-            return (true, "Pedido aceptado y guardado con todas las encomiendas.");
+            return (true, "Pedido aceptado y guardado con todas las encomiendas.", guiaId);
         }
 
         public string ObtenerRutaArchivo() => _repo.FilePath;

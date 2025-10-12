@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 
 namespace WindowsFormsApp1
 {
@@ -37,5 +38,6 @@ namespace WindowsFormsApp1
         public string DomicilioDestinatario { get; set; }
         public string Dimension { get; set; }
         public int Cantidad { get; set; }
+        public string Estado { get; set; }
     }
 }

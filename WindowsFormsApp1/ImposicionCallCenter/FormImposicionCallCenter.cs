@@ -256,16 +256,21 @@ namespace WindowsFormsApp1
         private void btnAceptarPedido_Click(object sender, EventArgs e)
         {
             var header = ReadHeaderFromUI();
-            var (ok, msg) = _service.GuardarPedido(header);
-            if (!ok)
+            var result = _service.GuardarPedido(header);
+            if (!result.ok)
             {
-                MessageBox.Show(msg, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(result.message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            MessageBox.Show(msg + Environment.NewLine +
-                            $"Archivo: {_service.ObtenerRutaArchivo()}",
-                            "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(
+                result.message + Environment.NewLine +
+                $"N° de guía: {result.guiaId}" + Environment.NewLine +
+                $"Archivo: {_service.ObtenerRutaArchivo()}",
+                "OK", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information
+            );
 
             RefreshEncomiendasList(); // Se limpia la lista al guardar
             ResetFormUI();            // Se deja el form listo para un nuevo pedido

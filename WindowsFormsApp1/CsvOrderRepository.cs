@@ -6,7 +6,7 @@ namespace WindowsFormsApp1
 {
     internal interface IOrderRepository
     {
-        void AppendLines(PedidoHeader header, Encomienda[] encomiendas);
+        string AppendLines(PedidoHeader header, Encomienda[] encomiendas, string estado = "Impuesta");
         string FilePath { get; }
     }
 
@@ -23,10 +23,12 @@ namespace WindowsFormsApp1
             _file = fileName;
         }
 
-        public void AppendLines(PedidoHeader header, Encomienda[] encomiendas)
+        public string AppendLines(PedidoHeader header, Encomienda[] encomiendas, string estado = "Impuesta")
         {
             EnsureFileWithHeader();
-            var idPedido = Guid.NewGuid().ToString("N");
+
+            // Nro de guía / Id secuencial
+            var idPedido = GetNextSequentialId().ToString();
             var now = DateTime.Now;
 
             var sb = new StringBuilder();
@@ -46,13 +48,34 @@ namespace WindowsFormsApp1
                     LocalidadDestinatario = header.LocalidadDestinatario,
                     DomicilioDestinatario = header.DomicilioDestinatario,
                     Dimension = e.Dimension,
-                    Cantidad = e.Cantidad
+                    Cantidad = e.Cantidad,
+                    Estado = estado // NUEVO
                 };
                 sb.AppendLine(ToCsv(rec));
             }
 
             File.AppendAllText(FilePath, sb.ToString(), Encoding.UTF8);
+            return idPedido;
         }
+
+
+        private int GetNextSequentialId()
+        {
+            var counterFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _dir, "pedido_counter.txt");
+            Directory.CreateDirectory(Path.GetDirectoryName(counterFile));
+
+            int last = 0;
+            if (File.Exists(counterFile))
+            {
+                var txt = File.ReadAllText(counterFile);
+                int.TryParse(txt, out last);
+            }
+
+            int next = last + 1;
+            File.WriteAllText(counterFile, next.ToString());
+            return next;
+        }
+
 
         private void EnsureFileWithHeader()
         {
@@ -64,7 +87,7 @@ namespace WindowsFormsApp1
                     "RetiroTipo", "AgenciaRetiro",
                     "EnvioTipo", "ProvinciaEnvio", "AgenciaEnvio",
                     "DniDestinatario", "LocalidadDestinatario", "DomicilioDestinatario",
-                    "Dimension", "Cantidad"
+                    "Dimension", "Cantidad", "Estado"
                 );
                 File.AppendAllText(FilePath, header + Environment.NewLine, Encoding.UTF8);
             }
@@ -92,7 +115,8 @@ namespace WindowsFormsApp1
                 CsvEscape(r.LocalidadDestinatario),
                 CsvEscape(r.DomicilioDestinatario),
                 CsvEscape(r.Dimension),
-                CsvEscape(r.Cantidad.ToString())
+                CsvEscape(r.Cantidad.ToString()),
+                CsvEscape(r.Estado ?? "Impuesta")
             );
         }
     }
