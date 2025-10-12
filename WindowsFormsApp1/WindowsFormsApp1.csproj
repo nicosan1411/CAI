@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboData.cs" />
+    <Compile Include="CsvOrderRepository.cs" />
+    <Compile Include="Domain.cs" />
     <Compile Include="EntregaEnCD\FormEntregaEnCD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +56,7 @@
       <DependentUpon>FormEntregaEnCD.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUtils.cs" />
+    <Compile Include="PedidoService.cs" />
     <Compile Include="ResultadosCostosVentas\FormResultadosCostosVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +113,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="EntregaEnCD\FormEntregaEnCD.resx">
       <DependentUpon>FormEntregaEnCD.cs</DependentUpon>
     </EmbeddedResource>
