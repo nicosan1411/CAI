@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace WindowsFormsApp1
@@ -61,21 +62,23 @@ namespace WindowsFormsApp1
 
         private int GetNextSequentialId()
         {
-            var counterFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _dir, "pedido_counter.txt");
-            Directory.CreateDirectory(Path.GetDirectoryName(counterFile));
+            if (!File.Exists(FilePath))
+                return 1;
+            int max = 0;
 
-            int last = 0;
-            if (File.Exists(counterFile))
+            foreach (var line in File.ReadLines(FilePath).Skip(1))
             {
-                var txt = File.ReadAllText(counterFile);
-                int.TryParse(txt, out last);
+                if (string.IsNullOrWhiteSpace(line)) continue;
+
+                var firstField = line.Split(';')[0].Trim();
+                firstField = firstField.Trim('"');
+
+                if (int.TryParse(firstField, out var id) && id > max)
+                    max = id;
             }
 
-            int next = last + 1;
-            File.WriteAllText(counterFile, next.ToString());
-            return next;
+            return max + 1;
         }
-
 
         private void EnsureFileWithHeader()
         {

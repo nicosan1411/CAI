@@ -15,5 +15,7 @@ namespace WindowsFormsApp1
         };
         public static IReadOnlyList<string> AgenciasRetiro => new[] { "Agencia 1", "Agencia 2", "Agencia 3" };
         public static IReadOnlyList<string> AgenciasEnvio => new[] { "Agencia A", "Agencia B", "Agencia C" };
+
+        public static IReadOnlyList<string> Patentes => new[] { "AA123BB", "AC456DD", "AE789FF" };
     }
 }

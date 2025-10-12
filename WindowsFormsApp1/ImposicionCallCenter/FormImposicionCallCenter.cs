@@ -64,9 +64,9 @@ namespace WindowsFormsApp1
             cmbAgenciaEnvio.Items.AddRange(ComboData.AgenciasEnvio.ToArray());
 
             // Se seleccionan valores por defecto
-            if (cbEmpresaCliente.Items.Count > 0) cbEmpresaCliente.SelectedIndex = 0;
-            if (cbDimension.Items.Count > 0) cbDimension.SelectedIndex = 0;
-            if (cbProvinciaEnvio.Items.Count > 0) cbProvinciaEnvio.SelectedIndex = 0;
+            if (cbEmpresaCliente.Items.Count > 0) cbEmpresaCliente.SelectedIndex = -1;
+            if (cbDimension.Items.Count > 0) cbDimension.SelectedIndex = -1;
+            if (cbProvinciaEnvio.Items.Count > 0) cbProvinciaEnvio.SelectedIndex = -1;
 
             // Valores iniciales de los radio buttons
             rbRetiroDomicilio.Checked = true;

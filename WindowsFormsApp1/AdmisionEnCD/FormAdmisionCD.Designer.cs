@@ -42,7 +42,8 @@
             this.lblDni = new System.Windows.Forms.Label();
             this.lblProvinciaEnvio = new System.Windows.Forms.Label();
             this.gbDetalleEncomiendas = new System.Windows.Forms.GroupBox();
-            this.btnBorrarEncomienda = new System.Windows.Forms.Button();
+            this.lstEncomiendas = new System.Windows.Forms.ListBox();
+            this.btnQuitarEncomienda = new System.Windows.Forms.Button();
             this.btnGuardarEncomienda = new System.Windows.Forms.Button();
             this.numericCantidadEncomienda = new System.Windows.Forms.NumericUpDown();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -54,6 +55,8 @@
             this.rbEnvioCentroDistribucion = new System.Windows.Forms.RadioButton();
             this.rbEnvioDomicilio = new System.Windows.Forms.RadioButton();
             this.cbProvinciaEnvio = new System.Windows.Forms.ComboBox();
+            this.cmbAgenciaEnvio = new System.Windows.Forms.ComboBox();
+            this.lblAgenciaiEnvio = new System.Windows.Forms.Label();
             this.gbEmpresaCliente.SuspendLayout();
             this.gbDatosDestinatario.SuspendLayout();
             this.gbDetalleEncomiendas.SuspendLayout();
@@ -72,7 +75,7 @@
             this.gbEmpresaCliente.Name = "gbEmpresaCliente";
             this.gbEmpresaCliente.Padding = new System.Windows.Forms.Padding(2);
             this.gbEmpresaCliente.Size = new System.Drawing.Size(361, 57);
-            this.gbEmpresaCliente.TabIndex = 7;
+            this.gbEmpresaCliente.TabIndex = 0;
             this.gbEmpresaCliente.TabStop = false;
             // 
             // cbEmpresaCliente
@@ -82,7 +85,7 @@
             this.cbEmpresaCliente.Location = new System.Drawing.Point(101, 21);
             this.cbEmpresaCliente.Margin = new System.Windows.Forms.Padding(2);
             this.cbEmpresaCliente.Name = "cbEmpresaCliente";
-            this.cbEmpresaCliente.Size = new System.Drawing.Size(238, 21);
+            this.cbEmpresaCliente.Size = new System.Drawing.Size(236, 21);
             this.cbEmpresaCliente.TabIndex = 1;
             // 
             // lblEmpresaCliente
@@ -98,22 +101,23 @@
             // btnAdmitirEncomienda
             // 
             this.btnAdmitirEncomienda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdmitirEncomienda.Location = new System.Drawing.Point(101, 485);
+            this.btnAdmitirEncomienda.Location = new System.Drawing.Point(98, 620);
             this.btnAdmitirEncomienda.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdmitirEncomienda.Name = "btnAdmitirEncomienda";
             this.btnAdmitirEncomienda.Size = new System.Drawing.Size(123, 27);
-            this.btnAdmitirEncomienda.TabIndex = 12;
+            this.btnAdmitirEncomienda.TabIndex = 4;
             this.btnAdmitirEncomienda.Text = "&Admitir Encomienda";
             this.btnAdmitirEncomienda.UseVisualStyleBackColor = true;
+            this.btnAdmitirEncomienda.Click += new System.EventHandler(this.btnAdmitirEncomienda_Click);
             // 
             // btnVolverMenuPrincipal
             // 
             this.btnVolverMenuPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(228, 485);
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(225, 620);
             this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
             this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
-            this.btnVolverMenuPrincipal.TabIndex = 13;
+            this.btnVolverMenuPrincipal.TabIndex = 5;
             this.btnVolverMenuPrincipal.Text = "Volver al &Menú Principal";
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
@@ -122,6 +126,8 @@
             // 
             this.gbDatosDestinatario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDatosDestinatario.Controls.Add(this.cmbAgenciaEnvio);
+            this.gbDatosDestinatario.Controls.Add(this.lblAgenciaiEnvio);
             this.gbDatosDestinatario.Controls.Add(this.txtDomicilioDestinatario);
             this.gbDatosDestinatario.Controls.Add(this.txtLocalidadDestinatario);
             this.gbDatosDestinatario.Controls.Add(this.lblDomicilio);
@@ -132,8 +138,8 @@
             this.gbDatosDestinatario.Margin = new System.Windows.Forms.Padding(2);
             this.gbDatosDestinatario.Name = "gbDatosDestinatario";
             this.gbDatosDestinatario.Padding = new System.Windows.Forms.Padding(2);
-            this.gbDatosDestinatario.Size = new System.Drawing.Size(361, 140);
-            this.gbDatosDestinatario.TabIndex = 10;
+            this.gbDatosDestinatario.Size = new System.Drawing.Size(361, 172);
+            this.gbDatosDestinatario.TabIndex = 2;
             this.gbDatosDestinatario.TabStop = false;
             this.gbDatosDestinatario.Text = "Datos Destinatario";
             // 
@@ -144,7 +150,7 @@
             this.txtDomicilioDestinatario.Margin = new System.Windows.Forms.Padding(2);
             this.txtDomicilioDestinatario.Name = "txtDomicilioDestinatario";
             this.txtDomicilioDestinatario.Size = new System.Drawing.Size(267, 20);
-            this.txtDomicilioDestinatario.TabIndex = 6;
+            this.txtDomicilioDestinatario.TabIndex = 5;
             // 
             // txtLocalidadDestinatario
             // 
@@ -153,7 +159,7 @@
             this.txtLocalidadDestinatario.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocalidadDestinatario.Name = "txtLocalidadDestinatario";
             this.txtLocalidadDestinatario.Size = new System.Drawing.Size(267, 20);
-            this.txtLocalidadDestinatario.TabIndex = 6;
+            this.txtLocalidadDestinatario.TabIndex = 3;
             // 
             // lblDomicilio
             // 
@@ -162,7 +168,7 @@
             this.lblDomicilio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDomicilio.Name = "lblDomicilio";
             this.lblDomicilio.Size = new System.Drawing.Size(49, 13);
-            this.lblDomicilio.TabIndex = 9;
+            this.lblDomicilio.TabIndex = 4;
             this.lblDomicilio.Text = "Domicilio";
             // 
             // txtDniDestinatario
@@ -172,7 +178,7 @@
             this.txtDniDestinatario.Margin = new System.Windows.Forms.Padding(2);
             this.txtDniDestinatario.Name = "txtDniDestinatario";
             this.txtDniDestinatario.Size = new System.Drawing.Size(267, 20);
-            this.txtDniDestinatario.TabIndex = 6;
+            this.txtDniDestinatario.TabIndex = 1;
             // 
             // lblLocalidad
             // 
@@ -181,7 +187,7 @@
             this.lblLocalidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLocalidad.Name = "lblLocalidad";
             this.lblLocalidad.Size = new System.Drawing.Size(53, 13);
-            this.lblLocalidad.TabIndex = 9;
+            this.lblLocalidad.TabIndex = 2;
             this.lblLocalidad.Text = "Localidad";
             // 
             // lblDni
@@ -191,7 +197,7 @@
             this.lblDni.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(26, 13);
-            this.lblDni.TabIndex = 4;
+            this.lblDni.TabIndex = 0;
             this.lblDni.Text = "DNI";
             // 
             // lblProvinciaEnvio
@@ -201,47 +207,64 @@
             this.lblProvinciaEnvio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProvinciaEnvio.Name = "lblProvinciaEnvio";
             this.lblProvinciaEnvio.Size = new System.Drawing.Size(51, 13);
-            this.lblProvinciaEnvio.TabIndex = 4;
+            this.lblProvinciaEnvio.TabIndex = 0;
             this.lblProvinciaEnvio.Text = "Provincia";
             // 
             // gbDetalleEncomiendas
             // 
             this.gbDetalleEncomiendas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbDetalleEncomiendas.Controls.Add(this.btnBorrarEncomienda);
+            this.gbDetalleEncomiendas.Controls.Add(this.lstEncomiendas);
+            this.gbDetalleEncomiendas.Controls.Add(this.btnQuitarEncomienda);
             this.gbDetalleEncomiendas.Controls.Add(this.btnGuardarEncomienda);
             this.gbDetalleEncomiendas.Controls.Add(this.numericCantidadEncomienda);
             this.gbDetalleEncomiendas.Controls.Add(this.lblCantidad);
             this.gbDetalleEncomiendas.Controls.Add(this.cbDimension);
             this.gbDetalleEncomiendas.Controls.Add(this.lblDimension);
-            this.gbDetalleEncomiendas.Location = new System.Drawing.Point(9, 351);
+            this.gbDetalleEncomiendas.Location = new System.Drawing.Point(11, 384);
             this.gbDetalleEncomiendas.Margin = new System.Windows.Forms.Padding(2);
             this.gbDetalleEncomiendas.Name = "gbDetalleEncomiendas";
             this.gbDetalleEncomiendas.Padding = new System.Windows.Forms.Padding(2);
-            this.gbDetalleEncomiendas.Size = new System.Drawing.Size(361, 122);
-            this.gbDetalleEncomiendas.TabIndex = 11;
+            this.gbDetalleEncomiendas.Size = new System.Drawing.Size(361, 226);
+            this.gbDetalleEncomiendas.TabIndex = 3;
             this.gbDetalleEncomiendas.TabStop = false;
             this.gbDetalleEncomiendas.Text = "Detalle de encomiendas";
             // 
-            // btnBorrarEncomienda
+            // lstEncomiendas
             // 
-            this.btnBorrarEncomienda.Location = new System.Drawing.Point(274, 89);
-            this.btnBorrarEncomienda.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBorrarEncomienda.Name = "btnBorrarEncomienda";
-            this.btnBorrarEncomienda.Size = new System.Drawing.Size(68, 21);
-            this.btnBorrarEncomienda.TabIndex = 7;
-            this.btnBorrarEncomienda.Text = "&Borrar";
-            this.btnBorrarEncomienda.UseVisualStyleBackColor = true;
+            this.lstEncomiendas.BackColor = System.Drawing.Color.Gainsboro;
+            this.lstEncomiendas.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstEncomiendas.FormattingEnabled = true;
+            this.lstEncomiendas.IntegralHeight = false;
+            this.lstEncomiendas.ItemHeight = 15;
+            this.lstEncomiendas.Location = new System.Drawing.Point(16, 89);
+            this.lstEncomiendas.Name = "lstEncomiendas";
+            this.lstEncomiendas.Size = new System.Drawing.Size(323, 94);
+            this.lstEncomiendas.TabIndex = 4;
+            // 
+            // btnQuitarEncomienda
+            // 
+            this.btnQuitarEncomienda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitarEncomienda.Location = new System.Drawing.Point(271, 193);
+            this.btnQuitarEncomienda.Margin = new System.Windows.Forms.Padding(2);
+            this.btnQuitarEncomienda.Name = "btnQuitarEncomienda";
+            this.btnQuitarEncomienda.Size = new System.Drawing.Size(68, 21);
+            this.btnQuitarEncomienda.TabIndex = 6;
+            this.btnQuitarEncomienda.Text = "&Quitar";
+            this.btnQuitarEncomienda.UseVisualStyleBackColor = true;
+            this.btnQuitarEncomienda.Click += new System.EventHandler(this.btnQuitarEncomienda_Click);
             // 
             // btnGuardarEncomienda
             // 
-            this.btnGuardarEncomienda.Location = new System.Drawing.Point(205, 89);
+            this.btnGuardarEncomienda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardarEncomienda.Location = new System.Drawing.Point(199, 193);
             this.btnGuardarEncomienda.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardarEncomienda.Name = "btnGuardarEncomienda";
             this.btnGuardarEncomienda.Size = new System.Drawing.Size(68, 21);
-            this.btnGuardarEncomienda.TabIndex = 6;
+            this.btnGuardarEncomienda.TabIndex = 5;
             this.btnGuardarEncomienda.Text = "&Guardar";
             this.btnGuardarEncomienda.UseVisualStyleBackColor = true;
+            this.btnGuardarEncomienda.Click += new System.EventHandler(this.btnGuardarEncomienda_Click);
             // 
             // numericCantidadEncomienda
             // 
@@ -259,7 +282,7 @@
             0,
             0});
             this.numericCantidadEncomienda.Name = "numericCantidadEncomienda";
-            this.numericCantidadEncomienda.Size = new System.Drawing.Size(258, 20);
+            this.numericCantidadEncomienda.Size = new System.Drawing.Size(259, 20);
             this.numericCantidadEncomienda.TabIndex = 3;
             this.numericCantidadEncomienda.Value = new decimal(new int[] {
             1,
@@ -312,7 +335,7 @@
             this.gbDetalleEnvio.Name = "gbDetalleEnvio";
             this.gbDetalleEnvio.Padding = new System.Windows.Forms.Padding(2);
             this.gbDetalleEnvio.Size = new System.Drawing.Size(361, 131);
-            this.gbDetalleEnvio.TabIndex = 9;
+            this.gbDetalleEnvio.TabIndex = 1;
             this.gbDetalleEnvio.TabStop = false;
             this.gbDetalleEnvio.Text = "Detalle de envío";
             // 
@@ -323,7 +346,7 @@
             this.lblTipoServicioEnvio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTipoServicioEnvio.Name = "lblTipoServicioEnvio";
             this.lblTipoServicioEnvio.Size = new System.Drawing.Size(82, 13);
-            this.lblTipoServicioEnvio.TabIndex = 9;
+            this.lblTipoServicioEnvio.TabIndex = 2;
             this.lblTipoServicioEnvio.Text = "Tipo de servicio";
             // 
             // rbEnvioAgencia
@@ -333,7 +356,7 @@
             this.rbEnvioAgencia.Margin = new System.Windows.Forms.Padding(2);
             this.rbEnvioAgencia.Name = "rbEnvioAgencia";
             this.rbEnvioAgencia.Size = new System.Drawing.Size(104, 17);
-            this.rbEnvioAgencia.TabIndex = 8;
+            this.rbEnvioAgencia.TabIndex = 5;
             this.rbEnvioAgencia.TabStop = true;
             this.rbEnvioAgencia.Text = "Envío a agencia";
             this.rbEnvioAgencia.UseVisualStyleBackColor = true;
@@ -345,7 +368,7 @@
             this.rbEnvioCentroDistribucion.Margin = new System.Windows.Forms.Padding(2);
             this.rbEnvioCentroDistribucion.Name = "rbEnvioCentroDistribucion";
             this.rbEnvioCentroDistribucion.Size = new System.Drawing.Size(167, 17);
-            this.rbEnvioCentroDistribucion.TabIndex = 8;
+            this.rbEnvioCentroDistribucion.TabIndex = 4;
             this.rbEnvioCentroDistribucion.TabStop = true;
             this.rbEnvioCentroDistribucion.Text = "Envío a centro de distribución";
             this.rbEnvioCentroDistribucion.UseVisualStyleBackColor = true;
@@ -357,7 +380,7 @@
             this.rbEnvioDomicilio.Margin = new System.Windows.Forms.Padding(2);
             this.rbEnvioDomicilio.Name = "rbEnvioDomicilio";
             this.rbEnvioDomicilio.Size = new System.Drawing.Size(104, 17);
-            this.rbEnvioDomicilio.TabIndex = 7;
+            this.rbEnvioDomicilio.TabIndex = 3;
             this.rbEnvioDomicilio.TabStop = true;
             this.rbEnvioDomicilio.Text = "Envio a domicilio";
             this.rbEnvioDomicilio.UseVisualStyleBackColor = true;
@@ -369,14 +392,33 @@
             this.cbProvinciaEnvio.Location = new System.Drawing.Point(106, 25);
             this.cbProvinciaEnvio.Margin = new System.Windows.Forms.Padding(2);
             this.cbProvinciaEnvio.Name = "cbProvinciaEnvio";
-            this.cbProvinciaEnvio.Size = new System.Drawing.Size(233, 21);
-            this.cbProvinciaEnvio.TabIndex = 6;
+            this.cbProvinciaEnvio.Size = new System.Drawing.Size(231, 21);
+            this.cbProvinciaEnvio.TabIndex = 1;
+            // 
+            // cmbAgenciaEnvio
+            // 
+            this.cmbAgenciaEnvio.FormattingEnabled = true;
+            this.cmbAgenciaEnvio.Location = new System.Drawing.Point(72, 135);
+            this.cmbAgenciaEnvio.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbAgenciaEnvio.Name = "cmbAgenciaEnvio";
+            this.cmbAgenciaEnvio.Size = new System.Drawing.Size(267, 21);
+            this.cmbAgenciaEnvio.TabIndex = 7;
+            // 
+            // lblAgenciaiEnvio
+            // 
+            this.lblAgenciaiEnvio.AutoSize = true;
+            this.lblAgenciaiEnvio.Location = new System.Drawing.Point(13, 138);
+            this.lblAgenciaiEnvio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAgenciaiEnvio.Name = "lblAgenciaiEnvio";
+            this.lblAgenciaiEnvio.Size = new System.Drawing.Size(46, 13);
+            this.lblAgenciaiEnvio.TabIndex = 6;
+            this.lblAgenciaiEnvio.Text = "Agencia";
             // 
             // FormAdmisionCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 524);
+            this.ClientSize = new System.Drawing.Size(385, 659);
             this.Controls.Add(this.gbEmpresaCliente);
             this.Controls.Add(this.btnAdmitirEncomienda);
             this.Controls.Add(this.btnVolverMenuPrincipal);
@@ -416,7 +458,7 @@
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.Label lblProvinciaEnvio;
         private System.Windows.Forms.GroupBox gbDetalleEncomiendas;
-        private System.Windows.Forms.Button btnBorrarEncomienda;
+        private System.Windows.Forms.Button btnQuitarEncomienda;
         private System.Windows.Forms.Button btnGuardarEncomienda;
         private System.Windows.Forms.NumericUpDown numericCantidadEncomienda;
         private System.Windows.Forms.Label lblCantidad;
@@ -428,5 +470,8 @@
         private System.Windows.Forms.RadioButton rbEnvioCentroDistribucion;
         private System.Windows.Forms.RadioButton rbEnvioDomicilio;
         private System.Windows.Forms.ComboBox cbProvinciaEnvio;
+        private System.Windows.Forms.ListBox lstEncomiendas;
+        private System.Windows.Forms.ComboBox cmbAgenciaEnvio;
+        private System.Windows.Forms.Label lblAgenciaiEnvio;
     }
 }

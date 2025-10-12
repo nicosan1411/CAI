@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "",
             "test"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "",
             "test"}, -1);
             this.gbRecepciones = new System.Windows.Forms.GroupBox();
             this.gbDespachos = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.cbPatenteMicro = new System.Windows.Forms.ComboBox();
             this.lblPatenteMicro = new System.Windows.Forms.Label();
@@ -44,9 +47,6 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnEntregadoEnCD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnNroGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbDespachos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +72,40 @@
             this.gbDespachos.TabIndex = 4;
             this.gbDespachos.TabStop = false;
             this.gbDespachos.Text = "Despachos";
+            // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.Gainsboro;
+            this.listView1.CheckBoxes = true;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnGuia});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            listViewItem1.Checked = true;
+            listViewItem1.StateImageIndex = 1;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.listView1.Location = new System.Drawing.Point(20, 18);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(305, 130);
+            this.listView1.TabIndex = 5;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.DisplayIndex = 1;
+            this.columnHeader1.Text = "";
+            this.columnHeader1.Width = 180;
+            // 
+            // columnGuia
+            // 
+            this.columnGuia.DisplayIndex = 0;
+            this.columnGuia.Text = "N° Guía";
+            this.columnGuia.Width = 120;
             // 
             // label1
             // 
@@ -122,7 +156,7 @@
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // listView2
             // 
@@ -157,40 +191,6 @@
             this.columnNroGuia.DisplayIndex = 0;
             this.columnNroGuia.Text = "N° Guía";
             this.columnNroGuia.Width = 120;
-            // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.Color.Gainsboro;
-            this.listView1.CheckBoxes = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnGuia});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            listViewItem1.Checked = true;
-            listViewItem1.StateImageIndex = 1;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(20, 18);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(305, 130);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.DisplayIndex = 1;
-            this.columnHeader1.Text = "";
-            this.columnHeader1.Width = 180;
-            // 
-            // columnGuia
-            // 
-            this.columnGuia.DisplayIndex = 0;
-            this.columnGuia.Text = "N° Guía";
-            this.columnGuia.Width = 120;
             // 
             // FormEntregasyRecepcionMicros
             // 

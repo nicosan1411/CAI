@@ -50,8 +50,8 @@ namespace WindowsFormsApp1
 
         public (bool ok, string message) AgregarEncomienda(Encomienda e)
         {
-            if (string.IsNullOrWhiteSpace(e?.Dimension))
-                return (false, "Seleccioná la dimensión de la encomienda.");
+            if (!Validaciones.Requerido(e?.Dimension, "la dimensión de la encomienda", out var errDim))
+                return (false, errDim);
             if (e.Cantidad < 1)
                 return (false, "La cantidad debe ser al menos 1.");
 
