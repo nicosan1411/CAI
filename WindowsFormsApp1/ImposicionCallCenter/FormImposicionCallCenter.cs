@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
             // Inyección simple: el servicio usa un repositorio CSV como almacenamiento
-            _service = new PedidoService(new CsvOrderRepository());
+            _service = new PedidoService(new CsvOrderRepository("data", "guias_master.txt"));
 
             // Conectar eventos, inicializar combos y estado inicial de controles
             WireHandlers();
@@ -262,6 +262,9 @@ namespace WindowsFormsApp1
                 MessageBox.Show(result.message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            var master = new CsvGuiaMaster();
+            master.CambiarEstado(new[] { result.guiaId }, GuiaEstados.Impuesta);
 
             MessageBox.Show(
                 result.message + Environment.NewLine +
