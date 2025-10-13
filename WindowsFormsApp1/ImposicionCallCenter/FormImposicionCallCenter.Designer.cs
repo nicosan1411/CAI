@@ -353,7 +353,7 @@
             // btnAceptarPedido
             // 
             this.btnAceptarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptarPedido.Location = new System.Drawing.Point(119, 735);
+            this.btnAceptarPedido.Location = new System.Drawing.Point(116, 739);
             this.btnAceptarPedido.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptarPedido.Name = "btnAceptarPedido";
             this.btnAceptarPedido.Size = new System.Drawing.Size(106, 27);
@@ -365,7 +365,7 @@
             // btnVolverMenuPrincipal
             // 
             this.btnVolverMenuPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(229, 735);
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(226, 739);
             this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
             this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
@@ -479,7 +479,7 @@
             this.AcceptButton = this.btnAceptarPedido;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 749);
+            this.ClientSize = new System.Drawing.Size(385, 777);
             this.Controls.Add(this.gbDetalleRetiro);
             this.Controls.Add(this.gbEmpresaCliente);
             this.Controls.Add(this.gbDetalleEnvio);
