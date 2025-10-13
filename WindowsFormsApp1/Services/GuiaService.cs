@@ -1,12 +1,10 @@
-﻿using System;
+﻿// GuiaService.cs
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace WindowsFormsApp1
 {
-    /// <summary>
-    /// Contrato del repositorio de guías (recepciones/ despachos).
-    /// </summary>
     internal interface IGuiaRepository
     {
         IEnumerable<string> ListarRecepcionesPorPatente(string patente);
@@ -14,9 +12,6 @@ namespace WindowsFormsApp1
         void MarcarRecepcionadasEnCD(IEnumerable<string> nroGuias);
     }
 
-    /// <summary>
-    /// Servicio de consultas/actualizaciones de guías por patente (micro).
-    /// </summary>
     internal sealed class GuiaService
     {
         private readonly IGuiaRepository _repo;
@@ -26,13 +21,9 @@ namespace WindowsFormsApp1
             _repo = repo ?? throw new ArgumentNullException(nameof(repo));
         }
 
-        /// <summary>
-        /// Devuelve recepciones y despachos pendientes para la patente indicada.
-        /// Si la patente está vacía, devuelve listas vacías.
-        /// </summary>
         public (IReadOnlyList<string> recepciones, IReadOnlyList<string> despachos) ObtenerPorPatente(string patente)
         {
-            if (!Validaciones.Requerido(patente, "la patente del micro", out var _))
+            if (!Validaciones.Requerido(patente, "la patente del micro", out var e))
                 return (Array.Empty<string>(), Array.Empty<string>());
 
             var rec = _repo.ListarRecepcionesPorPatente(patente)?.ToList() ?? new List<string>();
@@ -40,14 +31,10 @@ namespace WindowsFormsApp1
             return (rec, des);
         }
 
-        /// <summary>
-        /// Marca guías seleccionadas como recepcionadas en CD.
-        /// NOTA: en InMemoryGuiaRepository es NO-OP; en CSV debería actualizar "Estado".
-        /// </summary>
         public (bool ok, string mensaje) GuardarRecepciones(IEnumerable<string> guiasRecepcionadas)
         {
             var list = (guiasRecepcionadas ?? Enumerable.Empty<string>()).Where(g => !string.IsNullOrWhiteSpace(g)).ToList();
-            // Validaciones extra (duplicados, estado compatible, etc.) podrían ir aquí
+            // Podés agregar validaciones de negocio acá (duplicados, estados, etc.)
             _repo.MarcarRecepcionadasEnCD(list);
             return (true, "Datos Guardados");
         }

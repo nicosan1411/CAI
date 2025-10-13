@@ -4,9 +4,6 @@ using System.Linq;
 
 namespace WindowsFormsApp1
 {
-    /// <summary>
-    /// Lógica de imposición: valida header, maneja ítems y persiste al repositorio CSV.
-    /// </summary>
     internal sealed class PedidoService
     {
         private readonly IOrderRepository _repo;
@@ -19,7 +16,6 @@ namespace WindowsFormsApp1
 
         public IReadOnlyList<Encomienda> Encomiendas => _encomiendas;
 
-        /// <summary>Valida el encabezado del pedido según reglas del CU.</summary>
         public (bool ok, string message) ValidarHeader(PedidoHeader h)
         {
             var errors = new List<string>();
@@ -52,7 +48,6 @@ namespace WindowsFormsApp1
                 : (true, "OK");
         }
 
-        /// <summary>Agrega una encomienda (valida dimensión y cantidad &gt;= 1).</summary>
         public (bool ok, string message) AgregarEncomienda(Encomienda e)
         {
             if (!Validaciones.Requerido(e?.Dimension, "la dimensión de la encomienda", out var errDim))
@@ -64,7 +59,6 @@ namespace WindowsFormsApp1
             return (true, "OK");
         }
 
-        /// <summary>Quita la encomienda en el índice indicado.</summary>
         public (bool ok, string message) QuitarEncomiendaEn(int index)
         {
             if (index < 0 || index >= _encomiendas.Count) return (false, "Índice fuera de rango.");
@@ -72,10 +66,6 @@ namespace WindowsFormsApp1
             return (true, "OK");
         }
 
-        /// <summary>
-        /// Valida y persiste el pedido en el repositorio. 
-        /// Genera el Id secuencial (lo devuelve) y limpia la lista de encomiendas.
-        /// </summary>
         public (bool ok, string message, string guiaId) GuardarPedido(PedidoHeader header)
         {
             if (_encomiendas.Count == 0)
@@ -89,7 +79,6 @@ namespace WindowsFormsApp1
             return (true, "Pedido aceptado y guardado con todas las encomiendas.", guiaId);
         }
 
-        /// <summary>Devuelve la ruta física del archivo (útil para mostrar/abrir).</summary>
         public string ObtenerRutaArchivo() => _repo.FilePath;
     }
 }
