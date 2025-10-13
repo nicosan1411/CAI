@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace WindowsFormsApp1
 {
+    /// <summary>
+    /// Implementación en memoria de IGuiaRepository para demos/tests.
+    /// </summary>
     internal sealed class InMemoryGuiaRepository : IGuiaRepository
     {
         private readonly Dictionary<string, List<string>> _recepcionesPorMicro;
@@ -11,6 +14,7 @@ namespace WindowsFormsApp1
 
         public InMemoryGuiaRepository()
         {
+            // Diccionarios con clave=patente (case-insensitive), valor=listado de N° guía
             _recepcionesPorMicro = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase)
             {
                 ["AA123BB"] = new List<string> { "10001", "10002", "10003" },
@@ -26,15 +30,21 @@ namespace WindowsFormsApp1
             };
         }
 
-        public IEnumerable<string> ListarRecepcionesPorPatente(string patente)
-            => _recepcionesPorMicro.TryGetValue(patente ?? "", out var list) ? list : Enumerable.Empty<string>();
+        /// <summary>Lista guías que deberían ser recepcionadas en CD para la patente dada.</summary>
+        public IEnumerable<string> ListarRecepcionesPorPatente(string patente) =>
+            _recepcionesPorMicro.TryGetValue(patente ?? "", out var list) ? list : Enumerable.Empty<string>();
 
-        public IEnumerable<string> ListarDespachosPorPatente(string patente)
-            => _despachosPorMicro.TryGetValue(patente ?? "", out var list) ? list : Enumerable.Empty<string>();
+        /// <summary>Lista guías a despachar para la patente dada.</summary>
+        public IEnumerable<string> ListarDespachosPorPatente(string patente) =>
+            _despachosPorMicro.TryGetValue(patente ?? "", out var list) ? list : Enumerable.Empty<string>();
 
+        /// <summary>
+        /// Marca como recepcionadas en CD (no implementado en stub).
+        /// NOTA: intencionalmente vacío para no toquetear datos en demo.
+        /// </summary>
         public void MarcarRecepcionadasEnCD(IEnumerable<string> nroGuias)
         {
-            // DO NOTHING
+            // NO-OP
         }
     }
 }

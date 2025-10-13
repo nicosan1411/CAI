@@ -36,11 +36,10 @@
             "test"}, -1);
             this.gbRecepciones = new System.Windows.Forms.GroupBox();
             this.gbDespachos = new System.Windows.Forms.GroupBox();
-            this.lvlDespachos = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvDespachos = new System.Windows.Forms.ListView();
             this.columnGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
-            this.cbPatenteMicro = new System.Windows.Forms.ComboBox();
+            this.cbPatente = new System.Windows.Forms.ComboBox();
             this.lblPatenteMicro = new System.Windows.Forms.Label();
             this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -63,7 +62,7 @@
             // 
             // gbDespachos
             // 
-            this.gbDespachos.Controls.Add(this.lvlDespachos);
+            this.gbDespachos.Controls.Add(this.lvDespachos);
             this.gbDespachos.Location = new System.Drawing.Point(378, 42);
             this.gbDespachos.Margin = new System.Windows.Forms.Padding(2);
             this.gbDespachos.Name = "gbDespachos";
@@ -73,39 +72,30 @@
             this.gbDespachos.TabStop = false;
             this.gbDespachos.Text = "Despachos";
             // 
-            // lvlDespachos
+            // lvDespachos
             // 
-            this.lvlDespachos.BackColor = System.Drawing.Color.Gainsboro;
-            this.lvlDespachos.CheckBoxes = true;
-            this.lvlDespachos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
+            this.lvDespachos.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvDespachos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnGuia});
-            this.lvlDespachos.FullRowSelect = true;
-            this.lvlDespachos.GridLines = true;
-            this.lvlDespachos.HideSelection = false;
+            this.lvDespachos.FullRowSelect = true;
+            this.lvDespachos.GridLines = true;
+            this.lvDespachos.HideSelection = false;
             listViewItem1.Checked = true;
             listViewItem1.StateImageIndex = 1;
-            this.lvlDespachos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.lvDespachos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.lvlDespachos.Location = new System.Drawing.Point(20, 18);
-            this.lvlDespachos.MultiSelect = false;
-            this.lvlDespachos.Name = "lvlDespachos";
-            this.lvlDespachos.Size = new System.Drawing.Size(305, 130);
-            this.lvlDespachos.TabIndex = 5;
-            this.lvlDespachos.UseCompatibleStateImageBehavior = false;
-            this.lvlDespachos.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.DisplayIndex = 1;
-            this.columnHeader1.Text = "";
-            this.columnHeader1.Width = 180;
+            this.lvDespachos.Location = new System.Drawing.Point(20, 18);
+            this.lvDespachos.MultiSelect = false;
+            this.lvDespachos.Name = "lvDespachos";
+            this.lvDespachos.Size = new System.Drawing.Size(305, 130);
+            this.lvDespachos.TabIndex = 5;
+            this.lvDespachos.UseCompatibleStateImageBehavior = false;
+            this.lvDespachos.View = System.Windows.Forms.View.Details;
             // 
             // columnGuia
             // 
-            this.columnGuia.DisplayIndex = 0;
             this.columnGuia.Text = "N° Guía";
-            this.columnGuia.Width = 120;
+            this.columnGuia.Width = 301;
             // 
             // label1
             // 
@@ -117,14 +107,14 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Fletero";
             // 
-            // cbPatenteMicro
+            // cbPatente
             // 
-            this.cbPatenteMicro.FormattingEnabled = true;
-            this.cbPatenteMicro.Location = new System.Drawing.Point(103, 12);
-            this.cbPatenteMicro.Margin = new System.Windows.Forms.Padding(2);
-            this.cbPatenteMicro.Name = "cbPatenteMicro";
-            this.cbPatenteMicro.Size = new System.Drawing.Size(259, 21);
-            this.cbPatenteMicro.TabIndex = 1;
+            this.cbPatente.FormattingEnabled = true;
+            this.cbPatente.Location = new System.Drawing.Point(103, 12);
+            this.cbPatente.Margin = new System.Windows.Forms.Padding(2);
+            this.cbPatente.Name = "cbPatente";
+            this.cbPatente.Size = new System.Drawing.Size(259, 21);
+            this.cbPatente.TabIndex = 1;
             // 
             // lblPatenteMicro
             // 
@@ -145,7 +135,6 @@
             this.btnVolverMenuPrincipal.TabIndex = 7;
             this.btnVolverMenuPrincipal.Text = "Volver al Menú Principal";
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
             // btnAceptar
             // 
@@ -156,7 +145,6 @@
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // lvRecepciones
             // 
@@ -200,7 +188,7 @@
             this.Controls.Add(this.lvRecepciones);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnVolverMenuPrincipal);
-            this.Controls.Add(this.cbPatenteMicro);
+            this.Controls.Add(this.cbPatente);
             this.Controls.Add(this.lblPatenteMicro);
             this.Controls.Add(this.gbDespachos);
             this.Controls.Add(this.label1);
@@ -218,13 +206,12 @@
         #endregion
         private System.Windows.Forms.GroupBox gbDespachos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbPatenteMicro;
+        private System.Windows.Forms.ComboBox cbPatente;
         private System.Windows.Forms.Label lblPatenteMicro;
         private System.Windows.Forms.Button btnVolverMenuPrincipal;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.GroupBox gbRecepciones;
-        private System.Windows.Forms.ListView lvlDespachos;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ListView lvDespachos;
         private System.Windows.Forms.ColumnHeader columnGuia;
         private System.Windows.Forms.ListView lvRecepciones;
         private System.Windows.Forms.ColumnHeader columnEntregadoEnCD;
