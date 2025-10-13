@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="ComboData.cs" />
     <Compile Include="CsvOrderRepository.cs" />
+    <Compile Include="CsvRendicionRepository.cs" />
     <Compile Include="Domain.cs" />
     <Compile Include="EntregaEnCD\FormEntregaEnCD.cs">
       <SubType>Form</SubType>
@@ -71,9 +72,11 @@
       <DependentUpon>FormEntregaEnCD.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUtils.cs" />
-    <Compile Include="GuiaService.cs" />
+    <Compile Include="Services\AssignmentService.cs" />
+    <Compile Include="Services\GuiaService.cs" />
     <Compile Include="InMemoryGuiaRepository.cs" />
-    <Compile Include="PedidoService.cs" />
+    <Compile Include="Services\PedidoService.cs" />
+    <Compile Include="Services\RendicionService.cs" />
     <Compile Include="ResultadosCostosVentas\FormResultadosCostosVentas.cs">
       <SubType>Form</SubType>
     </Compile>

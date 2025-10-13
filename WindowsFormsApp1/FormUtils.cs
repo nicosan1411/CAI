@@ -7,7 +7,7 @@ namespace WindowsFormsApp1
         public static void VolverAlMenu(Form formularioActual)
         {
             var result = MessageBox.Show(
-                "¿Estás seguro de que querés volver al menú principal?",
+                "¿Deseas volver al menú principal?",
                 "Confirmar",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question

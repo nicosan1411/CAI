@@ -36,8 +36,8 @@ namespace WindowsFormsApp1
 
         private void PrepareListViews()
         {
-            FormUtils.ConfigureListView(listView2, withCheckboxes: true);  // Recepciones
-            FormUtils.ConfigureListView(listView1, withCheckboxes: false); // Despachos
+            FormUtils.ConfigureListView(lvRecepciones, withCheckboxes: true);  // Recepciones
+            FormUtils.ConfigureListView(lvlDespachos, withCheckboxes: false); // Despachos
         }
 
         private void CargarListasParaPatenteSeleccionada()
@@ -49,13 +49,13 @@ namespace WindowsFormsApp1
             if ((data.recepciones?.Count ?? 0) == 0 && (data.despachos?.Count ?? 0) == 0)
             {
                 FormUtils.Info("No hay encomiendas asociadas al micro ingresado.", "Sin datos");
-                listView2.Items.Clear();
-                listView1.Items.Clear();
+                lvRecepciones.Items.Clear();
+                lvlDespachos.Items.Clear();
                 return;
             }
 
-            FormUtils.FillListView(listView2, data.recepciones);
-            FormUtils.FillListView(listView1, data.despachos);
+            FormUtils.FillListView(lvRecepciones, data.recepciones);
+            FormUtils.FillListView(lvlDespachos, data.despachos);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            var guiasRecep = listView2.Items
+            var guiasRecep = lvRecepciones.Items
                 .Cast<ListViewItem>()
                 .Where(i => i.Checked)
                 .Select(i => i.SubItems.Count > 1 ? i.SubItems[1].Text : null)
@@ -100,8 +100,8 @@ namespace WindowsFormsApp1
         private void ResetUI()
         {
             if (cbPatenteMicro.Items.Count > 0) cbPatenteMicro.SelectedIndex = 0;
-            listView2.Items.Clear();
-            listView1.Items.Clear();
+            lvRecepciones.Items.Clear();
+            lvlDespachos.Items.Clear();
         }
 
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)

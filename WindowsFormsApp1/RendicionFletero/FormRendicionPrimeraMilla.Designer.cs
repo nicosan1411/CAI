@@ -28,281 +28,255 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "test",
-            "test"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "",
-            "test"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
-            "",
-            "test1"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
-            "",
-            "test2"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
-            "",
-            "test"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
-            "test",
-            "test"}, -1);
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnEntregado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnNroGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.listView4 = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblFletero = new System.Windows.Forms.Label();
+            this.cbFletero = new System.Windows.Forms.ComboBox();
+            this.gbRetirarDomicilio = new System.Windows.Forms.GroupBox();
+            this.lvRetirarDomicilio = new System.Windows.Forms.ListView();
+            this.columnRetirarDomicilio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gbRetirosDomicilioAdmitir = new System.Windows.Forms.GroupBox();
+            this.lvRetirosDomicilioAdmitir = new System.Windows.Forms.ListView();
+            this.columnEntregadoEnCD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnNroGuiaAdmitir = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gbEntregasDomicilioRealizadas = new System.Windows.Forms.GroupBox();
+            this.lvEntregasDomicilioRealizadas = new System.Windows.Forms.ListView();
+            this.columnEntregadoDomicilio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnNroGuiaRealizado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gbEntregasDomicilioARealizar = new System.Windows.Forms.GroupBox();
+            this.lvEntregasDomicilioARealizar = new System.Windows.Forms.ListView();
+            this.columnEntregasDomicilioARealizar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnGenerarAsignaciones = new System.Windows.Forms.Button();
+            this.gbRetirarDomicilio.SuspendLayout();
+            this.gbRetirosDomicilioAdmitir.SuspendLayout();
+            this.gbEntregasDomicilioRealizadas.SuspendLayout();
+            this.gbEntregasDomicilioARealizar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblFletero
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Fletero";
+            this.lblFletero.AutoSize = true;
+            this.lblFletero.Location = new System.Drawing.Point(18, 17);
+            this.lblFletero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFletero.Name = "lblFletero";
+            this.lblFletero.Size = new System.Drawing.Size(39, 13);
+            this.lblFletero.TabIndex = 0;
+            this.lblFletero.Text = "Fletero";
             // 
-            // comboBox1
+            // cbFletero
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(61, 14);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(612, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cbFletero.FormattingEnabled = true;
+            this.cbFletero.Location = new System.Drawing.Point(61, 14);
+            this.cbFletero.Margin = new System.Windows.Forms.Padding(2);
+            this.cbFletero.Name = "cbFletero";
+            this.cbFletero.Size = new System.Drawing.Size(482, 21);
+            this.cbFletero.TabIndex = 1;
             // 
-            // groupBox2
+            // gbRetirarDomicilio
             // 
-            this.groupBox2.Controls.Add(this.listView3);
-            this.groupBox2.Location = new System.Drawing.Point(346, 51);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(327, 181);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "A retirar en domicilio";
+            this.gbRetirarDomicilio.Controls.Add(this.lvRetirarDomicilio);
+            this.gbRetirarDomicilio.Location = new System.Drawing.Point(346, 51);
+            this.gbRetirarDomicilio.Margin = new System.Windows.Forms.Padding(2);
+            this.gbRetirarDomicilio.Name = "gbRetirarDomicilio";
+            this.gbRetirarDomicilio.Padding = new System.Windows.Forms.Padding(2);
+            this.gbRetirarDomicilio.Size = new System.Drawing.Size(327, 181);
+            this.gbRetirarDomicilio.TabIndex = 3;
+            this.gbRetirarDomicilio.TabStop = false;
+            this.gbRetirarDomicilio.Text = "A retirar en domicilio";
             // 
-            // listView3
+            // lvRetirarDomicilio
             // 
-            this.listView3.BackColor = System.Drawing.Color.Gainsboro;
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4});
-            this.listView3.FullRowSelect = true;
-            this.listView3.GridLines = true;
-            this.listView3.HideSelection = false;
-            listViewItem1.StateImageIndex = 0;
-            this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.listView3.Location = new System.Drawing.Point(10, 23);
-            this.listView3.MultiSelect = false;
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(305, 148);
-            this.listView3.TabIndex = 23;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
+            this.lvRetirarDomicilio.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvRetirarDomicilio.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnRetirarDomicilio});
+            this.lvRetirarDomicilio.FullRowSelect = true;
+            this.lvRetirarDomicilio.GridLines = true;
+            this.lvRetirarDomicilio.HideSelection = false;
+            this.lvRetirarDomicilio.Location = new System.Drawing.Point(10, 23);
+            this.lvRetirarDomicilio.MultiSelect = false;
+            this.lvRetirarDomicilio.Name = "lvRetirarDomicilio";
+            this.lvRetirarDomicilio.Size = new System.Drawing.Size(305, 148);
+            this.lvRetirarDomicilio.TabIndex = 0;
+            this.lvRetirarDomicilio.UseCompatibleStateImageBehavior = false;
+            this.lvRetirarDomicilio.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader4
+            // columnRetirarDomicilio
             // 
-            this.columnHeader4.Text = "N° de guía";
-            this.columnHeader4.Width = 300;
+            this.columnRetirarDomicilio.Text = "N° de guía";
+            this.columnRetirarDomicilio.Width = 300;
             // 
-            // groupBox1
+            // gbRetirosDomicilioAdmitir
             // 
-            this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 51);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(327, 181);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Retiros a domicilio a admitir";
+            this.gbRetirosDomicilioAdmitir.Controls.Add(this.lvRetirosDomicilioAdmitir);
+            this.gbRetirosDomicilioAdmitir.Location = new System.Drawing.Point(11, 51);
+            this.gbRetirosDomicilioAdmitir.Margin = new System.Windows.Forms.Padding(2);
+            this.gbRetirosDomicilioAdmitir.Name = "gbRetirosDomicilioAdmitir";
+            this.gbRetirosDomicilioAdmitir.Padding = new System.Windows.Forms.Padding(2);
+            this.gbRetirosDomicilioAdmitir.Size = new System.Drawing.Size(327, 181);
+            this.gbRetirosDomicilioAdmitir.TabIndex = 2;
+            this.gbRetirosDomicilioAdmitir.TabStop = false;
+            this.gbRetirosDomicilioAdmitir.Text = "Retiros a domicilio a admitir";
             // 
-            // listView1
+            // lvRetirosDomicilioAdmitir
             // 
-            this.listView1.BackColor = System.Drawing.Color.Gainsboro;
-            this.listView1.CheckBoxes = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnEntregado,
-            this.columnNroGuia});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            listViewItem2.Checked = true;
-            listViewItem2.StateImageIndex = 1;
-            listViewItem3.StateImageIndex = 0;
-            listViewItem4.StateImageIndex = 0;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2,
-            listViewItem3,
-            listViewItem4});
-            this.listView1.Location = new System.Drawing.Point(10, 23);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(304, 148);
-            this.listView1.TabIndex = 21;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvRetirosDomicilioAdmitir.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvRetirosDomicilioAdmitir.CheckBoxes = true;
+            this.lvRetirosDomicilioAdmitir.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnEntregadoEnCD,
+            this.columnNroGuiaAdmitir});
+            this.lvRetirosDomicilioAdmitir.FullRowSelect = true;
+            this.lvRetirosDomicilioAdmitir.GridLines = true;
+            this.lvRetirosDomicilioAdmitir.HideSelection = false;
+            this.lvRetirosDomicilioAdmitir.Location = new System.Drawing.Point(10, 23);
+            this.lvRetirosDomicilioAdmitir.MultiSelect = false;
+            this.lvRetirosDomicilioAdmitir.Name = "lvRetirosDomicilioAdmitir";
+            this.lvRetirosDomicilioAdmitir.Size = new System.Drawing.Size(304, 148);
+            this.lvRetirosDomicilioAdmitir.TabIndex = 0;
+            this.lvRetirosDomicilioAdmitir.UseCompatibleStateImageBehavior = false;
+            this.lvRetirosDomicilioAdmitir.View = System.Windows.Forms.View.Details;
             // 
-            // columnEntregado
+            // columnEntregadoEnCD
             // 
-            this.columnEntregado.DisplayIndex = 1;
-            this.columnEntregado.Text = "Entregado en CD Origen";
-            this.columnEntregado.Width = 180;
+            this.columnEntregadoEnCD.DisplayIndex = 1;
+            this.columnEntregadoEnCD.Text = "Entregado en CD Origen";
+            this.columnEntregadoEnCD.Width = 180;
             // 
-            // columnNroGuia
+            // columnNroGuiaAdmitir
             // 
-            this.columnNroGuia.DisplayIndex = 0;
-            this.columnNroGuia.Text = "N° de guía";
-            this.columnNroGuia.Width = 120;
+            this.columnNroGuiaAdmitir.DisplayIndex = 0;
+            this.columnNroGuiaAdmitir.Text = "N° de guía";
+            this.columnNroGuiaAdmitir.Width = 120;
             // 
-            // groupBox3
+            // gbEntregasDomicilioRealizadas
             // 
-            this.groupBox3.Controls.Add(this.listView2);
-            this.groupBox3.Location = new System.Drawing.Point(11, 236);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(327, 181);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Entregas a domicilio realizadas";
+            this.gbEntregasDomicilioRealizadas.Controls.Add(this.lvEntregasDomicilioRealizadas);
+            this.gbEntregasDomicilioRealizadas.Location = new System.Drawing.Point(11, 236);
+            this.gbEntregasDomicilioRealizadas.Margin = new System.Windows.Forms.Padding(2);
+            this.gbEntregasDomicilioRealizadas.Name = "gbEntregasDomicilioRealizadas";
+            this.gbEntregasDomicilioRealizadas.Padding = new System.Windows.Forms.Padding(2);
+            this.gbEntregasDomicilioRealizadas.Size = new System.Drawing.Size(327, 181);
+            this.gbEntregasDomicilioRealizadas.TabIndex = 4;
+            this.gbEntregasDomicilioRealizadas.TabStop = false;
+            this.gbEntregasDomicilioRealizadas.Text = "Entregas a domicilio realizadas";
             // 
-            // listView2
+            // lvEntregasDomicilioRealizadas
             // 
-            this.listView2.BackColor = System.Drawing.Color.Gainsboro;
-            this.listView2.CheckBoxes = true;
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.HideSelection = false;
-            listViewItem5.Checked = true;
-            listViewItem5.StateImageIndex = 1;
-            this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
-            this.listView2.Location = new System.Drawing.Point(10, 23);
-            this.listView2.MultiSelect = false;
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(305, 148);
-            this.listView2.TabIndex = 22;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            this.lvEntregasDomicilioRealizadas.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvEntregasDomicilioRealizadas.CheckBoxes = true;
+            this.lvEntregasDomicilioRealizadas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnEntregadoDomicilio,
+            this.columnNroGuiaRealizado});
+            this.lvEntregasDomicilioRealizadas.FullRowSelect = true;
+            this.lvEntregasDomicilioRealizadas.GridLines = true;
+            this.lvEntregasDomicilioRealizadas.HideSelection = false;
+            this.lvEntregasDomicilioRealizadas.Location = new System.Drawing.Point(10, 23);
+            this.lvEntregasDomicilioRealizadas.MultiSelect = false;
+            this.lvEntregasDomicilioRealizadas.Name = "lvEntregasDomicilioRealizadas";
+            this.lvEntregasDomicilioRealizadas.Size = new System.Drawing.Size(305, 148);
+            this.lvEntregasDomicilioRealizadas.TabIndex = 0;
+            this.lvEntregasDomicilioRealizadas.UseCompatibleStateImageBehavior = false;
+            this.lvEntregasDomicilioRealizadas.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // columnEntregadoDomicilio
             // 
-            this.columnHeader1.DisplayIndex = 1;
-            this.columnHeader1.Text = "Entregado en Domicilio/Agencia";
-            this.columnHeader1.Width = 180;
+            this.columnEntregadoDomicilio.DisplayIndex = 1;
+            this.columnEntregadoDomicilio.Text = "Entregado en Domicilio/Agencia";
+            this.columnEntregadoDomicilio.Width = 180;
             // 
-            // columnHeader2
+            // columnNroGuiaRealizado
             // 
-            this.columnHeader2.DisplayIndex = 0;
-            this.columnHeader2.Text = "N° de guía";
-            this.columnHeader2.Width = 120;
+            this.columnNroGuiaRealizado.DisplayIndex = 0;
+            this.columnNroGuiaRealizado.Text = "N° de guía";
+            this.columnNroGuiaRealizado.Width = 120;
             // 
-            // groupBox4
+            // gbEntregasDomicilioARealizar
             // 
-            this.groupBox4.Controls.Add(this.listView4);
-            this.groupBox4.Location = new System.Drawing.Point(346, 236);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(327, 181);
-            this.groupBox4.TabIndex = 8;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Entregas a domicilio a realizar";
+            this.gbEntregasDomicilioARealizar.Controls.Add(this.lvEntregasDomicilioARealizar);
+            this.gbEntregasDomicilioARealizar.Location = new System.Drawing.Point(346, 236);
+            this.gbEntregasDomicilioARealizar.Margin = new System.Windows.Forms.Padding(2);
+            this.gbEntregasDomicilioARealizar.Name = "gbEntregasDomicilioARealizar";
+            this.gbEntregasDomicilioARealizar.Padding = new System.Windows.Forms.Padding(2);
+            this.gbEntregasDomicilioARealizar.Size = new System.Drawing.Size(327, 181);
+            this.gbEntregasDomicilioARealizar.TabIndex = 5;
+            this.gbEntregasDomicilioARealizar.TabStop = false;
+            this.gbEntregasDomicilioARealizar.Text = "Entregas a domicilio a realizar";
             // 
-            // listView4
+            // lvEntregasDomicilioARealizar
             // 
-            this.listView4.BackColor = System.Drawing.Color.Gainsboro;
-            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3});
-            this.listView4.FullRowSelect = true;
-            this.listView4.GridLines = true;
-            this.listView4.HideSelection = false;
-            listViewItem6.StateImageIndex = 0;
-            this.listView4.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6});
-            this.listView4.Location = new System.Drawing.Point(10, 23);
-            this.listView4.MultiSelect = false;
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(305, 148);
-            this.listView4.TabIndex = 23;
-            this.listView4.UseCompatibleStateImageBehavior = false;
-            this.listView4.View = System.Windows.Forms.View.Details;
+            this.lvEntregasDomicilioARealizar.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvEntregasDomicilioARealizar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnEntregasDomicilioARealizar});
+            this.lvEntregasDomicilioARealizar.FullRowSelect = true;
+            this.lvEntregasDomicilioARealizar.GridLines = true;
+            this.lvEntregasDomicilioARealizar.HideSelection = false;
+            this.lvEntregasDomicilioARealizar.Location = new System.Drawing.Point(10, 23);
+            this.lvEntregasDomicilioARealizar.MultiSelect = false;
+            this.lvEntregasDomicilioARealizar.Name = "lvEntregasDomicilioARealizar";
+            this.lvEntregasDomicilioARealizar.Size = new System.Drawing.Size(305, 148);
+            this.lvEntregasDomicilioARealizar.TabIndex = 0;
+            this.lvEntregasDomicilioARealizar.UseCompatibleStateImageBehavior = false;
+            this.lvEntregasDomicilioARealizar.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader3
+            // columnEntregasDomicilioARealizar
             // 
-            this.columnHeader3.Text = "N° de guía";
-            this.columnHeader3.Width = 300;
+            this.columnEntregasDomicilioARealizar.Text = "N° de guía";
+            this.columnEntregasDomicilioARealizar.Width = 300;
             // 
             // btnVolverMenuPrincipal
             // 
             this.btnVolverMenuPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(528, 428);
-            this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
             this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
-            this.btnVolverMenuPrincipal.TabIndex = 19;
+            this.btnVolverMenuPrincipal.TabIndex = 7;
             this.btnVolverMenuPrincipal.Text = "Volver al Menú Principal";
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
-            // button1
+            // btnGuardar
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(440, 428);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 27);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.Location = new System.Drawing.Point(440, 428);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(84, 27);
+            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
+            // 
+            // btnGenerarAsignaciones
+            // 
+            this.btnGenerarAsignaciones.Location = new System.Drawing.Point(549, 12);
+            this.btnGenerarAsignaciones.Name = "btnGenerarAsignaciones";
+            this.btnGenerarAsignaciones.Size = new System.Drawing.Size(125, 27);
+            this.btnGenerarAsignaciones.TabIndex = 8;
+            this.btnGenerarAsignaciones.Text = "Generar asignaciones";
+            this.btnGenerarAsignaciones.UseVisualStyleBackColor = true;
             // 
             // FormRendicionPrimeraMilla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 466);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGenerarAsignaciones);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnVolverMenuPrincipal);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.gbRetirosDomicilioAdmitir);
+            this.Controls.Add(this.gbEntregasDomicilioARealizar);
+            this.Controls.Add(this.gbEntregasDomicilioRealizadas);
+            this.Controls.Add(this.gbRetirarDomicilio);
+            this.Controls.Add(this.cbFletero);
+            this.Controls.Add(this.lblFletero);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(702, 505);
             this.Name = "FormRendicionPrimeraMilla";
-            this.Text = "Rendición y asignación primera milla";
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
+            this.Text = "Rendición y Asignación Primera Milla";
+            this.gbRetirarDomicilio.ResumeLayout(false);
+            this.gbRetirosDomicilioAdmitir.ResumeLayout(false);
+            this.gbEntregasDomicilioRealizadas.ResumeLayout(false);
+            this.gbEntregasDomicilioARealizar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,23 +284,24 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label lblFletero;
+        private System.Windows.Forms.ComboBox cbFletero;
+        private System.Windows.Forms.GroupBox gbRetirarDomicilio;
+        private System.Windows.Forms.GroupBox gbRetirosDomicilioAdmitir;
+        private System.Windows.Forms.GroupBox gbEntregasDomicilioRealizadas;
+        private System.Windows.Forms.GroupBox gbEntregasDomicilioARealizar;
         private System.Windows.Forms.Button btnVolverMenuPrincipal;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnEntregado;
-        private System.Windows.Forms.ColumnHeader columnNroGuia;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ListView listView4;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView lvRetirosDomicilioAdmitir;
+        private System.Windows.Forms.ColumnHeader columnEntregadoEnCD;
+        private System.Windows.Forms.ColumnHeader columnNroGuiaAdmitir;
+        private System.Windows.Forms.ListView lvEntregasDomicilioRealizadas;
+        private System.Windows.Forms.ColumnHeader columnEntregadoDomicilio;
+        private System.Windows.Forms.ColumnHeader columnNroGuiaRealizado;
+        private System.Windows.Forms.ListView lvRetirarDomicilio;
+        private System.Windows.Forms.ColumnHeader columnRetirarDomicilio;
+        private System.Windows.Forms.ListView lvEntregasDomicilioARealizar;
+        private System.Windows.Forms.ColumnHeader columnEntregasDomicilioARealizar;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnGenerarAsignaciones;
     }
 }
