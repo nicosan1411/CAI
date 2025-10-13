@@ -349,6 +349,7 @@
             this.lblDni.Size = new System.Drawing.Size(26, 13);
             this.lblDni.TabIndex = 1;
             this.lblDni.Text = "DNI";
+            this.lblDni.Click += new System.EventHandler(this.lblDni_Click);
             // 
             // btnAceptarPedido
             // 
@@ -479,7 +480,7 @@
             this.AcceptButton = this.btnAceptarPedido;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 773);
+            this.ClientSize = new System.Drawing.Size(385, 749);
             this.Controls.Add(this.gbDetalleRetiro);
             this.Controls.Add(this.gbEmpresaCliente);
             this.Controls.Add(this.gbDetalleEnvio);
