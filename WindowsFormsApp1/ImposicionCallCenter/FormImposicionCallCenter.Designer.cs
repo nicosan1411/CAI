@@ -349,7 +349,6 @@
             this.lblDni.Size = new System.Drawing.Size(26, 13);
             this.lblDni.TabIndex = 1;
             this.lblDni.Text = "DNI";
-            this.lblDni.Click += new System.EventHandler(this.lblDni_Click);
             // 
             // btnAceptarPedido
             // 
