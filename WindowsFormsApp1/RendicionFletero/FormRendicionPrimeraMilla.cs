@@ -7,7 +7,6 @@ namespace WindowsFormsApp1
 {
     public partial class FormRendicionPrimeraMilla : Form
     {
-        private readonly IGuiaMaster _master = new CsvGuiaMaster(); // usa data/guias_master.txt
         private readonly RendicionService _service;
         private readonly AssignmentService _assignService = new AssignmentService();
 
@@ -18,7 +17,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-            _service = new RendicionService(new CsvRendicionRepository("data", "guias_master.txt"));
+            _service = new RendicionService(new CsvRendicionRepository());
 
 
             WireHandlers();
@@ -70,35 +69,54 @@ namespace WindowsFormsApp1
 
         private string FleteroActual => cbFletero.Text?.Trim();
 
+        // REEMPLAZAR este método completo
         private void CargarAsignacionesParaFletero()
         {
-            var aRetirar = _master.ListarPorEstado(GuiaEstados.Impuesta);
-            var retirosAdmitir = _master.ListarPorEstado(GuiaEstados.EnProcesoRetiro);
-            var aEntregar = _master.ListarPorEstado(GuiaEstados.AdmitidaDestino);
-            var entregasRealizadas = _master.ListarPorEstado(GuiaEstados.EnProcesoEntrega);
+            var fletero = cbFletero.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(fletero))
+            {
+                LimpiarListas();
+                return;
+            }
+
+            // 🔴 NUEVO: si NO hay archivos de asignación para este fletero → no muestres nada
+            if (!_service.HayArchivosAsignacion(fletero))
+            {
+                LimpiarListas();
+                return;
+            }
+
+            // Si hay archivos, cargamos normalmente
+            var data = _service.CargarAsignaciones(fletero);
+            _retirosPendientes = data.retirosPendientes ?? new List<string>();
+            _entregasPendientes = data.entregasPendientes ?? new List<string>();
 
             // LV1 (editable): Retiros a domicilio a admitir
             lvRetirosDomicilioAdmitir.BeginUpdate();
             lvRetirosDomicilioAdmitir.Items.Clear();
-            foreach (var g in retirosAdmitir) lvRetirosDomicilioAdmitir.Items.Add(new ListViewItem(new[] { "", g }));
+            foreach (var g in _retirosPendientes)
+                lvRetirosDomicilioAdmitir.Items.Add(new ListViewItem(new[] { "", g }) { Checked = false });
             lvRetirosDomicilioAdmitir.EndUpdate();
 
             // LV2 (editable): Entregas a domicilio realizadas
             lvEntregasDomicilioRealizadas.BeginUpdate();
             lvEntregasDomicilioRealizadas.Items.Clear();
-            foreach (var g in entregasRealizadas) lvEntregasDomicilioRealizadas.Items.Add(new ListViewItem(new[] { "", g }));
+            foreach (var g in _entregasPendientes)
+                lvEntregasDomicilioRealizadas.Items.Add(new ListViewItem(new[] { "", g }) { Checked = false });
             lvEntregasDomicilioRealizadas.EndUpdate();
 
             // LV3 (info): A retirar en domicilio
             lvRetirarDomicilio.BeginUpdate();
             lvRetirarDomicilio.Items.Clear();
-            foreach (var g in aRetirar) lvRetirarDomicilio.Items.Add(new ListViewItem(new[] { g }));
+            foreach (var g in _retirosPendientes)
+                lvRetirarDomicilio.Items.Add(new ListViewItem(new[] { g }));
             lvRetirarDomicilio.EndUpdate();
 
-            // LV4 (info): Entregas a domicilio a realizar
+            // LV4 (info): Entregas a realizar
             lvEntregasDomicilioARealizar.BeginUpdate();
             lvEntregasDomicilioARealizar.Items.Clear();
-            foreach (var g in aEntregar) lvEntregasDomicilioARealizar.Items.Add(new ListViewItem(new[] { g }));
+            foreach (var g in _entregasPendientes)
+                lvEntregasDomicilioARealizar.Items.Add(new ListViewItem(new[] { g }));
             lvEntregasDomicilioARealizar.EndUpdate();
         }
 
@@ -169,22 +187,6 @@ namespace WindowsFormsApp1
                 .Select(i => i.SubItems[guiaIdxEntregas].Text.Trim())
                 .ToList();
 
-            // Transiciones definidas para este form:
-            if (retirosMarcados.Count > 0)
-            {
-                // Retiros a domicilio a admitir: En proceso de retiro -> Admitida en CD origen
-                _master.CambiarEstado(retirosMarcados, GuiaEstados.AdmitidaOrigen);
-            }
-
-            if (entregasMarcadas.Count > 0)
-            {
-                // Entregas a domicilio realizadas: En proceso de entrega -> Entregada a cliente
-                _master.CambiarEstado(entregasMarcadas, GuiaEstados.EntregadaCliente);
-            }
-
-            // ... ya mostraste el MessageBox "Datos guardados", ahora refrescá:
-            CargarAsignacionesParaFletero();
-
             if (retirosMarcados.Count == 0 && entregasMarcadas.Count == 0)
             {
                 var r = MessageBox.Show(
@@ -219,18 +221,6 @@ namespace WindowsFormsApp1
                 );
                 if (r == DialogResult.No) return;
             }
-
-            var master = new CsvGuiaMaster();
-
-            // Retiros a domicilio a admitir: En proceso de retiro -> Admitida en CD origen
-            if (retirosMarcados.Count > 0)
-                master.CambiarEstado(retirosMarcados, GuiaEstados.AdmitidaOrigen);
-
-            // Entregas a domicilio realizadas: En proceso de entrega -> Entregada a cliente
-            if (entregasMarcadas.Count > 0)
-                master.CambiarEstado(entregasMarcadas, GuiaEstados.EntregadaCliente);
-
-            CargarAsignacionesParaFletero();
 
             var confirm = MessageBox.Show(
                 "¿Está seguro de que desea guardar los cambios realizados?",

@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
             // Inyección simple: guardo admisiones en un archivo propio
-            _service = new PedidoService(new CsvOrderRepository("data", "guias_master.txt"));
+            _service = new PedidoService(new CsvOrderRepository("data", "admision_cd.txt"));
 
             // Conectar eventos, inicializar combos y estado inicial de controles
             WireHandlers();
@@ -248,9 +248,6 @@ namespace WindowsFormsApp1
                 MessageBox.Show(result.message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            var master = new CsvGuiaMaster();
-            master.CambiarEstado(new[] { result.guiaId }, GuiaEstados.AdmitidaOrigen);
 
             MessageBox.Show(
                 result.message + Environment.NewLine +
