@@ -4,17 +4,18 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormAdmitirEnCD : Form
+    // Form principal para registrar pedidos desde Call Center
+    public partial class FormImponerCallCenter : Form
     {
         // Servicio que maneja la lógica de negocio (validaciones, almacenamiento, etc.)
         private readonly PedidoService _service;
 
-        public FormAdmitirEnCD()
+        public FormImponerCallCenter()
         {
             InitializeComponent();
 
-            // Inyección simple: guardo admisiones en un archivo propio
-            _service = new PedidoService(new CsvOrderRepository("data", "guias_master.txt"));
+            // Inyección simple: el servicio usa un repositorio CSV como almacenamiento
+            _service = new PedidoService(new CsvOrderRepository());
 
             // Conectar eventos, inicializar combos y estado inicial de controles
             WireHandlers();
@@ -30,9 +31,12 @@ namespace WindowsFormsApp1
         // ======================================================
         //   CONFIGURACIÓN DE EVENTOS DE LA UI
         // ======================================================
-
         private void WireHandlers()
         {
+            // Cada cambio en los radio buttons ajusta la habilitación de combos
+            rbRetiroDomicilio.CheckedChanged += (_, __) => ToggleAgenciaControls();
+            rbRetiroAgencia.CheckedChanged += (_, __) => ToggleAgenciaControls();
+
             // En los tipos de envío, además de agencias, cambia si se pide dirección o no
             rbEnvioDomicilio.CheckedChanged += (_, __) => { ToggleAgenciaControls(); ToggleDireccionDestinatario(); };
             rbEnvioCentroDistribucion.CheckedChanged += (_, __) => { ToggleAgenciaControls(); ToggleDireccionDestinatario(); };
@@ -42,18 +46,19 @@ namespace WindowsFormsApp1
         // ======================================================
         //   CARGA DE COMBOS CON DATOS PREDEFINIDOS
         // ======================================================
-
         private void InitCombos()
         {
-            // Se obitenen las listas estáticas desde ComboData (reutilizable)
+            // Se obtienen las listas estáticas desde ComboData (reutilizable)
             cbEmpresaCliente.Items.Clear();
-
             cbEmpresaCliente.Items.AddRange(ComboData.Empresas.ToArray());
 
             cbDimension.Items.Clear();
             cbDimension.Items.AddRange(ComboData.Dimensiones.ToArray());
 
             cbProvinciaEnvio.DataSource = ComboData.Provincias.ToList();
+
+            cbAgenciaRetiro.Items.Clear();
+            cbAgenciaRetiro.Items.AddRange(ComboData.AgenciasRetiro.ToArray());
 
             cmbAgenciaEnvio.Items.Clear();
             cmbAgenciaEnvio.Items.AddRange(ComboData.AgenciasEnvio.ToArray());
@@ -64,6 +69,7 @@ namespace WindowsFormsApp1
             if (cbProvinciaEnvio.Items.Count > 0) cbProvinciaEnvio.SelectedIndex = -1;
 
             // Valores iniciales de los radio buttons
+            rbRetiroDomicilio.Checked = true;
             rbEnvioDomicilio.Checked = true;
 
             // Activar autocompletado en el combo de provincias
@@ -73,6 +79,8 @@ namespace WindowsFormsApp1
             cbEmpresaCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDimension.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProvinciaEnvio.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbAgenciaRetiro.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAgenciaEnvio.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         // Habilita el autocompletado en un ComboBox
@@ -85,12 +93,13 @@ namespace WindowsFormsApp1
         // ======================================================
         //   COMPORTAMIENTO DE LA INTERFAZ SEGÚN OPCIONES
         // ======================================================
-
         private void ToggleAgenciaControls()
         {
             // Habilita o deshabilita combos de agencias según el tipo seleccionado
+            cbAgenciaRetiro.Enabled = rbRetiroAgencia.Checked;
             cmbAgenciaEnvio.Enabled = rbEnvioAgencia.Checked;
         }
+
         private void ToggleDireccionDestinatario()
         {
             // Si se elige "Envío a domicilio", se deben completar los campos de dirección
@@ -130,27 +139,38 @@ namespace WindowsFormsApp1
         // ======================================================
         //   MAPEOS: LEE LOS DATOS DE LA UI Y LOS PASA AL DOMINIO
         // ======================================================
-
         private PedidoHeader ReadHeaderFromUI()
         {
+            // Obtiene los textos según los radio buttons seleccionados
+            var retiro = rbRetiroDomicilio.Checked ? "Retiro en domicilio" :
+                         rbRetiroAgencia.Checked ? "Retiro en agencia" : "";
+
             var envio = rbEnvioDomicilio.Checked ? "Envío a domicilio" :
                         rbEnvioCentroDistribucion.Checked ? "Envío a centro de distribución" :
                         rbEnvioAgencia.Checked ? "Envío a agencia" : "";
 
+            // Crea el objeto PedidoHeader con los valores de la interfaz
             return new PedidoHeader
             {
                 EmpresaCliente = cbEmpresaCliente.Text?.Trim(),
-                // ✅ por defecto, para pasar la validación del service
-                RetiroTipo = "Retiro en domicilio",
-                AgenciaRetiro = "",
-
+                RetiroTipo = retiro,
+                AgenciaRetiro = rbRetiroAgencia.Checked ? cbAgenciaRetiro.Text?.Trim() : "",
                 EnvioTipo = envio,
                 ProvinciaEnvio = cbProvinciaEnvio.Text?.Trim(),
-                AgenciaEnvio = rbEnvioAgencia.Checked ? (cmbAgenciaEnvio.Text?.Trim() ?? "") : "",
-
-                DniDestinatario = Validaciones.SoloDigitos(txtDniDestinatario.Text),
+                AgenciaEnvio = rbEnvioAgencia.Checked ? cmbAgenciaEnvio.Text?.Trim() : "",
+                DniDestinatario = Validaciones.SoloDigitos(txtDniDestinatario.Text), // DNI sin puntos ni letras
                 LocalidadDestinatario = txtLocalidadDestinatario.Text?.Trim(),
                 DomicilioDestinatario = txtDomicilioDestinatario.Text?.Trim()
+            };
+        }
+
+        // Crea una instancia de Encomienda con los datos del bloque correspondiente
+        private Encomienda ReadEncomiendaFromUI()
+        {
+            return new Encomienda
+            {
+                Dimension = cbDimension.Text?.Trim(),
+                Cantidad = (int)numericCantidadEncomienda.Value
             };
         }
 
@@ -166,8 +186,12 @@ namespace WindowsFormsApp1
         {
             if (cbEmpresaCliente.Items.Count > 0) cbEmpresaCliente.SelectedIndex = 0;
 
+            rbRetiroDomicilio.Checked = true;
+            cbAgenciaRetiro.SelectedIndex = cbAgenciaRetiro.Items.Count > 0 ? 0 : -1;
+
             rbEnvioDomicilio.Checked = true;
             if (cbProvinciaEnvio.Items.Count > 0) cbProvinciaEnvio.SelectedIndex = 0;
+            cmbAgenciaEnvio.SelectedIndex = cmbAgenciaEnvio.Items.Count > 0 ? 0 : -1;
 
             txtDniDestinatario.Clear();
             txtLocalidadDestinatario.Clear();
@@ -176,16 +200,6 @@ namespace WindowsFormsApp1
             ResetEncomiendaUI();
             ToggleAgenciaControls();
             ToggleDireccionDestinatario();
-        }
-
-        // Crea una instancia de Encomienda con los datos del bloque correspondiente
-        private Encomienda ReadEncomiendaFromUI()
-        {
-            return new Encomienda
-            {
-                Dimension = cbDimension.Text?.Trim(),
-                Cantidad = (int)numericCantidadEncomienda.Value
-            };
         }
 
         // ======================================================
@@ -212,7 +226,7 @@ namespace WindowsFormsApp1
             }
 
             RefreshEncomiendasList();
-            MessageBox.Show($"Encomienda agregada. Total: {_service.Encomiendas.Count}", "OK",
+            MessageBox.Show($"Encomienda agregada.", "OK",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             ResetEncomiendaUI();
@@ -239,25 +253,23 @@ namespace WindowsFormsApp1
         }
 
         // Guarda el pedido completo en archivo CSV
-        private void btnAdmitirEncomienda_Click(object sender, EventArgs e)
+        private void btnAceptarPedido_Click(object sender, EventArgs e)
         {
             var header = ReadHeaderFromUI();
-            var resultado = _service.GuardarPedido(header, GuiaEstados.AdmitidaOrigen);
-            if (!resultado.ok)
+            var result = _service.GuardarPedido(header);
+            if (!result.ok)
             {
-                MessageBox.Show(resultado.message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(result.message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             MessageBox.Show(
-                resultado.message + Environment.NewLine +
-                $"N° de guía: {resultado.guiaId}" + Environment.NewLine +
+                result.message + Environment.NewLine +
                 $"Archivo: {_service.ObtenerRutaArchivo()}",
-                "OK",
-                MessageBoxButtons.OK,
+                "OK", 
+                MessageBoxButtons.OK, 
                 MessageBoxIcon.Information
             );
-
 
             RefreshEncomiendasList(); // Se limpia la lista al guardar
             ResetFormUI();            // Se deja el form listo para un nuevo pedido
@@ -268,5 +280,7 @@ namespace WindowsFormsApp1
         {
             FormUtils.VolverAlMenu(this);
         }
+
+       
     }
 }

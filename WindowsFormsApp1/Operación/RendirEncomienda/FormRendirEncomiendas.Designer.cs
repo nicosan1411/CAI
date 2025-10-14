@@ -167,7 +167,6 @@
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
             // FormRendirEncomiendas
             // 

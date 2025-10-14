@@ -8,14 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace WindowsFormsApp1.EntregaEnCD
 {
-    public partial class FormEstadoGuia : Form
+    public partial class FormEntregarEncomiendaAClienteCD : Form
     {
-        public FormEstadoGuia()
+        public FormEntregarEncomiendaAClienteCD()
         {
             InitializeComponent();
         }
+
+        // Falta código por realizar
 
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
