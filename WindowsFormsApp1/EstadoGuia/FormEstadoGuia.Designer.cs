@@ -35,9 +35,8 @@
             this.lvGuias = new System.Windows.Forms.ListView();
             this.columnNroGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDimensión = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnCantidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnCDDestino = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnTipoServicio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnTipoEnvio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDniDestinatario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnFechaIngreso = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEstado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -63,13 +62,13 @@
             this.cbGuia.Location = new System.Drawing.Point(61, 12);
             this.cbGuia.Margin = new System.Windows.Forms.Padding(2);
             this.cbGuia.Name = "cbGuia";
-            this.cbGuia.Size = new System.Drawing.Size(228, 21);
+            this.cbGuia.Size = new System.Drawing.Size(680, 21);
             this.cbGuia.TabIndex = 1;
             // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(293, 11);
+            this.btnSeleccionar.Location = new System.Drawing.Point(745, 12);
             this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(82, 21);
@@ -84,7 +83,7 @@
             this.gbGuiasEntregadas.Margin = new System.Windows.Forms.Padding(2);
             this.gbGuiasEntregadas.Name = "gbGuiasEntregadas";
             this.gbGuiasEntregadas.Padding = new System.Windows.Forms.Padding(2);
-            this.gbGuiasEntregadas.Size = new System.Drawing.Size(892, 157);
+            this.gbGuiasEntregadas.Size = new System.Drawing.Size(810, 157);
             this.gbGuiasEntregadas.TabIndex = 3;
             this.gbGuiasEntregadas.TabStop = false;
             this.gbGuiasEntregadas.Text = "Guías entregadas";
@@ -95,9 +94,8 @@
             this.lvGuias.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnNroGuia,
             this.columnDimensión,
-            this.columnCantidad,
             this.columnCDDestino,
-            this.columnTipoServicio,
+            this.columnTipoEnvio,
             this.columnDniDestinatario,
             this.columnFechaIngreso,
             this.columnEstado});
@@ -109,7 +107,7 @@
             this.lvGuias.Margin = new System.Windows.Forms.Padding(2);
             this.lvGuias.MultiSelect = false;
             this.lvGuias.Name = "lvGuias";
-            this.lvGuias.Size = new System.Drawing.Size(854, 119);
+            this.lvGuias.Size = new System.Drawing.Size(775, 119);
             this.lvGuias.TabIndex = 4;
             this.lvGuias.UseCompatibleStateImageBehavior = false;
             this.lvGuias.View = System.Windows.Forms.View.Details;
@@ -124,20 +122,15 @@
             this.columnDimensión.Text = "Dimensión";
             this.columnDimensión.Width = 80;
             // 
-            // columnCantidad
-            // 
-            this.columnCantidad.Text = "Cantidad";
-            this.columnCantidad.Width = 80;
-            // 
             // columnCDDestino
             // 
             this.columnCDDestino.Text = "CD Destino";
             this.columnCDDestino.Width = 210;
             // 
-            // columnTipoServicio
+            // columnTipoEnvio
             // 
-            this.columnTipoServicio.Text = "Tipo de Servicio";
-            this.columnTipoServicio.Width = 100;
+            this.columnTipoEnvio.Text = "Tipo de Envío";
+            this.columnTipoEnvio.Width = 100;
             // 
             // columnDniDestinatario
             // 
@@ -156,7 +149,7 @@
             // 
             // btnVolverMenuPrincipal
             // 
-            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(764, 207);
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(682, 207);
             this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
             this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
@@ -170,14 +163,13 @@
             this.AcceptButton = this.btnSeleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 245);
+            this.ClientSize = new System.Drawing.Size(843, 245);
             this.Controls.Add(this.btnVolverMenuPrincipal);
             this.Controls.Add(this.gbGuiasEntregadas);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.cbGuia);
             this.Controls.Add(this.lblGuia);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(941, 284);
             this.Name = "FormEstadoGuia";
             this.Text = "Consulta Estado Guia";
             this.gbGuiasEntregadas.ResumeLayout(false);
@@ -196,9 +188,8 @@
         private System.Windows.Forms.ListView lvGuias;
         private System.Windows.Forms.ColumnHeader columnNroGuia;
         private System.Windows.Forms.ColumnHeader columnDimensión;
-        private System.Windows.Forms.ColumnHeader columnCantidad;
         private System.Windows.Forms.ColumnHeader columnCDDestino;
-        private System.Windows.Forms.ColumnHeader columnTipoServicio;
+        private System.Windows.Forms.ColumnHeader columnTipoEnvio;
         private System.Windows.Forms.ColumnHeader columnDniDestinatario;
         private System.Windows.Forms.ColumnHeader columnFechaIngreso;
         private System.Windows.Forms.ColumnHeader columnEstado;

@@ -66,11 +66,11 @@
     <Compile Include="CSV\CsvOrderRepository.cs" />
     <Compile Include="CSV\CsvRendicionRepository.cs" />
     <Compile Include="Domain.cs" />
-    <Compile Include="EntregaEnCD\FormEntregaEnCD.cs">
+    <Compile Include="EntregarEncomiendaCliente_CD\FormEntregarEncomiendaAClienteCD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntregaEnCD\FormEntregaEnCD.Designer.cs">
-      <DependentUpon>FormEntregaEnCD.cs</DependentUpon>
+    <Compile Include="EntregarEncomiendaCliente_CD\FormEntregarEncomiendaAClienteCD.Designer.cs">
+      <DependentUpon>FormEntregarEncomiendaAClienteCD.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUtils.cs" />
     <Compile Include="GuiaEstados.cs" />
@@ -103,17 +103,17 @@
     <Compile Include="CuentaCorriente\FormCuentaCorriente.Designer.cs">
       <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImposicionCallCenter\FormImposicionCallCenter.cs">
+    <Compile Include="ImponerCallCenter\FormImponerCallCenter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImposicionCallCenter\FormImposicionCallCenter.Designer.cs">
-      <DependentUpon>FormImposicionCallCenter.cs</DependentUpon>
+    <Compile Include="ImponerCallCenter\FormImponerCallCenter.Designer.cs">
+      <DependentUpon>FormImponerCallCenter.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdmisionEnCD\FormAdmisionCD.cs">
+    <Compile Include="AdmitirEnCD\FormAdmitirEnCD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdmisionEnCD\FormAdmisionCD.Designer.cs">
-      <DependentUpon>FormAdmisionCD.cs</DependentUpon>
+    <Compile Include="AdmitirEnCD\FormAdmitirEnCD.Designer.cs">
+      <DependentUpon>FormAdmitirEnCD.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio\FormInicio.cs">
       <SubType>Form</SubType>
@@ -121,23 +121,23 @@
     <Compile Include="Inicio\FormInicio.Designer.cs">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="RendicionFletero\FormRendicionPrimeraMilla.cs">
+    <Compile Include="RendirEncomienda\FormRendirEncomiendas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RendicionFletero\FormRendicionPrimeraMilla.Designer.cs">
-      <DependentUpon>FormRendicionPrimeraMilla.cs</DependentUpon>
+    <Compile Include="RendirEncomienda\FormRendirEncomiendas.Designer.cs">
+      <DependentUpon>FormRendirEncomiendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="EntregasyRecepcionMicros\FormEntregasyRecepcionMicros.cs">
+    <Compile Include="RecepcionarMicros\FormRecepcionarMicros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntregasyRecepcionMicros\FormEntregasyRecepcionMicros.Designer.cs">
-      <DependentUpon>FormEntregasyRecepcionMicros.cs</DependentUpon>
+    <Compile Include="RecepcionarMicros\FormRecepcionarMicros.Designer.cs">
+      <DependentUpon>FormRecepcionarMicros.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones.cs" />
-    <EmbeddedResource Include="EntregaEnCD\FormEntregaEnCD.resx">
-      <DependentUpon>FormEntregaEnCD.cs</DependentUpon>
+    <EmbeddedResource Include="EntregarEncomiendaCliente_CD\FormEntregarEncomiendaAClienteCD.resx">
+      <DependentUpon>FormEntregarEncomiendaAClienteCD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResultadosCostosVentas\FormResultadosCostosVentas.resx">
       <DependentUpon>FormResultadosCostosVentas.cs</DependentUpon>
@@ -151,20 +151,20 @@
     <EmbeddedResource Include="CuentaCorriente\FormCuentaCorriente.resx">
       <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImposicionCallCenter\FormImposicionCallCenter.resx">
-      <DependentUpon>FormImposicionCallCenter.cs</DependentUpon>
+    <EmbeddedResource Include="ImponerCallCenter\FormImponerCallCenter.resx">
+      <DependentUpon>FormImponerCallCenter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdmisionEnCD\FormAdmisionCD.resx">
-      <DependentUpon>FormAdmisionCD.cs</DependentUpon>
+    <EmbeddedResource Include="AdmitirEnCD\FormAdmitirEnCD.resx">
+      <DependentUpon>FormAdmitirEnCD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RendicionFletero\FormRendicionPrimeraMilla.resx">
-      <DependentUpon>FormRendicionPrimeraMilla.cs</DependentUpon>
+    <EmbeddedResource Include="RendirEncomienda\FormRendirEncomiendas.resx">
+      <DependentUpon>FormRendirEncomiendas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EntregasyRecepcionMicros\FormEntregasyRecepcionMicros.resx">
-      <DependentUpon>FormEntregasyRecepcionMicros.cs</DependentUpon>
+    <EmbeddedResource Include="RecepcionarMicros\FormRecepcionarMicros.resx">
+      <DependentUpon>FormRecepcionarMicros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

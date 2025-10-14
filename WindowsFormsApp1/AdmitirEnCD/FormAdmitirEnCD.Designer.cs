@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class FormAdmisionCD
+    partial class FormAdmitirEnCD
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,8 @@
             this.btnAdmitirEncomienda = new System.Windows.Forms.Button();
             this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
             this.gbDatosDestinatario = new System.Windows.Forms.GroupBox();
+            this.cmbAgenciaEnvio = new System.Windows.Forms.ComboBox();
+            this.lblAgenciaiEnvio = new System.Windows.Forms.Label();
             this.txtDomicilioDestinatario = new System.Windows.Forms.TextBox();
             this.txtLocalidadDestinatario = new System.Windows.Forms.TextBox();
             this.lblDomicilio = new System.Windows.Forms.Label();
@@ -55,8 +57,6 @@
             this.rbEnvioCentroDistribucion = new System.Windows.Forms.RadioButton();
             this.rbEnvioDomicilio = new System.Windows.Forms.RadioButton();
             this.cbProvinciaEnvio = new System.Windows.Forms.ComboBox();
-            this.cmbAgenciaEnvio = new System.Windows.Forms.ComboBox();
-            this.lblAgenciaiEnvio = new System.Windows.Forms.Label();
             this.gbEmpresaCliente.SuspendLayout();
             this.gbDatosDestinatario.SuspendLayout();
             this.gbDetalleEncomiendas.SuspendLayout();
@@ -142,6 +142,25 @@
             this.gbDatosDestinatario.TabIndex = 2;
             this.gbDatosDestinatario.TabStop = false;
             this.gbDatosDestinatario.Text = "Datos Destinatario";
+            // 
+            // cmbAgenciaEnvio
+            // 
+            this.cmbAgenciaEnvio.FormattingEnabled = true;
+            this.cmbAgenciaEnvio.Location = new System.Drawing.Point(72, 135);
+            this.cmbAgenciaEnvio.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbAgenciaEnvio.Name = "cmbAgenciaEnvio";
+            this.cmbAgenciaEnvio.Size = new System.Drawing.Size(267, 21);
+            this.cmbAgenciaEnvio.TabIndex = 7;
+            // 
+            // lblAgenciaiEnvio
+            // 
+            this.lblAgenciaiEnvio.AutoSize = true;
+            this.lblAgenciaiEnvio.Location = new System.Drawing.Point(13, 138);
+            this.lblAgenciaiEnvio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAgenciaiEnvio.Name = "lblAgenciaiEnvio";
+            this.lblAgenciaiEnvio.Size = new System.Drawing.Size(46, 13);
+            this.lblAgenciaiEnvio.TabIndex = 6;
+            this.lblAgenciaiEnvio.Text = "Agencia";
             // 
             // txtDomicilioDestinatario
             // 
@@ -395,25 +414,6 @@
             this.cbProvinciaEnvio.Size = new System.Drawing.Size(231, 21);
             this.cbProvinciaEnvio.TabIndex = 1;
             // 
-            // cmbAgenciaEnvio
-            // 
-            this.cmbAgenciaEnvio.FormattingEnabled = true;
-            this.cmbAgenciaEnvio.Location = new System.Drawing.Point(72, 135);
-            this.cmbAgenciaEnvio.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbAgenciaEnvio.Name = "cmbAgenciaEnvio";
-            this.cmbAgenciaEnvio.Size = new System.Drawing.Size(267, 21);
-            this.cmbAgenciaEnvio.TabIndex = 7;
-            // 
-            // lblAgenciaiEnvio
-            // 
-            this.lblAgenciaiEnvio.AutoSize = true;
-            this.lblAgenciaiEnvio.Location = new System.Drawing.Point(13, 138);
-            this.lblAgenciaiEnvio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAgenciaiEnvio.Name = "lblAgenciaiEnvio";
-            this.lblAgenciaiEnvio.Size = new System.Drawing.Size(46, 13);
-            this.lblAgenciaiEnvio.TabIndex = 6;
-            this.lblAgenciaiEnvio.Text = "Agencia";
-            // 
             // FormAdmisionCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,7 +428,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(401, 563);
             this.Name = "FormAdmisionCD";
-            this.Text = "Imposición y Admisión de encomiendas en CD";
+            this.Text = "Imponer y Admitir - Centro De Distribución";
             this.gbEmpresaCliente.ResumeLayout(false);
             this.gbEmpresaCliente.PerformLayout();
             this.gbDatosDestinatario.ResumeLayout(false);

@@ -17,8 +17,11 @@ namespace WindowsFormsApp1
         private readonly IRendicionRepository _repo;
 
         // Prefijos para archivos de asignación por fletero
-        private const string ASIG_RETIRO_PREFIX = "asignaciones_retiro_";
-        private const string ASIG_ENTREGA_PREFIX = "asignaciones_entrega_";
+        private string AsignDir => System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "asignaciones");
+        private static string FileRetiros(string dir, string fleteroSafe) =>
+            System.IO.Path.Combine(dir, fleteroSafe + "_retiros.txt");
+        private static string FileEntregas(string dir, string fleteroSafe) =>
+            System.IO.Path.Combine(dir, fleteroSafe + "_entregas.txt");
 
         // Master unificado generado por imposición y actualizado por otros procesos
         private const string MASTER_FILE = "guias_master.txt";
@@ -68,13 +71,14 @@ namespace WindowsFormsApp1
         private (List<string> retiros, List<string> entregas) LeerAsignacionesDesdeArchivos(string fletero)
         {
             var safe = SanitizeFileName(fletero);
-            var fRet = Path.Combine(DataDir, $"{ASIG_RETIRO_PREFIX}{safe}.txt");
-            var fEnt = Path.Combine(DataDir, $"{ASIG_ENTREGA_PREFIX}{safe}.txt");
+            System.IO.Directory.CreateDirectory(AsignDir);
+            var fRet = FileRetiros(AsignDir, safe);
+            var fEnt = FileEntregas(AsignDir, safe);
 
             List<string> leer(string path)
             {
-                if (!File.Exists(path)) return new List<string>();
-                return File.ReadAllLines(path)
+                if (!System.IO.File.Exists(path)) return new List<string>();
+                return System.IO.File.ReadAllLines(path)
                            .Select(l => (l ?? "").Trim())
                            .Where(l => !string.IsNullOrWhiteSpace(l))
                            .ToList();
@@ -83,6 +87,7 @@ namespace WindowsFormsApp1
             return (leer(fRet), leer(fEnt));
         }
 
+
         /// <summary>
         /// Devuelve true si existen archivos (no vacíos) de asignación para el fletero.
         /// Útil para decidir si mostrar "Cargar asignaciones" o "Generar".
@@ -90,12 +95,14 @@ namespace WindowsFormsApp1
         public bool HayArchivosAsignacion(string fletero)
         {
             var safe = SanitizeFileName(fletero ?? "");
-            var fRet = Path.Combine(DataDir, $"{ASIG_RETIRO_PREFIX}{safe}.txt");
-            var fEnt = Path.Combine(DataDir, $"{ASIG_ENTREGA_PREFIX}{safe}.txt");
+            System.IO.Directory.CreateDirectory(AsignDir);
+            var fRet = FileRetiros(AsignDir, safe);
+            var fEnt = FileEntregas(AsignDir, safe);
 
-            bool vacio(string p) => !File.Exists(p) || new FileInfo(p).Length == 0;
+            bool vacio(string p) => !System.IO.File.Exists(p) || new System.IO.FileInfo(p).Length == 0;
             return !(vacio(fRet) && vacio(fEnt));
         }
+
 
         private static string SanitizeFileName(string s)
         {
@@ -126,8 +133,9 @@ namespace WindowsFormsApp1
         private void ActualizarAsignacionesTrasRendicion(string fletero, IEnumerable<string> guiasRetiros, IEnumerable<string> guiasEntregas)
         {
             var safe = SanitizeFileName(fletero);
-            var fRet = Path.Combine(DataDir, $"{ASIG_RETIRO_PREFIX}{safe}.txt");
-            var fEnt = Path.Combine(DataDir, $"{ASIG_ENTREGA_PREFIX}{safe}.txt");
+            System.IO.Directory.CreateDirectory(AsignDir);
+            var fRet = FileRetiros(AsignDir, safe);
+            var fEnt = FileEntregas(AsignDir, safe);
 
             var retiros = LeerLineasSiExiste(fRet);
             var entregas = LeerLineasSiExiste(fEnt);
@@ -146,6 +154,7 @@ namespace WindowsFormsApp1
                 EscribirLineas(fEnt, entregas);
             }
         }
+
 
         /// <summary>
         /// Lee IDs de guías desde el archivo maestro unificado (data/guias_master.txt).
@@ -205,6 +214,16 @@ namespace WindowsFormsApp1
             }
 
             _repo.Append(registros);
+
+            var master = new CsvGuiaMaster();
+            // retiros: En proceso de retiro -> Admitida en CD origen
+            if (guiasRetirosAdmitidos != null && guiasRetirosAdmitidos.Any())
+                master.CambiarEstado(guiasRetirosAdmitidos, GuiaEstados.AdmitidaOrigen);
+
+            // entregas: En proceso de entrega -> Entregada a cliente
+            if (guiasEntregasRealizadas != null && guiasEntregasRealizadas.Any())
+                master.CambiarEstado(guiasEntregasRealizadas, GuiaEstados.EntregadaCliente);
+
             ActualizarAsignacionesTrasRendicion(fletero, guiasRetirosAdmitidos, guiasEntregasRealizadas);
         }
     }

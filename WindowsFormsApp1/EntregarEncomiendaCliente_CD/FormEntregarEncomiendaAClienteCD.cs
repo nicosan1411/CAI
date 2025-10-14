@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1.EntregaEnCD
 {
-    public partial class FormEntregaEnCD : Form
+    public partial class FormEntregarEncomiendaAClienteCD : Form
     {
-        public FormEntregaEnCD()
+        public FormEntregarEncomiendaAClienteCD()
         {
             InitializeComponent();
         }

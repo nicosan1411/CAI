@@ -72,19 +72,31 @@ namespace WindowsFormsApp1
             return (true, "OK");
         }
 
+        // -------------------------
+        // GUARDADO (dos variantes)
+        // -------------------------
+
         /// <summary>
-        /// Valida y persiste el pedido en el repositorio. 
-        /// Genera el Id secuencial (lo devuelve) y limpia la lista de encomiendas.
+        /// Compatibilidad: guarda con estado inicial "Impuesta" (para Imposición Call Center).
         /// </summary>
         public (bool ok, string message, string guiaId) GuardarPedido(PedidoHeader header)
+        {
+            return GuardarPedido(header, GuiaEstados.Impuesta);
+        }
+
+        /// <summary>
+        /// Guarda permitiendo indicar el estado inicial (p.ej. "Admitida en CD origen" para Admisión CD).
+        /// </summary>
+        public (bool ok, string message, string guiaId) GuardarPedido(PedidoHeader header, string estadoInicial)
         {
             if (_encomiendas.Count == 0)
                 return (false, "Debe agregar al menos una encomienda antes de aceptar el pedido.", null);
 
-            var (ok, msg) = ValidarHeader(header);
-            if (!ok) return (ok, msg, null);
+            var valid = ValidarHeader(header);
+            if (!valid.ok) return (valid.ok, valid.message, null);
 
-            var guiaId = _repo.AppendLines(header, _encomiendas.ToArray(), "Impuesta");
+            var estado = string.IsNullOrWhiteSpace(estadoInicial) ? GuiaEstados.Impuesta : estadoInicial;
+            var guiaId = _repo.AppendLines(header, _encomiendas.ToArray(), estado);
             _encomiendas.Clear();
             return (true, "Pedido aceptado y guardado con todas las encomiendas.", guiaId);
         }

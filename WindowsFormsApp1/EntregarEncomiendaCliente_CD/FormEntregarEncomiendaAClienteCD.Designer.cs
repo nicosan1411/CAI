@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.EntregaEnCD
 {
-    partial class FormEntregaEnCD
+    partial class FormEntregarEncomiendaAClienteCD
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbComprobante = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.lvGuias = new System.Windows.Forms.ListView();
             this.columnGuiaNumero = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDestinatario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -39,7 +40,6 @@
             this.lblDni = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbComprobante.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,15 @@
             this.gbComprobante.TabIndex = 0;
             this.gbComprobante.TabStop = false;
             this.gbComprobante.Text = "Comprobante de entrega";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(211, 23);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "&Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // lvGuias
             // 
@@ -135,16 +144,7 @@
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(211, 23);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "&Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // FormEntregaEnCD
+            // FormEntregarEncomiendaAClienteCD
             // 
             this.AcceptButton = this.btnEntregar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,8 +154,8 @@
             this.Controls.Add(this.gbComprobante);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(559, 292);
-            this.Name = "FormEntregaEnCD";
-            this.Text = "Entrega en Centro de Distribución";
+            this.Name = "FormEntregarEncomiendaAClienteCD";
+            this.Text = "Entregar Encomienda a Cliente - Centro De Distribución";
             this.gbComprobante.ResumeLayout(false);
             this.gbComprobante.PerformLayout();
             this.ResumeLayout(false);

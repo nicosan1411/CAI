@@ -37,22 +37,22 @@ namespace WindowsFormsApp1
 
         private void btnImposicionCallCenter_Click(object sender, EventArgs e)
         {
-            OpenAsDialog(new FormImposicionCallCenter());
+            OpenAsDialog(new FormImponerCallCenter());
         }
 
         private void btnAdmisionCD_Click(object sender, EventArgs e)
         {
-            OpenAsDialog(new FormAdmisionCD());
+            OpenAsDialog(new FormAdmitirEnCD());
         }
 
         private void btnRendicionPrimeraMilla_Click(object sender, EventArgs e)
         {
-            OpenAsDialog(new FormRendicionPrimeraMilla());
+            OpenAsDialog(new FormRendirEncomiendas());
         }
 
         private void btnForm4_Click(object sender, EventArgs e)
         {
-            OpenAsDialog(new FormEntregasyRecepcionMicros());
+            OpenAsDialog(new FormRecepcionarMicros());
         }
 
         private void btnEmitirFactura_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
 
         private void btnEntregasEnCD_Click(object sender, EventArgs e)
         {
-            OpenAsDialog(new FormEntregaEnCD());
+            OpenAsDialog(new FormEntregarEncomiendaAClienteCD());
         }
     }
 }

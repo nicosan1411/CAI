@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class FormImposicionCallCenter
+    partial class FormImponerCallCenter
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -474,7 +474,7 @@
             this.lblAgencia.TabIndex = 3;
             this.lblAgencia.Text = "Agencia";
             // 
-            // FormImposicionCallCenter
+            // FormImponerCallCenter
             // 
             this.AcceptButton = this.btnAceptarPedido;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,8 +489,8 @@
             this.Controls.Add(this.btnVolverMenuPrincipal);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(401, 673);
-            this.Name = "FormImposicionCallCenter";
-            this.Text = "Imposición Call Center";
+            this.Name = "FormImponerCallCenter";
+            this.Text = "Imponer - Call Center";
             this.gbDetalleEncomiendas.ResumeLayout(false);
             this.gbDetalleEncomiendas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidadEncomienda)).EndInit();

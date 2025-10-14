@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormRendicionPrimeraMilla : Form
+    public partial class FormRendirEncomiendas : Form
     {
         private readonly RendicionService _service;
         private readonly AssignmentService _assignService = new AssignmentService();
@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
         private List<string> _retirosPendientes = new List<string>();   // lvRetirosDomicilioAdmitir (editable con check)
         private List<string> _entregasPendientes = new List<string>();  // lvEntregasDomicilioRealizadas (editable con check)
 
-        public FormRendicionPrimeraMilla()
+        public FormRendirEncomiendas()
         {
             InitializeComponent();
 
@@ -31,9 +31,6 @@ namespace WindowsFormsApp1
             cbFletero.SelectedIndexChanged += (_, __) => CargarAsignacionesParaFletero();
             try { btnGuardar.Click -= btnVolverMenuPrincipal_Click; } catch { }
             btnGuardar.Click += btnGuardar_Click;
-
-            if (btnGenerarAsignaciones != null)
-                btnGenerarAsignaciones.Click += (_, __) => GenerarAsignacionesYRefrescar();
         }
 
         private void InitCombos()
@@ -52,24 +49,15 @@ namespace WindowsFormsApp1
 
             lvRetirosDomicilioAdmitir.FullRowSelect = true;
             lvEntregasDomicilioRealizadas.FullRowSelect = true;
-            lvRetirarDomicilio.FullRowSelect = true;
-            lvEntregasDomicilioARealizar.FullRowSelect = true;
 
             lvRetirosDomicilioAdmitir.MultiSelect = false;
             lvEntregasDomicilioRealizadas.MultiSelect = false;
-            lvRetirarDomicilio.MultiSelect = false;
-            lvEntregasDomicilioARealizar.MultiSelect = false;
 
             // Limpiar lo que dejó el Designer (items de ejemplo)
             lvRetirosDomicilioAdmitir.Items.Clear();
             lvEntregasDomicilioRealizadas.Items.Clear();
-            lvRetirarDomicilio.Items.Clear();
-            lvEntregasDomicilioARealizar.Items.Clear();
         }
 
-        private string FleteroActual => cbFletero.Text?.Trim();
-
-        // REEMPLAZAR este método completo
         private void CargarAsignacionesParaFletero()
         {
             var fletero = cbFletero.Text?.Trim();
@@ -79,45 +67,37 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            // 🔴 NUEVO: si NO hay archivos de asignación para este fletero → no muestres nada
-            if (!_service.HayArchivosAsignacion(fletero))
+            var master = new CsvGuiaMaster();
+
+            // Informativas (siempre desde master por estado "base")
+            var aRetirar = master.ListarPorEstado(GuiaEstados.Impuesta).ToList();            // LV: A retirar en domicilio
+            var aEntregar = master.ListarPorEstado(GuiaEstados.AdmitidaDestino).ToList();    // LV: Entregas a domicilio a realizar
+
+            // Editables (trabajo del fletero). CLAVE: si no hay archivos -> NO mostrar nada (no hacer fallback global)
+            List<string> retirosEditar = new List<string>();
+            List<string> entregasEditar = new List<string>();
+
+            if (_service.HayArchivosAsignacion(fletero))
             {
-                LimpiarListas();
-                return;
+                var data = _service.CargarAsignaciones(fletero);
+                retirosEditar = data.retirosPendientes ?? new List<string>();
+                entregasEditar = data.entregasPendientes ?? new List<string>();
             }
+            // else: SIN FALLBACK. Si no tiene asignaciones, no muestra nada en las listas editables
 
-            // Si hay archivos, cargamos normalmente
-            var data = _service.CargarAsignaciones(fletero);
-            _retirosPendientes = data.retirosPendientes ?? new List<string>();
-            _entregasPendientes = data.entregasPendientes ?? new List<string>();
+            _retirosPendientes = retirosEditar;
+            _entregasPendientes = entregasEditar;
 
-            // LV1 (editable): Retiros a domicilio a admitir
+            // Pintar LVs editables
             lvRetirosDomicilioAdmitir.BeginUpdate();
             lvRetirosDomicilioAdmitir.Items.Clear();
-            foreach (var g in _retirosPendientes)
-                lvRetirosDomicilioAdmitir.Items.Add(new ListViewItem(new[] { "", g }) { Checked = false });
+            foreach (var g in retirosEditar) lvRetirosDomicilioAdmitir.Items.Add(new ListViewItem(new[] { "", g }) { Checked = false });
             lvRetirosDomicilioAdmitir.EndUpdate();
 
-            // LV2 (editable): Entregas a domicilio realizadas
             lvEntregasDomicilioRealizadas.BeginUpdate();
             lvEntregasDomicilioRealizadas.Items.Clear();
-            foreach (var g in _entregasPendientes)
-                lvEntregasDomicilioRealizadas.Items.Add(new ListViewItem(new[] { "", g }) { Checked = false });
+            foreach (var g in entregasEditar) lvEntregasDomicilioRealizadas.Items.Add(new ListViewItem(new[] { "", g }) { Checked = false });
             lvEntregasDomicilioRealizadas.EndUpdate();
-
-            // LV3 (info): A retirar en domicilio
-            lvRetirarDomicilio.BeginUpdate();
-            lvRetirarDomicilio.Items.Clear();
-            foreach (var g in _retirosPendientes)
-                lvRetirarDomicilio.Items.Add(new ListViewItem(new[] { g }));
-            lvRetirarDomicilio.EndUpdate();
-
-            // LV4 (info): Entregas a realizar
-            lvEntregasDomicilioARealizar.BeginUpdate();
-            lvEntregasDomicilioARealizar.Items.Clear();
-            foreach (var g in _entregasPendientes)
-                lvEntregasDomicilioARealizar.Items.Add(new ListViewItem(new[] { g }));
-            lvEntregasDomicilioARealizar.EndUpdate();
         }
 
 
@@ -125,8 +105,6 @@ namespace WindowsFormsApp1
         {
             lvRetirosDomicilioAdmitir.Items.Clear();
             lvEntregasDomicilioRealizadas.Items.Clear();
-            lvRetirarDomicilio.Items.Clear();
-            lvEntregasDomicilioARealizar.Items.Clear();
             _retirosPendientes.Clear();
             _entregasPendientes.Clear();
         }

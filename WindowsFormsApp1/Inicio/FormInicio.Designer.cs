@@ -106,7 +106,7 @@
             this.btnEntregasEnCD.Name = "btnEntregasEnCD";
             this.btnEntregasEnCD.Size = new System.Drawing.Size(150, 64);
             this.btnEntregasEnCD.TabIndex = 5;
-            this.btnEntregasEnCD.Text = "Entrega de Encomiendas en Centro de Distribución";
+            this.btnEntregasEnCD.Text = "Entregar Encomienda a Cliente\r\nCentro de Distribución";
             this.btnEntregasEnCD.UseVisualStyleBackColor = true;
             this.btnEntregasEnCD.Click += new System.EventHandler(this.btnEntregasEnCD_Click);
             // 
@@ -116,7 +116,7 @@
             this.btnForm4.Name = "btnForm4";
             this.btnForm4.Size = new System.Drawing.Size(150, 64);
             this.btnForm4.TabIndex = 4;
-            this.btnForm4.Text = "Entrega de Encomiendas y Recepción de Micros";
+            this.btnForm4.Text = "Recepcionar Micros";
             this.btnForm4.UseVisualStyleBackColor = true;
             this.btnForm4.Click += new System.EventHandler(this.btnForm4_Click);
             // 
@@ -136,7 +136,7 @@
             this.btnImposicionCallCenter.Name = "btnImposicionCallCenter";
             this.btnImposicionCallCenter.Size = new System.Drawing.Size(150, 64);
             this.btnImposicionCallCenter.TabIndex = 1;
-            this.btnImposicionCallCenter.Text = "Imposición Call Center";
+            this.btnImposicionCallCenter.Text = "Imponer \r\nCall Center";
             this.btnImposicionCallCenter.UseVisualStyleBackColor = true;
             this.btnImposicionCallCenter.Click += new System.EventHandler(this.btnImposicionCallCenter_Click);
             // 
@@ -146,7 +146,7 @@
             this.btnRendicionPrimeraMilla.Name = "btnRendicionPrimeraMilla";
             this.btnRendicionPrimeraMilla.Size = new System.Drawing.Size(150, 64);
             this.btnRendicionPrimeraMilla.TabIndex = 3;
-            this.btnRendicionPrimeraMilla.Text = "Rendir Encomiendas y Asignar Fletes";
+            this.btnRendicionPrimeraMilla.Text = "Rendir Encomiendas";
             this.btnRendicionPrimeraMilla.UseVisualStyleBackColor = true;
             this.btnRendicionPrimeraMilla.Click += new System.EventHandler(this.btnRendicionPrimeraMilla_Click);
             // 
@@ -156,7 +156,7 @@
             this.btnAdmisionCD.Name = "btnAdmisionCD";
             this.btnAdmisionCD.Size = new System.Drawing.Size(150, 64);
             this.btnAdmisionCD.TabIndex = 2;
-            this.btnAdmisionCD.Text = "Imposición y Admisión de Encomiendas en Centro de Distribución";
+            this.btnAdmisionCD.Text = "Imponer y Admitir\r\nCentro de Distribución";
             this.btnAdmisionCD.UseVisualStyleBackColor = true;
             this.btnAdmisionCD.Click += new System.EventHandler(this.btnAdmisionCD_Click);
             // 
