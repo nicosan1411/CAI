@@ -1,4 +1,11 @@
-﻿using System;
+﻿// ===================================================
+// CÓDIGO FUNCIONAL PERO CON MEJORAS A REALIZAR
+// ---------------------------------------------------
+// EN EL LISTVIEW DE ENTREGAS NO SE OBTIENEN DATOS
+// DE REGISTROS CON ESTADO "ADMITIDO EN CD DE DESTINO"
+// ===================================================
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;

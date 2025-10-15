@@ -82,7 +82,7 @@
             this.lvGuias.Margin = new System.Windows.Forms.Padding(2);
             this.lvGuias.MultiSelect = false;
             this.lvGuias.Name = "lvGuias";
-            this.lvGuias.Size = new System.Drawing.Size(586, 114);
+            this.lvGuias.Size = new System.Drawing.Size(584, 114);
             this.lvGuias.TabIndex = 3;
             this.toolTip1.SetToolTip(this.lvGuias, "Lista de guías asociadas al comprobante. Seleccione una si corresponde.");
             this.lvGuias.UseCompatibleStateImageBehavior = false;
@@ -105,7 +105,7 @@
             // 
             // btnEntregar
             // 
-            this.btnEntregar.Location = new System.Drawing.Point(503, 184);
+            this.btnEntregar.Location = new System.Drawing.Point(501, 185);
             this.btnEntregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEntregar.Name = "btnEntregar";
             this.btnEntregar.Size = new System.Drawing.Size(105, 27);

@@ -1,4 +1,8 @@
-﻿using System;
+﻿// ==============================================
+// CÓDIGO FUNCIONAL PERO CON MEJORAS A REALIZAR
+// ==============================================
+
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;

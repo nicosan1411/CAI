@@ -107,7 +107,7 @@
             this.lvGuias.Margin = new System.Windows.Forms.Padding(2);
             this.lvGuias.MultiSelect = false;
             this.lvGuias.Name = "lvGuias";
-            this.lvGuias.Size = new System.Drawing.Size(775, 119);
+            this.lvGuias.Size = new System.Drawing.Size(774, 119);
             this.lvGuias.TabIndex = 4;
             this.lvGuias.UseCompatibleStateImageBehavior = false;
             this.lvGuias.View = System.Windows.Forms.View.Details;

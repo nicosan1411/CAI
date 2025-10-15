@@ -106,11 +106,11 @@
             this.lvCuentasCorrientes.FullRowSelect = true;
             this.lvCuentasCorrientes.GridLines = true;
             this.lvCuentasCorrientes.HideSelection = false;
-            this.lvCuentasCorrientes.Location = new System.Drawing.Point(11, 43);
+            this.lvCuentasCorrientes.Location = new System.Drawing.Point(17, 48);
             this.lvCuentasCorrientes.Margin = new System.Windows.Forms.Padding(2);
             this.lvCuentasCorrientes.MultiSelect = false;
             this.lvCuentasCorrientes.Name = "lvCuentasCorrientes";
-            this.lvCuentasCorrientes.Size = new System.Drawing.Size(724, 122);
+            this.lvCuentasCorrientes.Size = new System.Drawing.Size(714, 117);
             this.lvCuentasCorrientes.TabIndex = 5;
             this.lvCuentasCorrientes.UseCompatibleStateImageBehavior = false;
             this.lvCuentasCorrientes.View = System.Windows.Forms.View.Details;
@@ -118,7 +118,7 @@
             // columnEmpresa
             // 
             this.columnEmpresa.Text = "Empresa";
-            this.columnEmpresa.Width = 280;
+            this.columnEmpresa.Width = 270;
             // 
             // columnEnvios
             // 

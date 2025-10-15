@@ -37,7 +37,6 @@
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.gbEstadoCuenta = new System.Windows.Forms.GroupBox();
             this.lvCuentasCorrientes = new System.Windows.Forms.ListView();
-            this.columnCliente = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnFecha = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnNroComprobante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnConcepto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,7 +50,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(891, 18);
+            this.btnBuscar.Location = new System.Drawing.Point(713, 18);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(67, 27);
@@ -66,7 +65,7 @@
             this.cbCliente.Location = new System.Drawing.Point(66, 21);
             this.cbCliente.Margin = new System.Windows.Forms.Padding(2);
             this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Size = new System.Drawing.Size(539, 21);
+            this.cbCliente.Size = new System.Drawing.Size(361, 21);
             this.cbCliente.TabIndex = 1;
             // 
             // lblClientes
@@ -82,7 +81,7 @@
             // dtpDesde
             // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(654, 22);
+            this.dtpDesde.Location = new System.Drawing.Point(476, 22);
             this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(88, 20);
@@ -91,7 +90,7 @@
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(609, 25);
+            this.lblDesde.Location = new System.Drawing.Point(431, 25);
             this.lblDesde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(41, 13);
@@ -101,7 +100,7 @@
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(746, 25);
+            this.lblHasta.Location = new System.Drawing.Point(568, 25);
             this.lblHasta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(38, 13);
@@ -111,7 +110,7 @@
             // dtpHasta
             // 
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(788, 22);
+            this.dtpHasta.Location = new System.Drawing.Point(610, 22);
             this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(88, 20);
@@ -119,15 +118,12 @@
             // 
             // gbEstadoCuenta
             // 
-            this.gbEstadoCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbEstadoCuenta.Controls.Add(this.lvCuentasCorrientes);
             this.gbEstadoCuenta.Location = new System.Drawing.Point(11, 59);
             this.gbEstadoCuenta.Margin = new System.Windows.Forms.Padding(2);
             this.gbEstadoCuenta.Name = "gbEstadoCuenta";
             this.gbEstadoCuenta.Padding = new System.Windows.Forms.Padding(2);
-            this.gbEstadoCuenta.Size = new System.Drawing.Size(949, 174);
+            this.gbEstadoCuenta.Size = new System.Drawing.Size(769, 174);
             this.gbEstadoCuenta.TabIndex = 7;
             this.gbEstadoCuenta.TabStop = false;
             this.gbEstadoCuenta.Text = "Estado de Cuenta";
@@ -136,30 +132,23 @@
             // 
             this.lvCuentasCorrientes.BackColor = System.Drawing.Color.Gainsboro;
             this.lvCuentasCorrientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnCliente,
             this.columnFecha,
             this.columnNroComprobante,
             this.columnConcepto,
             this.columnMonto,
             this.columnPago,
             this.columnSaldo});
-            this.lvCuentasCorrientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvCuentasCorrientes.FullRowSelect = true;
             this.lvCuentasCorrientes.GridLines = true;
             this.lvCuentasCorrientes.HideSelection = false;
-            this.lvCuentasCorrientes.Location = new System.Drawing.Point(2, 15);
+            this.lvCuentasCorrientes.Location = new System.Drawing.Point(12, 22);
             this.lvCuentasCorrientes.Margin = new System.Windows.Forms.Padding(2);
             this.lvCuentasCorrientes.MultiSelect = false;
             this.lvCuentasCorrientes.Name = "lvCuentasCorrientes";
-            this.lvCuentasCorrientes.Size = new System.Drawing.Size(945, 157);
+            this.lvCuentasCorrientes.Size = new System.Drawing.Size(744, 141);
             this.lvCuentasCorrientes.TabIndex = 0;
             this.lvCuentasCorrientes.UseCompatibleStateImageBehavior = false;
             this.lvCuentasCorrientes.View = System.Windows.Forms.View.Details;
-            // 
-            // columnCliente
-            // 
-            this.columnCliente.Text = "Cliente";
-            this.columnCliente.Width = 200;
             // 
             // columnFecha
             // 
@@ -197,7 +186,7 @@
             // btnExportar
             // 
             this.btnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportar.Location = new System.Drawing.Point(723, 246);
+            this.btnExportar.Location = new System.Drawing.Point(545, 246);
             this.btnExportar.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(88, 27);
@@ -208,7 +197,7 @@
             // btnVolverMenuPrincipal
             // 
             this.btnVolverMenuPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(815, 246);
+            this.btnVolverMenuPrincipal.Location = new System.Drawing.Point(637, 246);
             this.btnVolverMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolverMenuPrincipal.Name = "btnVolverMenuPrincipal";
             this.btnVolverMenuPrincipal.Size = new System.Drawing.Size(145, 27);
@@ -222,7 +211,7 @@
             this.AcceptButton = this.btnBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 284);
+            this.ClientSize = new System.Drawing.Size(793, 284);
             this.Controls.Add(this.btnVolverMenuPrincipal);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.gbEstadoCuenta);
@@ -234,7 +223,6 @@
             this.Controls.Add(this.cbCliente);
             this.Controls.Add(this.lblClientes);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(927, 323);
             this.Name = "FormCuentaCorriente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Consulta Estado Cuenta Corriente";
@@ -257,7 +245,6 @@
         private System.Windows.Forms.GroupBox gbEstadoCuenta;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.ListView lvCuentasCorrientes;
-        private System.Windows.Forms.ColumnHeader columnCliente;
         private System.Windows.Forms.ColumnHeader columnFecha;
         private System.Windows.Forms.ColumnHeader columnNroComprobante;
         private System.Windows.Forms.ColumnHeader columnConcepto;
