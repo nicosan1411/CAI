@@ -61,6 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\CuentaCorriente\Cliente.cs" />
+    <Compile Include="Consultas\CuentaCorriente\Filtros.cs" />
+    <Compile Include="Consultas\CuentaCorriente\FormCuentaCorrienteModelo.cs" />
+    <Compile Include="Consultas\CuentaCorriente\MovimientosCuenta.cs" />
     <Compile Include="Utilidades\ComboData.cs" />
     <Compile Include="Utilidades\CSV\CsvGuiaMaster.cs" />
     <Compile Include="Utilidades\CSV\CsvOrderRepository.cs" />

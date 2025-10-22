@@ -7,11 +7,14 @@ using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsApp1.Consultas.CuentaCorriente;
 
 namespace WindowsFormsApp1
 {
     public partial class FormCuentaCorriente : Form
     {
+        internal FormCuentaCorrienteModelo modelo = new FormCuentaCorrienteModelo();
+
         public FormCuentaCorriente()
         {
             InitializeComponent();
@@ -22,7 +25,9 @@ namespace WindowsFormsApp1
         {
             // Cargar clientes en el ComboBox
             cbCliente.Items.Clear();
-            foreach (var empresa in ComboData.Empresas)
+
+            //foreach (var empresa in ComboData.Empresas)
+            foreach (var empresa in modelo.Empresas)
                 cbCliente.Items.Add(empresa);
 
             if (cbCliente.Items.Count > 0)
@@ -40,30 +45,26 @@ namespace WindowsFormsApp1
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            string clienteSeleccionado = cbCliente.Text;
-            DateTime desde = dtpDesde.Value.Date;
-            DateTime hasta = dtpHasta.Value.Date;
-
-            // Filtrar movimientos según cliente y rango de fechas
-            var movimientos = ComboData.MovimientosCuenta
-                .Where(m => m.Cliente == ObtenerNombreCliente(clienteSeleccionado))
-                .Where(m =>
-                {
-                    DateTime fecha = DateTime.ParseExact(m.Fecha, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                    return fecha >= desde && fecha <= hasta;
-                })
-                .ToList();
-
-            lvCuentasCorrientes.Items.Clear();
-
-            if (movimientos.Count == 0)
+            if (cbCliente.SelectedIndex == -1)
             {
-                MessageBox.Show("No se encontraron movimientos para el cliente en el rango de fechas seleccionado.",
-                    "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Por favor, seleccione un cliente.", "Cliente no seleccionado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            foreach (var mov in movimientos)
+            Filtros filtros = new Filtros();
+            filtros.CuitCliente = cbCliente.SelectedItem?.ToString();
+            filtros.FechaDesde = dtpDesde.Value.Date;
+            filtros.FechaHasta = dtpHasta.Value.Date;
+            var ok = modelo.CargarEstadoCuenta(filtros);
+            if (!ok)
+            {
+                return;
+            }
+
+            lvCuentasCorrientes.Items.Clear();
+
+            foreach (var mov in modelo.MovimientosCuenta)
             {
                 var item = new ListViewItem(mov.Fecha);
                 item.SubItems.Add(mov.Comprobante);
@@ -73,15 +74,6 @@ namespace WindowsFormsApp1
                 item.SubItems.Add(mov.Saldo.ToString("C", CultureInfo.GetCultureInfo("es-AR")));
                 lvCuentasCorrientes.Items.Add(item);
             }
-        }
-
-        private string ObtenerNombreCliente(string comboText)
-        {
-            // Ejemplo: "30-50109269-6  Unilever de Argentina S.A." → "Unilever de Argentina S.A."
-            int idx = comboText.IndexOf("  ");
-            if (idx >= 0 && idx + 2 < comboText.Length)
-                return comboText.Substring(idx + 2).Trim();
-            return comboText;
         }
 
         private void BtnExportar_Click(object sender, EventArgs e)
