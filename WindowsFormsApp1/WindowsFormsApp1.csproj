@@ -65,7 +65,8 @@
     <Compile Include="Consultas\CuentaCorriente\Model\Filtros.cs" />
     <Compile Include="Consultas\CuentaCorriente\Model\FormCuentaCorrienteModelo.cs" />
     <Compile Include="Consultas\CuentaCorriente\Model\MovimientosCuenta.cs" />
-    <Compile Include="Consultas\EstadoGuia\FormEstadoGuiaModelo.cs" />
+    <Compile Include="Consultas\EstadoGuia\Model\FormEstadoGuiaModelo.cs" />
+    <Compile Include="Consultas\EstadoGuia\Model\Guia.cs" />
     <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\Encomienda.cs" />
     <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\Filtros.cs" />
     <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\FormEntregarEncomiendaCliente_CDModelo.cs" />
@@ -108,10 +109,10 @@
     <Compile Include="Consultas\ResultadosCostosVentas\FormResultadosCostosVentas.Designer.cs">
       <DependentUpon>FormResultadosCostosVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\EstadoGuia\FormEstadoGuia.cs">
+    <Compile Include="Consultas\EstadoGuia\Form\FormEstadoGuia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\EstadoGuia\FormEstadoGuia.Designer.cs">
+    <Compile Include="Consultas\EstadoGuia\Form\FormEstadoGuia.Designer.cs">
       <DependentUpon>FormEstadoGuia.cs</DependentUpon>
     </Compile>
     <Compile Include="Operación\EmitirFactura\FormEmitirFactura.cs">
@@ -159,7 +160,7 @@
     <EmbeddedResource Include="Consultas\ResultadosCostosVentas\FormResultadosCostosVentas.resx">
       <DependentUpon>FormResultadosCostosVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\EstadoGuia\FormEstadoGuia.resx">
+    <EmbeddedResource Include="Consultas\EstadoGuia\Form\FormEstadoGuia.resx">
       <DependentUpon>FormEstadoGuia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operación\EmitirFactura\FormEmitirFactura.resx">

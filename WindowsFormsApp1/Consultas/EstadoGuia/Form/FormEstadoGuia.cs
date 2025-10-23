@@ -6,11 +6,14 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsApp1.Consultas.EstadoGuia;
 
 namespace WindowsFormsApp1
 {
     public partial class FormEstadoGuia : Form
     {
+        internal FormEstadoGuiaModelo modelo = new FormEstadoGuiaModelo();
+
         public FormEstadoGuia()
         {
             InitializeComponent();
@@ -19,15 +22,30 @@ namespace WindowsFormsApp1
 
         private void InicializarFormulario()
         {
+            // Combo de guías
             cbGuia.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGuia.Items.Clear();
+            foreach (var nro in modelo.GuiasDisponibles)
+                cbGuia.Items.Add(nro);
 
-            // Cargar las guías en el combo
-            foreach (var g in ComboData.GuiasDemo)
-                cbGuia.Items.Add(g.Numero);
+            // No seleccionamos nada por defecto
+            cbGuia.SelectedIndex = -1;
 
-            if (cbGuia.Items.Count > 0)
-                cbGuia.SelectedIndex = 0;
+            // ListView (por si no está en el Designer)
+            lvGuias.FullRowSelect = true;
+            lvGuias.GridLines = true;
+            lvGuias.View = View.Details;
+
+            if (lvGuias.Columns.Count == 0)
+            {
+                lvGuias.Columns.Add("N° Guía", 100);
+                lvGuias.Columns.Add("Dimensión", 90);
+                lvGuias.Columns.Add("CD Destino", 160);
+                lvGuias.Columns.Add("Tipo de Envío", 140);
+                lvGuias.Columns.Add("DNI Destinatario", 130);
+                lvGuias.Columns.Add("Fecha de Ingreso", 130);
+                lvGuias.Columns.Add("Estado", 140);
+            }
 
             btnSeleccionar.Click += BtnSeleccionar_Click;
         }
@@ -42,17 +60,18 @@ namespace WindowsFormsApp1
             }
 
             string nroGuia = cbGuia.SelectedItem.ToString();
-            var guia = ComboData.GuiasDemo.FirstOrDefault(g => g.Numero == nroGuia);
+            var guia = modelo.ConsultarPorNumero(nroGuia);
 
             if (guia == null)
             {
-                MessageBox.Show("La consulta no logró ser ejecutada correctamente.\nPor favor intente de nuevo.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontró información para la guía seleccionada.",
+                    "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Mostrar los datos en el ListView
-            var item = new ListViewItem(guia.Numero);
+            lvGuias.Items.Clear();
+
+            var item = new ListViewItem(guia.NumeroGuia);
             item.SubItems.Add(guia.Dimension);
             item.SubItems.Add(guia.CDDestino);
             item.SubItems.Add(guia.TipoEnvio);
