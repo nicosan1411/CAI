@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp1.Consultas.CuentaCorriente
+namespace WindowsFormsApp1.Operación.ImponerCallCenter
 {
-    public class Cliente
+    internal class Cliente
     {
         public string Cuit { get; set; }
         public string RazonSocial { get; set; }

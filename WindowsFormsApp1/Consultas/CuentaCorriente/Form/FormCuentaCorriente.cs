@@ -23,12 +23,11 @@ namespace WindowsFormsApp1
 
         private void InicializarFormulario()
         {
-            // Cargar clientes en el ComboBox
             cbCliente.Items.Clear();
 
-            //foreach (var empresa in ComboData.Empresas)
-            foreach (var empresa in modelo.Empresas)
-                cbCliente.Items.Add(empresa);
+            cbCliente.DataSource = modelo.Empresas;
+            cbCliente.DisplayMember = "Cuit_RazonSocial";
+            cbCliente.ValueMember = "Cuit";
 
             if (cbCliente.Items.Count > 0)
                 cbCliente.SelectedIndex = -1;

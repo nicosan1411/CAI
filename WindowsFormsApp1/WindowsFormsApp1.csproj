@@ -61,10 +61,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consultas\CuentaCorriente\Cliente.cs" />
-    <Compile Include="Consultas\CuentaCorriente\Filtros.cs" />
-    <Compile Include="Consultas\CuentaCorriente\FormCuentaCorrienteModelo.cs" />
-    <Compile Include="Consultas\CuentaCorriente\MovimientosCuenta.cs" />
+    <Compile Include="Consultas\CuentaCorriente\Model\Cliente.cs" />
+    <Compile Include="Consultas\CuentaCorriente\Model\Filtros.cs" />
+    <Compile Include="Consultas\CuentaCorriente\Model\FormCuentaCorrienteModelo.cs" />
+    <Compile Include="Consultas\CuentaCorriente\Model\MovimientosCuenta.cs" />
+    <Compile Include="Consultas\EstadoGuia\FormEstadoGuiaModelo.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Agencia.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Cliente.cs" />
+    <Compile Include="Operación\ImponerCallCenter\FormImponerCallCenterModelo.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Provincia.cs" />
     <Compile Include="Utilidades\ComboData.cs" />
     <Compile Include="Utilidades\CSV\CsvGuiaMaster.cs" />
     <Compile Include="Utilidades\CSV\CsvOrderRepository.cs" />
@@ -102,10 +107,10 @@
     <Compile Include="Operación\EmitirFactura\FormEmitirFactura.Designer.cs">
       <DependentUpon>FormEmitirFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\CuentaCorriente\FormCuentaCorriente.cs">
+    <Compile Include="Consultas\CuentaCorriente\Form\FormCuentaCorriente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\CuentaCorriente\FormCuentaCorriente.Designer.cs">
+    <Compile Include="Consultas\CuentaCorriente\Form\FormCuentaCorriente.Designer.cs">
       <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </Compile>
     <Compile Include="Operación\ImponerCallCenter\FormImponerCallCenter.cs">
@@ -153,7 +158,7 @@
     <EmbeddedResource Include="Operación\EmitirFactura\FormEmitirFactura.resx">
       <DependentUpon>FormEmitirFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\CuentaCorriente\FormCuentaCorriente.resx">
+    <EmbeddedResource Include="Consultas\CuentaCorriente\Form\FormCuentaCorriente.resx">
       <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operación\ImponerCallCenter\FormImponerCallCenter.resx">
