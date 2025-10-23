@@ -66,6 +66,9 @@
     <Compile Include="Consultas\CuentaCorriente\Model\FormCuentaCorrienteModelo.cs" />
     <Compile Include="Consultas\CuentaCorriente\Model\MovimientosCuenta.cs" />
     <Compile Include="Consultas\EstadoGuia\FormEstadoGuiaModelo.cs" />
+    <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\Encomienda.cs" />
+    <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\Filtros.cs" />
+    <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\FormEntregarEncomiendaCliente_CDModelo.cs" />
     <Compile Include="Operación\ImponerCallCenter\Agencia.cs" />
     <Compile Include="Operación\ImponerCallCenter\Cliente.cs" />
     <Compile Include="Operación\ImponerCallCenter\FormImponerCallCenterModelo.cs" />
@@ -75,10 +78,10 @@
     <Compile Include="Utilidades\CSV\CsvOrderRepository.cs" />
     <Compile Include="Utilidades\CSV\CsvRendicionRepository.cs" />
     <Compile Include="Utilidades\Domain.cs" />
-    <Compile Include="Operación\EntregarEncomiendaCliente_CD\FormEntregarEncomiendaAClienteCD.cs">
+    <Compile Include="Operación\EntregarEncomiendaCliente_CD\Form\FormEntregarEncomiendaAClienteCD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operación\EntregarEncomiendaCliente_CD\FormEntregarEncomiendaAClienteCD.Designer.cs">
+    <Compile Include="Operación\EntregarEncomiendaCliente_CD\Form\FormEntregarEncomiendaAClienteCD.Designer.cs">
       <DependentUpon>FormEntregarEncomiendaAClienteCD.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\FormUtils.cs" />
@@ -146,7 +149,7 @@
     <Compile Include="Utilidades\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\Validaciones.cs" />
-    <EmbeddedResource Include="Operación\EntregarEncomiendaCliente_CD\FormEntregarEncomiendaAClienteCD.resx">
+    <EmbeddedResource Include="Operación\EntregarEncomiendaCliente_CD\Form\FormEntregarEncomiendaAClienteCD.resx">
       <DependentUpon>FormEntregarEncomiendaAClienteCD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ResultadosCostosVentas\FormResultadosCostosVentas.resx">
@@ -210,5 +213,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
