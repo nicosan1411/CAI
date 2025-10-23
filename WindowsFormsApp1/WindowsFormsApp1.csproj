@@ -69,10 +69,20 @@
     <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\Encomienda.cs" />
     <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\Filtros.cs" />
     <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\FormEntregarEncomiendaCliente_CDModelo.cs" />
-    <Compile Include="Operación\ImponerCallCenter\Agencia.cs" />
-    <Compile Include="Operación\ImponerCallCenter\Cliente.cs" />
-    <Compile Include="Operación\ImponerCallCenter\FormImponerCallCenterModelo.cs" />
-    <Compile Include="Operación\ImponerCallCenter\Provincia.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Formulario\FormImponerCallCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operación\ImponerCallCenter\Formulario\FormImponerCallCenter.Designer.cs">
+      <DependentUpon>FormImponerCallCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operación\ImponerCallCenter\Model\Agencia.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Model\Cliente.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Model\Destinatario.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Model\Dimension.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Model\EncomiendaItem.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Model\FormImponerCallCenterModelo.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Model\Pedido.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Model\Provincia.cs" />
     <Compile Include="Utilidades\ComboData.cs" />
     <Compile Include="Utilidades\CSV\CsvGuiaMaster.cs" />
     <Compile Include="Utilidades\CSV\CsvOrderRepository.cs" />
@@ -116,12 +126,6 @@
     <Compile Include="Consultas\CuentaCorriente\Form\FormCuentaCorriente.Designer.cs">
       <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operación\ImponerCallCenter\FormImponerCallCenter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Operación\ImponerCallCenter\FormImponerCallCenter.Designer.cs">
-      <DependentUpon>FormImponerCallCenter.cs</DependentUpon>
-    </Compile>
     <Compile Include="Operación\AdmitirEnCD\FormAdmitirEnCD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,14 +168,14 @@
     <EmbeddedResource Include="Consultas\CuentaCorriente\Form\FormCuentaCorriente.resx">
       <DependentUpon>FormCuentaCorriente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operación\ImponerCallCenter\FormImponerCallCenter.resx">
-      <DependentUpon>FormImponerCallCenter.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Operación\AdmitirEnCD\FormAdmitirEnCD.resx">
       <DependentUpon>FormAdmitirEnCD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operación\ImponerCallCenter\Formulario\FormImponerCallCenter.resx">
+      <DependentUpon>FormImponerCallCenter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operación\RendirEncomienda\FormRendirEncomiendas.resx">
       <DependentUpon>FormRendirEncomiendas.cs</DependentUpon>

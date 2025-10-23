@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
 {
     partial class FormImponerCallCenter
     {
@@ -98,7 +98,6 @@
             this.btnQuitarEncomienda.TabIndex = 6;
             this.btnQuitarEncomienda.Text = "&Quitar";
             this.btnQuitarEncomienda.UseVisualStyleBackColor = true;
-            this.btnQuitarEncomienda.Click += new System.EventHandler(this.btnQuitarEncomienda_Click);
             // 
             // lstEncomiendas
             // 
@@ -122,7 +121,6 @@
             this.btnGuardarEncomienda.TabIndex = 5;
             this.btnGuardarEncomienda.Text = "&Guardar";
             this.btnGuardarEncomienda.UseVisualStyleBackColor = true;
-            this.btnGuardarEncomienda.Click += new System.EventHandler(this.btnGuardarEncomienda_Click);
             // 
             // numericCantidadEncomienda
             // 
@@ -360,7 +358,6 @@
             this.btnAceptarPedido.TabIndex = 5;
             this.btnAceptarPedido.Text = "&Aceptar pedido";
             this.btnAceptarPedido.UseVisualStyleBackColor = true;
-            this.btnAceptarPedido.Click += new System.EventHandler(this.btnAceptarPedido_Click);
             // 
             // btnVolverMenuPrincipal
             // 
