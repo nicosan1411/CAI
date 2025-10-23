@@ -9,7 +9,7 @@ namespace WindowsFormsApp1.Operacion.EntregarEncomiendaCliente_CD.Model
         // Resultado de la última búsqueda
         public IReadOnlyList<Encomienda> Encomiendas { get; private set; } = new List<Encomienda>();
 
-        // Datos de prueba internos (evitamos conflictos con ComboData)
+        // Datos de prueba internos 
         private readonly List<Encomienda> _demo = new List<Encomienda>
         {
             new Encomienda("1001", "Carlos Pérez",   "32455678", "Admitida en CD destino"),

@@ -28,7 +28,7 @@ namespace WindowsFormsApp1.EntregaEnCD
             lvGuias.View = View.Details;
             lvGuias.MultiSelect = false;
 
-            // Asegura columnas (por si el Designer no las tiene)
+            
             if (lvGuias.Columns.Count == 0)
             {
                 lvGuias.Columns.Add("N° Guía", 120);
@@ -40,14 +40,14 @@ namespace WindowsFormsApp1.EntregaEnCD
             // Eventos
             btnBuscar.Click += BtnBuscar_Click;
             btnEntregar.Click += BtnEntregar_Click;
-            btnVolverMenuPrincipal.Click += btnVolverMenuPrincipal_Click;
+            
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             string dni = txtDNI.Text.Trim();
 
-            // Validación de DNI (si tenés esta clase utilitaria)
+            // Validación de DNI 
             if (!Validaciones.EsDniValido(dni, out string error))
             {
                 MessageBox.Show(error, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -79,7 +79,7 @@ namespace WindowsFormsApp1.EntregaEnCD
 
         private void BtnEntregar_Click(object sender, EventArgs e)
         {
-            // Entrega TODAS las listadas (no requiere selección)
+            // Entrega TODAS las listadas 
             var ok = modelo.EntregarTodas();
             if (ok)
             {
