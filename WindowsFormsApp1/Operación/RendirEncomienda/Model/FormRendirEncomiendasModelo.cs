@@ -22,10 +22,12 @@ namespace WindowsFormsApp1.Operación.RendirEncomienda.Model
 
         private readonly List<GuiaRendir> _guiasDemo = new List<GuiaRendir>
         {
-            new GuiaRendir("1001", "EnProcesoDeRetiro"),
-            new GuiaRendir("1002", "EnProcesoDeRetiro"),
-            new GuiaRendir("2001", "EnProcesoDeEntrega"),
-            new GuiaRendir("2002", "EnProcesoDeEntrega"),
+            new GuiaRendir("1001", "EnProcesoDeRetiro", "F001"),
+            new GuiaRendir("1002", "EnProcesoDeEntrega", "F001"),
+            new GuiaRendir("2001", "EnProcesoDeRetiro", "F002"),
+            new GuiaRendir("2002", "EnProcesoDeEntrega", "F002"),
+            new GuiaRendir("3001", "EnProcesoDeRetiro", "F003"),
+            new GuiaRendir("3002", "EnProcesoDeEntrega", "F003"),
         };
 
         // --- Métodos públicos ---
@@ -41,18 +43,22 @@ namespace WindowsFormsApp1.Operación.RendirEncomienda.Model
                 return false;
             }
 
-            // Separar guías por estado
-            Retiros = _guiasDemo
+            // Filtrar solo las guías de ese fletero
+            var guiasFletero = _guiasDemo
+                .Where(g => g.NroFleteAsignado == fletero.NroFlete)
+                .ToList();
+
+            Retiros = guiasFletero
                 .Where(g => g.Estado == "EnProcesoDeRetiro")
                 .ToList();
 
-            Entregas = _guiasDemo
+            Entregas = guiasFletero
                 .Where(g => g.Estado == "EnProcesoDeEntrega")
                 .ToList();
 
             if (Retiros.Count == 0 && Entregas.Count == 0)
             {
-                MessageBox.Show("No hay encomiendas asociadas al flete ingresado.",
+                MessageBox.Show("No hay encomiendas asociadas al fletero ingresado.",
                     "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
