@@ -156,7 +156,6 @@
             this.btnVolverMenuPrincipal.TabIndex = 7;
             this.btnVolverMenuPrincipal.Text = "Volver al Menú Principal";
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
-            this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
             // btnGuardar
             // 

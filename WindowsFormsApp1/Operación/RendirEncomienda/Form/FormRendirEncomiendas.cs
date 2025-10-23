@@ -9,146 +9,146 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsApp1.Operación.RendirEncomienda.Model;
 
 namespace WindowsFormsApp1
 {
     public partial class FormRendirEncomiendas : Form
     {
-        // Servicio de rendición (sin log de archivo por defecto)
-        private readonly RendicionService _service;
+        // Modelo de negocio (reemplaza al RendicionService)
+        private readonly FormRendirEncomiendasModelo _modelo;
 
         public FormRendirEncomiendas()
         {
             InitializeComponent();
 
-            _service = new RendicionService(null) { HabilitarLog = false };          // sin log, simple
-
+            _modelo = new FormRendirEncomiendasModelo();
 
             InitCombos();
             InitListViews();
             WireHandlers();
-
-            // Selecciona el primer fletero si hay, y carga sus asignaciones
-            if (cbFletero.Items.Count > 0)
-            {
-                cbFletero.SelectedIndex = 0;
-                CargarAsignacionesParaFletero();
-            }
         }
 
+        // =========================
+        // Inicialización de combos
+        // =========================
         private void InitCombos()
         {
             cbFletero.DropDownStyle = ComboBoxStyle.DropDownList;
             cbFletero.Items.Clear();
-            // Fuente centralizada de fleteros
-            foreach (var f in _service.ObtenerFleteros())
+
+            foreach (var f in _modelo.ObtenerFleteros())
                 cbFletero.Items.Add(f);
 
-            if (cbFletero.Items.Count > 0)
-                cbFletero.SelectedIndex = -1;
+            cbFletero.SelectedIndex = -1;
         }
 
+        // =========================
+        // Inicialización de ListViews
+        // =========================
         private void InitListViews()
         {
-            // Configura columnas/checks/selección (la define tu helper)
+            // Retiros
             FormUtils.ConfigureListView(lvRetirosDomicilioAdmitir, true);
+            lvRetirosDomicilioAdmitir.Columns.Clear();
+            lvRetirosDomicilioAdmitir.Columns.Add("N° Guía", 120);
+            lvRetirosDomicilioAdmitir.Columns.Add("Estado", 180);
+
+            // Entregas
+            FormUtils.ConfigureListView(lvEntregasDomicilioRealizadas, true);
+            lvEntregasDomicilioRealizadas.Columns.Clear();
+            lvEntregasDomicilioRealizadas.Columns.Add("N° Guía", 120);
+            lvEntregasDomicilioRealizadas.Columns.Add("Estado", 180);
         }
 
+        // =========================
+        // Asociar eventos
+        // =========================
         private void WireHandlers()
         {
             cbFletero.SelectedIndexChanged += (_, __) => CargarAsignacionesParaFletero();
             btnGuardar.Click += (_, __) => GuardarYRefrescar();
+            btnVolverMenuPrincipal.Click += (_, __) => VolverMenuPrincipal();
         }
 
-        /// <summary>
-        /// Carga SOLO lo asignado a ese fletero desde los TXT (nada de fallback al master).
-        /// </summary>
+        // =========================
+        // Cargar guías del fletero
+        // =========================
         private void CargarAsignacionesParaFletero()
         {
-            var fletero = (cbFletero.Text ?? "").Trim();
-
-            lvRetirosDomicilioAdmitir.BeginUpdate();
-            lvRetirosDomicilioAdmitir.Items.Clear();
-            lvRetirosDomicilioAdmitir.EndUpdate();
-
-            if (string.IsNullOrWhiteSpace(fletero))
+            var fletero = cbFletero.SelectedItem as Fletero;
+            if (fletero == null)
                 return;
 
-            var data = _service.CargarAsignaciones(fletero);
-            var retiros = data.retirosPendientes ?? new List<string>();
+            var ok = _modelo.BuscarPorFletero(fletero);
+            lvRetirosDomicilioAdmitir.Items.Clear();
+            lvEntregasDomicilioRealizadas.Items.Clear();
 
-            lvRetirosDomicilioAdmitir.BeginUpdate();
-            foreach (var guia in retiros)
+            if (!ok) return;
+
+            // --- RETIROS ---
+            foreach (var g in _modelo.Retiros)
             {
-                // Si tu LV tiene dos columnas ["", "Guía"], usamos 2 subitems; si es 1 columna, solo Text.
-                if (lvRetirosDomicilioAdmitir.Columns.Count > 1)
-                    lvRetirosDomicilioAdmitir.Items.Add(new ListViewItem(new[] { "", guia }) { Checked = false });
-                else
-                    lvRetirosDomicilioAdmitir.Items.Add(new ListViewItem(guia) { Checked = false });
+                var item = new ListViewItem(g.NroGuia);
+                item.SubItems.Add(g.Estado);
+                item.Checked = false;
+                lvRetirosDomicilioAdmitir.Items.Add(item);
             }
-            lvRetirosDomicilioAdmitir.EndUpdate();
+
+            // --- ENTREGAS ---
+            foreach (var g in _modelo.Entregas)
+            {
+                var item = new ListViewItem(g.NroGuia);
+                item.SubItems.Add(g.Estado);
+                item.Checked = false;
+                lvEntregasDomicilioRealizadas.Items.Add(item);
+            }
         }
 
-        /// <summary>
-        /// Devuelve el N° de guía desde un ListViewItem, tolerando 1 o 2 columnas.
-        /// </summary>
-        private static string GetGuiaFromItem(ListViewItem it)
-        {
-            if (it == null) return "";
-            return (it.SubItems.Count > 1 ? it.SubItems[1].Text : it.Text ?? "").Trim();
-        }
-
-        /// <summary>
-        /// Toma tildadas, guarda (cambia estados + limpia TXT) y recarga la lista para que desaparezcan.
-        /// </summary>
+        // =========================
+        // Guardar rendición
+        // =========================
         private void GuardarYRefrescar()
         {
-            var fletero = (cbFletero.Text ?? "").Trim();
-            if (string.IsNullOrWhiteSpace(fletero))
+            var fletero = cbFletero.SelectedItem as Fletero;
+            if (fletero == null)
             {
-                MessageBox.Show("Seleccioná un fletero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe seleccionar un fletero.",
+                    "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var guiasRetiros = lvRetirosDomicilioAdmitir.Items
-                .Cast<ListViewItem>()
-                .Where(it => it.Checked)
-                .Select(GetGuiaFromItem)
-                .Where(s => !string.IsNullOrWhiteSpace(s))
-                .ToList();
+            // Actualizar selección en el modelo según los checkboxes
+            for (int i = 0; i < _modelo.Retiros.Count; i++)
+                _modelo.Retiros[i].Seleccionada = lvRetirosDomicilioAdmitir.Items[i].Checked;
 
-            // Si este form también procesara entregas, acá armarías la lista:
-            var guiasEntregas = new List<string>(); // no se usa en esta pantalla
+            for (int i = 0; i < _modelo.Entregas.Count; i++)
+                _modelo.Entregas[i].Seleccionada = lvEntregasDomicilioRealizadas.Items[i].Checked;
 
-            if (guiasRetiros.Count == 0 && guiasEntregas.Count == 0)
-            {
-                if (MessageBox.Show("No seleccionaste ninguna guía. ¿Querés guardar igual?",
-                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
-            }
+            // Ejecutar la lógica de guardado
+            var ok = _modelo.GuardarCambios();
+            if (!ok) return;
 
-            if (MessageBox.Show("¿Confirmás guardar la rendición seleccionada?",
-                "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
-
-            try
-            {
-                // Cambia estado en master (Impuesta -> Admitida en CD origen) y limpia TXT del fletero
-                _service.Guardar(fletero, guiasRetiros, guiasEntregas);
-
-                // 🔁 Recarga desde disco las asignaciones del fletero para que desaparezcan las ya rendidas
-                CargarAsignacionesParaFletero();
-
-                MessageBox.Show("Rendición guardada.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Refrescar vista
+            lvRetirosDomicilioAdmitir.Items.Clear();
+            lvEntregasDomicilioRealizadas.Items.Clear();
+            cbFletero.SelectedIndex = -1;
+            cbFletero.Focus();
         }
 
-        private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
+        // =========================
+        // Volver al menú principal
+        // =========================
+        private void VolverMenuPrincipal()
         {
-            FormUtils.VolverAlMenu(this);
+            var confirm = MessageBox.Show(
+                "¿Desea volver al menú principal? Se perderán los cambios no guardados.",
+                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+                FormUtils.VolverAlMenu(this);
         }
+
     }
 
 }
