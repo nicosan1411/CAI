@@ -7,11 +7,13 @@ using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsApp1.Operación.EmitirFactura;
 
 namespace WindowsFormsApp1
 {
     public partial class FormEmitirFactura : Form
     {
+        internal FormEmitirFacturaModelo modelo = new FormEmitirFacturaModelo();
         public FormEmitirFactura()
         {
             InitializeComponent();
@@ -21,13 +23,15 @@ namespace WindowsFormsApp1
         private void InicializarFormulario()
         {
             // Cargar clientes en el combo
-            cbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCliente.Items.Clear();
-            foreach (var empresa in ComboData.Empresas)
-                cbCliente.Items.Add(empresa);
+
+            cbCliente.DataSource = modelo.Empresas;
+            cbCliente.DisplayMember = "Cuit_RazonSocial";
+            cbCliente.ValueMember = "Cuit";
+
 
             if (cbCliente.Items.Count > 0)
-                cbCliente.SelectedIndex = 0;
+                cbCliente.SelectedIndex = -1;
 
             // Eventos
             btnSeleccionar.Click += BtnSeleccionar_Click;
@@ -36,17 +40,22 @@ namespace WindowsFormsApp1
 
         private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
-            string cliente = cbCliente.Text;
-            if (string.IsNullOrWhiteSpace(cliente))
+            if (cbCliente.SelectedIndex == -1)
             {
-                MessageBox.Show("Seleccioná un cliente para continuar.", "Atención",
+                MessageBox.Show("Por favor, seleccione un cliente.", "Cliente no seleccionado",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Traer las facturas del cliente seleccionado
-            var facturas = ComboData.FacturasDemo
-                .Where(f => f.Cliente == cliente)
+            // Limpiar el ListView antes de cargar nuevos datos
+            lvFacturasClientes.Items.Clear();
+
+            // Obtener el cliente seleccionado
+            var clienteSeleccionado = (ClienteFactura)cbCliente.SelectedItem;
+
+            // 🔹 Filtrar por CUIT, no por texto
+            var facturas = modelo.ListadoFacturacion
+                .Where(f => f.Cliente.Contains(clienteSeleccionado.Cuit))
                 .ToList();
 
             if (facturas.Count == 0)
@@ -56,7 +65,7 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            // Cargar en el ListView (acumula)
+            // Cargar los resultados en el ListView
             foreach (var f in facturas)
             {
                 var item = new ListViewItem(f.NroGuia);
