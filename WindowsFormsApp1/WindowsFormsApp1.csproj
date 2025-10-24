@@ -87,6 +87,9 @@
     <Compile Include="Operación\ImponerCallCenter\Model\FormImponerCallCenterModelo.cs" />
     <Compile Include="Operación\ImponerCallCenter\Model\Pedido.cs" />
     <Compile Include="Operación\ImponerCallCenter\Model\Provincia.cs" />
+    <Compile Include="Operación\RecepcionarMicros\Model\FormRecepcionarMicrosModelo.cs" />
+    <Compile Include="Operación\RecepcionarMicros\Model\GuiasMicros.cs" />
+    <Compile Include="Operación\RecepcionarMicros\Model\Micro.cs" />
     <Compile Include="Operación\RendirEncomienda\Model\Fletero.cs" />
     <Compile Include="Operación\RendirEncomienda\Model\FormRendirEncomiendasModelo.cs" />
     <Compile Include="Operación\RendirEncomienda\Model\GuiaRendir.cs" />
@@ -151,10 +154,10 @@
     <Compile Include="Operación\RendirEncomienda\Form\FormRendirEncomiendas.Designer.cs">
       <DependentUpon>FormRendirEncomiendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operación\RecepcionarMicros\FormRecepcionarMicros.cs">
+    <Compile Include="Operación\RecepcionarMicros\Form\FormRecepcionarMicros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operación\RecepcionarMicros\FormRecepcionarMicros.Designer.cs">
+    <Compile Include="Operación\RecepcionarMicros\Form\FormRecepcionarMicros.Designer.cs">
       <DependentUpon>FormRecepcionarMicros.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\Program.cs" />
@@ -187,7 +190,7 @@
     <EmbeddedResource Include="Operación\RendirEncomienda\Form\FormRendirEncomiendas.resx">
       <DependentUpon>FormRendirEncomiendas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operación\RecepcionarMicros\FormRecepcionarMicros.resx">
+    <EmbeddedResource Include="Operación\RecepcionarMicros\Form\FormRecepcionarMicros.resx">
       <DependentUpon>FormRecepcionarMicros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -12,7 +12,7 @@ namespace WindowsFormsApp1.Operación.RendirEncomienda.Model
         public IReadOnlyList<GuiaRendir> Retiros { get; private set; } = new List<GuiaRendir>();
         public IReadOnlyList<GuiaRendir> Entregas { get; private set; } = new List<GuiaRendir>();
 
-        // --- Datos de prueba ---
+        // Datos de prueba 
         private readonly List<Fletero> _fleterosDemo = new List<Fletero>
         {
             new Fletero("José Pérez", "AA123BB", "F001"),
