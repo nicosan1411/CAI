@@ -17,13 +17,20 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Model
             new Cliente{ Cuit = "30-66544332-7", RazonSocial = "Danone S.A."}
         };
 
-        public Agencia[] Agencias => new Agencia[] 
+        public AgenciaRetiro[] AgenciasRetiro => new[]
         {
-            new Agencia{ Id = 1, Nombre = "Agencia 1", ProvinciaCodigo = "BA" },
-            new Agencia{ Id = 2, Nombre = "Agencia 2", ProvinciaCodigo = "BA" },
-            new Agencia{ Id = 3, Nombre = "Agencia 3", ProvinciaCodigo = "SA" },
-            new Agencia{ Id = 4, Nombre = "Agencia 4", ProvinciaCodigo = "CH" },
-            new Agencia{ Id = 5, Nombre = "Agencia 5", ProvinciaCodigo = "TU" }
+            new AgenciaRetiro{ Id = 101, Nombre = "Retiro - Sucursal A" },
+            new AgenciaRetiro{ Id = 102, Nombre = "Retiro - Sucursal B" },
+            new AgenciaRetiro{ Id = 103, Nombre = "Retiro - Sucursal C" },
+        };
+
+        public AgenciaEnvio[] AgenciasEnvio => new AgenciaEnvio[] 
+        {
+            new AgenciaEnvio{ Id = 1, Nombre = "Agencia 1", ProvinciaCodigo = "BA" },
+            new AgenciaEnvio{ Id = 2, Nombre = "Agencia 2", ProvinciaCodigo = "BA" },
+            new AgenciaEnvio{ Id = 3, Nombre = "Agencia 3", ProvinciaCodigo = "SA" },
+            new AgenciaEnvio{ Id = 4, Nombre = "Agencia 4", ProvinciaCodigo = "CH" },
+            new AgenciaEnvio{ Id = 5, Nombre = "Agencia 5", ProvinciaCodigo = "TU" }
         };
 
         public Provincia[] Provincias => new Provincia[]
@@ -47,11 +54,12 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Model
             new Dimension{ Tamaño = "XL" }
         };
 
-        public IEnumerable<Agencia> AgenciasPorProvincia(string provinciaCodigo)
-            => string.IsNullOrEmpty(provinciaCodigo)
-                ? Enumerable.Empty<Agencia>()
-                : Agencias.Where(a => a.ProvinciaCodigo == provinciaCodigo);
+        public IEnumerable<AgenciaEnvio> AgenciasEnvioPorProvincia(string provinciaCodigo)
+            => string.IsNullOrWhiteSpace(provinciaCodigo)
+                ? Enumerable.Empty<AgenciaEnvio>()
+                : AgenciasEnvio.Where(a => a.ProvinciaCodigo == provinciaCodigo);
 
+        public IEnumerable<AgenciaRetiro> TodasLasAgenciasDeRetiro() => AgenciasRetiro;
 
         /*
          * Reglas de negocio del form para aceptar un pedido.

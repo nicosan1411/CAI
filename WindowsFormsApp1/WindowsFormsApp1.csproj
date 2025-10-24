@@ -79,7 +79,8 @@
     <Compile Include="Operación\ImponerCallCenter\Formulario\FormImponerCallCenter.Designer.cs">
       <DependentUpon>FormImponerCallCenter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operación\ImponerCallCenter\Model\Agencia.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Model\AgenciaEnvio.cs" />
+    <Compile Include="Operación\ImponerCallCenter\Model\AgenciaRetiro.cs" />
     <Compile Include="Operación\ImponerCallCenter\Model\Cliente.cs" />
     <Compile Include="Operación\ImponerCallCenter\Model\Destinatario.cs" />
     <Compile Include="Operación\ImponerCallCenter\Model\Dimension.cs" />

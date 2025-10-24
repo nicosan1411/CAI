@@ -44,9 +44,14 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
 
             // Agencias (se cargarán al elegir provincia)
             cbAgenciaRetiro.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbAgenciaEnvio.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAgenciaRetiro.Enabled = false;
+            cbAgenciaRetiro.DataSource = modelo.TodasLasAgenciasDeRetiro().ToList();
+            cbAgenciaRetiro.DisplayMember = "Nombre";
+            cbAgenciaRetiro.SelectedIndex = -1;
+
+            cmbAgenciaEnvio.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAgenciaEnvio.Enabled = false;
+            cmbAgenciaEnvio.DataSource = null;
 
             // Radios por defecto
             rbRetiroDomicilio.Checked = true;
@@ -77,17 +82,13 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
             cbProvinciaEnvio.SelectedIndexChanged += (_, __) =>
             {
                 var prov = cbProvinciaEnvio.SelectedItem as Provincia;
-                var lista = prov == null
-                    ? Enumerable.Empty<Agencia>()
-                    : modelo.AgenciasPorProvincia(prov.Codigo).ToList(); // helper del modelo
+                var listaEnvio = prov == null
+                    ? Enumerable.Empty<AgenciaEnvio>()
+                    : modelo.AgenciasEnvioPorProvincia(prov.Codigo).ToList();
 
-                cmbAgenciaEnvio.DataSource = lista.ToList();
-                cmbAgenciaEnvio.DisplayMember = nameof(Agencia.Nombre);
+                cmbAgenciaEnvio.DataSource = listaEnvio;
+                cmbAgenciaEnvio.DisplayMember = nameof(AgenciaEnvio.Nombre);
                 cmbAgenciaEnvio.SelectedIndex = -1;
-
-                cbAgenciaRetiro.DataSource = lista.ToList();
-                cbAgenciaRetiro.DisplayMember = nameof(Agencia.Nombre);
-                cbAgenciaRetiro.SelectedIndex = -1;
             };
 
             // Retiro
@@ -157,14 +158,14 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
                 // Retiro
                 TipoRetiro = rbRetiroAgencia.Checked ? "Agencia"
                               : rbRetiroDomicilio.Checked ? "Domicilio" : null,
-                AgenciaRetiro = rbRetiroAgencia.Checked ? cbAgenciaRetiro.SelectedItem as Agencia : null,
+                AgenciaRetiro = rbRetiroAgencia.Checked ? cbAgenciaRetiro.SelectedItem as AgenciaRetiro : null,
 
                 // Envío
                 TipoEnvio = rbEnvioAgencia.Checked ? "Agencia"
                                : rbEnvioCentroDistribucion.Checked ? "Centro de distribución"
                                : rbEnvioDomicilio.Checked ? "Domicilio" : null,
                 ProvinciaEnvio = cbProvinciaEnvio.SelectedItem as Provincia,
-                AgenciaEnvio = rbEnvioAgencia.Checked ? cmbAgenciaEnvio.SelectedItem as Agencia : null,
+                AgenciaEnvio = rbEnvioAgencia.Checked ? cmbAgenciaEnvio.SelectedItem as AgenciaEnvio : null,
 
                 // Destinatario
                 DniDestinatario = txtDniDestinatario.Text?.Trim(),
@@ -278,7 +279,7 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
             cbEmpresaCliente.SelectedIndex = -1;
             cbProvinciaEnvio.SelectedIndex = -1;
 
-            cbAgenciaRetiro.DataSource = null;
+            cbAgenciaRetiro.SelectedIndex = -1;
             cmbAgenciaEnvio.DataSource = null;
 
             rbRetiroDomicilio.Checked = true;

@@ -9,12 +9,12 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Model
 
         // Retiro
         public string TipoRetiro { get; set; }           // "Domicilio" | "Agencia"
-        public Agencia AgenciaRetiro { get; set; }       // requerido si TipoRetiro = "Agencia"
+        public AgenciaRetiro AgenciaRetiro { get; set; }       // requerido si TipoRetiro = "Agencia"
 
         // Envío
         public string TipoEnvio { get; set; }            // "Domicilio" | "Agencia" | "Centro de distribución"
         public Provincia ProvinciaEnvio { get; set; }    // según la opción de envío
-        public Agencia AgenciaEnvio { get; set; }        // requerido si TipoEnvio = "Agencia"
+        public AgenciaEnvio AgenciaEnvio { get; set; }        // requerido si TipoEnvio = "Agencia"
 
         // Destinatario (cuando aplique)
         public string DniDestinatario { get; set; }
