@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Consultas.CuentaCorriente.Model;
 using WindowsFormsApp1.EntregaEnCD;
 using WindowsFormsApp1.Operación.ImponerCallCenter.Formulario;
 
