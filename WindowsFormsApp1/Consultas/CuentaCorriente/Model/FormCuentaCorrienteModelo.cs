@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Consultas.CuentaCorriente
+namespace WindowsFormsApp1.Consultas.CuentaCorriente.Model
 {
     public class FormCuentaCorrienteModelo
     {

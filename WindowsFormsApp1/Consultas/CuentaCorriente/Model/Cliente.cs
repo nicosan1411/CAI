@@ -5,7 +5,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp1.Consultas.CuentaCorriente
+namespace WindowsFormsApp1.Consultas.CuentaCorriente.Model
 {
     public class Cliente
     {

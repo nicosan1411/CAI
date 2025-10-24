@@ -9,7 +9,7 @@ using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsApp1.Consultas.CuentaCorriente;
 
-namespace WindowsFormsApp1
+namespace WindowsFormsApp1.Consultas.CuentaCorriente.Model
 {
     public partial class FormCuentaCorriente : Form
     {
