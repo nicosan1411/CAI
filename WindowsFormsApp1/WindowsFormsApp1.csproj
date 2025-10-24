@@ -70,6 +70,9 @@
     <Compile Include="Consultas\ResultadosCostosVentas\Model\Filtros.cs" />
     <Compile Include="Consultas\ResultadosCostosVentas\Model\FormResultadosCostosVentasModelo.cs" />
     <Compile Include="Consultas\ResultadosCostosVentas\Model\ResultadoCostoVenta.cs" />
+    <Compile Include="Operación\EmitirFactura\Model\ClienteFactura.cs" />
+    <Compile Include="Operación\EmitirFactura\Model\FormEmitirFacturaModelo.cs" />
+    <Compile Include="Operación\EmitirFactura\Model\ListadoFacturacion.cs" />
     <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\Encomienda.cs" />
     <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\Filtros.cs" />
     <Compile Include="Operación\EntregarEncomiendaCliente_CD\Model\FormEntregarEncomiendaCliente_CDModelo.cs" />
