@@ -1,18 +1,14 @@
-﻿// ==================================================================
-// FALTA CÓDIGO POR REALIZAR
-// EL CÓDIGO AQUÍ ES SOLO DEMOSTRATIVO PARA MOSTRAR LA IDEA GENERAL
-// ==================================================================
-
-using System;
+﻿using System;
+using System.Linq;
 using System.Windows.Forms;
-using WindowsFormsApp1.Operacion.EntregarEncomiendaCliente_CD.Model;
+using WindowsFormsApp1.Inicio;
 
-namespace WindowsFormsApp1.EntregaEnCD
+namespace WindowsFormsApp1.Operacion.EntregarEncomiendaClienteCD.Model
 {
     public partial class FormEntregarEncomiendaAClienteCD : Form
     {
         // Modelo del formulario
-        internal FormEntregarEncomiendaCliente_CDModelo modelo = new FormEntregarEncomiendaCliente_CDModelo();
+        internal FormEntregarEncomiendaClienteCDModelo modelo = new FormEntregarEncomiendaClienteCDModelo();
 
         public FormEntregarEncomiendaAClienteCD()
         {
@@ -43,12 +39,33 @@ namespace WindowsFormsApp1.EntregaEnCD
             
         }
 
+        public static bool EsDniValido(string dni, out string error)
+        {
+            error = null;
+
+            if (string.IsNullOrWhiteSpace(dni))
+            {
+                error = "Ingresá el DNI del destinatario.";
+                return false;
+            }
+
+            // Normalizo a dígitos y valido largo exacto
+            var limpio = new string(dni.Where(char.IsDigit).ToArray());
+            if (limpio.Length != 8)
+            {
+                error = "El DNI debe tener exactamente 8 dígitos.";
+                return false;
+            }
+
+            return true;
+        }
+
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             string dni = txtDNI.Text.Trim();
 
-            // Validación de DNI 
-            if (!Validaciones.EsDniValido(dni, out string error))
+            // Validación de DNI
+            if (!EsDniValido(dni, out string error))
             {
                 MessageBox.Show(error, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDNI.Focus();
@@ -92,7 +109,7 @@ namespace WindowsFormsApp1.EntregaEnCD
 
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
-            FormUtils.VolverAlMenu(this);
+            FormInicio.VolverAlMenu(this);
         }
     }
 }

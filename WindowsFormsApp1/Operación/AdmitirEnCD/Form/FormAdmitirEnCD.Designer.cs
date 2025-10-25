@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace WindowsFormsApp1.Operación.AdmitirEnCD.Model
 {
     partial class FormAdmitirEnCD
     {
@@ -82,10 +82,10 @@
             // 
             this.cbEmpresaCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbEmpresaCliente.FormattingEnabled = true;
-            this.cbEmpresaCliente.Location = new System.Drawing.Point(101, 21);
+            this.cbEmpresaCliente.Location = new System.Drawing.Point(107, 21);
             this.cbEmpresaCliente.Margin = new System.Windows.Forms.Padding(2);
             this.cbEmpresaCliente.Name = "cbEmpresaCliente";
-            this.cbEmpresaCliente.Size = new System.Drawing.Size(236, 21);
+            this.cbEmpresaCliente.Size = new System.Drawing.Size(230, 21);
             this.cbEmpresaCliente.TabIndex = 1;
             // 
             // lblEmpresaCliente
@@ -108,7 +108,6 @@
             this.btnAdmitirEncomienda.TabIndex = 4;
             this.btnAdmitirEncomienda.Text = "&Admitir Encomienda";
             this.btnAdmitirEncomienda.UseVisualStyleBackColor = true;
-            this.btnAdmitirEncomienda.Click += new System.EventHandler(this.btnAdmitirEncomienda_Click);
             // 
             // btnVolverMenuPrincipal
             // 
@@ -271,7 +270,6 @@
             this.btnQuitarEncomienda.TabIndex = 6;
             this.btnQuitarEncomienda.Text = "&Quitar";
             this.btnQuitarEncomienda.UseVisualStyleBackColor = true;
-            this.btnQuitarEncomienda.Click += new System.EventHandler(this.btnQuitarEncomienda_Click);
             // 
             // btnGuardarEncomienda
             // 
@@ -283,7 +281,6 @@
             this.btnGuardarEncomienda.TabIndex = 5;
             this.btnGuardarEncomienda.Text = "&Guardar";
             this.btnGuardarEncomienda.UseVisualStyleBackColor = true;
-            this.btnGuardarEncomienda.Click += new System.EventHandler(this.btnGuardarEncomienda_Click);
             // 
             // numericCantidadEncomienda
             // 
@@ -414,7 +411,7 @@
             this.cbProvinciaEnvio.Size = new System.Drawing.Size(231, 21);
             this.cbProvinciaEnvio.TabIndex = 1;
             // 
-            // FormAdmisionCD
+            // FormAdmitirEnCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -427,7 +424,7 @@
             this.Controls.Add(this.gbDetalleEnvio);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(401, 563);
-            this.Name = "FormAdmisionCD";
+            this.Name = "FormAdmitirEnCD";
             this.Text = "Imponer y Admitir - Centro De Distribución";
             this.gbEmpresaCliente.ResumeLayout(false);
             this.gbEmpresaCliente.PerformLayout();

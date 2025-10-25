@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace WindowsFormsApp1.Consultas.EstadoGuia.Model
 {
     partial class FormEstadoGuia
     {

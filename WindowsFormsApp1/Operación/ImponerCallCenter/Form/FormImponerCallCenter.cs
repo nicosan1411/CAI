@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using WindowsFormsApp1.Operación.ImponerCallCenter.Model; // <- tus DTOs y modelo
+using WindowsFormsApp1.Inicio;
 
-namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
+namespace WindowsFormsApp1.Operación.ImponerCallCenter.Model
 {
     public partial class FormImponerCallCenter : Form
     {
@@ -42,13 +42,14 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
             cbDimension.SelectedIndex = -1;
             cbDimension.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Agencias (se cargarán al elegir provincia)
+            // Agencia de retiro
             cbAgenciaRetiro.DropDownStyle = ComboBoxStyle.DropDownList;
             cbAgenciaRetiro.Enabled = false;
             cbAgenciaRetiro.DataSource = modelo.TodasLasAgenciasDeRetiro().ToList();
             cbAgenciaRetiro.DisplayMember = "Nombre";
             cbAgenciaRetiro.SelectedIndex = -1;
 
+            // Agencia de envío (se cargarán al elegir provincia)
             cmbAgenciaEnvio.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAgenciaEnvio.Enabled = false;
             cmbAgenciaEnvio.DataSource = null;
@@ -104,11 +105,6 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
             btnGuardarEncomienda.Click += BtnGuardarEncomienda_Click;
             btnQuitarEncomienda.Click += BtnQuitarEncomienda_Click;
             btnAceptarPedido.Click += BtnAceptarPedido_Click;
-
-            // Si el .Designer engancha handlers viejos por nombre, agregá estos “puentes”:
-            // void btnGuardarEncomienda_Click(object s, EventArgs e) => BtnGuardarEncomienda_Click(s, e);
-            // void btnQuitarEncomienda_Click(object s, EventArgs e)  => BtnQuitarEncomienda_Click(s, e);
-            // void btnAceptarPedido_Click(object s, EventArgs e)     => BtnAceptarPedido_Click(s, e);
         }
 
         // ============ Habilitar / deshabilitar según radios ============
@@ -157,13 +153,13 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
 
                 // Retiro
                 TipoRetiro = rbRetiroAgencia.Checked ? "Agencia"
-                              : rbRetiroDomicilio.Checked ? "Domicilio" : null,
+                                : rbRetiroDomicilio.Checked ? "Domicilio" : null,
                 AgenciaRetiro = rbRetiroAgencia.Checked ? cbAgenciaRetiro.SelectedItem as AgenciaRetiro : null,
 
                 // Envío
                 TipoEnvio = rbEnvioAgencia.Checked ? "Agencia"
-                               : rbEnvioCentroDistribucion.Checked ? "Centro de distribución"
-                               : rbEnvioDomicilio.Checked ? "Domicilio" : null,
+                                : rbEnvioCentroDistribucion.Checked ? "Centro de distribución"
+                                : rbEnvioDomicilio.Checked ? "Domicilio" : null,
                 ProvinciaEnvio = cbProvinciaEnvio.SelectedItem as Provincia,
                 AgenciaEnvio = rbEnvioAgencia.Checked ? cmbAgenciaEnvio.SelectedItem as AgenciaEnvio : null,
 
@@ -298,7 +294,7 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
 
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
-            FormUtils.VolverAlMenu(this);
+            FormInicio.VolverAlMenu(this);
         }
     }
 }

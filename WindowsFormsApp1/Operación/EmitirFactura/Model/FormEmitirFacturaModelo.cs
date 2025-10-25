@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static WindowsFormsApp1.ComboData;
+﻿using System.Collections.Generic;
 
-namespace WindowsFormsApp1.Operación.EmitirFactura
+namespace WindowsFormsApp1.Operación.EmitirFactura.Model
 {
     public class FormEmitirFacturaModelo
     {
