@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Consultas.CuentaCorriente.Model;
-using WindowsFormsApp1.EntregaEnCD;
-using WindowsFormsApp1.Operación.ImponerCallCenter.Formulario;
+using WindowsFormsApp1.Consultas.EstadoGuia.Model;
+using WindowsFormsApp1.Consultas.ResultadosCostosVentas.Model;
+using WindowsFormsApp1.Operación.AdmitirEnCD.Model;
+using WindowsFormsApp1.Operación.EmitirFactura.Model;
+using WindowsFormsApp1.Operacion.EntregarEncomiendaClienteCD.Model;
+using WindowsFormsApp1.Operación.ImponerCallCenter.Model;
+using WindowsFormsApp1.Operación.RecepcionarMicros.Model;
+using WindowsFormsApp1.Operación.RendirEncomienda.Model;
 
-namespace WindowsFormsApp1
+namespace WindowsFormsApp1.Inicio
 {
     public partial class FormInicio : Form
     {
@@ -35,6 +34,18 @@ namespace WindowsFormsApp1
                 this.Show();
                 this.Activate();
             }
+        }
+
+        public static void VolverAlMenu(Form formularioActual)
+        {
+            var result = MessageBox.Show(
+                "¿Deseás volver al menú principal?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+            if (result == DialogResult.Yes)
+                formularioActual.Close();
         }
 
         private void btnImposicionCallCenter_Click(object sender, EventArgs e)
@@ -80,6 +91,15 @@ namespace WindowsFormsApp1
         private void btnEntregasEnCD_Click(object sender, EventArgs e)
         {
             OpenAsDialog(new FormEntregarEncomiendaAClienteCD());
+        }
+
+        public static void ConfigureListView(ListView lv, bool withCheckboxes)
+        {
+            lv.View = View.Details;
+            lv.CheckBoxes = withCheckboxes;
+            lv.FullRowSelect = true;
+            lv.MultiSelect = false;
+            lv.Items.Clear();
         }
     }
 }

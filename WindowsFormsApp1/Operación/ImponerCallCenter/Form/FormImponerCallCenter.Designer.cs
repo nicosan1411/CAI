@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.Operación.ImponerCallCenter.Formulario
+﻿namespace WindowsFormsApp1.Operación.ImponerCallCenter.Model
 {
     partial class FormImponerCallCenter
     {

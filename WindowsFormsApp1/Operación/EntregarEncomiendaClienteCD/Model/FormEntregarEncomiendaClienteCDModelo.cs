@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Operacion.EntregarEncomiendaCliente_CD.Model
+namespace WindowsFormsApp1.Operacion.EntregarEncomiendaClienteCD.Model
 {
-    internal class FormEntregarEncomiendaCliente_CDModelo
+    internal class FormEntregarEncomiendaClienteCDModelo
     {
         // Resultado de la última búsqueda
         public IReadOnlyList<Encomienda> Encomiendas { get; private set; } = new List<Encomienda>();

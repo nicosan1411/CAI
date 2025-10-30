@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace WindowsFormsApp1.Operacion.EntregarEncomiendaCliente_CD.Model
+﻿namespace WindowsFormsApp1.Operacion.EntregarEncomiendaClienteCD.Model
 {
     public class Encomienda
     {

@@ -1,17 +1,7 @@
-﻿// ===================================================
-// CÓDIGO FUNCIONAL PERO CON MEJORAS A REALIZAR
-// ---------------------------------------------------
-// EN EL LISTVIEW DE ENTREGAS NO SE OBTIENEN DATOS
-// DE REGISTROS CON ESTADO "ADMITIDO EN CD DE DESTINO"
-// ===================================================
+﻿using System.Windows.Forms;
+using WindowsFormsApp1.Inicio;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using WindowsFormsApp1.Operación.RendirEncomienda.Model;
-
-namespace WindowsFormsApp1
+namespace WindowsFormsApp1.Operación.RendirEncomienda.Model
 {
     public partial class FormRendirEncomiendas : Form
     {
@@ -49,13 +39,13 @@ namespace WindowsFormsApp1
         private void InitListViews()
         {
             // Retiros
-            FormUtils.ConfigureListView(lvRetirosDomicilioAdmitir, true);
+            FormInicio.ConfigureListView(lvRetirosDomicilioAdmitir, true);
             lvRetirosDomicilioAdmitir.Columns.Clear();
             lvRetirosDomicilioAdmitir.Columns.Add("N° Guía", 120);
             lvRetirosDomicilioAdmitir.Columns.Add("Estado", 180);
 
             // Entregas
-            FormUtils.ConfigureListView(lvEntregasDomicilioRealizadas, true);
+            FormInicio.ConfigureListView(lvEntregasDomicilioRealizadas, true);
             lvEntregasDomicilioRealizadas.Columns.Clear();
             lvEntregasDomicilioRealizadas.Columns.Add("N° Guía", 120);
             lvEntregasDomicilioRealizadas.Columns.Add("Estado", 180);
@@ -146,7 +136,7 @@ namespace WindowsFormsApp1
                 "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirm == DialogResult.Yes)
-                FormUtils.VolverAlMenu(this);
+                FormInicio.VolverAlMenu(this);
         }
 
     }

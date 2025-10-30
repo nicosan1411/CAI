@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.EntregaEnCD
+﻿namespace WindowsFormsApp1.Operacion.EntregarEncomiendaClienteCD.Model
 {
     partial class FormEntregarEncomiendaAClienteCD
     {

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1.Operación.RendirEncomienda.Model
@@ -22,12 +19,12 @@ namespace WindowsFormsApp1.Operación.RendirEncomienda.Model
 
         private readonly List<GuiaRendir> _guiasDemo = new List<GuiaRendir>
         {
-            new GuiaRendir("1001", "EnProcesoDeRetiro", "F001"),
-            new GuiaRendir("1002", "EnProcesoDeEntrega", "F001"),
-            new GuiaRendir("2001", "EnProcesoDeRetiro", "F002"),
-            new GuiaRendir("2002", "EnProcesoDeEntrega", "F002"),
-            new GuiaRendir("3001", "EnProcesoDeRetiro", "F003"),
-            new GuiaRendir("3002", "EnProcesoDeEntrega", "F003"),
+            new GuiaRendir("1001", "En Proceso De Retiro", "F001"),
+            new GuiaRendir("1002", "En Proceso De Entrega", "F001"),
+            new GuiaRendir("2001", "En Proceso De Retiro", "F002"),
+            new GuiaRendir("2002", "En Proceso De Entrega", "F002"),
+            new GuiaRendir("3001", "En Proceso De Retiro", "F003"),
+            new GuiaRendir("3002", "En Proceso De Entrega", "F003"),
         };
 
         // --- Métodos públicos ---
@@ -49,11 +46,11 @@ namespace WindowsFormsApp1.Operación.RendirEncomienda.Model
                 .ToList();
 
             Retiros = guiasFletero
-                .Where(g => g.Estado == "EnProcesoDeRetiro")
+                .Where(g => g.Estado == "En Proceso De Retiro")
                 .ToList();
 
             Entregas = guiasFletero
-                .Where(g => g.Estado == "EnProcesoDeEntrega")
+                .Where(g => g.Estado == "En Proceso De Entrega")
                 .ToList();
 
             if (Retiros.Count == 0 && Entregas.Count == 0)

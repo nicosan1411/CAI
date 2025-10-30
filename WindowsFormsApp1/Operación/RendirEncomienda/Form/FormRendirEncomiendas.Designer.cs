@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace WindowsFormsApp1.Operación.RendirEncomienda.Model
 {
     partial class FormRendirEncomiendas
     {

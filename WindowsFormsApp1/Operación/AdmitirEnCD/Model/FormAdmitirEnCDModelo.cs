@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace WindowsFormsApp1.Operación.ImponerCallCenter.Model
+namespace WindowsFormsApp1.Operación.AdmitirEnCD.Model
 {
-    public class FormImponerCallCenterModelo
+    public class FormAdmitirEnCDModelo
     {
         public Cliente[] Clientes => new Cliente[]
         {
@@ -15,25 +15,6 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Model
             new Cliente{ Cuit = "30-58412999-2", RazonSocial = "Ledesma S.A.A.I."},
             new Cliente{ Cuit = "30-70012345-8", RazonSocial = "Nestlé Argentina S.A."},
             new Cliente{ Cuit = "30-66544332-7", RazonSocial = "Danone S.A."}
-        };
-
-        public AgenciaRetiro[] AgenciasRetiro => new[]
-        {
-            new AgenciaRetiro{ Id = 101, Nombre = "Retiro - Sucursal A" },
-            new AgenciaRetiro{ Id = 102, Nombre = "Retiro - Sucursal B" },
-            new AgenciaRetiro{ Id = 103, Nombre = "Retiro - Sucursal C" },
-        };
-
-        public AgenciaEnvio[] AgenciasEnvio => new AgenciaEnvio[] 
-        {
-            new AgenciaEnvio{ Id = 1, Nombre = "Agencia 1", ProvinciaCodigo = "BA" },
-            new AgenciaEnvio{ Id = 2, Nombre = "Agencia 2", ProvinciaCodigo = "CO" },
-            new AgenciaEnvio{ Id = 3, Nombre = "Agencia 3", ProvinciaCodigo = "SF" },
-            new AgenciaEnvio{ Id = 4, Nombre = "Agencia 4", ProvinciaCodigo = "ME" },
-            new AgenciaEnvio{ Id = 5, Nombre = "Agencia 5", ProvinciaCodigo = "TU" },
-            new AgenciaEnvio{ Id = 6, Nombre = "Agencia 6", ProvinciaCodigo = "SA" },
-            new AgenciaEnvio{ Id = 7, Nombre = "Agencia 7", ProvinciaCodigo = "CH" },
-            new AgenciaEnvio{ Id = 8, Nombre = "Agencia 8", ProvinciaCodigo = "ER" },
         };
 
         public Provincia[] Provincias => new Provincia[]
@@ -48,6 +29,18 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Model
             new Provincia{ Codigo = "ER", Nombre = "Entre Ríos" }
         };
 
+        public AgenciaEnvio[] AgenciasEnvio => new AgenciaEnvio[]
+        {
+            new AgenciaEnvio{ Id = 1, Nombre = "Agencia 1", ProvinciaCodigo = "BA" },
+            new AgenciaEnvio{ Id = 2, Nombre = "Agencia 2", ProvinciaCodigo = "CO" },
+            new AgenciaEnvio{ Id = 3, Nombre = "Agencia 3", ProvinciaCodigo = "SF" },
+            new AgenciaEnvio{ Id = 4, Nombre = "Agencia 4", ProvinciaCodigo = "ME" },
+            new AgenciaEnvio{ Id = 5, Nombre = "Agencia 5", ProvinciaCodigo = "TU" },
+            new AgenciaEnvio{ Id = 6, Nombre = "Agencia 6", ProvinciaCodigo = "SA" },
+            new AgenciaEnvio{ Id = 7, Nombre = "Agencia 7", ProvinciaCodigo = "CH" },
+            new AgenciaEnvio{ Id = 8, Nombre = "Agencia 8", ProvinciaCodigo = "ER" },
+        };
+        
         public Dimension[] Dimensiones => new Dimension[]
         {
             new Dimension{ Tamaño = "XS" },
@@ -62,24 +55,12 @@ namespace WindowsFormsApp1.Operación.ImponerCallCenter.Model
                 ? Enumerable.Empty<AgenciaEnvio>()
                 : AgenciasEnvio.Where(a => a.ProvinciaCodigo == provinciaCodigo);
 
-        public IEnumerable<AgenciaRetiro> TodasLasAgenciasDeRetiro() => AgenciasRetiro;
-
-        /*
-         * Reglas de negocio del form para aceptar un pedido.
-         * Devuelve lista de errores. Si la lista está vacía, el pedido es válido.
-         */
         public List<string> ValidarPedido(Pedido p)
         {
             var errores = new List<string>();
 
             if (p.Cliente == null)
                 errores.Add("Debe seleccionar un cliente.");
-
-            // Tipo de retiro
-            if (string.IsNullOrWhiteSpace(p.TipoRetiro))
-                errores.Add("Debe seleccionar el tipo de retiro.");
-            else if (p.TipoRetiro == "Agencia" && p.AgenciaRetiro == null)
-                errores.Add("Debe seleccionar la agencia de retiro.");
 
             // Tipo de envío
             switch (p.TipoEnvio)

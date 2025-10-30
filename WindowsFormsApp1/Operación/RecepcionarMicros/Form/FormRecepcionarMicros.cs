@@ -1,14 +1,8 @@
-﻿// ==============================================
-// CÓDIGO FUNCIONAL PERO CON MEJORAS A REALIZAR
-// ==============================================
-
-using System;
-using System.Linq;
-using System.Collections.Generic;
+﻿using System.Linq;
 using System.Windows.Forms;
-using WindowsFormsApp1.Operación.RecepcionarMicros.Model;
+using WindowsFormsApp1.Inicio;
 
-namespace WindowsFormsApp1
+namespace WindowsFormsApp1.Operación.RecepcionarMicros.Model
 {
     public partial class FormRecepcionarMicros : Form
     {
@@ -23,13 +17,6 @@ namespace WindowsFormsApp1
             InitCombos();
             InitListViews();
             WireHandlers();
-
-            // Cargar por defecto si hay micros
-            if (cbPatente.Items.Count > 0)
-            {
-                cbPatente.SelectedIndex = 0;
-                CargarGuiasPorMicro();
-            }
         }
 
         private void InitCombos()
@@ -59,7 +46,7 @@ namespace WindowsFormsApp1
         {
             cbPatente.SelectedIndexChanged += (_, __) => CargarGuiasPorMicro();
             btnGuardar.Click += (_, __) => GuardarRecepcion();
-            btnVolverMenuPrincipal.Click += (_, __) => FormUtils.VolverAlMenu(this);
+            btnVolverMenuPrincipal.Click += (_, __) => FormInicio.VolverAlMenu(this);
         }
 
         private void CargarGuiasPorMicro()

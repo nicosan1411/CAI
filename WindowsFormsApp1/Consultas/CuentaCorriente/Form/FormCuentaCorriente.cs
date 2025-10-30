@@ -1,13 +1,7 @@
-﻿// ==================================================================
-// FALTA CÓDIGO POR REALIZAR
-// EL CÓDIGO AQUÍ ES SOLO DEMOSTRATIVO PARA MOSTRAR LA IDEA GENERAL
-// ==================================================================
-
-using System;
+﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
-using WindowsFormsApp1.Consultas.CuentaCorriente;
+using WindowsFormsApp1.Inicio;
 
 namespace WindowsFormsApp1.Consultas.CuentaCorriente.Model
 {
@@ -84,7 +78,7 @@ namespace WindowsFormsApp1.Consultas.CuentaCorriente.Model
 
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
-            FormUtils.VolverAlMenu(this);
+            FormInicio.VolverAlMenu(this);
         }
     }
 }
