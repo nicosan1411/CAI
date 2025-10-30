@@ -90,10 +90,22 @@ namespace WindowsFormsApp1
 
             if (confirm == DialogResult.Yes)
             {
+                // ✅ Identificar las guías facturadas
+                var guiasFacturadas = lvFacturasClientes.Items
+                    .Cast<ListViewItem>()
+                    .Select(i => i.Text) // el NroGuia está en la columna principal
+                    .ToList();
+
+                // ✅ Eliminar esas guías del modelo (de la "base de datos" temporal)
+                var listaEditable = modelo.ListadoFacturacion.ToList();
+                listaEditable.RemoveAll(f => guiasFacturadas.Contains(f.NroGuia));
+                modelo.ListadoFacturacion = listaEditable;
+
                 MessageBox.Show("Factura emitida correctamente para el cliente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                lvFacturasClientes.Items.Clear(); // Limpia después de emitir
+                // ✅ Limpiar la vista
+                lvFacturasClientes.Items.Clear();
             }
         }
 
