@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Inicio;
+using CAI_Proyecto.Forms.Inicio;
 
-namespace WindowsFormsApp1
+namespace CAI_Proyecto
 {
     internal static class Program
     {
@@ -17,7 +14,7 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormInicio());
+            Application.Run(new InicioForm());
         }
     }
 }
