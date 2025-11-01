@@ -7,16 +7,16 @@ namespace CAI_Proyecto.Forms.Operacion.EmitirFactura.Model
 
         public IReadOnlyList<ListadoFacturacion> ListadoFacturacion { get; set; }
 
-        public ClienteFactura[] Empresas => new ClienteFactura[]
+        public Cliente[] Empresas => new Cliente[]
         {
-            new ClienteFactura { Cuit = "30-50109269-6", RazonSocial = "Unilever de Argentina S.A." },
-            new ClienteFactura { Cuit = "30-50361405-3", RazonSocial = "Arcor S.A.I.C." },
-            new ClienteFactura { Cuit = "30-70752101-7", RazonSocial = "Molinos Río de la Plata S.A." },
-            new ClienteFactura { Cuit = "30-50033372-9", RazonSocial = "Coca-Cola FEMSA S.A." },
-            new ClienteFactura { Cuit = "30-56712390-1", RazonSocial = "Procter & Gamble S.R.L." },
-            new ClienteFactura { Cuit = "30-58412999-2", RazonSocial = "Ledesma S.A.A.I." },
-            new ClienteFactura { Cuit = "30-70012345-8", RazonSocial = "Nestlé Argentina S.A." },
-            new ClienteFactura { Cuit = "30-66544332-7", RazonSocial = "Danone S.A." }
+            new Cliente { Cuit = "30-50109269-6", RazonSocial = "Unilever de Argentina S.A." },
+            new Cliente { Cuit = "30-50361405-3", RazonSocial = "Arcor S.A.I.C." },
+            new Cliente { Cuit = "30-70752101-7", RazonSocial = "Molinos Río de la Plata S.A." },
+            new Cliente { Cuit = "30-50033372-9", RazonSocial = "Coca-Cola FEMSA S.A." },
+            new Cliente { Cuit = "30-56712390-1", RazonSocial = "Procter & Gamble S.R.L." },
+            new Cliente { Cuit = "30-58412999-2", RazonSocial = "Ledesma S.A.A.I." },
+            new Cliente { Cuit = "30-70012345-8", RazonSocial = "Nestlé Argentina S.A." },
+            new Cliente { Cuit = "30-66544332-7", RazonSocial = "Danone S.A." }
         };
 
 

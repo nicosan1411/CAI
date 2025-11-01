@@ -47,7 +47,7 @@ namespace CAI_Proyecto.Forms.Operacion.EmitirFactura.Forms
             lvFacturasClientes.Items.Clear();
 
             // Obtener el cliente seleccionado
-            var clienteSeleccionado = (ClienteFactura)cbCliente.SelectedItem;
+            var clienteSeleccionado = (Cliente)cbCliente.SelectedItem;
 
             // 🔹 Filtrar por CUIT, no por texto
             var facturas = modelo.ListadoFacturacion

@@ -61,6 +61,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almacenes\AgenciaAlmacen.cs" />
+    <Compile Include="Almacenes\AgenciaComision.cs" />
+    <Compile Include="Almacenes\AgenciaEntidad.cs" />
+    <Compile Include="Almacenes\CentroDeDistribucionAlmacen.cs" />
+    <Compile Include="Almacenes\CentroDeDistribucionEntidad.cs" />
+    <Compile Include="Almacenes\ClienteAlmacen.cs" />
+    <Compile Include="Almacenes\ClienteEntidad.cs" />
+    <Compile Include="Almacenes\EmpresaFleteAlmacen.cs" />
+    <Compile Include="Almacenes\EmpresaFleteEntidad.cs" />
+    <Compile Include="Almacenes\EmpresaMicroAlmacen.cs" />
+    <Compile Include="Almacenes\EmpresaMicroEntidad.cs" />
+    <Compile Include="Almacenes\EstadoGuia.cs" />
+    <Compile Include="Almacenes\ExtrasAlmacen.cs" />
+    <Compile Include="Almacenes\ExtrasEntidad.cs" />
+    <Compile Include="Almacenes\FacturaAlmacen.cs" />
+    <Compile Include="Almacenes\FacturaEntidad.cs" />
+    <Compile Include="Almacenes\FleteroAlmacen.cs" />
+    <Compile Include="Almacenes\FleteroComision.cs" />
+    <Compile Include="Almacenes\FleteroEntidad.cs" />
+    <Compile Include="Almacenes\GuiaAlmacen.cs" />
+    <Compile Include="Almacenes\GuiaEntidad.cs" />
+    <Compile Include="Almacenes\HojaDeRutaFleteAlmacen.cs" />
+    <Compile Include="Almacenes\HojaDeRutaFleteEntidad.cs" />
+    <Compile Include="Almacenes\HojaDeRutaMicroAlmacen.cs" />
+    <Compile Include="Almacenes\HojaDeRutaMicroEntidad.cs" />
+    <Compile Include="Almacenes\MicroAlmacen.cs" />
+    <Compile Include="Almacenes\MicroEntidad.cs" />
+    <Compile Include="Almacenes\MicroTarifa.cs" />
+    <Compile Include="Almacenes\Parada.cs" />
+    <Compile Include="Almacenes\Recorrido.cs" />
+    <Compile Include="Almacenes\TarifarioAlmacen.cs" />
+    <Compile Include="Almacenes\TarifarioEntidad.cs" />
+    <Compile Include="Almacenes\TipoBulto.cs" />
+    <Compile Include="Almacenes\TipoEstadoGuia.cs" />
+    <Compile Include="Almacenes\TipoExtra.cs" />
+    <Compile Include="Almacenes\TipoHojaDeRuta.cs" />
+    <Compile Include="Almacenes\TipoTarifaMicro.cs" />
     <Compile Include="Forms\Consultas\CuentaCorriente\Model\Cliente.cs" />
     <Compile Include="Forms\Consultas\CuentaCorriente\Model\Filtros.cs" />
     <Compile Include="Forms\Consultas\CuentaCorriente\Model\CuentaCorrienteModel.cs" />
@@ -78,7 +115,7 @@
     <Compile Include="Forms\Operacion\AdmitirEnCD\Model\AdmitirEnCDModel.cs" />
     <Compile Include="Forms\Operacion\AdmitirEnCD\Model\Pedido.cs" />
     <Compile Include="Forms\Operacion\AdmitirEnCD\Model\Provincia.cs" />
-    <Compile Include="Forms\Operacion\EmitirFactura\Model\ClienteFactura.cs" />
+    <Compile Include="Forms\Operacion\EmitirFactura\Model\Cliente.cs" />
     <Compile Include="Forms\Operacion\EmitirFactura\Model\EmitirFacturaModel.cs" />
     <Compile Include="Forms\Operacion\EmitirFactura\Model\ListadoFacturacion.cs" />
     <Compile Include="Forms\Operacion\EntregarEncomiendaClienteCD\Model\Encomienda.cs" />
@@ -226,7 +263,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Almacenes\" />
     <Folder Include="Datos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
