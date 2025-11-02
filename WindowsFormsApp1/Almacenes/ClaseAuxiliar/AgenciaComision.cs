@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CAI_Proyecto.Almacenes.Clase;
 
-namespace CAI_Proyecto.Almacenes.Entidad
+namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
-    public class FleteroComisionEntidad
+    public class AgenciaComision
     {
         public TipoBulto TipoBulto { get; set; }
         public decimal Comision { get; set; }

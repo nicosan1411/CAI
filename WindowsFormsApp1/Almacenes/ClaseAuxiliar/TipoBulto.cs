@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAI_Proyecto.Almacenes.Clase
+namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
-    public enum TipoHojaDeRuta
+    public enum TipoBulto
     {
-        Retiro,
-        Entrega
+        S,
+        M,
+        L,
+        XL
     }
 }

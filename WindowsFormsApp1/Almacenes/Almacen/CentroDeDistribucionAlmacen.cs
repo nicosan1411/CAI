@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static CentroDeDistribucionAlmacen()
         {
-            if (File.Exists("CentroDeDistribucion.json"))
+            if (File.Exists(@"Datos\CentrosDeDistribucion.json"))
             {
-                var clienteJson = File.ReadAllText("CentroDeDistribucion.json");
+                var clienteJson = File.ReadAllText(@"Datos\CentrosDeDistribucion.json");
                 centrosdedistribucion = System.Text.Json.JsonSerializer.Deserialize<List<CentroDeDistribucionEntidad>>(clienteJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var clienteJson = System.Text.Json.JsonSerializer.Serialize(centrosdedistribucion);
-            File.WriteAllText("CentroDeDistribucion.json", clienteJson);
+            File.WriteAllText(@"Datos\CentrosDeDistribucion.json", clienteJson);
         }
     }
 }

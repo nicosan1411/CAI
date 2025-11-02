@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static ExtrasAlmacen()
         {
-            if (File.Exists("extras.json"))
+            if (File.Exists(@"Datos\Extras.json"))
             {
-                var extrasJson = File.ReadAllText("extras.json");
+                var extrasJson = File.ReadAllText(@"Datos\Extras.json");
                 extras = System.Text.Json.JsonSerializer.Deserialize<List<ExtrasEntidad>>(extrasJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var extrasJson = System.Text.Json.JsonSerializer.Serialize(extras);
-            File.WriteAllText("extras.json", extrasJson);
+            File.WriteAllText(@"Datos\Extras.json", extrasJson);
         }
     }
 }

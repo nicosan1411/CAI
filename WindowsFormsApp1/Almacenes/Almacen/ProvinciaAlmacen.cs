@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static ProvinciaAlmacen()
         {
-            if (File.Exists("provincias.json"))
+            if (File.Exists(@"Datos\Provincias.json"))
             {
-                var ProvinciaJson = File.ReadAllText("provincias.json");
+                var ProvinciaJson = File.ReadAllText(@"Datos\Provincias.json");
                 provincias = System.Text.Json.JsonSerializer.Deserialize<List<ProvinciaEntidad>>(ProvinciaJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var ProvinciaJson = System.Text.Json.JsonSerializer.Serialize(provincias);
-            File.WriteAllText("provincias.json", ProvinciaJson);
+            File.WriteAllText(@"Datos\Provincias.json", ProvinciaJson);
         }
     }
 }

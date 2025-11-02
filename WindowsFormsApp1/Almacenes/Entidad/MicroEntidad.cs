@@ -1,4 +1,4 @@
-﻿using CAI_Proyecto.Almacenes.Clase;
+﻿using CAI_Proyecto.Almacenes.ClaseAuxiliar;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static FleteroAlmacen()
         {
-            if (File.Exists("fleteros.json"))
+            if (File.Exists(@"Datos\Fleteros.json"))
             {
-                var FleteroJson = File.ReadAllText("fleteros.json");
+                var FleteroJson = File.ReadAllText(@"Datos\Fleteros.json");
                 fleteros = System.Text.Json.JsonSerializer.Deserialize<List<FleteroEntidad>>(FleteroJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var FleteroJson = System.Text.Json.JsonSerializer.Serialize(fleteros);
-            File.WriteAllText("fleteros.json", FleteroJson);
+            File.WriteAllText(@"Datos\Fleteros.json", FleteroJson);
         }
     }
 }

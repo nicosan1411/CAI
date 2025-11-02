@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static GuiaAlmacen()
         {
-            if (File.Exists("guias.json"))
+            if (File.Exists(@"Datos\Guias.json"))
             {
-                var GuiaJson = File.ReadAllText("guias.json");
+                var GuiaJson = File.ReadAllText(@"Datos\Guias.json");
                 guias = System.Text.Json.JsonSerializer.Deserialize<List<GuiaEntidad>>(GuiaJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var GuiaJson = System.Text.Json.JsonSerializer.Serialize(guias);
-            File.WriteAllText("guias.json", GuiaJson);
+            File.WriteAllText(@"Datos\Guias.json", GuiaJson);
         }
     }
 }

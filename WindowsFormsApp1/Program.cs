@@ -26,7 +26,7 @@ namespace CAI_Proyecto
             ExtrasAlmacen.Grabar();
             FacturaAlmacen.Grabar();
             FleteroAlmacen.Grabar();
-            FleteroComisionAlmacen.Grabar();
+            ComisionFleteroAlmacen.Grabar();
             GuiaAlmacen.Grabar();
             HojaDeRutaFleteAlmacen.Grabar();
             HojaDeRutaMicroAlmacen.Grabar();

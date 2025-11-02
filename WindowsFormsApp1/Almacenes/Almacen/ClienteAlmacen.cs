@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static ClienteAlmacen()
         {
-            if (File.Exists("clientes.json"))
+            if (File.Exists(@"Datos\Clientes.json"))
             {
-                var clienteJson = File.ReadAllText("clientes.json");
+                var clienteJson = File.ReadAllText(@"Datos\Clientes.json");
                 clientes = System.Text.Json.JsonSerializer.Deserialize<List<ClienteEntidad>>(clienteJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var clienteJson = System.Text.Json.JsonSerializer.Serialize(clientes);
-            File.WriteAllText("clientes.json", clienteJson);
+            File.WriteAllText(@"Datos\Clientes.json", clienteJson);
         }
     }
 }

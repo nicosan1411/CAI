@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static FacturaAlmacen()
         {
-            if (File.Exists("facturas.json"))
+            if (File.Exists(@"Datos\Facturas.json"))
             {
-                var FacturaJson = File.ReadAllText("facturas.json");
+                var FacturaJson = File.ReadAllText(@"Datos\Facturas.json");
                 facturas = System.Text.Json.JsonSerializer.Deserialize<List<FacturaEntidad>>(FacturaJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var FacturaJson = System.Text.Json.JsonSerializer.Serialize(facturas);
-            File.WriteAllText("facturas.json", FacturaJson);
+            File.WriteAllText(@"Datos\Facturas.json", FacturaJson);
         }
     }
 }

@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static HojaDeRutaMicroAlmacen()
         {
-            if (File.Exists("hojasderutamicro.json"))
+            if (File.Exists(@"Datos\HojasDeRutaMicro.json"))
             {
-                var HojaDeRutaMicroJson = File.ReadAllText("hojasderutamicro.json");
+                var HojaDeRutaMicroJson = File.ReadAllText(@"Datos\HojasDeRutaMicro.json");
                 hojasderutamicro = System.Text.Json.JsonSerializer.Deserialize<List<HojaDeRutaMicroEntidad>>(HojaDeRutaMicroJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var HojaDeRutaMicroJson = System.Text.Json.JsonSerializer.Serialize(hojasderutamicro);
-            File.WriteAllText("hojasderutamicro.json", HojaDeRutaMicroJson);
+            File.WriteAllText(@"Datos\HojasDeRutaMicro.json", HojaDeRutaMicroJson);
         }
     }
 }

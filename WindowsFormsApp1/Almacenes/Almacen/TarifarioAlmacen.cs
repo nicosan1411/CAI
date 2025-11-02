@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static TarifarioAlmacen()
         {
-            if (File.Exists("tarifarios.json"))
+            if (File.Exists(@"Datos\Tarifarios.json"))
             {
-                var TarifarioJson = File.ReadAllText("tarifarios.json");
+                var TarifarioJson = File.ReadAllText(@"Datos\Tarifarios.json");
                 tarifarios = System.Text.Json.JsonSerializer.Deserialize<List<TarifarioEntidad>>(TarifarioJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var TarifarioJson = System.Text.Json.JsonSerializer.Serialize(tarifarios);
-            File.WriteAllText("tarifarios.json", TarifarioJson);
+            File.WriteAllText(@"Datos\Tarifarios.json", TarifarioJson);
         }
     }
 }

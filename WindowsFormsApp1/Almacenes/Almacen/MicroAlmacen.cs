@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static MicroAlmacen()
         {
-            if (File.Exists("micros.json"))
+            if (File.Exists(@"Datos\Micros.json"))
             {
-                var MicroJson = File.ReadAllText("micros.json");
+                var MicroJson = File.ReadAllText(@"Datos\Micros.json");
                 micros = System.Text.Json.JsonSerializer.Deserialize<List<MicroEntidad>>(MicroJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var MicroJson = System.Text.Json.JsonSerializer.Serialize(micros);
-            File.WriteAllText("micros.json", MicroJson);
+            File.WriteAllText(@"Datos\Micros.json", MicroJson);
         }
     }
 }

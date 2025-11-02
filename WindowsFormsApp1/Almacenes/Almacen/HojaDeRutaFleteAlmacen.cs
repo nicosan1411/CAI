@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static HojaDeRutaFleteAlmacen()
         {
-            if (File.Exists("hojasderutaflete.json"))
+            if (File.Exists(@"Datos\HojasDeRutaFlete.json"))
             {
-                var HojaDeRutaFleteJson = File.ReadAllText("hojasderutaflete.json");
+                var HojaDeRutaFleteJson = File.ReadAllText(@"Datos\HojasDeRutaFlete.json");
                 hojasderutaflete = System.Text.Json.JsonSerializer.Deserialize<List<HojaDeRutaFleteEntidad>>(HojaDeRutaFleteJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var HojaDeRutaFleteJson = System.Text.Json.JsonSerializer.Serialize(hojasderutaflete);
-            File.WriteAllText("hojasderutaflete.json", HojaDeRutaFleteJson);
+            File.WriteAllText(@"Datos\HojasDeRutaFlete.json", HojaDeRutaFleteJson);
         }
     }
 }

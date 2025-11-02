@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAI_Proyecto.Almacenes.Clase
+namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
-    public enum TipoBulto
+    public enum TipoTarifaMicro
     {
-        S,
-        M,
-        L,
-        XL
+        A,
+        B,
+        C,
+        D
     }
 }

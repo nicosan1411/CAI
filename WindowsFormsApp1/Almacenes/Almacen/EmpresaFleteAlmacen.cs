@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static EmpresaFleteAlmacen()
         {
-            if (File.Exists("empresafletes.json"))
+            if (File.Exists(@"Datos\EmpresaFletes.json"))
             {
-                var EmpresaFleteJson = File.ReadAllText("empresafletes.json");
+                var EmpresaFleteJson = File.ReadAllText(@"Datos\EmpresaFletes.json");
                 empresafletes = System.Text.Json.JsonSerializer.Deserialize<List<EmpresaFleteEntidad>>(EmpresaFleteJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var EmpresaFleteJson = System.Text.Json.JsonSerializer.Serialize(empresafletes);
-            File.WriteAllText("empresafletes.json", EmpresaFleteJson);
+            File.WriteAllText(@"Datos\EmpresaFletes.json", EmpresaFleteJson);
         }
     }
 }

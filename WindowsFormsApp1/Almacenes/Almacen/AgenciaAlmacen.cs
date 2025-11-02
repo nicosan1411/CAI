@@ -12,9 +12,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static AgenciaAlmacen()
         {
-            if (File.Exists("agencias.json"))
+            if (File.Exists(@"Datos\Agencias.json"))
             {
-                var AgenciaJson = File.ReadAllText("agencias.json");
+                var AgenciaJson = File.ReadAllText(@"Datos\Agencias.json");
                 agencias = System.Text.Json.JsonSerializer.Deserialize<List<AgenciaEntidad>>(AgenciaJson);
             }
         }
@@ -22,7 +22,7 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var AgenciaJson = System.Text.Json.JsonSerializer.Serialize(agencias);
-            File.WriteAllText("agencias.json", AgenciaJson);
+            File.WriteAllText(@"Datos\Agencias.json", AgenciaJson);
         }
     }
 }
