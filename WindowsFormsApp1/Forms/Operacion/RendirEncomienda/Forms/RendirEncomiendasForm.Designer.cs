@@ -167,7 +167,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // FormRendirEncomiendas
+            // RendirEncomiendasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,7 +179,9 @@
             this.Controls.Add(this.cbFletero);
             this.Controls.Add(this.lblFletero);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FormRendirEncomiendas";
+            this.MaximumSize = new System.Drawing.Size(369, 505);
+            this.MinimumSize = new System.Drawing.Size(369, 505);
+            this.Name = "RendirEncomiendasForm";
             this.Text = "Rendir Encomiendas";
             this.gbRetirosDomicilioAgenciaAdmitir.ResumeLayout(false);
             this.gbEntregasDomicilioAgenciaRealizadas.ResumeLayout(false);

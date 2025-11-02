@@ -411,7 +411,7 @@
             this.cbProvinciaEnvio.Size = new System.Drawing.Size(231, 21);
             this.cbProvinciaEnvio.TabIndex = 1;
             // 
-            // FormAdmitirEnCD
+            // AdmitirEnCDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -423,8 +423,9 @@
             this.Controls.Add(this.gbDetalleEncomiendas);
             this.Controls.Add(this.gbDetalleEnvio);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(401, 563);
-            this.Name = "FormAdmitirEnCD";
+            this.MaximumSize = new System.Drawing.Size(401, 698);
+            this.MinimumSize = new System.Drawing.Size(401, 698);
+            this.Name = "AdmitirEnCDForm";
             this.Text = "Imponer y Admitir - Centro De Distribución";
             this.gbEmpresaCliente.ResumeLayout(false);
             this.gbEmpresaCliente.PerformLayout();

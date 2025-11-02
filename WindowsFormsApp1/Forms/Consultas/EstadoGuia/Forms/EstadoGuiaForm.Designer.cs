@@ -158,7 +158,7 @@
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
-            // FormEstadoGuia
+            // EstadoGuiaForm
             // 
             this.AcceptButton = this.btnSeleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,7 +170,9 @@
             this.Controls.Add(this.cbGuia);
             this.Controls.Add(this.lblGuia);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FormEstadoGuia";
+            this.MaximumSize = new System.Drawing.Size(859, 284);
+            this.MinimumSize = new System.Drawing.Size(859, 284);
+            this.Name = "EstadoGuiaForm";
             this.Text = "Consulta Estado Guia";
             this.gbGuiasEntregadas.ResumeLayout(false);
             this.ResumeLayout(false);

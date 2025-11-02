@@ -161,7 +161,7 @@
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click_1);
             // 
-            // FormResultadosCostosVentas
+            // ResultadosCostosVentasForm
             // 
             this.AcceptButton = this.btnBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,7 +175,9 @@
             this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.btnBuscar);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FormResultadosCostosVentas";
+            this.MaximumSize = new System.Drawing.Size(762, 257);
+            this.MinimumSize = new System.Drawing.Size(762, 257);
+            this.Name = "ResultadosCostosVentasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Resultado Costos-Ventas";
             this.ResumeLayout(false);

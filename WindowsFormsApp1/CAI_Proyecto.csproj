@@ -48,8 +48,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.10\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.10\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.10\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.10\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,43 +92,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Almacenes\AgenciaAlmacen.cs" />
-    <Compile Include="Almacenes\AgenciaComision.cs" />
-    <Compile Include="Almacenes\AgenciaEntidad.cs" />
-    <Compile Include="Almacenes\CentroDeDistribucionAlmacen.cs" />
-    <Compile Include="Almacenes\CentroDeDistribucionEntidad.cs" />
-    <Compile Include="Almacenes\ClienteAlmacen.cs" />
-    <Compile Include="Almacenes\ClienteEntidad.cs" />
-    <Compile Include="Almacenes\EmpresaFleteAlmacen.cs" />
-    <Compile Include="Almacenes\EmpresaFleteEntidad.cs" />
-    <Compile Include="Almacenes\EmpresaMicroAlmacen.cs" />
-    <Compile Include="Almacenes\EmpresaMicroEntidad.cs" />
-    <Compile Include="Almacenes\EstadoGuia.cs" />
-    <Compile Include="Almacenes\ExtrasAlmacen.cs" />
-    <Compile Include="Almacenes\ExtrasEntidad.cs" />
-    <Compile Include="Almacenes\FacturaAlmacen.cs" />
-    <Compile Include="Almacenes\FacturaEntidad.cs" />
-    <Compile Include="Almacenes\FleteroAlmacen.cs" />
-    <Compile Include="Almacenes\FleteroComision.cs" />
-    <Compile Include="Almacenes\FleteroEntidad.cs" />
-    <Compile Include="Almacenes\GuiaAlmacen.cs" />
-    <Compile Include="Almacenes\GuiaEntidad.cs" />
-    <Compile Include="Almacenes\HojaDeRutaFleteAlmacen.cs" />
-    <Compile Include="Almacenes\HojaDeRutaFleteEntidad.cs" />
-    <Compile Include="Almacenes\HojaDeRutaMicroAlmacen.cs" />
-    <Compile Include="Almacenes\HojaDeRutaMicroEntidad.cs" />
-    <Compile Include="Almacenes\MicroAlmacen.cs" />
-    <Compile Include="Almacenes\MicroEntidad.cs" />
-    <Compile Include="Almacenes\MicroTarifa.cs" />
-    <Compile Include="Almacenes\Parada.cs" />
-    <Compile Include="Almacenes\Recorrido.cs" />
-    <Compile Include="Almacenes\TarifarioAlmacen.cs" />
-    <Compile Include="Almacenes\TarifarioEntidad.cs" />
-    <Compile Include="Almacenes\TipoBulto.cs" />
-    <Compile Include="Almacenes\TipoEstadoGuia.cs" />
-    <Compile Include="Almacenes\TipoExtra.cs" />
-    <Compile Include="Almacenes\TipoHojaDeRuta.cs" />
-    <Compile Include="Almacenes\TipoTarifaMicro.cs" />
+    <Compile Include="Almacenes\Almacen\AgenciaAlmacen.cs" />
+    <Compile Include="Almacenes\Clase\AgenciaComision.cs" />
+    <Compile Include="Almacenes\Entidad\AgenciaEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\CentroDeDistribucionAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\CentroDeDistribucionEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\ClienteAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\ClienteEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\EmpresaFleteAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\EmpresaFleteEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\EmpresaMicroAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\EmpresaMicroEntidad.cs" />
+    <Compile Include="Almacenes\Clase\EstadoGuia.cs" />
+    <Compile Include="Almacenes\Almacen\ExtrasAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\ExtrasEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\FacturaAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\FacturaEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\FleteroAlmacen.cs" />
+    <Compile Include="Almacenes\Almacen\FleteroComisionAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\FleteroComisionEntidad.cs" />
+    <Compile Include="Almacenes\Entidad\FleteroEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\GuiaAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\GuiaEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\HojaDeRutaFleteAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\HojaDeRutaFleteEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\HojaDeRutaMicroAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\HojaDeRutaMicroEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\MicroAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\MicroEntidad.cs" />
+    <Compile Include="Almacenes\Clase\MicroTarifa.cs" />
+    <Compile Include="Almacenes\Clase\Parada.cs" />
+    <Compile Include="Almacenes\Almacen\ProvinciaAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\ProvinciaEntidad.cs" />
+    <Compile Include="Almacenes\Clase\Recorrido.cs" />
+    <Compile Include="Almacenes\Almacen\TarifarioAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\TarifarioEntidad.cs" />
+    <Compile Include="Almacenes\Clase\TipoBulto.cs" />
+    <Compile Include="Almacenes\Clase\TipoEnvio.cs" />
+    <Compile Include="Almacenes\Clase\TipoEstadoGuia.cs" />
+    <Compile Include="Almacenes\Clase\TipoExtra.cs" />
+    <Compile Include="Almacenes\Clase\TipoHojaDeRuta.cs" />
+    <Compile Include="Almacenes\Clase\TipoTarifaMicro.cs" />
     <Compile Include="Forms\Consultas\CuentaCorriente\Model\Cliente.cs" />
     <Compile Include="Forms\Consultas\CuentaCorriente\Model\Filtros.cs" />
     <Compile Include="Forms\Consultas\CuentaCorriente\Model\CuentaCorrienteModel.cs" />
@@ -237,6 +272,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

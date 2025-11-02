@@ -144,7 +144,7 @@
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
-            // FormEntregarEncomiendaAClienteCD
+            // EntregarEncomiendaAClienteCDForm
             // 
             this.AcceptButton = this.btnEntregar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,8 +153,9 @@
             this.Controls.Add(this.btnVolverMenuPrincipal);
             this.Controls.Add(this.gbComprobante);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(559, 292);
-            this.Name = "FormEntregarEncomiendaAClienteCD";
+            this.MaximumSize = new System.Drawing.Size(677, 329);
+            this.MinimumSize = new System.Drawing.Size(677, 329);
+            this.Name = "EntregarEncomiendaAClienteCDForm";
             this.Text = "Entregar Encomienda a Cliente - Centro De Distribución";
             this.gbComprobante.ResumeLayout(false);
             this.gbComprobante.PerformLayout();

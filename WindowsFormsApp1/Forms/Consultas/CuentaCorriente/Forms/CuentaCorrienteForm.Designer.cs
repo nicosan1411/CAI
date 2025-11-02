@@ -206,7 +206,7 @@
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
-            // FormCuentaCorriente
+            // CuentaCorrienteForm
             // 
             this.AcceptButton = this.btnBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,7 +223,9 @@
             this.Controls.Add(this.cbCliente);
             this.Controls.Add(this.lblClientes);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FormCuentaCorriente";
+            this.MaximumSize = new System.Drawing.Size(809, 323);
+            this.MinimumSize = new System.Drawing.Size(809, 323);
+            this.Name = "CuentaCorrienteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Consulta Estado Cuenta Corriente";
             this.gbEstadoCuenta.ResumeLayout(false);

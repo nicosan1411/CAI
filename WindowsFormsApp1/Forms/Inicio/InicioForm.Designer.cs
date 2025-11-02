@@ -160,15 +160,16 @@
             this.btnAdmisionCD.UseVisualStyleBackColor = true;
             this.btnAdmisionCD.Click += new System.EventHandler(this.btnAdmisionCD_Click);
             // 
-            // FormInicio
+            // InicioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 401);
             this.Controls.Add(this.grpConsultas);
             this.Controls.Add(this.grpOperacion);
+            this.MaximumSize = new System.Drawing.Size(587, 440);
             this.MinimumSize = new System.Drawing.Size(587, 440);
-            this.Name = "FormInicio";
+            this.Name = "InicioForm";
             this.Text = "Menú Principal";
             this.grpConsultas.ResumeLayout(false);
             this.grpOperacion.ResumeLayout(false);

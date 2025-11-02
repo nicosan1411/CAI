@@ -30,8 +30,8 @@
         {
             this.gbRecepciones = new System.Windows.Forms.GroupBox();
             this.lvRecepciones = new System.Windows.Forms.ListView();
-            this.columnEntregadoEnCD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnNroGuia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnEntregadoEnCD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.cbPatente = new System.Windows.Forms.ComboBox();
             this.lblPatenteMicro = new System.Windows.Forms.Label();
@@ -70,15 +70,15 @@
             this.lvRecepciones.UseCompatibleStateImageBehavior = false;
             this.lvRecepciones.View = System.Windows.Forms.View.Details;
             // 
-            // columnEntregadoEnCD
-            // 
-            this.columnEntregadoEnCD.Text = "Entregado en CD Destino";
-            this.columnEntregadoEnCD.Width = 180;
-            // 
             // columnNroGuia
             // 
             this.columnNroGuia.Text = "N° Guía";
             this.columnNroGuia.Width = 120;
+            // 
+            // columnEntregadoEnCD
+            // 
+            this.columnEntregadoEnCD.Text = "Entregado en CD Destino";
+            this.columnEntregadoEnCD.Width = 180;
             // 
             // label1
             // 
@@ -131,7 +131,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // FormRecepcionarMicros
+            // RecepcionarMicrosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -143,7 +143,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbRecepciones);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FormRecepcionarMicros";
+            this.MaximumSize = new System.Drawing.Size(402, 301);
+            this.MinimumSize = new System.Drawing.Size(402, 301);
+            this.Name = "RecepcionarMicrosForm";
             this.Text = "Recepcionar Micros";
             this.gbRecepciones.ResumeLayout(false);
             this.ResumeLayout(false);

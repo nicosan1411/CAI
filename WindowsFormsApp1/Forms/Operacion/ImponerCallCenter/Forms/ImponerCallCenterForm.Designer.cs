@@ -471,7 +471,7 @@
             this.lblAgencia.TabIndex = 3;
             this.lblAgencia.Text = "Agencia";
             // 
-            // FormImponerCallCenter
+            // ImponerCallCenterForm
             // 
             this.AcceptButton = this.btnAceptarPedido;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,8 +485,9 @@
             this.Controls.Add(this.btnAceptarPedido);
             this.Controls.Add(this.btnVolverMenuPrincipal);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(401, 673);
-            this.Name = "FormImponerCallCenter";
+            this.MaximumSize = new System.Drawing.Size(401, 816);
+            this.MinimumSize = new System.Drawing.Size(401, 816);
+            this.Name = "ImponerCallCenterForm";
             this.Text = "Imponer - Call Center";
             this.gbDetalleEncomiendas.ResumeLayout(false);
             this.gbDetalleEncomiendas.PerformLayout();

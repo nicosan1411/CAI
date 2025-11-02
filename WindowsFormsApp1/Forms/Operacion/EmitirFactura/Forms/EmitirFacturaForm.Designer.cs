@@ -137,7 +137,7 @@
             this.btnVolverMenuPrincipal.UseVisualStyleBackColor = true;
             this.btnVolverMenuPrincipal.Click += new System.EventHandler(this.btnVolverMenuPrincipal_Click);
             // 
-            // FormEmitirFactura
+            // EmitirFacturaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,8 +149,9 @@
             this.Controls.Add(this.cbCliente);
             this.Controls.Add(this.lblCliente);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(500, 300);
             this.MinimumSize = new System.Drawing.Size(500, 300);
-            this.Name = "FormEmitirFactura";
+            this.Name = "EmitirFacturaForm";
             this.Text = "Emitir Factura";
             this.gbClientesAFacturar.ResumeLayout(false);
             this.ResumeLayout(false);
