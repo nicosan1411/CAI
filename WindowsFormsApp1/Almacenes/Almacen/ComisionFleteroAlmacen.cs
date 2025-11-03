@@ -14,15 +14,15 @@ namespace CAI_Proyecto.Almacenes.Almacen
         {
             if (File.Exists(@"Datos\ComisionesFletero.json"))
             {
-                var FleteroComisionJson = File.ReadAllText(@"Datos\ComisionesFletero.json");
-                comisionesfletero = System.Text.Json.JsonSerializer.Deserialize<List<ComisionFleteroEntidad>>(FleteroComisionJson);
+                var ComisionFleteroJson = File.ReadAllText(@"Datos\ComisionesFletero.json");
+                comisionesfletero = System.Text.Json.JsonSerializer.Deserialize<List<ComisionFleteroEntidad>>(ComisionFleteroJson);
             }
         }
 
         public static void Grabar()
         {
-            var FleteroComisionJson = System.Text.Json.JsonSerializer.Serialize(comisionesfletero);
-            File.WriteAllText(@"Datos\ComisionesFletero.json", FleteroComisionJson);
+            var ComisionFleteroJson = System.Text.Json.JsonSerializer.Serialize(comisionesfletero);
+            File.WriteAllText(@"Datos\ComisionesFletero.json", ComisionFleteroJson);
         }
     }
 }

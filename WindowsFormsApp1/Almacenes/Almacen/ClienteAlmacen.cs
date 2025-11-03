@@ -14,15 +14,15 @@ namespace CAI_Proyecto.Almacenes.Almacen
         {
             if (File.Exists(@"Datos\Clientes.json"))
             {
-                var clienteJson = File.ReadAllText(@"Datos\Clientes.json");
-                clientes = System.Text.Json.JsonSerializer.Deserialize<List<ClienteEntidad>>(clienteJson);
+                var ClienteJson = File.ReadAllText(@"Datos\Clientes.json");
+                clientes = System.Text.Json.JsonSerializer.Deserialize<List<ClienteEntidad>>(ClienteJson);
             }
         }
 
         public static void Grabar()
         {
-            var clienteJson = System.Text.Json.JsonSerializer.Serialize(clientes);
-            File.WriteAllText(@"Datos\Clientes.json", clienteJson);
+            var ClienteJson = System.Text.Json.JsonSerializer.Serialize(clientes);
+            File.WriteAllText(@"Datos\Clientes.json", ClienteJson);
         }
     }
 }

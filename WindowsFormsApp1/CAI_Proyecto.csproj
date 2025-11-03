@@ -93,7 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Almacenes\Almacen\AgenciaAlmacen.cs" />
-    <Compile Include="Almacenes\ClaseAuxiliar\AgenciaComision.cs" />
+    <Compile Include="Almacenes\Almacen\ComisionAgenciaAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\ComisionAgenciaEntidad.cs" />
     <Compile Include="Almacenes\Entidad\AgenciaEntidad.cs" />
     <Compile Include="Almacenes\Almacen\CentroDeDistribucionAlmacen.cs" />
     <Compile Include="Almacenes\Entidad\CentroDeDistribucionEntidad.cs" />
