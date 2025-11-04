@@ -10,9 +10,6 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Forms
     {
         internal AdmitirEnCDModel modelo = new AdmitirEnCDModel();
 
-        private readonly System.Collections.Generic.List<EncomiendaItem> _encomiendasTemp
-            = new System.Collections.Generic.List<EncomiendaItem>();
-
         public AdmitirEnCDForm()
         {
             InitializeComponent();
@@ -149,7 +146,7 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Forms
                 DomicilioDestinatario = txtDomicilioDestinatario.Text?.Trim(),
 
                 // Encomiendas
-                Encomiendas = _encomiendasTemp.ToList()
+                Encomiendas = modelo.Encomiendas.ToList()
             };
 
             return pedido;
@@ -161,7 +158,7 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Forms
             try
             {
                 lstEncomiendas.DataSource = null;
-                lstEncomiendas.DataSource = _encomiendasTemp;
+                lstEncomiendas.DataSource = modelo.Encomiendas;
                 lstEncomiendas.DisplayMember = nameof(EncomiendaItem.Dimension_Cantidad);
             }
             finally
@@ -195,21 +192,20 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Forms
                 return;
             }
 
-            _encomiendasTemp.Add(enc);
+            modelo.AgregarEncomienda(enc);
             RefrescarListaEncomiendas();
         }
 
         private void BtnQuitarEncomienda_Click(object sender, EventArgs e)
         {
-            var idx = lstEncomiendas.SelectedIndex;
-            if (idx < 0)
+            if (lstEncomiendas.SelectedItem is not EncomiendaItem encomiendaSeleccionada)
             {
                 MessageBox.Show("Seleccioná una encomienda para quitar.", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            _encomiendasTemp.RemoveAt(idx);
+            modelo.QuitarEncomienda(encomiendaSeleccionada);
             RefrescarListaEncomiendas();
         }
 
@@ -222,7 +218,7 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (_encomiendasTemp.Count == 0)
+            if (modelo.Encomiendas.Count == 0)
             {
                 MessageBox.Show("Agregá al menos una encomienda.", "Validación",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -249,7 +245,7 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Forms
 
         private void LimpiarFormulario()
         {
-            _encomiendasTemp.Clear();
+            modelo.Encomiendas.Clear();
             lstEncomiendas.DataSource = null;
 
             cbEmpresaCliente.SelectedIndex = -1;

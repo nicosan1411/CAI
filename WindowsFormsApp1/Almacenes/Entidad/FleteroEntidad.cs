@@ -12,5 +12,7 @@ namespace CAI_Proyecto.Almacenes.Entidad
         public string CuitEmpresaFlete { get; set; }
         public string Nombre { get; set; }
         public string IdCDAsignado { get; set; }
+        public string CuitClienteAsignado { get; set; }
+        public int IdAgenciaAsignada { get; set; }
     }
 }

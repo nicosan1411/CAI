@@ -12,5 +12,6 @@ namespace CAI_Proyecto.Almacenes.Entidad
         public List<string> NumeroGuia { get; set; }
         public string Concepto { get; set; }
         public decimal Monto { get; set; }
+        public int NumeroFactura { get; set; }
     }
 }

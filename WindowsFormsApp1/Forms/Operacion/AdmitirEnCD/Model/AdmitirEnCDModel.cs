@@ -55,6 +55,23 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                 ? Enumerable.Empty<AgenciaEnvio>()
                 : AgenciasEnvio.Where(a => a.ProvinciaCodigo == provinciaCodigo);
 
+        public List<EncomiendaItem> Encomiendas { get; } = new List<EncomiendaItem>();
+
+        public void AgregarEncomienda(EncomiendaItem encomienda)
+        {
+            Encomiendas.Add(encomienda);
+        }
+
+        public void QuitarEncomienda(EncomiendaItem encomienda)
+        {
+            Encomiendas.Remove(encomienda);
+        }
+
+        public void LimpiarEncomiendas()
+        {
+            Encomiendas.Clear();
+        }
+
         public List<string> ValidarPedido(Pedido p)
         {
             var errores = new List<string>();

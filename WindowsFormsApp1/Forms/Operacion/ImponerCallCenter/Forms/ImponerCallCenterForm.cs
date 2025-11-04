@@ -8,12 +8,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
 {
     public partial class ImponerCallCenterForm : Form
     {
-        // Modelo del formulario (negocio + datos para combos)
         internal ImponerCallCenterModel modelo = new ImponerCallCenterModel();
-
-        // Lista temporal de encomiendas que se ve en el ListBox
-        private readonly System.Collections.Generic.List<EncomiendaItem> _encomiendasTemp
-            = new System.Collections.Generic.List<EncomiendaItem>();
 
         public ImponerCallCenterForm()
         {
@@ -27,7 +22,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
         {
             // Cliente
             cbEmpresaCliente.DataSource = modelo.Clientes;
-            cbEmpresaCliente.DisplayMember = "Cuit_RazonSocial"; // (Cuit) RazonSocial
+            cbEmpresaCliente.DisplayMember = "Cuit_RazonSocial";
             cbEmpresaCliente.SelectedIndex = -1;
             cbEmpresaCliente.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -170,7 +165,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
                 DomicilioDestinatario = txtDomicilioDestinatario.Text?.Trim(),
 
                 // Encomiendas
-                Encomiendas = _encomiendasTemp.ToList()
+                Encomiendas = modelo.Encomiendas.ToList()
             };
 
             return pedido;
@@ -182,7 +177,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
             try
             {
                 lstEncomiendas.DataSource = null;
-                lstEncomiendas.DataSource = _encomiendasTemp;
+                lstEncomiendas.DataSource = modelo.Encomiendas;
                 lstEncomiendas.DisplayMember = nameof(EncomiendaItem.Dimension_Cantidad);
             }
             finally
@@ -216,21 +211,20 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
                 return;
             }
 
-            _encomiendasTemp.Add(enc);
+            modelo.AgregarEncomienda(enc);
             RefrescarListaEncomiendas();
         }
 
         private void BtnQuitarEncomienda_Click(object sender, EventArgs e)
         {
-            var idx = lstEncomiendas.SelectedIndex;
-            if (idx < 0)
+            if (lstEncomiendas.SelectedItem is not EncomiendaItem encomiendaSeleccionada)
             {
                 MessageBox.Show("Seleccioná una encomienda para quitar.", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            _encomiendasTemp.RemoveAt(idx);
+            modelo.QuitarEncomienda(encomiendaSeleccionada);
             RefrescarListaEncomiendas();
         }
 
@@ -243,7 +237,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (_encomiendasTemp.Count == 0)
+            if (modelo.Encomiendas.Count == 0)
             {
                 MessageBox.Show("Agregá al menos una encomienda.", "Validación",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -270,7 +264,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
 
         private void LimpiarFormulario()
         {
-            _encomiendasTemp.Clear();
+            modelo.Encomiendas.Clear();
             lstEncomiendas.DataSource = null;
 
             cbEmpresaCliente.SelectedIndex = -1;

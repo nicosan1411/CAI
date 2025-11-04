@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
-    public enum TipoExtra
+    public enum TipoRetiroEnum
     {
-        RetiroDomicilio,
-        EntregaDomicilio,
-        EntregaAgencia
+        DesdeDomicilio,
+        DesdeAgencia,
+        SinRetiro
     }
 }

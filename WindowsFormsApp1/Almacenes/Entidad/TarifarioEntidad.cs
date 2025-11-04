@@ -10,7 +10,7 @@ namespace CAI_Proyecto.Almacenes.Entidad
 {
     public class TarifarioEntidad
     {
-        public TipoBulto Tamaño { get; set; }
+        public TipoBultoEnum Tamaño { get; set; }
         public string IdCDOrigen { get; set; }
         public string IdCDDestino { get; set; }
         public decimal Precio { get; set; }

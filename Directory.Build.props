@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- Force C# language version to 9.0 for all projects in the repo -->
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+</Project>

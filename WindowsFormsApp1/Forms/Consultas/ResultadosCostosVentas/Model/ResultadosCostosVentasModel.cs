@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+
 
 namespace CAI_Proyecto.Forms.Consultas.ResultadosCostosVentas.Model
 {
@@ -22,6 +24,13 @@ namespace CAI_Proyecto.Forms.Consultas.ResultadosCostosVentas.Model
             (new DateTime(2025,10,02), "Danone",     5,  260000m,  360000m),
             (new DateTime(2025,10,09), "Danone",     2,   90000m,  130000m),
         };
+
+        private readonly CultureInfo _ars = CultureInfo.GetCultureInfo("es-AR");
+
+        public string FormatearMoneda(decimal valor)
+        {
+            return valor.ToString("C", _ars);
+        }
 
         public bool Buscar(Filtros filtros)
         {

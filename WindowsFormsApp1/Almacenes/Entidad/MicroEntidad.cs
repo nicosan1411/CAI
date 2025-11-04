@@ -13,7 +13,7 @@ namespace CAI_Proyecto.Almacenes.Entidad
         public string CuitEmpresaMicro { get; set; }
         public string Patente { get; set; }
         public List<Parada> Recorrido { get; set; }
-        public TipoTarifaMicro TipoTarifa { get; set; }
+        public TipoTarifaMicroEnum TipoTarifa { get; set; }
         public List<int> HojasDeRuta { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace CAI_Proyecto.Almacenes.Entidad
     public class HojaDeRutaFleteEntidad
     {
         public int IdHDRFlete { get; set; }
-        public TipoHojaDeRuta Tipo { get; set; }
+        public TipoHojaDeRutaEnum Tipo { get; set; }
         public string IdFletero { get; set; }
         public string CuitCliente { get; set; }
         public int IdAgencia { get; set; }

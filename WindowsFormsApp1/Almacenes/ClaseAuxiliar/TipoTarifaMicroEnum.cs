@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
-    public enum TipoEnvio
+    public enum TipoTarifaMicroEnum
     {
-        Domicilio,
-        CD,
-        Agencia
+        A,
+        B,
+        C,
+        D
     }
 }

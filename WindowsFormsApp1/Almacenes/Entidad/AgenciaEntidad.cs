@@ -12,6 +12,6 @@ namespace CAI_Proyecto.Almacenes.Entidad
         public int IdAgencia { get; set; }
         public string Nombre { get; set; }
         public string CDAsignado { get; set; }
-        public List<ComisionAgenciaEntidad> Comisiones { get; set; }
+        public List<AgenciaComisionEntidad> Comisiones { get; set; }
     }
 }

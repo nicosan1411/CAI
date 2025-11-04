@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
-    public class MicroTarifa
+    public enum TipoBultoEnum
     {
-        public TipoTarifaMicroEnum Tipo { get; set; }
-        public decimal PrecioMensual { get; set; }
+        S,
+        M,
+        L,
+        XL
     }
 }

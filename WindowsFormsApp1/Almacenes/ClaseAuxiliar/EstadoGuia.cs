@@ -8,8 +8,8 @@ namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
     public class EstadoGuia
     {
-        public TipoEstadoGuia Estado { get; set; }
+        public TipoEstadoGuiaEnum Estado { get; set; }
         public DateTime Fecha { get; set; }
-        public string CentroDistribucion { get; set; }
+        public string IdCentroDistribucion { get; set; }
     }
 }

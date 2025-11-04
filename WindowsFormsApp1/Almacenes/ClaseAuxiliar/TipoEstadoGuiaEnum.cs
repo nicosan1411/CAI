@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
-    public enum TipoEstadoGuia
+    public enum TipoEstadoGuiaEnum
     {
-        PendienteRetiroDomicilio,
-        PendienteRetiroAgencia,
         EnBusquedaRetiroDomicilio,
         EnBusquedaRetiroAgencia,
         AdmitidoCDOrigen,
         AdmitidoCDDestino,
         EnTransitoPorMicro,
         Recepcionado,
-        EnDestino,
+        EnTransitoADomicilio,
+        EnTransitoAAgencia,
         Entregado,
         EntregadoClienteDomicilio,
         EntregadoAgencia,
         Devuelto,
-        Facturado
+        Facturado,
+        Pagado
     }
 }

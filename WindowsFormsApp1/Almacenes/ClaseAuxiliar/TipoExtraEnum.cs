@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
-    public enum TipoBulto
+    public enum TipoExtraEnum
     {
-        S,
-        M,
-        L,
-        XL
+        RetiroDomicilio,
+        EntregaDomicilio,
+        EntregaAgencia
     }
 }

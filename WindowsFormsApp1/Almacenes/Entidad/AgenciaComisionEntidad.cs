@@ -7,9 +7,9 @@ using CAI_Proyecto.Almacenes.ClaseAuxiliar;
 
 namespace CAI_Proyecto.Almacenes.Entidad
 {
-    public class ComisionFleteroEntidad
+    public class AgenciaComisionEntidad
     {
-        public TipoBulto TipoBulto { get; set; }
+        public TipoBultoEnum TipoBulto { get; set; }
         public decimal Comision { get; set; }
     }
 }

@@ -3,8 +3,10 @@ using System.Linq;
 
 namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 {
-    public class ImponerCallCenterModel
+    internal partial class ImponerCallCenterModel
     {
+
+
         public Cliente[] Clientes => new Cliente[]
         {
             new Cliente{ Cuit = "30-50109269-6", RazonSocial = "Unilever de Argentina S.A." },
@@ -63,6 +65,23 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
                 : AgenciasEnvio.Where(a => a.ProvinciaCodigo == provinciaCodigo);
 
         public IEnumerable<AgenciaRetiro> TodasLasAgenciasDeRetiro() => AgenciasRetiro;
+
+        public List<EncomiendaItem> Encomiendas { get; } = new List<EncomiendaItem>();
+
+        public void AgregarEncomienda(EncomiendaItem encomienda)
+        {
+            Encomiendas.Add(encomienda);
+        }
+
+        public void QuitarEncomienda(EncomiendaItem encomienda)
+        {
+            Encomiendas.Remove(encomienda);
+        }
+
+        public void LimpiarEncomiendas()
+        {
+            Encomiendas.Clear();
+        }
 
         /*
          * Reglas de negocio del form para aceptar un pedido.

@@ -1,14 +1,12 @@
 ﻿using CAI_Proyecto.Forms.Consultas.ResultadosCostosVentas.Model;
 using CAI_Proyecto.Forms.Inicio;
 using System;
-using System.Globalization;
 using System.Windows.Forms;
 
 namespace CAI_Proyecto.Forms.Consultas.ResultadosCostosVentas.Forms
 {
     public partial class ResultadosCostosVentasForm : Form
     {
-        private readonly CultureInfo _ars = CultureInfo.GetCultureInfo("es-AR");
         internal ResultadosCostosVentasModel modelo = new ResultadosCostosVentasModel();
 
         public ResultadosCostosVentasForm()
@@ -59,11 +57,11 @@ namespace CAI_Proyecto.Forms.Consultas.ResultadosCostosVentas.Forms
             foreach (var r in modelo.Resultados)
             {
                 var item = new ListViewItem(r.Empresa);
-                item.SubItems.Add(r.Envios.ToString("N0", _ars));
-                item.SubItems.Add(r.CostoTotal.ToString("C", _ars));
-                item.SubItems.Add(r.VentasTotales.ToString("C", _ars));
-                item.SubItems.Add(r.Resultado.ToString("C", _ars));
-                item.SubItems.Add(r.Margen.ToString("P2", _ars)); // % con 2 decimales
+                item.SubItems.Add(r.Envios.ToString("N0"));
+                item.SubItems.Add(modelo.FormatearMoneda(r.CostoTotal));
+                item.SubItems.Add(modelo.FormatearMoneda(r.VentasTotales));
+                item.SubItems.Add(modelo.FormatearMoneda(r.Resultado));
+                item.SubItems.Add(r.Margen.ToString("P2"));
                 lvCuentasCorrientes.Items.Add(item);
             }
         }

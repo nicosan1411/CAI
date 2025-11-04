@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>WindowsFormsApp1</RootNamespace>
     <AssemblyName>WindowsFormsApp1</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -93,8 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Almacenes\Almacen\AgenciaAlmacen.cs" />
-    <Compile Include="Almacenes\Almacen\ComisionAgenciaAlmacen.cs" />
-    <Compile Include="Almacenes\Entidad\ComisionAgenciaEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\AgenciaComisionAlmacen.cs" />
+    <Compile Include="Almacenes\ClaseAuxiliar\TipoRetiroEnum.cs" />
+    <Compile Include="Almacenes\Entidad\AgenciaComisionEntidad.cs" />
     <Compile Include="Almacenes\Entidad\AgenciaEntidad.cs" />
     <Compile Include="Almacenes\Almacen\CentroDeDistribucionAlmacen.cs" />
     <Compile Include="Almacenes\Entidad\CentroDeDistribucionEntidad.cs" />
@@ -110,8 +112,8 @@
     <Compile Include="Almacenes\Almacen\FacturaAlmacen.cs" />
     <Compile Include="Almacenes\Entidad\FacturaEntidad.cs" />
     <Compile Include="Almacenes\Almacen\FleteroAlmacen.cs" />
-    <Compile Include="Almacenes\Almacen\ComisionFleteroAlmacen.cs" />
-    <Compile Include="Almacenes\Entidad\ComisionFleteroEntidad.cs" />
+    <Compile Include="Almacenes\Almacen\FleteroComisionAlmacen.cs" />
+    <Compile Include="Almacenes\Entidad\FleteroComisionEntidad.cs" />
     <Compile Include="Almacenes\Entidad\FleteroEntidad.cs" />
     <Compile Include="Almacenes\Almacen\GuiaAlmacen.cs" />
     <Compile Include="Almacenes\Entidad\GuiaEntidad.cs" />
@@ -128,12 +130,12 @@
     <Compile Include="Almacenes\ClaseAuxiliar\Recorrido.cs" />
     <Compile Include="Almacenes\Almacen\TarifarioAlmacen.cs" />
     <Compile Include="Almacenes\Entidad\TarifarioEntidad.cs" />
-    <Compile Include="Almacenes\ClaseAuxiliar\TipoBulto.cs" />
-    <Compile Include="Almacenes\ClaseAuxiliar\TipoEnvio.cs" />
-    <Compile Include="Almacenes\ClaseAuxiliar\TipoEstadoGuia.cs" />
-    <Compile Include="Almacenes\ClaseAuxiliar\TipoExtra.cs" />
-    <Compile Include="Almacenes\ClaseAuxiliar\TipoHojaDeRuta.cs" />
-    <Compile Include="Almacenes\ClaseAuxiliar\TipoTarifaMicro.cs" />
+    <Compile Include="Almacenes\ClaseAuxiliar\TipoBultoEnum.cs" />
+    <Compile Include="Almacenes\ClaseAuxiliar\TipoEnvioEnum.cs" />
+    <Compile Include="Almacenes\ClaseAuxiliar\TipoEstadoGuiaEnum.cs" />
+    <Compile Include="Almacenes\ClaseAuxiliar\TipoExtraEnum.cs" />
+    <Compile Include="Almacenes\ClaseAuxiliar\TipoHojaDeRutaEnum.cs" />
+    <Compile Include="Almacenes\ClaseAuxiliar\TipoTarifaMicroEnum.cs" />
     <Compile Include="Forms\Consultas\CuentaCorriente\Model\Cliente.cs" />
     <Compile Include="Forms\Consultas\CuentaCorriente\Model\Filtros.cs" />
     <Compile Include="Forms\Consultas\CuentaCorriente\Model\CuentaCorrienteModel.cs" />
@@ -272,7 +274,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Datos\AgenciaComisiones.json" />
     <None Include="Datos\Agencias.json" />
     <None Include="Datos\CentrosDeDistribucion.json" />
     <None Include="Datos\Clientes.json" />
@@ -280,7 +284,7 @@
     <None Include="Datos\EmpresaMicros.json" />
     <None Include="Datos\Extras.json" />
     <None Include="Datos\Facturas.json" />
-    <None Include="Datos\ComisionesFletero.json" />
+    <None Include="Datos\FleteroComisiones.json" />
     <None Include="Datos\Fleteros.json" />
     <None Include="Datos\Guias.json" />
     <None Include="Datos\HojasDeRutaFlete.json" />

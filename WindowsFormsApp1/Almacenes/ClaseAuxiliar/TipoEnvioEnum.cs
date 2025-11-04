@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
-    public enum TipoHojaDeRuta
+    public enum TipoEnvioEnum
     {
-        Retiro,
-        Entrega
+        VaADomicilio,
+        VaACD,
+        VaAAgencia
     }
 }

@@ -9,7 +9,7 @@ namespace CAI_Proyecto.Almacenes.Entidad
 {
     public class ExtrasEntidad
     {
-        public TipoExtra TipoExtra { get; set; }
+        public TipoExtraEnum TipoExtra { get; set; }
         public decimal Precio { get; set; }
     }
 }
