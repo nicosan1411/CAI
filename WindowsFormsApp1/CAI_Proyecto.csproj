@@ -276,21 +276,30 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Datos\AgenciaComisiones.json" />
-    <None Include="Datos\Agencias.json" />
+    <None Include="Datos\AgenciaComisiones.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Datos\Agencias.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Datos\CentrosDeDistribucion.json" />
-    <None Include="Datos\Clientes.json" />
-    <None Include="Datos\EmpresaFletes.json" />
+    <None Include="Datos\Clientes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Datos\EmpresaFletes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Datos\EmpresaMicros.json" />
     <None Include="Datos\Extras.json" />
     <None Include="Datos\Facturas.json" />
     <None Include="Datos\FleteroComisiones.json" />
     <None Include="Datos\Fleteros.json" />
-    <None Include="Datos\Guias.json" />
     <None Include="Datos\HojasDeRutaFlete.json" />
     <None Include="Datos\HojasDeRutaMicro.json" />
     <None Include="Datos\Micros.json" />
-    <None Include="Datos\Provincias.json" />
+    <None Include="Datos\Provincias.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Datos\Tarifarios.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

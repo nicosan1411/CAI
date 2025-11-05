@@ -1,0 +1,50 @@
+[
+  {
+    "Cuit": "20-12345678-3",
+    "RazonSocial": "Distribuciones Argentinas S.A.",
+    "AgenciasAsociadas": [ 1, 2 ],
+    "Domicilio": "Av. Libertador 1234, CABA"
+  },
+  {
+    "Cuit": "27-20123456-9",
+    "RazonSocial": "TecnoServicios del Sur SRL",
+    "AgenciasAsociadas": [ 3 ],
+    "Domicilio": "Calle 9 de Julio 456, Mar del Plata"
+  },
+  {
+    "Cuit": "30-98765432-1",
+    "RazonSocial": "Comercial Norte y C�a.",
+    "AgenciasAsociadas": [ 2, 4, 5 ],
+    "Domicilio": "San Mart�n 789, Rosario"
+  },
+  {
+    "Cuit": "23-30567890-7",
+    "RazonSocial": "Insumos Industriales SA",
+    "AgenciasAsociadas": [ 1 ],
+    "Domicilio": "Ruta 3 km 45, San Nicol�s"
+  },
+  {
+    "Cuit": "33-40123456-5",
+    "RazonSocial": "Servicios Log�sticos del Litoral",
+    "AgenciasAsociadas": [ 6 ],
+    "Domicilio": "Bv. Oro�o 2100, Paran�"
+  },
+  {
+    "Cuit": "20-55544433-0",
+    "RazonSocial": "Alimentos La Estancia",
+    "AgenciasAsociadas": [ 1, 5 ],
+    "Domicilio": "Av. Pellegrini 150, C�rdoba"
+  },
+  {
+    "Cuit": "27-11223344-6",
+    "RazonSocial": "Soluciones Financieras SRL",
+    "AgenciasAsociadas": [ 4 ],
+    "Domicilio": "Hip�lito Yrigoyen 320, Mendoza"
+  },
+  {
+    "Cuit": "30-66778899-2",
+    "RazonSocial": "Importadora del Plata",
+    "AgenciasAsociadas": [ 2, 3 ],
+    "Domicilio": "Paseo Col�n 222, CABA"
+  }
+]

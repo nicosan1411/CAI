@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using CAI_Proyecto.Almacenes.Almacen;
+using CAI_Proyecto.Almacenes.ClaseAuxiliar;
+using CAI_Proyecto.Almacenes.Entidad;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
@@ -6,65 +10,71 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
     internal partial class ImponerCallCenterModel
     {
 
-
-        public Cliente[] Clientes => new Cliente[]
+        public List<dynamic> Clientes
         {
-            new Cliente{ Cuit = "30-50109269-6", RazonSocial = "Unilever de Argentina S.A." },
-            new Cliente{ Cuit = "30-50361405-3", RazonSocial = "Arcor S.A.I.C."},
-            new Cliente{ Cuit = "30-70752101-7", RazonSocial = "Molinos Río de la Plata S.A."},
-            new Cliente{ Cuit = "30-50033372-9", RazonSocial = "Coca-Cola FEMSA S.A."},
-            new Cliente{ Cuit = "30-56712390-1", RazonSocial = "Procter & Gamble S.R.L."},
-            new Cliente{ Cuit = "30-58412999-2", RazonSocial = "Ledesma S.A.A.I."},
-            new Cliente{ Cuit = "30-70012345-8", RazonSocial = "Nestlé Argentina S.A."},
-            new Cliente{ Cuit = "30-66544332-7", RazonSocial = "Danone S.A."}
-        };
+            get
+            {
+                return ClienteAlmacen.Clientes
+                    .Select(c => new
+                    {
+                        Cuit_RazonSocial = new Cliente
+                        {
+                            Cuit = c.Cuit,
+                            RazonSocial = c.RazonSocial
+                        }.Cuit_RazonSocial,
+                        Entidad = c
+                    })
+                    .OrderBy(x => x.Cuit_RazonSocial)
+                    .ToList<dynamic>();
+            }
+        }
 
-        public AgenciaRetiro[] AgenciasRetiro => new[]
+        public List<ProvinciaEntidad> Provincias
         {
-            new AgenciaRetiro{ Id = 101, Nombre = "Retiro - Sucursal A" },
-            new AgenciaRetiro{ Id = 102, Nombre = "Retiro - Sucursal B" },
-            new AgenciaRetiro{ Id = 103, Nombre = "Retiro - Sucursal C" },
-        };
+            get
+            {
+                return ProvinciaAlmacen.Provincias
+                    .OrderBy(p => p.Nombre)
+                    .ToList();
+            }
+        }
 
-        public AgenciaEnvio[] AgenciasEnvio => new AgenciaEnvio[] 
+        public List<string> Dimensiones
         {
-            new AgenciaEnvio{ Id = 1, Nombre = "Agencia 1", ProvinciaCodigo = "BA" },
-            new AgenciaEnvio{ Id = 2, Nombre = "Agencia 2", ProvinciaCodigo = "CO" },
-            new AgenciaEnvio{ Id = 3, Nombre = "Agencia 3", ProvinciaCodigo = "SF" },
-            new AgenciaEnvio{ Id = 4, Nombre = "Agencia 4", ProvinciaCodigo = "ME" },
-            new AgenciaEnvio{ Id = 5, Nombre = "Agencia 5", ProvinciaCodigo = "TU" },
-            new AgenciaEnvio{ Id = 6, Nombre = "Agencia 6", ProvinciaCodigo = "SA" },
-            new AgenciaEnvio{ Id = 7, Nombre = "Agencia 7", ProvinciaCodigo = "CH" },
-            new AgenciaEnvio{ Id = 8, Nombre = "Agencia 8", ProvinciaCodigo = "ER" },
-        };
+            get
+            {
+                return Enum.GetValues(typeof(TipoBultoEnum))
+                    .Cast<TipoBultoEnum>()
+                    .Select(d => d.ToString())
+                    .ToList();
+            }
+        }
 
-        public Provincia[] Provincias => new Provincia[]
+        public IEnumerable<AgenciaEntidad> AgenciasDeRetiroPorCliente(ClienteEntidad cliente)
         {
-            new Provincia{ Codigo = "BA", Nombre = "Buenos Aires" },
-            new Provincia{ Codigo = "CO", Nombre = "Córdoba" },
-            new Provincia{ Codigo = "SF", Nombre = "Santa Fe" },
-            new Provincia{ Codigo = "ME", Nombre = "Mendoza" },
-            new Provincia{ Codigo = "TU", Nombre = "Tucumán" },
-            new Provincia{ Codigo = "SA", Nombre = "Salta" },
-            new Provincia{ Codigo = "CH", Nombre = "Chaco" },
-            new Provincia{ Codigo = "ER", Nombre = "Entre Ríos" }
-        };
+            if (cliente == null || cliente.AgenciasAsociadas == null || !cliente.AgenciasAsociadas.Any())
+                return Enumerable.Empty<AgenciaEntidad>();
 
-        public Dimension[] Dimensiones => new Dimension[]
+            var agencias = AgenciaAlmacen.Agencias
+                .Where(a => cliente.AgenciasAsociadas.Contains(a.IdAgencia))
+                .OrderBy(a => a.Nombre)
+                .ToList();
+
+            return agencias;
+        }
+
+        public IEnumerable<AgenciaEntidad> AgenciasDeEnvioPorProvincia(ProvinciaEntidad provincia)
         {
-            new Dimension{ Tamaño = "XS" },
-            new Dimension{ Tamaño = "S" },
-            new Dimension{ Tamaño = "M" },
-            new Dimension{ Tamaño = "L" },
-            new Dimension{ Tamaño = "XL" }
-        };
+            if (provincia == null || string.IsNullOrWhiteSpace(provincia.IdCD))
+                return Enumerable.Empty<AgenciaEntidad>();
 
-        public IEnumerable<AgenciaEnvio> AgenciasEnvioPorProvincia(string provinciaCodigo)
-            => string.IsNullOrWhiteSpace(provinciaCodigo)
-                ? Enumerable.Empty<AgenciaEnvio>()
-                : AgenciasEnvio.Where(a => a.ProvinciaCodigo == provinciaCodigo);
+            var agencias = AgenciaAlmacen.Agencias
+                .Where(a => a.CDAsignado == provincia.IdCD)
+                .OrderBy(a => a.Nombre)
+                .ToList();
 
-        public IEnumerable<AgenciaRetiro> TodasLasAgenciasDeRetiro() => AgenciasRetiro;
+            return agencias;
+        }
 
         public List<EncomiendaItem> Encomiendas { get; } = new List<EncomiendaItem>();
 

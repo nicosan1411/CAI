@@ -1,0 +1,122 @@
+[
+  {
+    "IdProvincia": "BA",
+    "Nombre": "Buenos Aires",
+    "IdCD": "CD-BA"
+  },
+  {
+    "IdProvincia": "CABA",
+    "Nombre": "Ciudad Aut�noma de Buenos Aires",
+    "IdCD": "CD-CABA"
+  },
+  {
+    "IdProvincia": "CA",
+    "Nombre": "Catamarca",
+    "IdCD": "CD-CA"
+  },
+  {
+    "IdProvincia": "CH",
+    "Nombre": "Chaco",
+    "IdCD": "CD-CH"
+  },
+  {
+    "IdProvincia": "CHU",
+    "Nombre": "Chubut",
+    "IdCD": "CD-CHU"
+  },
+  {
+    "IdProvincia": "CO",
+    "Nombre": "C�rdoba",
+    "IdCD": "CD-CO"
+  },
+  {
+    "IdProvincia": "CR",
+    "Nombre": "Corrientes",
+    "IdCD": "CD-CR"
+  },
+  {
+    "IdProvincia": "ER",
+    "Nombre": "Entre R�os",
+    "IdCD": "CD-ER"
+  },
+  {
+    "IdProvincia": "FO",
+    "Nombre": "Formosa",
+    "IdCD": "CD-FO"
+  },
+  {
+    "IdProvincia": "JU",
+    "Nombre": "Jujuy",
+    "IdCD": "CD-JU"
+  },
+  {
+    "IdProvincia": "LP",
+    "Nombre": "La Pampa",
+    "IdCD": "CD-LP"
+  },
+  {
+    "IdProvincia": "LR",
+    "Nombre": "La Rioja",
+    "IdCD": "CD-LR"
+  },
+  {
+    "IdProvincia": "ME",
+    "Nombre": "Mendoza",
+    "IdCD": "CD-ME"
+  },
+  {
+    "IdProvincia": "MI",
+    "Nombre": "Misiones",
+    "IdCD": "CD-MI"
+  },
+  {
+    "IdProvincia": "NE",
+    "Nombre": "Neuqu�n",
+    "IdCD": "CD-NE"
+  },
+  {
+    "IdProvincia": "RN",
+    "Nombre": "R�o Negro",
+    "IdCD": "CD-RN"
+  },
+  {
+    "IdProvincia": "SA",
+    "Nombre": "Salta",
+    "IdCD": "CD-SA"
+  },
+  {
+    "IdProvincia": "SJ",
+    "Nombre": "San Juan",
+    "IdCD": "CD-SJ"
+  },
+  {
+    "IdProvincia": "SL",
+    "Nombre": "San Luis",
+    "IdCD": "CD-SL"
+  },
+  {
+    "IdProvincia": "SCZ",
+    "Nombre": "Santa Cruz",
+    "IdCD": "CD-SCZ"
+  },
+  {
+    "IdProvincia": "SF",
+    "Nombre": "Santa Fe",
+    "IdCD": "CD-SF"
+  },
+  {
+    "IdProvincia": "SE",
+    "Nombre": "Santiago del Estero",
+    "IdCD": "CD-SE"
+  },
+  {
+    "IdProvincia": "TF",
+    "Nombre": "Tierra del Fuego, Ant�rtida e Islas del Atl�ntico Sur",
+    "IdCD": "CD-TF"
+  },
+  {
+    "IdProvincia": "TU",
+    "Nombre": "Tucum�n",
+    "IdCD": "CD-TU"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "IdCD": "CD-BA",
+    "Nombre": "Hub Central - Buenos Aires (CD-BA)"
+  },
+  {
+    "IdCD": "CD-CABA",
+    "Nombre": "Centro Log�stico Capital - CABA (CD-CABA)"
+  },
+  {
+    "IdCD": "CD-CA",
+    "Nombre": "Planta Log�stica Catamarca (CD-CA)"
+  },
+  {
+    "IdCD": "CD-CH",
+    "Nombre": "Centro Regional Chaco (CD-CH)"
+  },
+  {
+    "IdCD": "CD-CHU",
+    "Nombre": "Dep�sito Chubut (CD-CHU)"
+  },
+  {
+    "IdCD": "CD-CO",
+    "Nombre": "Hub C�rdoba - Polo Log�stico (CD-CO)"
+  },
+  {
+    "IdCD": "CD-CR",
+    "Nombre": "Centro Regional Corrientes (CD-CR)"
+  },
+  {
+    "IdCD": "CD-ER",
+    "Nombre": "Centro Log�stico Entre R�os (CD-ER)"
+  },
+  {
+    "IdCD": "CD-FO",
+    "Nombre": "Dep�sito Formosa (CD-FO)"
+  },
+  {
+    "IdCD": "CD-JU",
+    "Nombre": "Hub Jujuy - Log�stica (CD-JU)"
+  },
+  {
+    "IdCD": "CD-LP",
+    "Nombre": "Centro Distribuci�n La Pampa (CD-LP)"
+  },
+  {
+    "IdCD": "CD-LR",
+    "Nombre": "Hub La Rioja - Log�stica (CD-LR)"
+  },
+  {
+    "IdCD": "CD-ME",
+    "Nombre": "Planta Log�stica Mendoza (CD-ME)"
+  },
+  {
+    "IdCD": "CD-MI",
+    "Nombre": "Centro Regional Misiones (CD-MI)"
+  },
+  {
+    "IdCD": "CD-NE",
+    "Nombre": "Centro Log�stico Neuqu�n (CD-NE)"
+  },
+  {
+    "IdCD": "CD-RN",
+    "Nombre": "Dep�sito R�o Negro (CD-RN)"
+  },
+  {
+    "IdCD": "CD-SA",
+    "Nombre": "Hub Salta - Log�stica (CD-SA)"
+  },
+  {
+    "IdCD": "CD-SJ",
+    "Nombre": "Centro Log�stico San Juan (CD-SJ)"
+  },
+  {
+    "IdCD": "CD-SL",
+    "Nombre": "Centro Regional San Luis (CD-SL)"
+  },
+  {
+    "IdCD": "CD-SCZ",
+    "Nombre": "Planta Santa Cruz (CD-SCZ)"
+  },
+  {
+    "IdCD": "CD-SF",
+    "Nombre": "Hub Santa Fe - Log�stica (CD-SF)"
+  },
+  {
+    "IdCD": "CD-SE",
+    "Nombre": "Centro Log�stico Santiago del Estero (CD-SE)"
+  },
+  {
+    "IdCD": "CD-TF",
+    "Nombre": "Centro Log�stico Tierra del Fuego (CD-TF)"
+  },
+  {
+    "IdCD": "CD-TU",
+    "Nombre": "Hub Tucum�n - Log�stica (CD-TU)"
+  }
+]
