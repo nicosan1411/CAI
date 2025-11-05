@@ -291,7 +291,9 @@
     </None>
     <None Include="Datos\EmpresaMicros.json" />
     <None Include="Datos\Extras.json" />
-    <None Include="Datos\Guias.json" />
+    <None Include="Datos\Guias.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Datos\Facturas.json" />
     <None Include="Datos\FleteroComisiones.json" />
     <None Include="Datos\Fleteros.json" />
