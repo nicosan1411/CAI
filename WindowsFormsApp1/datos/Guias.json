@@ -1,31 +1,31 @@
 [
   {
-    "NumeroGuia": "G-20251105181001057",
-    "Estado": "enBusquedaRetiroDomicilio",
-    "FechaIngreso": "2025-11-05T18:10:01.0598776-03:00",
+    "NumeroGuia": "G-20251105193358989",
+    "Estado": "enBusquedaRetiroAgencia",
+    "FechaIngreso": "2025-11-05T19:33:58.9919301-03:00",
     "CuitCliente": "20-12345678-3",
-    "AgenciaOrigen": 0,
+    "AgenciaOrigen": 1,
     "AgenciaDestino": 0,
-    "IdCDOrigen": null,
-    "IdCDDestino": "CHU",
-    "TipoRetiro": "desdeDomicilio",
+    "IdCDOrigen": "1",
+    "IdCDDestino": "CA",
+    "TipoRetiro": "desdeAgencia",
     "TipoEnvio": "vaADomicilio",
-    "DniDestinatario": 45345345,
-    "IdProvinciaDestino": "CHU",
-    "LocalidadDestino": "dfsf",
-    "DomicilioDestino": "sdfsdfsdf",
-    "Dimension": "s",
+    "DniDestinatario": 32432432,
+    "IdProvinciaDestino": "CA",
+    "LocalidadDestino": "pm",
+    "DomicilioDestino": "dsf",
+    "Dimension": "xl",
     "Recorrido": [],
     "EstadoActual": {
-      "Estado": "enBusquedaRetiroDomicilio",
-      "Fecha": "2025-11-05T18:10:01.0598776-03:00",
-      "IdCentroDistribucion": null
+      "Estado": "enBusquedaRetiroAgencia",
+      "Fecha": "2025-11-05T19:33:58.9955453-03:00",
+      "IdCentroDistribucion": "1"
     },
     "Historial": [
       {
-        "Estado": "enBusquedaRetiroDomicilio",
-        "Fecha": "2025-11-05T18:10:01.0598776-03:00",
-        "IdCentroDistribucion": null
+        "Estado": "enBusquedaRetiroAgencia",
+        "Fecha": "2025-11-05T19:33:58.9955453-03:00",
+        "IdCentroDistribucion": "1"
       }
     ],
     "Precio": 0,
@@ -36,140 +36,32 @@
     "NumeroFactura": 0
   },
   {
-    "NumeroGuia": "G-20251105181001263",
-    "Estado": "enBusquedaRetiroDomicilio",
-    "FechaIngreso": "2025-11-05T18:10:01.2633641-03:00",
+    "NumeroGuia": "G-20251105193359307",
+    "Estado": "enBusquedaRetiroAgencia",
+    "FechaIngreso": "2025-11-05T19:33:59.3070576-03:00",
     "CuitCliente": "20-12345678-3",
-    "AgenciaOrigen": 0,
+    "AgenciaOrigen": 1,
     "AgenciaDestino": 0,
-    "IdCDOrigen": null,
-    "IdCDDestino": "CHU",
-    "TipoRetiro": "desdeDomicilio",
+    "IdCDOrigen": "1",
+    "IdCDDestino": "CA",
+    "TipoRetiro": "desdeAgencia",
     "TipoEnvio": "vaADomicilio",
-    "DniDestinatario": 45345345,
-    "IdProvinciaDestino": "CHU",
-    "LocalidadDestino": "dfsf",
-    "DomicilioDestino": "sdfsdfsdf",
-    "Dimension": "s",
-    "Recorrido": [],
-    "EstadoActual": {
-      "Estado": "enBusquedaRetiroDomicilio",
-      "Fecha": "2025-11-05T18:10:01.2633641-03:00",
-      "IdCentroDistribucion": null
-    },
-    "Historial": [
-      {
-        "Estado": "enBusquedaRetiroDomicilio",
-        "Fecha": "2025-11-05T18:10:01.2633641-03:00",
-        "IdCentroDistribucion": null
-      }
-    ],
-    "Precio": 0,
-    "ComisionesAgenciaOrigen": 0,
-    "ComisionesAgenciaDestino": 0,
-    "ComisionesFleteroOrigen": 0,
-    "ComisionesFleteroDestino": 0,
-    "NumeroFactura": 0
-  },
-  {
-    "NumeroGuia": "G-20251105181001263",
-    "Estado": "enBusquedaRetiroDomicilio",
-    "FechaIngreso": "2025-11-05T18:10:01.2633641-03:00",
-    "CuitCliente": "20-12345678-3",
-    "AgenciaOrigen": 0,
-    "AgenciaDestino": 0,
-    "IdCDOrigen": null,
-    "IdCDDestino": "CHU",
-    "TipoRetiro": "desdeDomicilio",
-    "TipoEnvio": "vaADomicilio",
-    "DniDestinatario": 45345345,
-    "IdProvinciaDestino": "CHU",
-    "LocalidadDestino": "dfsf",
-    "DomicilioDestino": "sdfsdfsdf",
-    "Dimension": "s",
-    "Recorrido": [],
-    "EstadoActual": {
-      "Estado": "enBusquedaRetiroDomicilio",
-      "Fecha": "2025-11-05T18:10:01.2633641-03:00",
-      "IdCentroDistribucion": null
-    },
-    "Historial": [
-      {
-        "Estado": "enBusquedaRetiroDomicilio",
-        "Fecha": "2025-11-05T18:10:01.2633641-03:00",
-        "IdCentroDistribucion": null
-      }
-    ],
-    "Precio": 0,
-    "ComisionesAgenciaOrigen": 0,
-    "ComisionesAgenciaDestino": 0,
-    "ComisionesFleteroOrigen": 0,
-    "ComisionesFleteroDestino": 0,
-    "NumeroFactura": 0
-  },
-  {
-    "NumeroGuia": "G-20251105181001281",
-    "Estado": "enBusquedaRetiroDomicilio",
-    "FechaIngreso": "2025-11-05T18:10:01.2811438-03:00",
-    "CuitCliente": "20-12345678-3",
-    "AgenciaOrigen": 0,
-    "AgenciaDestino": 0,
-    "IdCDOrigen": null,
-    "IdCDDestino": "CHU",
-    "TipoRetiro": "desdeDomicilio",
-    "TipoEnvio": "vaADomicilio",
-    "DniDestinatario": 45345345,
-    "IdProvinciaDestino": "CHU",
-    "LocalidadDestino": "dfsf",
-    "DomicilioDestino": "sdfsdfsdf",
-    "Dimension": "s",
-    "Recorrido": [],
-    "EstadoActual": {
-      "Estado": "enBusquedaRetiroDomicilio",
-      "Fecha": "2025-11-05T18:10:01.2811438-03:00",
-      "IdCentroDistribucion": null
-    },
-    "Historial": [
-      {
-        "Estado": "enBusquedaRetiroDomicilio",
-        "Fecha": "2025-11-05T18:10:01.2811438-03:00",
-        "IdCentroDistribucion": null
-      }
-    ],
-    "Precio": 0,
-    "ComisionesAgenciaOrigen": 0,
-    "ComisionesAgenciaDestino": 0,
-    "ComisionesFleteroOrigen": 0,
-    "ComisionesFleteroDestino": 0,
-    "NumeroFactura": 0
-  },
-  {
-    "NumeroGuia": "G-20251105181001295",
-    "Estado": "enBusquedaRetiroDomicilio",
-    "FechaIngreso": "2025-11-05T18:10:01.2950062-03:00",
-    "CuitCliente": "20-12345678-3",
-    "AgenciaOrigen": 0,
-    "AgenciaDestino": 0,
-    "IdCDOrigen": null,
-    "IdCDDestino": "CHU",
-    "TipoRetiro": "desdeDomicilio",
-    "TipoEnvio": "vaADomicilio",
-    "DniDestinatario": 45345345,
-    "IdProvinciaDestino": "CHU",
-    "LocalidadDestino": "dfsf",
-    "DomicilioDestino": "sdfsdfsdf",
+    "DniDestinatario": 32432432,
+    "IdProvinciaDestino": "CA",
+    "LocalidadDestino": "pm",
+    "DomicilioDestino": "dsf",
     "Dimension": "l",
     "Recorrido": [],
     "EstadoActual": {
-      "Estado": "enBusquedaRetiroDomicilio",
-      "Fecha": "2025-11-05T18:10:01.2950062-03:00",
-      "IdCentroDistribucion": null
+      "Estado": "enBusquedaRetiroAgencia",
+      "Fecha": "2025-11-05T19:33:59.3070576-03:00",
+      "IdCentroDistribucion": "1"
     },
     "Historial": [
       {
-        "Estado": "enBusquedaRetiroDomicilio",
-        "Fecha": "2025-11-05T18:10:01.2950062-03:00",
-        "IdCentroDistribucion": null
+        "Estado": "enBusquedaRetiroAgencia",
+        "Fecha": "2025-11-05T19:33:59.3070576-03:00",
+        "IdCentroDistribucion": "1"
       }
     ],
     "Precio": 0,
@@ -180,32 +72,32 @@
     "NumeroFactura": 0
   },
   {
-    "NumeroGuia": "G-20251105181001295",
-    "Estado": "enBusquedaRetiroDomicilio",
-    "FechaIngreso": "2025-11-05T18:10:01.2950062-03:00",
+    "NumeroGuia": "G-20251105193359327",
+    "Estado": "enBusquedaRetiroAgencia",
+    "FechaIngreso": "2025-11-05T19:33:59.3278486-03:00",
     "CuitCliente": "20-12345678-3",
-    "AgenciaOrigen": 0,
+    "AgenciaOrigen": 1,
     "AgenciaDestino": 0,
-    "IdCDOrigen": null,
-    "IdCDDestino": "CHU",
-    "TipoRetiro": "desdeDomicilio",
+    "IdCDOrigen": "1",
+    "IdCDDestino": "CA",
+    "TipoRetiro": "desdeAgencia",
     "TipoEnvio": "vaADomicilio",
-    "DniDestinatario": 45345345,
-    "IdProvinciaDestino": "CHU",
-    "LocalidadDestino": "dfsf",
-    "DomicilioDestino": "sdfsdfsdf",
-    "Dimension": "l",
+    "DniDestinatario": 32432432,
+    "IdProvinciaDestino": "CA",
+    "LocalidadDestino": "pm",
+    "DomicilioDestino": "dsf",
+    "Dimension": "m",
     "Recorrido": [],
     "EstadoActual": {
-      "Estado": "enBusquedaRetiroDomicilio",
-      "Fecha": "2025-11-05T18:10:01.2950062-03:00",
-      "IdCentroDistribucion": null
+      "Estado": "enBusquedaRetiroAgencia",
+      "Fecha": "2025-11-05T19:33:59.3278486-03:00",
+      "IdCentroDistribucion": "1"
     },
     "Historial": [
       {
-        "Estado": "enBusquedaRetiroDomicilio",
-        "Fecha": "2025-11-05T18:10:01.2950062-03:00",
-        "IdCentroDistribucion": null
+        "Estado": "enBusquedaRetiroAgencia",
+        "Fecha": "2025-11-05T19:33:59.3278486-03:00",
+        "IdCentroDistribucion": "1"
       }
     ],
     "Precio": 0,
