@@ -389,6 +389,7 @@
             this.cbEmpresaCliente.Name = "cbEmpresaCliente";
             this.cbEmpresaCliente.Size = new System.Drawing.Size(236, 21);
             this.cbEmpresaCliente.TabIndex = 1;
+            this.cbEmpresaCliente.SelectedIndexChanged += new System.EventHandler(this.cbEmpresaCliente_SelectedIndexChanged);
             // 
             // gbEmpresaCliente
             // 

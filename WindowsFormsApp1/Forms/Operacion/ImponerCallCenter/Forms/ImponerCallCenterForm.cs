@@ -1,9 +1,9 @@
-﻿using CAI_Proyecto.Almacenes.Entidad;
-using CAI_Proyecto.Forms.Inicio;
+﻿using CAI_Proyecto.Forms.Inicio;
 using CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+
 namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
 {
     public partial class ImponerCallCenterForm : Form
@@ -38,14 +38,6 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
             cbDimension.SelectedIndex = -1;
             cbDimension.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Agencia de retiro
-            cbAgenciaRetiro.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbAgenciaRetiro.Enabled = false;
-            cbAgenciaRetiro.DataSource = null;
-            //cbAgenciaRetiro.DataSource = modelo.TodasLasAgenciasDeRetiro().ToList();
-            //cbAgenciaRetiro.DisplayMember = "Nombre";
-            //cbAgenciaRetiro.SelectedIndex = -1;
-
             // Agencia de envío (se cargarán al elegir provincia)
             cmbAgenciaEnvio.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAgenciaEnvio.Enabled = false;
@@ -76,47 +68,18 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
         // ============ Conexión de eventos ============
         private void ConectarEventos()
         {
-            cbEmpresaCliente.SelectedIndexChanged += (_, __) =>
-            {
-                // Recuperamos el cliente seleccionado (viene del modelo.Clientes -> Entidad)
-                var clienteSeleccionado = (cbEmpresaCliente.SelectedItem as dynamic)?.Entidad as ClienteEntidad;
-                if (clienteSeleccionado == null)
-                {
-                    cbAgenciaRetiro.DataSource = null;
-                    cbAgenciaRetiro.Enabled = false;
-                    return;
-                }
-
-                // Buscamos agencias asociadas
-                var agencias = modelo.AgenciasDeRetiroPorCliente(clienteSeleccionado).ToList();
-
-                cbAgenciaRetiro.DataSource = agencias;
-                cbAgenciaRetiro.DisplayMember = "Nombre";
-                cbAgenciaRetiro.SelectedIndex = -1;
-                cbAgenciaRetiro.Enabled = agencias.Any() && rbRetiroAgencia.Checked;
-            };
-
             // Provincia -> recarga agencias (envío y retiro)
             cbProvinciaEnvio.SelectedIndexChanged += (_, __) =>
             {
-                var provinciaSeleccionada = cbProvinciaEnvio.SelectedItem as ProvinciaEntidad;
+                var prov = cbProvinciaEnvio.SelectedItem as Provincia;
+                var listaEnvio = prov == null
+                    ? Enumerable.Empty<AgenciaEnvio>()
+                    : modelo.AgenciasEnvioPorProvincia(prov.Codigo).ToList();
 
-                if (rbEnvioAgencia.Checked && provinciaSeleccionada != null)
-                {
-                    var agencias = modelo.AgenciasDeEnvioPorProvincia(provinciaSeleccionada).ToList();
-
-                    cmbAgenciaEnvio.DataSource = agencias;
-                    cmbAgenciaEnvio.DisplayMember = "Nombre";
-                    cmbAgenciaEnvio.SelectedIndex = -1;
-                    cmbAgenciaEnvio.Enabled = agencias.Any();
-                }
-                else
-                {
-                    cmbAgenciaEnvio.DataSource = null;
-                    cmbAgenciaEnvio.Enabled = false;
-                }
+                cmbAgenciaEnvio.DataSource = listaEnvio;
+                cmbAgenciaEnvio.DisplayMember = nameof(AgenciaEnvio.Nombre);
+                cmbAgenciaEnvio.SelectedIndex = -1;
             };
-
 
             // Retiro
             rbRetiroDomicilio.CheckedChanged += (_, __) => ActualizarHabilitacionAgencias();
@@ -136,13 +99,8 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
         // ============ Habilitar / deshabilitar según radios ============
         private void ActualizarHabilitacionAgencias()
         {
-            cbAgenciaRetiro.Enabled = rbRetiroAgencia.Checked &&
-                                      cbAgenciaRetiro.DataSource != null &&
-                                      ((System.Collections.ICollection)cbAgenciaRetiro.DataSource).Count > 0;
-
-            cmbAgenciaEnvio.Enabled = rbEnvioAgencia.Checked &&
-                                      cmbAgenciaEnvio.DataSource != null &&
-                                      ((System.Collections.ICollection)cmbAgenciaEnvio.DataSource).Count > 0;
+            cbAgenciaRetiro.Enabled = rbRetiroAgencia.Checked;
+            cmbAgenciaEnvio.Enabled = rbEnvioAgencia.Checked;
         }
 
         private void ActualizarCamposDestinatario()
@@ -165,74 +123,45 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
         // ============ Helpers UI ============
         private EncomiendaItem LeerEncomiendaDeLaUI()
         {
-            var dimensionSeleccionada = cbDimension.SelectedItem as string;
-            if (string.IsNullOrEmpty(dimensionSeleccionada)) return null;
+            var dim = cbDimension.SelectedItem as Dimension; // clase con Tamaño
+            if (dim == null) return null;
 
             return new EncomiendaItem
             {
-                Dimension = new Dimension { Tamaño = dimensionSeleccionada },
+                Dimension = dim,
                 Cantidad = (int)numericCantidadEncomienda.Value
             };
         }
 
         private Pedido ConstruirPedidoDesdeUI()
         {
-            // Cliente: el DataSource de cbEmpresaCliente contiene objetos anónimos { Cuit_RazonSocial, Entidad }
-            Cliente clienteModel = null;
-            var clienteSelected = cbEmpresaCliente.SelectedItem as dynamic;
-            if (clienteSelected != null)
-            {
-                var entidad = clienteSelected.Entidad as ClienteEntidad;
-                if (entidad != null)
-                    clienteModel = new Cliente { Cuit = entidad.Cuit, RazonSocial = entidad.RazonSocial };
-            }
-
-            // Agencia de retiro: DataSource usa AgenciaEntidad (del almacén)
-            AgenciaRetiro agenciaRetiroModel = null;
-            var agenciaRetiroEntidad = cbAgenciaRetiro.SelectedItem as AgenciaEntidad;
-            if (agenciaRetiroEntidad != null)
-                agenciaRetiroModel = new AgenciaRetiro { Id = agenciaRetiroEntidad.IdAgencia, Nombre = agenciaRetiroEntidad.Nombre };
-
-            // Provincia de envío: DataSource usa ProvinciaEntidad
-            Provincia provinciaModel = null;
-            var provinciaEntidad = cbProvinciaEnvio.SelectedItem as ProvinciaEntidad;
-            if (provinciaEntidad != null)
-                provinciaModel = new Provincia { Codigo = provinciaEntidad.IdProvincia ?? provinciaEntidad.Nombre, Nombre = provinciaEntidad.Nombre };
-
-            // Agencia de envío: DataSource usa AgenciaEntidad
-            AgenciaEnvio agenciaEnvioModel = null;
-            var agenciaEnvioEntidad = cmbAgenciaEnvio.SelectedItem as AgenciaEntidad;
-            if (agenciaEnvioEntidad != null)
-                agenciaEnvioModel = new AgenciaEnvio { Id = agenciaEnvioEntidad.IdAgencia, Nombre = agenciaEnvioEntidad.Nombre, ProvinciaCodigo = agenciaEnvioEntidad.CDAsignado };
-
             var pedido = new Pedido
             {
-                // Cliente (modelo esperado por Pedido)
-                Cliente = clienteModel,
+                // Cliente
+                Cliente = cbEmpresaCliente.SelectedItem as Cliente,
 
                 // Retiro
                 TipoRetiro = rbRetiroAgencia.Checked ? "Agencia"
                                 : rbRetiroDomicilio.Checked ? "Domicilio" : null,
-                AgenciaRetiro = rbRetiroAgencia.Checked ? agenciaRetiroModel : null,
+                AgenciaRetiro = rbRetiroAgencia.Checked ? cbAgenciaRetiro.SelectedItem as AgenciaRetiro : null,
 
                 // Envío
                 TipoEnvio = rbEnvioAgencia.Checked ? "Agencia"
                                 : rbEnvioCentroDistribucion.Checked ? "Centro de distribución"
                                 : rbEnvioDomicilio.Checked ? "Domicilio" : null,
-                ProvinciaEnvio = provinciaModel,
-                AgenciaEnvio = rbEnvioAgencia.Checked ? agenciaEnvioModel : null,
+                ProvinciaEnvio = cbProvinciaEnvio.SelectedItem as Provincia,
+                AgenciaEnvio = rbEnvioAgencia.Checked ? cmbAgenciaEnvio.SelectedItem as AgenciaEnvio : null,
 
                 // Destinatario
                 DniDestinatario = txtDniDestinatario.Text?.Trim(),
                 LocalidadDestinatario = txtLocalidadDestinatario.Text?.Trim(),
                 DomicilioDestinatario = txtDomicilioDestinatario.Text?.Trim(),
 
-                // Encomiendas (ya están en el modelo)
+                // Encomiendas
                 Encomiendas = modelo.Encomiendas.ToList()
             };
 
             return pedido;
-
         }
 
         private void RefrescarListaEncomiendas()
@@ -294,7 +223,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
 
         private void BtnAceptarPedido_Click(object sender, EventArgs e)
         {
-            // Validaciones de formulario mínimas (UI)
+            // Validaciones de formulario mínimas
             if (cbEmpresaCliente.SelectedIndex < 0)
             {
                 MessageBox.Show("Seleccioná un cliente.", "Validación",
@@ -310,9 +239,9 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
 
             var pedido = ConstruirPedidoDesdeUI();
 
-            // Delegar toda la lógica de negocio al modelo
-            var errores = modelo.ImponerPedido(pedido);
-            if (errores != null && errores.Any())
+            // Reglas de negocio del modelo
+            var errores = modelo.ValidarPedido(pedido); // método del modelo
+            if (errores.Any())
             {
                 var msg = string.Join(Environment.NewLine, errores);
                 MessageBox.Show(msg, "Errores de negocio",
@@ -320,7 +249,14 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
                 return;
             }
 
-            MessageBox.Show("Pedido impuesto y guardado correctamente.", "OK",
+            //TODO: pasarle todos los datos al modelo
+            modelo.Aceptar(new Pedido
+            {
+                 
+            });
+
+
+            MessageBox.Show("Pedido impuesto correctamente (demo).", "OK",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             LimpiarFormulario();
@@ -354,6 +290,16 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
             InicioForm.VolverAlMenu(this);
+        }
+
+        private void cbEmpresaCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Agencia de retiro
+            cbAgenciaRetiro.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbAgenciaRetiro.Enabled = false;
+            cbAgenciaRetiro.DataSource = modelo.AgenciasRetiroCliente((Cliente)cbEmpresaCliente.SelectedItem).ToList();
+            cbAgenciaRetiro.DisplayMember = "Nombre";
+            cbAgenciaRetiro.SelectedIndex = -1;
         }
     }
 }
