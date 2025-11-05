@@ -38,13 +38,6 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
             cbDimension.SelectedIndex = -1;
             cbDimension.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Agencia de retiro
-            cbAgenciaRetiro.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbAgenciaRetiro.Enabled = false;
-            cbAgenciaRetiro.DataSource = modelo.TodasLasAgenciasDeRetiro().ToList();
-            cbAgenciaRetiro.DisplayMember = "Nombre";
-            cbAgenciaRetiro.SelectedIndex = -1;
-
             // Agencia de envío (se cargarán al elegir provincia)
             cmbAgenciaEnvio.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAgenciaEnvio.Enabled = false;
@@ -256,6 +249,13 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
                 return;
             }
 
+            //TODO: pasarle todos los datos al modelo
+            modelo.Aceptar(new Pedido
+            {
+                 
+            });
+
+
             MessageBox.Show("Pedido impuesto correctamente (demo).", "OK",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -290,6 +290,16 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
         private void btnVolverMenuPrincipal_Click(object sender, EventArgs e)
         {
             InicioForm.VolverAlMenu(this);
+        }
+
+        private void cbEmpresaCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Agencia de retiro
+            cbAgenciaRetiro.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbAgenciaRetiro.Enabled = false;
+            cbAgenciaRetiro.DataSource = modelo.AgenciasRetiroCliente((Cliente)cbEmpresaCliente.SelectedItem).ToList();
+            cbAgenciaRetiro.DisplayMember = "Nombre";
+            cbAgenciaRetiro.SelectedIndex = -1;
         }
     }
 }

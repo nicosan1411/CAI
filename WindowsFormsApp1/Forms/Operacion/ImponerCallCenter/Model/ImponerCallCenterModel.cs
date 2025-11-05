@@ -1,32 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using CAI_Proyecto.Almacenes.Almacen;
+using CAI_Proyecto.Almacenes.ClaseAuxiliar;
+using CAI_Proyecto.Almacenes.Entidad;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 {
     internal partial class ImponerCallCenterModel
     {
-
-
-        public Cliente[] Clientes => new Cliente[]
+        public Cliente[] Clientes
         {
-            new Cliente{ Cuit = "30-50109269-6", RazonSocial = "Unilever de Argentina S.A." },
-            new Cliente{ Cuit = "30-50361405-3", RazonSocial = "Arcor S.A.I.C."},
-            new Cliente{ Cuit = "30-70752101-7", RazonSocial = "Molinos Río de la Plata S.A."},
-            new Cliente{ Cuit = "30-50033372-9", RazonSocial = "Coca-Cola FEMSA S.A."},
-            new Cliente{ Cuit = "30-56712390-1", RazonSocial = "Procter & Gamble S.R.L."},
-            new Cliente{ Cuit = "30-58412999-2", RazonSocial = "Ledesma S.A.A.I."},
-            new Cliente{ Cuit = "30-70012345-8", RazonSocial = "Nestlé Argentina S.A."},
-            new Cliente{ Cuit = "30-66544332-7", RazonSocial = "Danone S.A."}
-        };
+            get
+            {
+                return ClienteAlmacen.Clientes
+                                     .Select(c => new Cliente
+                                     {
+                                         Cuit = c.Cuit,
+                                         RazonSocial = c.RazonSocial
+                                     }).ToArray();
+            }
+        }
 
-        public AgenciaRetiro[] AgenciasRetiro => new[]
-        {
-            new AgenciaRetiro{ Id = 101, Nombre = "Retiro - Sucursal A" },
-            new AgenciaRetiro{ Id = 102, Nombre = "Retiro - Sucursal B" },
-            new AgenciaRetiro{ Id = 103, Nombre = "Retiro - Sucursal C" },
-        };
-
-        public AgenciaEnvio[] AgenciasEnvio => new AgenciaEnvio[] 
+        public AgenciaEnvio[] AgenciasEnvio => new AgenciaEnvio[]
         {
             new AgenciaEnvio{ Id = 1, Nombre = "Agencia 1", ProvinciaCodigo = "BA" },
             new AgenciaEnvio{ Id = 2, Nombre = "Agencia 2", ProvinciaCodigo = "CO" },
@@ -38,21 +34,21 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
             new AgenciaEnvio{ Id = 8, Nombre = "Agencia 8", ProvinciaCodigo = "ER" },
         };
 
-        public Provincia[] Provincias => new Provincia[]
+        public Provincia[] Provincias
         {
-            new Provincia{ Codigo = "BA", Nombre = "Buenos Aires" },
-            new Provincia{ Codigo = "CO", Nombre = "Córdoba" },
-            new Provincia{ Codigo = "SF", Nombre = "Santa Fe" },
-            new Provincia{ Codigo = "ME", Nombre = "Mendoza" },
-            new Provincia{ Codigo = "TU", Nombre = "Tucumán" },
-            new Provincia{ Codigo = "SA", Nombre = "Salta" },
-            new Provincia{ Codigo = "CH", Nombre = "Chaco" },
-            new Provincia{ Codigo = "ER", Nombre = "Entre Ríos" }
-        };
+            get
+            {
+                return ProvinciaAlmacen.Provincias
+                                        .Select(p => new Provincia
+                                        {
+                                            Codigo = p.IdProvincia,
+                                            Nombre = p.Nombre
+                                        }).ToArray();
+            }
+        }
 
         public Dimension[] Dimensiones => new Dimension[]
         {
-            new Dimension{ Tamaño = "XS" },
             new Dimension{ Tamaño = "S" },
             new Dimension{ Tamaño = "M" },
             new Dimension{ Tamaño = "L" },
@@ -60,11 +56,33 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
         };
 
         public IEnumerable<AgenciaEnvio> AgenciasEnvioPorProvincia(string provinciaCodigo)
-            => string.IsNullOrWhiteSpace(provinciaCodigo)
-                ? Enumerable.Empty<AgenciaEnvio>()
-                : AgenciasEnvio.Where(a => a.ProvinciaCodigo == provinciaCodigo);
+        {
+            var provincia = ProvinciaAlmacen.Provincias.Single(p => p.IdProvincia == provinciaCodigo);
+            var cd = CentroDeDistribucionAlmacen.CentrosDeDistribucion.Single(cd => cd.IdCD == provincia.IdCD);
 
-        public IEnumerable<AgenciaRetiro> TodasLasAgenciasDeRetiro() => AgenciasRetiro;
+            return AgenciaAlmacen.Agencias
+                                 .Where(a => a.CDAsignado == cd.IdCD)
+                                 .Select(a => new AgenciaEnvio
+                                 {
+                                     Id = a.IdAgencia,
+                                     Nombre = a.Nombre,
+                                     ProvinciaCodigo = provinciaCodigo
+                                 });
+        }
+
+        public List<AgenciaRetiro> AgenciasRetiroCliente(Cliente cliente)
+        {
+            var clienteEntidad = ClienteAlmacen.Clientes.Single(c => c.Cuit == cliente.Cuit);
+
+            return clienteEntidad.AgenciasAsociadas
+                                 .Select(a => AgenciaAlmacen.Agencias.Single(a => a.IdAgencia == a.IdAgencia))
+                                 .Select(a => new AgenciaRetiro
+                                 {
+                                     Id = a.IdAgencia,
+                                     Nombre = a.Nombre
+                                 })
+                                 .ToList();
+        }
 
         public List<EncomiendaItem> Encomiendas { get; } = new List<EncomiendaItem>();
 
@@ -130,6 +148,14 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
                 errores.Add("Debe agregar al menos una encomienda.");
 
             return errores;
+        }
+
+        public void Aceptar(Pedido pedido)
+        {
+            //TODO: crear una entidad GuiasEntidad y mandarla al almacen.
+            var guia = new GuiaEntidad();
+            //llenarla con los datos de pedido.
+            //(ver que otra operacion o cambio en el modelo)
         }
     }
 }
