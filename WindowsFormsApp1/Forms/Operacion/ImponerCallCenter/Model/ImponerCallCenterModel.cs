@@ -141,5 +141,114 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 
             return errores;
         }
+
+        /*
+         * Método de negocio: crea una o varias GuiaEntidad desde un Pedido validado y las persiste.
+         * Se genera una Guia por cada unidad (Cantidad) en cada Encomienda.
+         * Devuelve lista de errores (vacía si se guardó correctamente).
+         */
+        public List<string> ImponerPedido(Pedido p)
+        {
+            var errores = ValidarPedido(p);
+            if (errores.Any())
+                return errores;
+
+            // Crear guías por cada unidad de encomienda
+            var guiasGeneradas = new List<GuiaEntidad>();
+
+            // Valores comunes base
+            var baseCuit = p.Cliente?.Cuit;
+            var agenciaOrigenId = p.AgenciaRetiro != null ? p.AgenciaRetiro.Id : 0;
+            var agenciaDestinoId = p.AgenciaEnvio != null ? p.AgenciaEnvio.Id : 0;
+            var idProvinciaDestino = p.ProvinciaEnvio?.Codigo ?? p.ProvinciaEnvio?.Nombre;
+            var idCDDestino = p.ProvinciaEnvio != null ? (p.ProvinciaEnvio.Codigo ?? p.ProvinciaEnvio.Nombre) : null;
+            var idCDOrigen = p.AgenciaRetiro != null ? (p.AgenciaRetiro.Id.ToString()) : null; // si no hay CD, queda null
+            var tipoRetiroEnum = p.TipoRetiro == "Agencia" ? TipoRetiroEnum.DesdeAgencia :
+                                 p.TipoRetiro == "Domicilio" ? TipoRetiroEnum.DesdeDomicilio :
+                                 TipoRetiroEnum.SinRetiro;
+            var tipoEnvioEnum = p.TipoEnvio == "Agencia" ? TipoEnvioEnum.VaAAgencia :
+                                p.TipoEnvio == "Centro de distribución" ? TipoEnvioEnum.VaACD :
+                                TipoEnvioEnum.VaADomicilio;
+            var dni = int.TryParse(p.DniDestinatario, out var dniVal) ? dniVal : 0;
+            var localidad = p.LocalidadDestinatario;
+            var domicilio = p.DomicilioDestinatario;
+
+            foreach (var encomienda in p.Encomiendas)
+            {
+                var cantidad = encomienda?.Cantidad ?? 0;
+                var tamaño = encomienda?.Dimension?.Tamaño;
+
+                for (int i = 0; i < cantidad; i++)
+                {
+                    var guia = new GuiaEntidad
+                    {
+                        NumeroGuia = GenerarNumeroGuia(),
+                        FechaIngreso = DateTime.Now,
+                        CuitCliente = baseCuit,
+                        AgenciaOrigen = agenciaOrigenId,
+                        AgenciaDestino = agenciaDestinoId,
+                        IdCDOrigen = idCDOrigen,
+                        IdCDDestino = idCDDestino,
+                        TipoRetiro = tipoRetiroEnum,
+                        TipoEnvio = tipoEnvioEnum,
+                        DniDestinatario = dni,
+                        IdProvinciaDestino = idProvinciaDestino,
+                        LocalidadDestino = localidad,
+                        DomicilioDestino = domicilio,
+                        Dimension = TryParseTipoBulto(tamaño),
+                        Recorrido = new List<Recorrido>(),
+                        Precio = 0m,
+                        ComisionesAgenciaOrigen = 0m,
+                        ComisionesAgenciaDestino = 0m,
+                        ComisionesFleteroOrigen = 0m,
+                        ComisionesFleteroDestino = 0m,
+                        NumeroFactura = 0
+                    };
+
+                    // Estado inicial según tipo de retiro
+                    var estadoInicial = guia.TipoRetiro switch
+                    {
+                        TipoRetiroEnum.DesdeDomicilio => TipoEstadoGuiaEnum.EnBusquedaRetiroDomicilio,
+                        TipoRetiroEnum.DesdeAgencia => TipoEstadoGuiaEnum.EnBusquedaRetiroAgencia,
+                        _ => TipoEstadoGuiaEnum.AdmitidoCDOrigen
+                    };
+                    guia.Estado = estadoInicial;
+                    guia.EstadoActual = new EstadoGuia
+                    {
+                        Estado = estadoInicial,
+                        Fecha = DateTime.Now,
+                        IdCentroDistribucion = guia.IdCDOrigen
+                    };
+                    guia.Historial = new List<EstadoGuia> { guia.EstadoActual };
+
+                    guiasGeneradas.Add(guia);
+
+                    // Persistir inmediatamente (cada Agregar hace Grabar())
+                    GuiaAlmacen.Agregar(guia);
+                }
+            }
+
+            return new List<string>();
+        }
+
+        // ----- Helpers privados -----
+        private string GenerarNumeroGuia()
+        {
+            return $"G-{DateTime.Now:yyyyMMddHHmmssfff}";
+        }
+
+        private TipoBultoEnum TryParseTipoBulto(string tamaño)
+        {
+            if (string.IsNullOrWhiteSpace(tamaño)) return TipoBultoEnum.S;
+            if (Enum.TryParse<TipoBultoEnum>(tamaño, true, out var result)) return result;
+            var c = tamaño.Trim().ToUpperInvariant()[0];
+            return c switch
+            {
+                'M' => TipoBultoEnum.M,
+                'L' => TipoBultoEnum.L,
+                'X' => TipoBultoEnum.XL,
+                _ => TipoBultoEnum.S
+            };
+        }
     }
 }

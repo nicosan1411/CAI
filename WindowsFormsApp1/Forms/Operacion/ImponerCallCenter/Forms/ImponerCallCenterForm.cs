@@ -4,7 +4,6 @@ using CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model;
 using System;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
 {
     public partial class ImponerCallCenterForm : Form
@@ -178,33 +177,62 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
 
         private Pedido ConstruirPedidoDesdeUI()
         {
+            // Cliente: el DataSource de cbEmpresaCliente contiene objetos anónimos { Cuit_RazonSocial, Entidad }
+            Cliente clienteModel = null;
+            var clienteSelected = cbEmpresaCliente.SelectedItem as dynamic;
+            if (clienteSelected != null)
+            {
+                var entidad = clienteSelected.Entidad as ClienteEntidad;
+                if (entidad != null)
+                    clienteModel = new Cliente { Cuit = entidad.Cuit, RazonSocial = entidad.RazonSocial };
+            }
+
+            // Agencia de retiro: DataSource usa AgenciaEntidad (del almacén)
+            AgenciaRetiro agenciaRetiroModel = null;
+            var agenciaRetiroEntidad = cbAgenciaRetiro.SelectedItem as AgenciaEntidad;
+            if (agenciaRetiroEntidad != null)
+                agenciaRetiroModel = new AgenciaRetiro { Id = agenciaRetiroEntidad.IdAgencia, Nombre = agenciaRetiroEntidad.Nombre };
+
+            // Provincia de envío: DataSource usa ProvinciaEntidad
+            Provincia provinciaModel = null;
+            var provinciaEntidad = cbProvinciaEnvio.SelectedItem as ProvinciaEntidad;
+            if (provinciaEntidad != null)
+                provinciaModel = new Provincia { Codigo = provinciaEntidad.IdProvincia ?? provinciaEntidad.Nombre, Nombre = provinciaEntidad.Nombre };
+
+            // Agencia de envío: DataSource usa AgenciaEntidad
+            AgenciaEnvio agenciaEnvioModel = null;
+            var agenciaEnvioEntidad = cmbAgenciaEnvio.SelectedItem as AgenciaEntidad;
+            if (agenciaEnvioEntidad != null)
+                agenciaEnvioModel = new AgenciaEnvio { Id = agenciaEnvioEntidad.IdAgencia, Nombre = agenciaEnvioEntidad.Nombre, ProvinciaCodigo = agenciaEnvioEntidad.CDAsignado };
+
             var pedido = new Pedido
             {
-                // Cliente
-                Cliente = cbEmpresaCliente.SelectedItem as Cliente,
+                // Cliente (modelo esperado por Pedido)
+                Cliente = clienteModel,
 
                 // Retiro
                 TipoRetiro = rbRetiroAgencia.Checked ? "Agencia"
                                 : rbRetiroDomicilio.Checked ? "Domicilio" : null,
-                AgenciaRetiro = rbRetiroAgencia.Checked ? cbAgenciaRetiro.SelectedItem as AgenciaRetiro : null,
+                AgenciaRetiro = rbRetiroAgencia.Checked ? agenciaRetiroModel : null,
 
                 // Envío
                 TipoEnvio = rbEnvioAgencia.Checked ? "Agencia"
                                 : rbEnvioCentroDistribucion.Checked ? "Centro de distribución"
                                 : rbEnvioDomicilio.Checked ? "Domicilio" : null,
-                ProvinciaEnvio = cbProvinciaEnvio.SelectedItem as Provincia,
-                AgenciaEnvio = rbEnvioAgencia.Checked ? cmbAgenciaEnvio.SelectedItem as AgenciaEnvio : null,
+                ProvinciaEnvio = provinciaModel,
+                AgenciaEnvio = rbEnvioAgencia.Checked ? agenciaEnvioModel : null,
 
                 // Destinatario
                 DniDestinatario = txtDniDestinatario.Text?.Trim(),
                 LocalidadDestinatario = txtLocalidadDestinatario.Text?.Trim(),
                 DomicilioDestinatario = txtDomicilioDestinatario.Text?.Trim(),
 
-                // Encomiendas
+                // Encomiendas (ya están en el modelo)
                 Encomiendas = modelo.Encomiendas.ToList()
             };
 
             return pedido;
+
         }
 
         private void RefrescarListaEncomiendas()
@@ -266,7 +294,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
 
         private void BtnAceptarPedido_Click(object sender, EventArgs e)
         {
-            // Validaciones de formulario mínimas
+            // Validaciones de formulario mínimas (UI)
             if (cbEmpresaCliente.SelectedIndex < 0)
             {
                 MessageBox.Show("Seleccioná un cliente.", "Validación",
@@ -282,9 +310,9 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
 
             var pedido = ConstruirPedidoDesdeUI();
 
-            // Reglas de negocio del modelo
-            var errores = modelo.ValidarPedido(pedido); // método del modelo
-            if (errores.Any())
+            // Delegar toda la lógica de negocio al modelo
+            var errores = modelo.ImponerPedido(pedido);
+            if (errores != null && errores.Any())
             {
                 var msg = string.Join(Environment.NewLine, errores);
                 MessageBox.Show(msg, "Errores de negocio",
@@ -292,7 +320,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
                 return;
             }
 
-            MessageBox.Show("Pedido impuesto correctamente (demo).", "OK",
+            MessageBox.Show("Pedido impuesto y guardado correctamente.", "OK",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             LimpiarFormulario();
