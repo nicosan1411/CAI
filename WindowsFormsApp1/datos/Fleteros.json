@@ -1,0 +1,42 @@
+[
+  {
+    "IdFletero": "F001",
+    "CuitEmpresaFlete": "30-20404040-1",
+    "Nombre": "Transporte Rápido S.R.L.",
+    "IdCDAsignado": "CABA",
+    "CuitClienteAsignado": "20-12345678-3",
+    "IdAgenciaAsignada": 1
+  },
+  {
+    "IdFletero": "F002",
+    "CuitEmpresaFlete": "30-55667788-9",
+    "Nombre": "Fletes del Norte",
+    "IdCDAsignado": "ROS",
+    "CuitClienteAsignado": "27-98765432-1",
+    "IdAgenciaAsignada": 2
+  },
+  {
+    "IdFletero": "F003",
+    "CuitEmpresaFlete": "30-99887766-5",
+    "Nombre": "Envios Córdoba",
+    "IdCDAsignado": "CBA",
+    "CuitClienteAsignado": null,
+    "IdAgenciaAsignada": 0
+  },
+  {
+    "IdFletero": "F004",
+    "CuitEmpresaFlete": "30-11223344-7",
+    "Nombre": "Fletero Oeste",
+    "IdCDAsignado": "LP",
+    "CuitClienteAsignado": "20-44556677-2",
+    "IdAgenciaAsignada": 3
+  },
+  {
+    "IdFletero": "F005",
+    "CuitEmpresaFlete": "30-66778899-0",
+    "Nombre": "Servicios de Flete Central",
+    "IdCDAsignado": "MDP",
+    "CuitClienteAsignado": null,
+    "IdAgenciaAsignada": 4
+  }
+]
