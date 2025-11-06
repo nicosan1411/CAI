@@ -1,7 +1,7 @@
 [
   {
     "NumeroGuia": "G-20251105172158076",
-    "Estado": 1,
+    "Estado": 3,
     "FechaIngreso": "2025-11-05T17:21:58.0767081-03:00",
     "CuitCliente": "20-12345678-3",
     "AgenciaOrigen": 1,
@@ -17,13 +17,13 @@
     "Dimension": 0,
     "Recorrido": [],
     "EstadoActual": {
-      "Estado": 1,
+      "Estado": 3,
       "Fecha": "2025-11-05T17:21:58.0795891-03:00",
       "IdCentroDistribucion": null
     },
     "Historial": [
       {
-        "Estado": 1,
+        "Estado": 3,
         "Fecha": "2025-11-05T17:21:58.0795891-03:00",
         "IdCentroDistribucion": null
       }

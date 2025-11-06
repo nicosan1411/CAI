@@ -12,7 +12,7 @@
   },
   {
     "IdAgencia": 2,
-    "Nombre": "Agencia CO - Distribución Córdoba",
+    "Nombre": "Agencia CO - Distribuciï¿½n Cï¿½rdoba",
     "CDAsignado": "CD-CO",
     "Comisiones": [
       { "TipoBulto": 0, "Comision": 28.0 },
@@ -45,7 +45,7 @@
   },
   {
     "IdAgencia": 5,
-    "Nombre": "Agencia TU - Sucursal Tucumán Norte",
+    "Nombre": "Agencia TU - Sucursal Tucumï¿½n Norte",
     "CDAsignado": "CD-TU",
     "Comisiones": [
       { "TipoBulto": 0, "Comision": 24.0 },
