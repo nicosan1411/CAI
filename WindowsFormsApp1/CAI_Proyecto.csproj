@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Almacenes\Almacen\AgenciaAlmacen.cs" />
     <Compile Include="Almacenes\Almacen\AgenciaComisionAlmacen.cs" />
+    <Compile Include="Almacenes\Almacen\EmpresaFleteAlmacen.cs" />
     <Compile Include="Almacenes\ClaseAuxiliar\TipoRetiroEnum.cs" />
     <Compile Include="Almacenes\Entidad\AgenciaComisionEntidad.cs" />
     <Compile Include="Almacenes\Entidad\AgenciaEntidad.cs" />
@@ -102,7 +103,6 @@
     <Compile Include="Almacenes\Entidad\CentroDeDistribucionEntidad.cs" />
     <Compile Include="Almacenes\Almacen\ClienteAlmacen.cs" />
     <Compile Include="Almacenes\Entidad\ClienteEntidad.cs" />
-    <Compile Include="Almacenes\Almacen\EmpresaFleteAlmacen.cs" />
     <Compile Include="Almacenes\Entidad\EmpresaFleteEntidad.cs" />
     <Compile Include="Almacenes\Almacen\EmpresaMicroAlmacen.cs" />
     <Compile Include="Almacenes\Entidad\EmpresaMicroEntidad.cs" />

@@ -21,7 +21,7 @@ namespace CAI_Proyecto.Forms.Operacion.EmitirFactura.Forms
             // Cargar clientes en el combo
             cbCliente.Items.Clear();
 
-            cbCliente.DataSource = modelo.Empresas;
+            cbCliente.DataSource = modelo.Clientes;
             cbCliente.DisplayMember = "Cuit_RazonSocial";
             cbCliente.ValueMember = "Cuit";
 

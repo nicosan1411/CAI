@@ -15,7 +15,6 @@
             NroGuia = nroGuia;
             Concepto = concepto;
             Monto = monto;
-                 }
+        }
     }
 }
-
