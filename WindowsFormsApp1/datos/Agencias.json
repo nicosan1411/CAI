@@ -3,66 +3,36 @@
     "IdAgencia": 1,
     "Nombre": "Agencia BA - Retiro Central",
     "CDAsignado": "CD-BA",
-    "Comisiones": [
-      { "TipoBulto": 0, "Comision": 30.0 },
-      { "TipoBulto": 1, "Comision": 45.0 },
-      { "TipoBulto": 2, "Comision": 80.0 },
-      { "TipoBulto": 3, "Comision": 130.0 }
-    ]
+    "Comisiones": []
   },
   {
     "IdAgencia": 2,
     "Nombre": "Agencia CO - Distribuci�n C�rdoba",
     "CDAsignado": "CD-CO",
-    "Comisiones": [
-      { "TipoBulto": 0, "Comision": 28.0 },
-      { "TipoBulto": 1, "Comision": 42.0 },
-      { "TipoBulto": 2, "Comision": 78.0 },
-      { "TipoBulto": 3, "Comision": 125.0 }
-    ]
+    "Comisiones": []
   },
   {
     "IdAgencia": 3,
     "Nombre": "Agencia SF - Sucursal Rosario",
     "CDAsignado": "CD-SF",
-    "Comisiones": [
-      { "TipoBulto": 0, "Comision": 26.0 },
-      { "TipoBulto": 1, "Comision": 40.0 },
-      { "TipoBulto": 2, "Comision": 70.0 },
-      { "TipoBulto": 3, "Comision": 120.0 }
-    ]
+    "Comisiones": []
   },
   {
     "IdAgencia": 4,
     "Nombre": "Agencia ME - Sucursal Mendoza Centro",
     "CDAsignado": "CD-ME",
-    "Comisiones": [
-      { "TipoBulto": 0, "Comision": 27.5 },
-      { "TipoBulto": 1, "Comision": 43.0 },
-      { "TipoBulto": 2, "Comision": 75.0 },
-      { "TipoBulto": 3, "Comision": 118.0 }
-    ]
+    "Comisiones": []
   },
   {
     "IdAgencia": 5,
     "Nombre": "Agencia TU - Sucursal Tucum�n Norte",
     "CDAsignado": "CD-TU",
-    "Comisiones": [
-      { "TipoBulto": 0, "Comision": 24.0 },
-      { "TipoBulto": 1, "Comision": 38.0 },
-      { "TipoBulto": 2, "Comision": 65.0 },
-      { "TipoBulto": 3, "Comision": 110.0 }
-    ]
+    "Comisiones": []
   },
   {
     "IdAgencia": 6,
     "Nombre": "Agencia SA - Agencia Salta Principal",
     "CDAsignado": "CD-SA",
-    "Comisiones": [
-      { "TipoBulto": 0, "Comision": 25.0 },
-      { "TipoBulto": 1, "Comision": 39.0 },
-      { "TipoBulto": 2, "Comision": 68.0 },
-      { "TipoBulto": 3, "Comision": 115.0 }
-    ]
+    "Comisiones": []
   }
 ]
