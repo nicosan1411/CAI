@@ -1,0 +1,59 @@
+[
+  {
+    "IdMicro": 1,
+    "CuitEmpresaMicro": "30-20404040-1",
+    "Patente": "AA123BB",
+    "Recorrido": [
+      {
+        "IdCDOrigen": "ROS",
+        "IdCDDestino": "CABA",
+        "Llegada": "2025-11-06T06:30:00-03:00",
+        "Salida": "2025-11-06T06:45:00-03:00"
+      },
+      {
+        "IdCDOrigen": "CABA",
+        "IdCDDestino": "LP",
+        "Llegada": "2025-11-06T10:00:00-03:00",
+        "Salida": "2025-11-06T10:15:00-03:00"
+      }
+    ],
+    "TipoTarifa": 0,
+    "HojasDeRuta": [1001, 1002]
+  },
+  {
+    "IdMicro": 2,
+    "CuitEmpresaMicro": "30-55667788-9",
+    "Patente": "AB456CD",
+    "Recorrido": [
+      {
+        "IdCDOrigen": "CBA",
+        "IdCDDestino": "ROS",
+        "Llegada": "2025-11-07T07:20:00-03:00",
+        "Salida": "2025-11-07T07:35:00-03:00"
+      }
+    ],
+    "TipoTarifa": 1,
+    "HojasDeRuta": [2001]
+  },
+  {
+    "IdMicro": 3,
+    "CuitEmpresaMicro": "30-99887766-5",
+    "Patente": "AC789EF",
+    "Recorrido": [
+      {
+        "IdCDOrigen": "LP",
+        "IdCDDestino": "CBA",
+        "Llegada": "2025-11-08T05:50:00-03:00",
+        "Salida": "2025-11-08T06:10:00-03:00"
+      },
+      {
+        "IdCDOrigen": "CBA",
+        "IdCDDestino": "CABA",
+        "Llegada": "2025-11-08T12:30:00-03:00",
+        "Salida": "2025-11-08T12:45:00-03:00"
+      }
+    ],
+    "TipoTarifa": 2,
+    "HojasDeRuta": [3001, 3002, 3003]
+  }
+]
