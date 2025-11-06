@@ -60,14 +60,19 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 
         public List<AgenciaRetiro> AgenciasRetiroCliente(Cliente cliente)
         {
+            if (cliente == null)
+            {
+                return new List<AgenciaRetiro>();
+            }
+
             var clienteEntidad = ClienteAlmacen.Clientes.Single(c => c.Cuit == cliente.Cuit);
 
             return clienteEntidad.AgenciasAsociadas
-                                 .Select(a => AgenciaAlmacen.Agencias.Single(a => a.IdAgencia == a.IdAgencia))
-                                 .Select(a => new AgenciaRetiro
+                                 .Select(idAgencia => AgenciaAlmacen.Agencias.Single(agenciaEntidad => idAgencia == agenciaEntidad.IdAgencia))
+                                 .Select(agenciaEntidad => new AgenciaRetiro
                                  {
-                                     Id = a.IdAgencia,
-                                     Nombre = a.Nombre
+                                     Id = agenciaEntidad.IdAgencia,
+                                     Nombre = agenciaEntidad.Nombre
                                  })
                                  .ToList();
         }
