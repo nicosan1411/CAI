@@ -68,7 +68,7 @@ namespace CAI_Proyecto.Forms.Consultas.EstadoGuia.Forms
 
             var item = new ListViewItem(guia.NumeroGuia);
             item.SubItems.Add(guia.Dimension);
-            item.SubItems.Add(guia.CDDestino);
+            item.SubItems.Add(guia.IdCDDestino);
             item.SubItems.Add(guia.TipoEnvio);
             item.SubItems.Add(guia.DniDestinatario);
             item.SubItems.Add(guia.FechaIngreso);
