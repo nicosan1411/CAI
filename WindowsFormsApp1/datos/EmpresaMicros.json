@@ -3,42 +3,110 @@
     "CuitEmpresaMicro": "30-20404040-1",
     "NombreEmpresa": "ViaSur S.A.",
     "Tarifas": [
-      { "Tipo": 0, "PrecioMensual": 1200.00 },
-      { "Tipo": 1, "PrecioMensual": 1000.00 }
+      {
+        "Tipo": "A",
+        "PrecioMensual": 20000.00
+      },
+      {
+        "Tipo": "B",
+        "PrecioMensual": 18000.00
+      },
+      {
+        "Tipo": "C",
+        "PrecioMensual": 15000.00
+      },
+      {
+        "Tipo": "D",
+        "PrecioMensual": 12000.00
+      }
     ]
   },
   {
     "CuitEmpresaMicro": "30-55667788-9",
     "NombreEmpresa": "TransAndes S.R.L.",
     "Tarifas": [
-      { "Tipo": 0, "PrecioMensual": 1100.00 },
-      { "Tipo": 2, "PrecioMensual": 900.00 }
+      {
+        "Tipo": "A",
+        "PrecioMensual": 20000.00
+      },
+      {
+        "Tipo": "B",
+        "PrecioMensual": 18000.00
+      },
+      {
+        "Tipo": "C",
+        "PrecioMensual": 15000.00
+      },
+      {
+        "Tipo": "D",
+        "PrecioMensual": 12000.00
+      }
     ]
   },
   {
     "CuitEmpresaMicro": "30-99887766-5",
     "NombreEmpresa": "Expreso Norte",
     "Tarifas": [
-      { "Tipo": 1, "PrecioMensual": 950.00 },
-      { "Tipo": 3, "PrecioMensual": 700.00 }
+      {
+        "Tipo": "A",
+        "PrecioMensual": 20000.00
+      },
+      {
+        "Tipo": "B",
+        "PrecioMensual": 18000.00
+      },
+      {
+        "Tipo": "C",
+        "PrecioMensual": 15000.00
+      },
+      {
+        "Tipo": "D",
+        "PrecioMensual": 12000.00
+      }
     ]
   },
   {
     "CuitEmpresaMicro": "30-11223344-7",
     "NombreEmpresa": "Cruz del Sur S.A.",
     "Tarifas": [
-      { "Tipo": 0, "PrecioMensual": 1300.00 },
-      { "Tipo": 2, "PrecioMensual": 980.00 },
-      { "Tipo": 3, "PrecioMensual": 750.00 }
+      {
+        "Tipo": "A",
+        "PrecioMensual": 20000.00
+      },
+      {
+        "Tipo": "B",
+        "PrecioMensual": 18000.00
+      },
+      {
+        "Tipo": "C",
+        "PrecioMensual": 15000.00
+      },
+      {
+        "Tipo": "D",
+        "PrecioMensual": 12000.00
+      }
     ]
   },
   {
     "CuitEmpresaMicro": "30-66778899-0",
-    "NombreEmpresa": "Logística Central",
+    "NombreEmpresa": "Logï¿½stica Central",
     "Tarifas": [
-      { "Tipo": 0, "PrecioMensual": 1400.00 },
-      { "Tipo": 1, "PrecioMensual": 1150.00 },
-      { "Tipo": 2, "PrecioMensual": 950.00 }
+      {
+        "Tipo": "A",
+        "PrecioMensual": 20000.00
+      },
+      {
+        "Tipo": "B",
+        "PrecioMensual": 18000.00
+      },
+      {
+        "Tipo": "C",
+        "PrecioMensual": 15000.00
+      },
+      {
+        "Tipo": "D",
+        "PrecioMensual": 12000.00
+      }
     ]
   }
 ]

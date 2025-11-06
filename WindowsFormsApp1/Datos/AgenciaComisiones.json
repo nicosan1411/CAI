@@ -1,0 +1,18 @@
+[
+  {
+    "TipoBulto": "S",
+    "Comision": 1000.00
+  },
+  {
+    "TipoBulto": "M",
+    "Comision": 1500.00
+  },
+  {
+    "TipoBulto": "L",
+    "Comision": 2000.00
+  },
+  {
+    "TipoBulto": "XL",
+    "Comision": 2500.00
+  }
+]

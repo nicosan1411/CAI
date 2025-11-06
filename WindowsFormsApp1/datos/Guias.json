@@ -10,7 +10,43 @@
     "IdCDDestino": "CABA",
     "TipoRetiro": 1,
     "TipoEnvio": 0,
-    "DniDestinatario": 224,
+    "DniDestinatario": 11111111,
+    "IdProvinciaDestino": "CABA",
+    "LocalidadDestino": "asasa",
+    "DomicilioDestino": "2aaszxz",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 3,
+      "Fecha": "2025-11-05T17:21:58.0795891-03:00",
+      "IdCentroDistribucion": null
+    },
+    "Historial": [
+      {
+        "Estado": 3,
+        "Fecha": "2025-11-05T17:21:58.0795891-03:00",
+        "IdCentroDistribucion": null
+      }
+    ],
+    "Precio": 0,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  },
+  {
+    "NumeroGuia": "R-20251105172158077",
+    "Estado": 3,
+    "FechaIngreso": "2025-11-05T17:21:58.0767081-03:00",
+    "CuitCliente": "20-12345678-3",
+    "AgenciaOrigen": 1,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": null,
+    "IdCDDestino": "CABA",
+    "TipoRetiro": 1,
+    "TipoEnvio": 0,
+    "DniDestinatario": 11222333,
     "IdProvinciaDestino": "CABA",
     "LocalidadDestino": "asasa",
     "DomicilioDestino": "2aaszxz",
