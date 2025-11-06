@@ -1,49 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using CAI_Proyecto.Almacenes.Almacen;
+using CAI_Proyecto.Almacenes.Entidad;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
 {
     public class AdmitirEnCDModel
     {
-        public Cliente[] Clientes => new Cliente[]
+        public Cliente[] Clientes
         {
-            new Cliente{ Cuit = "30-50109269-6", RazonSocial = "Unilever de Argentina S.A." },
-            new Cliente{ Cuit = "30-50361405-3", RazonSocial = "Arcor S.A.I.C."},
-            new Cliente{ Cuit = "30-70752101-7", RazonSocial = "Molinos Río de la Plata S.A."},
-            new Cliente{ Cuit = "30-50033372-9", RazonSocial = "Coca-Cola FEMSA S.A."},
-            new Cliente{ Cuit = "30-56712390-1", RazonSocial = "Procter & Gamble S.R.L."},
-            new Cliente{ Cuit = "30-58412999-2", RazonSocial = "Ledesma S.A.A.I."},
-            new Cliente{ Cuit = "30-70012345-8", RazonSocial = "Nestlé Argentina S.A."},
-            new Cliente{ Cuit = "30-66544332-7", RazonSocial = "Danone S.A."}
-        };
+            get
+            {
+                return ClienteAlmacen.Clientes
+                    .Select(c => new Cliente
+                    {
+                        Cuit = c.Cuit,
+                        RazonSocial = c.RazonSocial,
+                    }).ToArray();
+            }
+        }
 
-        public Provincia[] Provincias => new Provincia[]
+        public Provincia[] Provincias
         {
-            new Provincia{ Codigo = "BA", Nombre = "Buenos Aires" },
-            new Provincia{ Codigo = "CO", Nombre = "Córdoba" },
-            new Provincia{ Codigo = "SF", Nombre = "Santa Fe" },
-            new Provincia{ Codigo = "ME", Nombre = "Mendoza" },
-            new Provincia{ Codigo = "TU", Nombre = "Tucumán" },
-            new Provincia{ Codigo = "SA", Nombre = "Salta" },
-            new Provincia{ Codigo = "CH", Nombre = "Chaco" },
-            new Provincia{ Codigo = "ER", Nombre = "Entre Ríos" }
-        };
-
-        public AgenciaEnvio[] AgenciasEnvio => new AgenciaEnvio[]
-        {
-            new AgenciaEnvio{ Id = 1, Nombre = "Agencia 1", ProvinciaCodigo = "BA" },
-            new AgenciaEnvio{ Id = 2, Nombre = "Agencia 2", ProvinciaCodigo = "CO" },
-            new AgenciaEnvio{ Id = 3, Nombre = "Agencia 3", ProvinciaCodigo = "SF" },
-            new AgenciaEnvio{ Id = 4, Nombre = "Agencia 4", ProvinciaCodigo = "ME" },
-            new AgenciaEnvio{ Id = 5, Nombre = "Agencia 5", ProvinciaCodigo = "TU" },
-            new AgenciaEnvio{ Id = 6, Nombre = "Agencia 6", ProvinciaCodigo = "SA" },
-            new AgenciaEnvio{ Id = 7, Nombre = "Agencia 7", ProvinciaCodigo = "CH" },
-            new AgenciaEnvio{ Id = 8, Nombre = "Agencia 8", ProvinciaCodigo = "ER" },
-        };
+            get
+            {
+                return ProvinciaAlmacen.Provincias
+                    .Select(p => new Provincia
+                    {
+                        Codigo = p.IdProvincia,
+                        Nombre = p.Nombre,
+                    }).ToArray();
+            }
+        }
         
         public Dimension[] Dimensiones => new Dimension[]
         {
-            new Dimension{ Tamaño = "XS" },
             new Dimension{ Tamaño = "S" },
             new Dimension{ Tamaño = "M" },
             new Dimension{ Tamaño = "L" },
@@ -51,9 +42,19 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
         };
 
         public IEnumerable<AgenciaEnvio> AgenciasEnvioPorProvincia(string provinciaCodigo)
-            => string.IsNullOrWhiteSpace(provinciaCodigo)
-                ? Enumerable.Empty<AgenciaEnvio>()
-                : AgenciasEnvio.Where(a => a.ProvinciaCodigo == provinciaCodigo);
+        {
+            var provincia = ProvinciaAlmacen.Provincias.Single(p => p.IdProvincia == provinciaCodigo);
+            var cd = CentroDeDistribucionAlmacen.CentrosDeDistribucion.Single(cd => cd.IdCD == provincia.IdCD);
+
+            return AgenciaAlmacen.Agencias
+                                 .Where(a => a.CDAsignado == cd.IdCD)
+                                 .Select(a => new AgenciaEnvio
+                                 {
+                                     Id = a.IdAgencia,
+                                     Nombre = a.Nombre,
+                                     ProvinciaCodigo = provinciaCodigo,
+                                 });
+        }
 
         public List<EncomiendaItem> Encomiendas { get; } = new List<EncomiendaItem>();
 
@@ -109,6 +110,12 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                 errores.Add("Debe agregar al menos una encomienda.");
 
             return errores;
+        }
+
+        public void Aceptar(Pedido pedido)
+        {
+            // Código por hacer
+            var guia = new GuiaEntidad();
         }
     }
 }
