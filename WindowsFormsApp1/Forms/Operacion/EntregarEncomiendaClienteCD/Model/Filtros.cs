@@ -2,6 +2,6 @@
 {
     internal class Filtros
     {
-        public string DNI { get; set; }
+        public string DniDestinario { get; set; }
     }
 }

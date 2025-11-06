@@ -78,7 +78,7 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Forms
 
             lvGuias.Items.Clear();
 
-            if (modelo.Encomiendas.Count == 0)
+            if (modelo.Guias.Count == 0)
             {
                 MessageBox.Show("No se encontraron encomiendas admitidas en CD destino para el DNI ingresado.",
                     "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -87,9 +87,8 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Forms
 
             foreach (var g in modelo.Encomiendas)
             {
-                var item = new ListViewItem(g.NroGuia);
-                item.SubItems.Add(g.Destinatario);
-                item.SubItems.Add(g.DNI);
+                var item = new ListViewItem(g.NumeroGuia);
+                item.SubItems.Add(g.DniDestinatario);
                 item.SubItems.Add(g.Estado);
                 lvGuias.Items.Add(item);
             }

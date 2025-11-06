@@ -1,25 +1,48 @@
-﻿using System.Collections.Generic;
+﻿using CAI_Proyecto.Almacenes.Almacen;
+using CAI_Proyecto.Almacenes.ClaseAuxiliar;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Model
 {
-    internal class EntregarEncomiendaClienteCDModel
+    internal partial class EntregarEncomiendaClienteCDModel
     {
-        // Resultado de la última búsqueda
-        public IReadOnlyList<Encomienda> Encomiendas { get; private set; } = new List<Encomienda>();
-
-        // Datos de prueba internos 
-        private readonly List<Encomienda> _demo = new List<Encomienda>
+        public Encomienda[] Encomiendas
         {
-            new Encomienda("1001", "Carlos Pérez",   "32455678", "Admitida en CD destino"),
-            new Encomienda("1002", "María Gómez",    "29877654", "Admitida en CD destino"),
-            new Encomienda("1003", "Laura Fernández","31233987", "En tránsito"),
-            new Encomienda("1004", "Juan Torres",    "33122345", "Admitida en CD destino"),
-            new Encomienda("1005", "Jimena Muñoz",    "33122345", "Entregada")
-        };
+            get
+            {
+                return GuiaAlmacen.Guias
+                  .Select(g => new Encomienda(
+                      g.NumeroGuia,
+                      g.DniDestinatario.ToString(),   
+                      g.Estado.ToString()             
+                  ))
+                  .ToArray();
+            }
+        }
+
+        // Resultado de la última búsqueda (listas mapeadas a Encomienda)
+        public IReadOnlyList<Encomienda> Guias { get; private set; } = new List<Encomienda>();
 
         // Buscar por DNI solo "Admitida en CD destino"
+        public bool BuscarPorDni(int dni)
+        {
+            // Buscar guías cuyo DniDestinatario coincide y que estén admitidas en CD destino
+            Guias = GuiaAlmacen.Guias
+                .Where(g => g.DniDestinatario == dni && g.Estado == TipoEstadoGuiaEnum.AdmitidoCDDestino)
+                .Select(g => new Encomienda(g.NumeroGuia, g.DniDestinatario.ToString(), g.Estado.ToString()))
+                .ToList();
+
+            if (Guias == null || Guias.Count == 0)
+            {
+                MessageBox.Show("No se encontraron encomiendas admitidas en CD destino para ese DNI.",
+                    "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return true;
+        }
+
         public bool BuscarPorDni(string dni)
         {
             if (string.IsNullOrWhiteSpace(dni))
@@ -29,17 +52,20 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Model
                 return false;
             }
 
-            Encomiendas = _demo
-                .Where(e => e.DNI == dni && e.Estado == "Admitida en CD destino")
-                .ToList();
+            if (!int.TryParse(dni, out var dniInt))
+            {
+                MessageBox.Show("DNI inválido. Ingrese solo números.", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
-            return true;
+            return BuscarPorDni(dniInt);
         }
 
         // Entregar TODAS las listadas
         public bool EntregarTodas()
         {
-            if (Encomiendas == null || Encomiendas.Count == 0)
+            if (Guias == null || Guias.Count == 0)
             {
                 MessageBox.Show("No hay encomiendas para entregar.",
                     "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -50,14 +76,14 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Model
                 "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirm != DialogResult.Yes) return false;
 
-            var aEntregar = new HashSet<string>(Encomiendas.Select(e => e.NroGuia));
-            foreach (var enc in _demo.Where(x => aEntregar.Contains(x.NroGuia)))
-                enc.Estado = "Entregada";
+            var aEntregar = new HashSet<string>(Guias.Select(e => e.NumeroGuia));
+            foreach (var enc in Guias.Where(x => aEntregar.Contains(x.NumeroGuia)))
+                enc.Estado = "Entregado";
 
             MessageBox.Show("¡Su pedido fue entregado!", "Éxito",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            Encomiendas = new List<Encomienda>(); // limpiar después de entregar
+            Guias = new List<Encomienda>(); // limpiar después de entregar
             return true;
         }
     }

@@ -2,16 +2,14 @@
 {
     public class Encomienda
     {
-        public string NroGuia { get; set; }
-        public string Destinatario { get; set; }
-        public string DNI { get; set; }
+        public string NumeroGuia { get; set; }
+        public string DniDestinatario { get; set; }
         public string Estado { get; set; }  // Necesario para “Admitida en CD destino” / “Entregada”
 
-        public Encomienda(string nroGuia, string destinatario, string dni, string estado)
+        public Encomienda(string nroGuia, string dni, string estado)
         {
-            NroGuia = nroGuia;
-            Destinatario = destinatario;
-            DNI = dni;
+            NumeroGuia = nroGuia;
+            DniDestinatario = dni;
             Estado = estado;
         }
     }
