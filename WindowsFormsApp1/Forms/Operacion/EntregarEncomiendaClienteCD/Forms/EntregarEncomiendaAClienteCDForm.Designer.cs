@@ -33,7 +33,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lvGuias = new System.Windows.Forms.ListView();
             this.columnGuiaNumero = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnDestinatario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDNI = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnEntregar = new System.Windows.Forms.Button();
             this.txtDNI = new System.Windows.Forms.TextBox();
@@ -73,7 +72,6 @@
             this.lvGuias.BackColor = System.Drawing.Color.Gainsboro;
             this.lvGuias.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnGuiaNumero,
-            this.columnDestinatario,
             this.columnDNI});
             this.lvGuias.FullRowSelect = true;
             this.lvGuias.GridLines = true;
@@ -91,17 +89,12 @@
             // columnGuiaNumero
             // 
             this.columnGuiaNumero.Text = "N° de guía";
-            this.columnGuiaNumero.Width = 180;
-            // 
-            // columnDestinatario
-            // 
-            this.columnDestinatario.Text = "Destinatario";
-            this.columnDestinatario.Width = 280;
+            this.columnGuiaNumero.Width = 300;
             // 
             // columnDNI
             // 
-            this.columnDNI.Text = "DNI";
-            this.columnDNI.Width = 120;
+            this.columnDNI.Text = "DNI Destinatario";
+            this.columnDNI.Width = 280;
             // 
             // btnEntregar
             // 
@@ -171,7 +164,6 @@
         private System.Windows.Forms.Button btnEntregar;
         private System.Windows.Forms.ListView lvGuias;
         private System.Windows.Forms.ColumnHeader columnGuiaNumero;
-        private System.Windows.Forms.ColumnHeader columnDestinatario;
         private System.Windows.Forms.ColumnHeader columnDNI;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnVolverMenuPrincipal;
