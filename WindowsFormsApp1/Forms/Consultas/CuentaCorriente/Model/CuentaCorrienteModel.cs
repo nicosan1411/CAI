@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using CAI_Proyecto.Almacenes.Almacen;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CAI_Proyecto.Forms.Consultas.CuentaCorriente.Model
@@ -7,17 +9,18 @@ namespace CAI_Proyecto.Forms.Consultas.CuentaCorriente.Model
     {
         public IReadOnlyList<MovimientoCuenta> MovimientosCuenta { get; set; }
 
-        public Cliente[] Empresas => new Cliente[]
+        public Cliente[] Empresas
         {
-            new Cliente{ Cuit = "30-50109269-6", RazonSocial = "Unilever de Argentina S.A." },
-            new Cliente{ Cuit = "30-50361405-3", RazonSocial = "Arcor S.A.I.C."},
-            new Cliente{ Cuit = "30-70752101-7", RazonSocial = "Molinos Río de la Plata S.A."},
-            new Cliente{ Cuit = "30-50033372-9", RazonSocial = "Coca-Cola FEMSA S.A."},
-            new Cliente{ Cuit = "30-56712390-1", RazonSocial = "Procter & Gamble S.R.L."},
-            new Cliente{ Cuit = "30-58412999-2", RazonSocial = "Ledesma S.A.A.I."},
-            new Cliente{ Cuit = "30-70012345-8", RazonSocial = "Nestlé Argentina S.A."},
-            new Cliente{ Cuit = "30-66544332-7", RazonSocial = "Danone S.A."}
-        };
+            get
+            {
+                return ClienteAlmacen.Clientes
+                    .Select(c => new Cliente
+                    {
+                        Cuit = c.Cuit,
+                        RazonSocial = c.RazonSocial,
+                    }).ToArray();
+            }
+        }
 
         //devuelve false si hay algun error.
         internal bool CargarEstadoCuenta(Filtros filtros)

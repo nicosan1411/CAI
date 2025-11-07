@@ -1,0 +1,26 @@
+[
+  {
+    "Tamaño": 0,
+    "IdCDOrigen": 1,
+    "IdCDDestino": 2,
+    "Precio": 1500.0
+  },
+  {
+    "Tamaño": 1,
+    "IdCDOrigen": 2,
+    "IdCDDestino": 3,
+    "Precio": 2000.0
+  },
+  {
+    "Tamaño": 2,
+    "IdCDOrigen": 4,
+    "IdCDDestino": 5,
+    "Precio": 3000.0
+  },
+  {
+    "Tamaño": 3,
+    "IdCDOrigen": 6,
+    "IdCDDestino": 7,
+    "Precio": 4000.0
+  }
+]

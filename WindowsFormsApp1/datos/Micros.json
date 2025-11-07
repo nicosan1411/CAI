@@ -18,7 +18,7 @@
       }
     ],
     "TipoTarifa": 0,
-    "HojasDeRuta": [1001, 1002]
+    "HojasDeRuta": [1, 2]
   },
   {
     "IdMicro": 2,
@@ -33,7 +33,7 @@
       }
     ],
     "TipoTarifa": 1,
-    "HojasDeRuta": [2001]
+    "HojasDeRuta": [3]
   },
   {
     "IdMicro": 3,
@@ -54,6 +54,6 @@
       }
     ],
     "TipoTarifa": 2,
-    "HojasDeRuta": [3001, 3002, 3003]
+    "HojasDeRuta": [4, 5, 6]
   }
 ]

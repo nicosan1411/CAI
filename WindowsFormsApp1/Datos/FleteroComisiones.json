@@ -1,0 +1,18 @@
+[
+  {
+    "TipoBulto": 0,
+    "Comision": 800
+  },
+  {
+    "TipoBulto": 1,
+    "Comision": 1200
+  },
+  {
+    "TipoBulto": 2,
+    "Comision": 1600
+  },
+  {
+    "TipoBulto": 3,
+    "Comision": 2000
+  }
+]

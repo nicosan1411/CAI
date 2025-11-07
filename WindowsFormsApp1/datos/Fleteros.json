@@ -2,7 +2,7 @@
   {
     "IdFletero": "F001",
     "CuitEmpresaFlete": "30-20404040-1",
-    "Nombre": "Transporte Rápido S.R.L.",
+    "Nombre": "Transporte Rï¿½pido S.R.L.",
     "IdCDAsignado": "CABA",
     "CuitClienteAsignado": "20-12345678-3",
     "IdAgenciaAsignada": 1
@@ -18,7 +18,7 @@
   {
     "IdFletero": "F003",
     "CuitEmpresaFlete": "30-99887766-5",
-    "Nombre": "Envios Córdoba",
+    "Nombre": "Envios Cï¿½rdoba",
     "IdCDAsignado": "CBA",
     "CuitClienteAsignado": null,
     "IdAgenciaAsignada": 0

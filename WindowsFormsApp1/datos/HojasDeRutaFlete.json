@@ -1,0 +1,22 @@
+[
+  {
+    "IdHDRFlete": 2002,
+    "Tipo": 0,
+    "IdFletero": "FLETERO001",
+    "CuitCliente": "20-12345678-9",
+    "IdAgencia": 1,
+    "DomicilioDestino": "Calle Falsa 123, Ciudad",
+    "Cumplida": true,
+    "Guias": []
+  },
+  {
+    "IdHDRFlete": 2003,
+    "Tipo": 1,
+    "IdFletero": "FLETERO002",
+    "CuitCliente": "30-87654321-5",
+    "IdAgencia": 2,
+    "DomicilioDestino": "Avenida Siempre Viva 742, Otra Ciudad",
+    "Cumplida": false,
+    "Guias": []
+  }
+]

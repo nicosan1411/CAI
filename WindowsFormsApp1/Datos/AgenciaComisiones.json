@@ -1,18 +1,18 @@
 [
   {
-    "TipoBulto": "S",
-    "Comision": 1000.00
+    "TipoBulto": 0,
+    "Comision": 1000
   },
   {
-    "TipoBulto": "M",
-    "Comision": 1500.00
+    "TipoBulto": 1,
+    "Comision": 1500
   },
   {
-    "TipoBulto": "L",
-    "Comision": 2000.00
+    "TipoBulto": 2,
+    "Comision": 2000
   },
   {
-    "TipoBulto": "XL",
-    "Comision": 2500.00
+    "TipoBulto": 3,
+    "Comision": 2500
   }
 ]
