@@ -6,6 +6,8 @@ namespace CAI_Proyecto.Almacenes.Almacen
 {
     static class AgenciaAlmacen
     {
+        public static AgenciaEntidad AgenciaActual { get; set; }
+
         private static List<AgenciaEntidad> agencias = new List<AgenciaEntidad>();
 
         public static IReadOnlyCollection<AgenciaEntidad> Agencias => agencias.AsReadOnly();

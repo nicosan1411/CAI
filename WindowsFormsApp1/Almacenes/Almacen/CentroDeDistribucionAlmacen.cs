@@ -6,6 +6,9 @@ namespace CAI_Proyecto.Almacenes.Almacen
 {
     static class CentroDeDistribucionAlmacen
     {
+        public static CentroDeDistribucionEntidad CentroDeDistribucionActual { get; set; }
+
+
         private static List<CentroDeDistribucionEntidad> centrosdedistribucion = new List<CentroDeDistribucionEntidad>();
 
         public static IReadOnlyCollection<CentroDeDistribucionEntidad> CentrosDeDistribucion => centrosdedistribucion.AsReadOnly();

@@ -1,4 +1,6 @@
-﻿using CAI_Proyecto.Forms.Consultas.CuentaCorriente.Forms;
+﻿using CAI_Proyecto.Almacenes.Almacen;
+using CAI_Proyecto.Almacenes.Entidad;
+using CAI_Proyecto.Forms.Consultas.CuentaCorriente.Forms;
 using CAI_Proyecto.Forms.Consultas.EstadoGuia.Forms;
 using CAI_Proyecto.Forms.Consultas.ResultadosCostosVentas.Forms;
 using CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Forms;
@@ -8,6 +10,7 @@ using CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms;
 using CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Forms;
 using CAI_Proyecto.Forms.Operacion.RendirEncomienda.Forms;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CAI_Proyecto.Forms.Inicio
@@ -100,6 +103,25 @@ namespace CAI_Proyecto.Forms.Inicio
             lv.FullRowSelect = true;
             lv.MultiSelect = false;
             lv.Items.Clear();
+        }
+
+        private void InicioForm_Load(object sender, EventArgs e)
+        {
+            CDActualCombo.DisplayMember = "Nombre";
+            CDActualCombo.Items.AddRange(CentroDeDistribucionAlmacen.CentrosDeDistribucion.OrderBy(cd => cd.Nombre).ToArray());
+
+            AgenciaActualCombo.DisplayMember = "Nombre";
+            AgenciaActualCombo.Items.AddRange(AgenciaAlmacen.Agencias.OrderBy(a => a.Nombre).ToArray());
+        }
+
+        private void CDActualCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CentroDeDistribucionAlmacen.CentroDeDistribucionActual = (CentroDeDistribucionEntidad)CDActualCombo.SelectedItem;
+        }
+
+        private void AgenciaActualCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AgenciaAlmacen.AgenciaActual = (AgenciaEntidad)AgenciaActualCombo.SelectedItem;
         }
     }
 }

@@ -39,6 +39,10 @@
             this.btnImposicionCallCenter = new System.Windows.Forms.Button();
             this.btnRendicionPrimeraMilla = new System.Windows.Forms.Button();
             this.btnAdmisionCD = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CDActualCombo = new System.Windows.Forms.ComboBox();
+            this.AgenciaActualCombo = new System.Windows.Forms.ComboBox();
             this.grpConsultas.SuspendLayout();
             this.grpOperacion.SuspendLayout();
             this.SuspendLayout();
@@ -160,20 +164,63 @@
             this.btnAdmisionCD.UseVisualStyleBackColor = true;
             this.btnAdmisionCD.Click += new System.EventHandler(this.btnAdmisionCD_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 408);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Cd Actual";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(55, 436);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Agencia actual";
+            // 
+            // CDActualCombo
+            // 
+            this.CDActualCombo.FormattingEnabled = true;
+            this.CDActualCombo.Location = new System.Drawing.Point(155, 406);
+            this.CDActualCombo.Name = "CDActualCombo";
+            this.CDActualCombo.Size = new System.Drawing.Size(279, 21);
+            this.CDActualCombo.TabIndex = 9;
+            this.CDActualCombo.SelectedIndexChanged += new System.EventHandler(this.CDActualCombo_SelectedIndexChanged);
+            // 
+            // AgenciaActualCombo
+            // 
+            this.AgenciaActualCombo.FormattingEnabled = true;
+            this.AgenciaActualCombo.Location = new System.Drawing.Point(155, 433);
+            this.AgenciaActualCombo.Name = "AgenciaActualCombo";
+            this.AgenciaActualCombo.Size = new System.Drawing.Size(279, 21);
+            this.AgenciaActualCombo.TabIndex = 10;
+            this.AgenciaActualCombo.SelectedIndexChanged += new System.EventHandler(this.AgenciaActualCombo_SelectedIndexChanged);
+            // 
             // InicioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 401);
+            this.ClientSize = new System.Drawing.Size(571, 473);
+            this.Controls.Add(this.AgenciaActualCombo);
+            this.Controls.Add(this.CDActualCombo);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grpConsultas);
             this.Controls.Add(this.grpOperacion);
-            this.MaximumSize = new System.Drawing.Size(587, 440);
+            this.MaximumSize = new System.Drawing.Size(587, 512);
             this.MinimumSize = new System.Drawing.Size(587, 440);
             this.Name = "InicioForm";
             this.Text = "Menú Principal";
+            this.Load += new System.EventHandler(this.InicioForm_Load);
             this.grpConsultas.ResumeLayout(false);
             this.grpOperacion.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -190,5 +237,9 @@
         private System.Windows.Forms.Button btnRendicionPrimeraMilla;
         private System.Windows.Forms.Button btnAdmisionCD;
         private System.Windows.Forms.Button btnEntregasEnCD;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox CDActualCombo;
+        private System.Windows.Forms.ComboBox AgenciaActualCombo;
     }
 }
