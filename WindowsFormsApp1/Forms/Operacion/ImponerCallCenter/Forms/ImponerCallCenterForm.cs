@@ -250,10 +250,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
             }
 
             //TODO: pasarle todos los datos al modelo
-            modelo.Aceptar(new Pedido
-            {
-                 
-            });
+            modelo.Aceptar(pedido);
 
 
             MessageBox.Show("Pedido impuesto correctamente (demo).", "OK",

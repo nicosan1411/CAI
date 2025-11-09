@@ -79,25 +79,12 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 
         public List<EncomiendaItem> Encomiendas { get; } = new List<EncomiendaItem>();
 
-        public void AgregarEncomienda(EncomiendaItem encomienda)
-        {
-            Encomiendas.Add(encomienda);
-        }
+        public void AgregarEncomienda(EncomiendaItem encomienda) => Encomiendas.Add(encomienda);
 
-        public void QuitarEncomienda(EncomiendaItem encomienda)
-        {
-            Encomiendas.Remove(encomienda);
-        }
+        public void QuitarEncomienda(EncomiendaItem encomienda) => Encomiendas.Remove(encomienda);
 
-        public void LimpiarEncomiendas()
-        {
-            Encomiendas.Clear();
-        }
+        public void LimpiarEncomiendas() => Encomiendas.Clear();
 
-        /*
-         * Reglas de negocio del form para aceptar un pedido.
-         * Devuelve lista de errores. Si la lista está vacía, el pedido es válido.
-         */
         public List<string> ValidarPedido(Pedido p)
         {
             var errores = new List<string>();
@@ -105,13 +92,11 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
             if (p.Cliente == null)
                 errores.Add("Debe seleccionar un cliente.");
 
-            // Tipo de retiro
             if (string.IsNullOrWhiteSpace(p.TipoRetiro))
                 errores.Add("Debe seleccionar el tipo de retiro.");
             else if (p.TipoRetiro == "Agencia" && p.AgenciaRetiro == null)
                 errores.Add("Debe seleccionar la agencia de retiro.");
 
-            // Tipo de envío
             switch (p.TipoEnvio)
             {
                 case "Domicilio":
@@ -120,18 +105,15 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
                     if (string.IsNullOrWhiteSpace(p.LocalidadDestinatario)) errores.Add("Debe ingresar la localidad del destinatario.");
                     if (string.IsNullOrWhiteSpace(p.DomicilioDestinatario)) errores.Add("Debe ingresar el domicilio del destinatario.");
                     break;
-
                 case "Centro de distribución":
                     if (p.ProvinciaEnvio == null) errores.Add("Debe seleccionar la provincia del centro de distribución.");
                     if (string.IsNullOrWhiteSpace(p.DniDestinatario)) errores.Add("Debe ingresar el DNI del destinatario.");
                     break;
-
                 case "Agencia":
                     if (p.ProvinciaEnvio == null) errores.Add("Debe seleccionar la provincia de la agencia de envío.");
                     if (p.AgenciaEnvio == null) errores.Add("Debe seleccionar la agencia de envío.");
                     if (string.IsNullOrWhiteSpace(p.DniDestinatario)) errores.Add("Debe ingresar el DNI del destinatario.");
                     break;
-
                 default:
                     errores.Add("Debe seleccionar un tipo de envío.");
                     break;
@@ -145,10 +127,106 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 
         public void Aceptar(Pedido pedido)
         {
-            //TODO: crear una entidad GuiasEntidad y mandarla al almacen.
-            var guia = new GuiaEntidad();
-            //llenarla con los datos de pedido.
-            //(ver que otra operacion o cambio en el modelo)
+            if (pedido == null) return;
+
+            var provEntidad = ProvinciaAlmacen.Provincias
+                .FirstOrDefault(p => pedido.ProvinciaEnvio != null &&
+                                     p.IdProvincia == pedido.ProvinciaEnvio.Codigo);
+
+            var tipoRetiroEnum = pedido.TipoRetiro switch
+            {
+                "Agencia" => TipoRetiroEnum.DesdeAgencia,
+                "Domicilio" => TipoRetiroEnum.DesdeDomicilio,
+                _ => TipoRetiroEnum.SinRetiro
+            };
+
+            var estadoInicial = pedido.TipoRetiro switch
+            {
+                "Agencia" => TipoEstadoGuiaEnum.EnBusquedaRetiroAgencia,
+                "Domicilio" => TipoEstadoGuiaEnum.EnBusquedaRetiroDomicilio,
+                _ => TipoEstadoGuiaEnum.EnBusquedaRetiroDomicilio
+            };
+
+            var tipoEnvioEnum = pedido.TipoEnvio switch
+            {
+                "Domicilio" => TipoEnvioEnum.VaADomicilio,
+                "Centro de distribución" => TipoEnvioEnum.VaACD,
+                "Agencia" => TipoEnvioEnum.VaAAgencia,
+                _ => TipoEnvioEnum.VaADomicilio
+            };
+
+            var dniDestinatario = int.TryParse(pedido.DniDestinatario, out var dniParsed) ? dniParsed : 0;
+
+            var guias =
+                (pedido.Encomiendas ?? Enumerable.Empty<EncomiendaItem>())
+                .Where(enc => enc != null && enc.Cantidad > 0)
+                .SelectMany(enc => Enumerable.Range(0, enc.Cantidad).Select(_ =>
+                {
+                    var now = DateTime.Now;
+
+                    var dimEnum = (enc.Dimension?.Tamaño ?? "S") switch
+                    {
+                        "S" => TipoBultoEnum.S,
+                        "M" => TipoBultoEnum.M,
+                        "L" => TipoBultoEnum.L,
+                        "XL" => TipoBultoEnum.XL,
+                        _ => TipoBultoEnum.S
+                    };
+
+                    return new GuiaEntidad
+                    {
+                        NumeroGuia = GenerarNumeroGuia(),
+                        FechaIngreso = now,
+                        CuitCliente = pedido.Cliente?.Cuit,
+                        TipoRetiro = tipoRetiroEnum,
+                        TipoEnvio = tipoEnvioEnum,
+                        AgenciaOrigen = pedido.AgenciaRetiro?.Id ?? 0,
+                        AgenciaDestino = pedido.AgenciaEnvio?.Id ?? 0,
+                        LocalidadDestino = pedido.LocalidadDestinatario,
+                        DomicilioDestino = pedido.DomicilioDestinatario,
+                        IdProvinciaDestino = provEntidad?.IdProvincia,
+                        IdCDDestino = provEntidad?.IdCD,
+                        IdCDOrigen = provEntidad?.IdCD,
+                        DniDestinatario = dniDestinatario,
+                        Dimension = dimEnum,
+                        Estado = estadoInicial,
+                        Recorrido = new List<Recorrido>(),
+                        EstadoActual = new EstadoGuia
+                        {
+                            Estado = estadoInicial,
+                            Fecha = now,
+                            IdCentroDistribucion = null
+                        },
+                        Historial = new List<EstadoGuia>
+                        {
+                            new EstadoGuia
+                            {
+                                Estado = estadoInicial,
+                                Fecha = now,
+                                IdCentroDistribucion = null
+                            }
+                        },
+                        Precio = 0m,
+                        ComisionesAgenciaOrigen = 0m,
+                        ComisionesAgenciaDestino = 0m,
+                        ComisionesFleteroOrigen = 0m,
+                        ComisionesFleteroDestino = 0m,
+                        NumeroFactura = 0
+                    };
+                }));
+
+            foreach (var guia in guias)
+            {
+                GuiaAlmacen.Agregar(guia);
+            }
+
+            LimpiarEncomiendas();
+        }
+
+        private string GenerarNumeroGuia()
+        {
+            return DateTime.Now.ToString("yyyyMMddHHmmssfff") + new Random().Next(100, 999).ToString();
         }
     }
 }
+
