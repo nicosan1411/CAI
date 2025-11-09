@@ -32,7 +32,10 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         public static void Agregar(GuiaEntidad guia)
         {
-            if (guia == null) return;
+            if (guia == null)
+            {
+                throw new ArgumentNullException("Guia no puede ser nula");
+            }
             guias.Add(guia);
             Grabar();
         }
