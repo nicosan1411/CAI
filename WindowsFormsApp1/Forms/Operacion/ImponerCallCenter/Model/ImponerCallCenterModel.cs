@@ -83,8 +83,6 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 
         public void QuitarEncomienda(EncomiendaItem encomienda) => Encomiendas.Remove(encomienda);
 
-        public void LimpiarEncomiendas() => Encomiendas.Clear();
-
         public List<string> ValidarPedido(Pedido p)
         {
             var errores = new List<string>();
@@ -219,8 +217,6 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
             {
                 GuiaAlmacen.Agregar(guia);
             }
-
-            LimpiarEncomiendas();
         }
 
         private string GenerarNumeroGuia()
