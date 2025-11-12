@@ -15,28 +15,13 @@ namespace CAI_Proyecto.Almacenes.Almacen
             if (File.Exists(@"Datos\EmpresaMicros.json"))
             {
                 var EmpresaMicroJson = File.ReadAllText(@"Datos\EmpresaMicros.json");
-                var options = new System.Text.Json.JsonSerializerOptions
-                {
-                    Converters =
-                    {
-                        //Escribe/Lee las enumeraciones como strings.
-                        new System.Text.Json.Serialization.JsonStringEnumConverter()
-                    }
-                };
-                empresamicros = System.Text.Json.JsonSerializer.Deserialize<List<EmpresaMicroEntidad>>(EmpresaMicroJson, options);
+                empresamicros = System.Text.Json.JsonSerializer.Deserialize<List<EmpresaMicroEntidad>>(EmpresaMicroJson);
             }
         }
 
         public static void Grabar()
         {
-            var options = new System.Text.Json.JsonSerializerOptions
-            {
-                Converters =
-                    {
-                        new System.Text.Json.Serialization.JsonStringEnumConverter()
-                    }
-            };
-            var EmpresaMicroJson = System.Text.Json.JsonSerializer.Serialize(empresamicros, options);
+            var EmpresaMicroJson = System.Text.Json.JsonSerializer.Serialize(empresamicros);
             File.WriteAllText(@"Datos\EmpresaMicros.json", EmpresaMicroJson);
         }
     }

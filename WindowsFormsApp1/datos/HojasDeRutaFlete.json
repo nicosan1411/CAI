@@ -18,5 +18,15 @@
     "DomicilioDestino": "Avenida Siempre Viva 742, Otra Ciudad",
     "Cumplida": false,
     "Guias": []
+  },
+  {
+    "IdHDRFlete": 2004,
+    "Tipo": 0,
+    "IdFletero": null,
+    "CuitCliente": null,
+    "IdAgencia": 0,
+    "DomicilioDestino": "",
+    "Cumplida": true,
+    "Guias": [ "20251111234752894187" ]
   }
 ]

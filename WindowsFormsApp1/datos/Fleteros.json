@@ -38,5 +38,13 @@
     "IdCDAsignado": "MDP",
     "CuitClienteAsignado": null,
     "IdAgenciaAsignada": 4
+  },
+  {
+    "IdFletero": "F006",
+    "CuitEmpresaFlete": "30-12349876-5",
+    "Nombre": "Logistica Express Capital",
+    "IdCDAsignado": "CABA",
+    "CuitClienteAsignado": null,
+    "IdAgenciaAsignada": 1
   }
 ]

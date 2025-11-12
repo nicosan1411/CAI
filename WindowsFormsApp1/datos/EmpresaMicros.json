@@ -4,19 +4,19 @@
     "NombreEmpresa": "ViaSur S.A.",
     "Tarifas": [
       {
-        "Tipo": "A",
+        "Tipo": 0,
         "PrecioMensual": 20000.00
       },
       {
-        "Tipo": "B",
+        "Tipo": 1,
         "PrecioMensual": 18000.00
       },
       {
-        "Tipo": "C",
+        "Tipo": 2,
         "PrecioMensual": 15000.00
       },
       {
-        "Tipo": "D",
+        "Tipo": 3,
         "PrecioMensual": 12000.00
       }
     ]
@@ -26,19 +26,19 @@
     "NombreEmpresa": "TransAndes S.R.L.",
     "Tarifas": [
       {
-        "Tipo": "A",
+        "Tipo": 0,
         "PrecioMensual": 20000.00
       },
       {
-        "Tipo": "B",
+        "Tipo": 1,
         "PrecioMensual": 18000.00
       },
       {
-        "Tipo": "C",
+        "Tipo": 2,
         "PrecioMensual": 15000.00
       },
       {
-        "Tipo": "D",
+        "Tipo": 3,
         "PrecioMensual": 12000.00
       }
     ]
@@ -48,19 +48,19 @@
     "NombreEmpresa": "Expreso Norte",
     "Tarifas": [
       {
-        "Tipo": "A",
+        "Tipo": 0,
         "PrecioMensual": 20000.00
       },
       {
-        "Tipo": "B",
+        "Tipo": 1,
         "PrecioMensual": 18000.00
       },
       {
-        "Tipo": "C",
+        "Tipo": 2,
         "PrecioMensual": 15000.00
       },
       {
-        "Tipo": "D",
+        "Tipo": 3,
         "PrecioMensual": 12000.00
       }
     ]
@@ -70,19 +70,19 @@
     "NombreEmpresa": "Cruz del Sur S.A.",
     "Tarifas": [
       {
-        "Tipo": "A",
+        "Tipo": 0,
         "PrecioMensual": 20000.00
       },
       {
-        "Tipo": "B",
+        "Tipo": 1,
         "PrecioMensual": 18000.00
       },
       {
-        "Tipo": "C",
+        "Tipo": 2,
         "PrecioMensual": 15000.00
       },
       {
-        "Tipo": "D",
+        "Tipo": 3,
         "PrecioMensual": 12000.00
       }
     ]
@@ -92,19 +92,19 @@
     "NombreEmpresa": "Log�stica Central",
     "Tarifas": [
       {
-        "Tipo": "A",
+        "Tipo": 0,
         "PrecioMensual": 20000.00
       },
       {
-        "Tipo": "B",
+        "Tipo": 1,
         "PrecioMensual": 18000.00
       },
       {
-        "Tipo": "C",
+        "Tipo": 2,
         "PrecioMensual": 15000.00
       },
       {
-        "Tipo": "D",
+        "Tipo": 3,
         "PrecioMensual": 12000.00
       }
     ]

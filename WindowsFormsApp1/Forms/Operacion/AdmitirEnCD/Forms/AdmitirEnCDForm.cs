@@ -237,10 +237,7 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Forms
                 return;
             }
 
-            modelo.Aceptar(new Pedido
-            {
-                // Pasarle los datos del formulario al modelo
-            });
+            modelo.Aceptar(pedido);
 
             MessageBox.Show("Pedido admitido correctamente (demo).", "OK",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
