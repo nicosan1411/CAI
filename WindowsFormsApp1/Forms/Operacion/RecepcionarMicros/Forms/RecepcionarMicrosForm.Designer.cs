@@ -57,8 +57,8 @@
             this.lvRecepciones.BackColor = System.Drawing.Color.Gainsboro;
             this.lvRecepciones.CheckBoxes = true;
             this.lvRecepciones.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnNroGuia,
-            this.columnEntregadoEnCD});
+            this.columnEntregadoEnCD,
+            this.columnNroGuia});
             this.lvRecepciones.FullRowSelect = true;
             this.lvRecepciones.GridLines = true;
             this.lvRecepciones.HideSelection = false;
@@ -73,12 +73,12 @@
             // columnNroGuia
             // 
             this.columnNroGuia.Text = "N° Guía";
-            this.columnNroGuia.Width = 120;
+            this.columnNroGuia.Width = 168;
             // 
             // columnEntregadoEnCD
             // 
             this.columnEntregadoEnCD.Text = "Entregado en CD Destino";
-            this.columnEntregadoEnCD.Width = 180;
+            this.columnEntregadoEnCD.Width = 133;
             // 
             // label1
             // 

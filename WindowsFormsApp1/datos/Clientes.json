@@ -1,50 +1,211 @@
 [
   {
-    "Cuit": "20-12345678-3",
-    "RazonSocial": "Distribuciones Argentinas S.A.",
-    "AgenciasAsociadas": [ 1, 2 ],
+    "Cuit": "30-71456321-2",
+    "RazonSocial": "Distribuidora Capital SA",
+    "AgenciasAsociadas": [4, 5],
     "Domicilio": "Av. Libertador 1234, CABA"
   },
   {
-    "Cuit": "27-20123456-9",
-    "RazonSocial": "TecnoServicios del Sur SRL",
-    "AgenciasAsociadas": [ 3 ],
-    "Domicilio": "Calle 9 de Julio 456, Mar del Plata"
+    "Cuit": "30-67894512-8",
+    "RazonSocial": "Servicios Urbanos SRL",
+    "AgenciasAsociadas": [6, 7],
+    "Domicilio": "Av. Libertador 1234, CABA"
   },
   {
-    "Cuit": "30-98765432-1",
-    "RazonSocial": "Comercial Norte y C�a.",
-    "AgenciasAsociadas": [ 2, 4, 5 ],
-    "Domicilio": "San Mart�n 789, Rosario"
+    "Cuit": "30-65987412-4",
+    "RazonSocial": "Retail Centro SA",
+    "AgenciasAsociadas": [4, 6],
+    "Domicilio": "Florida 100, CABA"
   },
   {
-    "Cuit": "23-30567890-7",
-    "RazonSocial": "Insumos Industriales SA",
-    "AgenciasAsociadas": [ 1 ],
-    "Domicilio": "Ruta 3 km 45, San Nicol�s"
+    "Cuit": "27-20457896-3",
+    "RazonSocial": "Textiles Palermo SRL",
+    "AgenciasAsociadas": [5],
+    "Domicilio": "Av. Santa Fe 3500, CABA"
+  },
+
+  {
+    "Cuit": "30-60245879-0",
+    "RazonSocial": "Mayorista Norte SA",
+    "AgenciasAsociadas": [1, 2],
+    "Domicilio": "Av. Maipú 200, Vicente López"
   },
   {
-    "Cuit": "33-40123456-5",
-    "RazonSocial": "Servicios Log�sticos del Litoral",
-    "AgenciasAsociadas": [ 6 ],
-    "Domicilio": "Bv. Oro�o 2100, Paran�"
+    "Cuit": "30-65780249-7",
+    "RazonSocial": "Autosur Repuestos",
+    "AgenciasAsociadas": [2, 3],
+    "Domicilio": "Av. Mitre 500, Avellaneda"
   },
   {
-    "Cuit": "20-55544433-0",
-    "RazonSocial": "Alimentos La Estancia",
-    "AgenciasAsociadas": [ 1, 5 ],
-    "Domicilio": "Av. Pellegrini 150, C�rdoba"
+    "Cuit": "27-15376984-9",
+    "RazonSocial": "Fábrica Oeste SRL",
+    "AgenciasAsociadas": [3],
+    "Domicilio": "Av. Rivadavia 12000, Ramos Mejía"
+  },
+
+  {
+    "Cuit": "30-74589621-3",
+    "RazonSocial": "Tecnología Córdoba SA",
+    "AgenciasAsociadas": [8, 9],
+    "Domicilio": "Av. Colón 1200, Córdoba"
   },
   {
-    "Cuit": "27-11223344-6",
-    "RazonSocial": "Soluciones Financieras SRL",
-    "AgenciasAsociadas": [ 4 ],
-    "Domicilio": "Hip�lito Yrigoyen 320, Mendoza"
+    "Cuit": "30-70124586-6",
+    "RazonSocial": "Almacor SRL",
+    "AgenciasAsociadas": [8],
+    "Domicilio": "Bv. San Juan 500, Córdoba"
+  },
+
+  {
+    "Cuit": "30-71984563-5",
+    "RazonSocial": "Agro Santa Fe SA",
+    "AgenciasAsociadas": [10, 11],
+    "Domicilio": "Bv. Oroño 2100, Rosario"
   },
   {
-    "Cuit": "30-66778899-2",
-    "RazonSocial": "Importadora del Plata",
-    "AgenciasAsociadas": [ 2, 3 ],
-    "Domicilio": "Paseo Col�n 222, CABA"
+    "Cuit": "27-30587496-2",
+    "RazonSocial": "Lácteos Rafaela SRL",
+    "AgenciasAsociadas": [11],
+    "Domicilio": "Av. Italia 900, Rafaela"
+  },
+
+  {
+    "Cuit": "30-73698541-0",
+    "RazonSocial": "Vitivinícola Andina SA",
+    "AgenciasAsociadas": [12],
+    "Domicilio": "San Martín 850, Mendoza"
+  },
+
+  {
+    "Cuit": "30-75846912-9",
+    "RazonSocial": "Citric Tucumán SRL",
+    "AgenciasAsociadas": [13],
+    "Domicilio": "Av. Sarmiento 700, San Miguel de Tucumán"
+  },
+
+  {
+    "Cuit": "30-76894523-1",
+    "RazonSocial": "Minerales del Norte SRL",
+    "AgenciasAsociadas": [14],
+    "Domicilio": "Av. Belgrano 100, Salta"
+  },
+
+  {
+    "Cuit": "30-78321459-4",
+    "RazonSocial": "Comercial Catamarca SA",
+    "AgenciasAsociadas": [15],
+    "Domicilio": "Rivadavia 250, San Fernando del Valle"
+  },
+
+  {
+    "Cuit": "30-79265418-7",
+    "RazonSocial": "Chaco Retail SA",
+    "AgenciasAsociadas": [16, 17],
+    "Domicilio": "Av. 25 de Mayo 1500, Resistencia"
+  },
+
+  {
+    "Cuit": "30-80456973-2",
+    "RazonSocial": "Patagonia Sur SRL",
+    "AgenciasAsociadas": [18],
+    "Domicilio": "Av. Fontana 300, Trelew"
+  },
+
+  {
+    "Cuit": "30-81562497-6",
+    "RazonSocial": "Arroz Litoral SA",
+    "AgenciasAsociadas": [19, 20],
+    "Domicilio": "Junín 750, Corrientes"
+  },
+
+  {
+    "Cuit": "30-82659147-8",
+    "RazonSocial": "Forestal Entre Ríos SA",
+    "AgenciasAsociadas": [21, 22],
+    "Domicilio": "Peatonal San Martín 100, Paraná"
+  },
+
+  {
+    "Cuit": "30-83456971-5",
+    "RazonSocial": "Ganadera Formosa SRL",
+    "AgenciasAsociadas": [23],
+    "Domicilio": "Av. 25 de Mayo 1200, Formosa"
+  },
+
+  {
+    "Cuit": "30-84561729-3",
+    "RazonSocial": "Tabacalera Jujuy SRL",
+    "AgenciasAsociadas": [24],
+    "Domicilio": "Av. Savio 400, San Salvador de Jujuy"
+  },
+
+  {
+    "Cuit": "30-85624973-9",
+    "RazonSocial": "Oleaginosa Pampa SA",
+    "AgenciasAsociadas": [25],
+    "Domicilio": "Av. Luro 250, Santa Rosa"
+  },
+
+  {
+    "Cuit": "30-86791453-0",
+    "RazonSocial": "Bodega La Rioja SRL",
+    "AgenciasAsociadas": [26],
+    "Domicilio": "Av. Ortiz de Ocampo 300, La Rioja"
+  },
+
+  {
+    "Cuit": "30-87965421-4",
+    "RazonSocial": "Yerba Misionera SA",
+    "AgenciasAsociadas": [27, 28],
+    "Domicilio": "Av. Uruguay 500, Posadas"
+  },
+
+  {
+    "Cuit": "30-88124567-6",
+    "RazonSocial": "Energía Neuquén SRL",
+    "AgenciasAsociadas": [29, 30],
+    "Domicilio": "Av. Argentina 200, Neuquén"
+  },
+
+  {
+    "Cuit": "30-89247561-1",
+    "RazonSocial": "Frutícola Andina SA",
+    "AgenciasAsociadas": [31, 32],
+    "Domicilio": "Av. Roca 800, General Roca"
+  },
+
+  {
+    "Cuit": "30-90456172-5",
+    "RazonSocial": "Vitro San Juan SA",
+    "AgenciasAsociadas": [33],
+    "Domicilio": "Av. Libertador 1500, San Juan"
+  },
+
+  {
+    "Cuit": "30-91574823-7",
+    "RazonSocial": "Textil Puntana SRL",
+    "AgenciasAsociadas": [34],
+    "Domicilio": "Av. Illia 700, San Luis"
+  },
+
+  {
+    "Cuit": "30-92658417-2",
+    "RazonSocial": "Pesquera Austral SA",
+    "AgenciasAsociadas": [35],
+    "Domicilio": "Av. Kirchner 900, Río Gallegos"
+  },
+
+  {
+    "Cuit": "30-93721584-0",
+    "RazonSocial": "Cerealera Santiagueña SA",
+    "AgenciasAsociadas": [36],
+    "Domicilio": "Av. Belgrano 1100, Santiago del Estero"
+  },
+
+  {
+    "Cuit": "30-94872615-3",
+    "RazonSocial": "Tierra del Fuego Tech SRL",
+    "AgenciasAsociadas": [37],
+    "Domicilio": "Av. San Martín 300, Ushuaia"
   }
 ]

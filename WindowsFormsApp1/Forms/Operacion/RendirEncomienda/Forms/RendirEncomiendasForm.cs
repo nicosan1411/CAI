@@ -132,12 +132,7 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Forms
         // =========================
         private void VolverMenuPrincipal()
         {
-            var confirm = MessageBox.Show(
-                "¿Desea volver al menú principal? Se perderán los cambios no guardados.",
-                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (confirm == DialogResult.Yes)
-                InicioForm.VolverAlMenu(this);
+            InicioForm.VolverAlMenu(this);
         }
 
     }

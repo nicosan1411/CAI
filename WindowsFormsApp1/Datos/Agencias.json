@@ -1,38 +1,62 @@
 [
-  {
-    "IdAgencia": 1,
-    "Nombre": "Agencia BA - Retiro Central",
-    "CDAsignado": "CD-BA",
-    "Comisiones": []
-  },
-  {
-    "IdAgencia": 2,
-    "Nombre": "Agencia CO - Distribuci�n C�rdoba",
-    "CDAsignado": "CD-CO",
-    "Comisiones": []
-  },
-  {
-    "IdAgencia": 3,
-    "Nombre": "Agencia SF - Sucursal Rosario",
-    "CDAsignado": "CD-SF",
-    "Comisiones": []
-  },
-  {
-    "IdAgencia": 4,
-    "Nombre": "Agencia ME - Sucursal Mendoza Centro",
-    "CDAsignado": "CD-ME",
-    "Comisiones": []
-  },
-  {
-    "IdAgencia": 5,
-    "Nombre": "Agencia TU - Sucursal Tucum�n Norte",
-    "CDAsignado": "CD-TU",
-    "Comisiones": []
-  },
-  {
-    "IdAgencia": 6,
-    "Nombre": "Agencia SA - Agencia Salta Principal",
-    "CDAsignado": "CD-SA",
-    "Comisiones": []
-  }
+  { "IdAgencia": 1,  "Nombre": "Agencia BA - Zona Norte",                     "CDAsignado": "CD-BA",   "Comisiones": [] },
+  { "IdAgencia": 2,  "Nombre": "Agencia BA - Zona Sur",                       "CDAsignado": "CD-BA",   "Comisiones": [] },
+  { "IdAgencia": 3,  "Nombre": "Agencia BA - Zona Oeste",                     "CDAsignado": "CD-BA",   "Comisiones": [] },
+
+  { "IdAgencia": 4,  "Nombre": "Agencia CABA - Microcentro",                  "CDAsignado": "CD-CABA", "Comisiones": [] },
+  { "IdAgencia": 5,  "Nombre": "Agencia CABA - Palermo",                      "CDAsignado": "CD-CABA", "Comisiones": [] },
+  { "IdAgencia": 6,  "Nombre": "Agencia CABA - Flores",                       "CDAsignado": "CD-CABA", "Comisiones": [] },
+  { "IdAgencia": 7,  "Nombre": "Agencia CABA - Belgrano",                     "CDAsignado": "CD-CABA", "Comisiones": [] },
+
+  { "IdAgencia": 8,  "Nombre": "Agencia CO - Nueva Córdoba",                  "CDAsignado": "CD-CO",   "Comisiones": [] },
+  { "IdAgencia": 9,  "Nombre": "Agencia CO - Villa Allende",                  "CDAsignado": "CD-CO",   "Comisiones": [] },
+
+  { "IdAgencia": 10, "Nombre": "Agencia SF - Santa Fe Capital",               "CDAsignado": "CD-SF",   "Comisiones": [] },
+  { "IdAgencia": 11, "Nombre": "Agencia SF - Rafaela",                        "CDAsignado": "CD-SF",   "Comisiones": [] },
+
+  { "IdAgencia": 12, "Nombre": "Agencia ME - Godoy Cruz",                     "CDAsignado": "CD-ME",   "Comisiones": [] },
+
+  { "IdAgencia": 13, "Nombre": "Agencia TU - San Miguel Centro",              "CDAsignado": "CD-TU",   "Comisiones": [] },
+
+  { "IdAgencia": 14, "Nombre": "Agencia SA - Sucursal Norte",                 "CDAsignado": "CD-SA",   "Comisiones": [] },
+
+  { "IdAgencia": 15, "Nombre": "Agencia CA - San Fernando del Valle",         "CDAsignado": "CD-CA",   "Comisiones": [] },
+
+  { "IdAgencia": 16, "Nombre": "Agencia CH - Resistencia",                    "CDAsignado": "CD-CH",   "Comisiones": [] },
+  { "IdAgencia": 17, "Nombre": "Agencia CH - Sáenz Peña",                     "CDAsignado": "CD-CH",   "Comisiones": [] },
+
+  { "IdAgencia": 18, "Nombre": "Agencia CHU - Trelew",                        "CDAsignado": "CD-CHU",  "Comisiones": [] },
+
+  { "IdAgencia": 19, "Nombre": "Agencia CR - Corrientes Capital",             "CDAsignado": "CD-CR",   "Comisiones": [] },
+  { "IdAgencia": 20, "Nombre": "Agencia CR - Goya",                           "CDAsignado": "CD-CR",   "Comisiones": [] },
+
+  { "IdAgencia": 21, "Nombre": "Agencia ER - Paraná",                         "CDAsignado": "CD-ER",   "Comisiones": [] },
+  { "IdAgencia": 22, "Nombre": "Agencia ER - Concordia",                      "CDAsignado": "CD-ER",   "Comisiones": [] },
+
+  { "IdAgencia": 23, "Nombre": "Agencia FO - Formosa Capital",                "CDAsignado": "CD-FO",   "Comisiones": [] },
+
+  { "IdAgencia": 24, "Nombre": "Agencia JU - San Salvador",                   "CDAsignado": "CD-JU",   "Comisiones": [] },
+
+  { "IdAgencia": 25, "Nombre": "Agencia LP - Santa Rosa",                     "CDAsignado": "CD-LP",   "Comisiones": [] },
+
+  { "IdAgencia": 26, "Nombre": "Agencia LR - La Rioja Capital",               "CDAsignado": "CD-LR",   "Comisiones": [] },
+
+  { "IdAgencia": 27, "Nombre": "Agencia MI - Posadas",                        "CDAsignado": "CD-MI",   "Comisiones": [] },
+  { "IdAgencia": 28, "Nombre": "Agencia MI - Eldorado",                       "CDAsignado": "CD-MI",   "Comisiones": [] },
+
+  { "IdAgencia": 29, "Nombre": "Agencia NE - Neuquén Capital",                "CDAsignado": "CD-NE",   "Comisiones": [] },
+  { "IdAgencia": 30, "Nombre": "Agencia NE - San Martín de los Andes",        "CDAsignado": "CD-NE",   "Comisiones": [] },
+
+  { "IdAgencia": 31, "Nombre": "Agencia RN - General Roca",                   "CDAsignado": "CD-RN",   "Comisiones": [] },
+  { "IdAgencia": 32, "Nombre": "Agencia RN - San Carlos de Bariloche",        "CDAsignado": "CD-RN",   "Comisiones": [] },
+
+  { "IdAgencia": 33, "Nombre": "Agencia SJ - San Juan Capital",               "CDAsignado": "CD-SJ",   "Comisiones": [] },
+
+  { "IdAgencia": 34, "Nombre": "Agencia SL - San Luis Capital",               "CDAsignado": "CD-SL",   "Comisiones": [] },
+
+  { "IdAgencia": 35, "Nombre": "Agencia SCZ - Río Gallegos",                  "CDAsignado": "CD-SCZ",  "Comisiones": [] },
+
+  { "IdAgencia": 36, "Nombre": "Agencia SE - Santiago del Estero",            "CDAsignado": "CD-SE",   "Comisiones": [] },
+
+  { "IdAgencia": 37, "Nombre": "Agencia TF - Ushuaia",                        "CDAsignado": "CD-TF",   "Comisiones": [] }
 ]

@@ -1,4 +1,5 @@
 ﻿using CAI_Proyecto.Almacenes.Almacen;
+using CAI_Proyecto.Almacenes.ClaseAuxiliar;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,22 +20,31 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Model
             }
         }
 
-        public List<GuiasMicros> _guiasDemo
+        public List<GuiasMicros> GuiasMicros
         {
             get
             {
-                return HojaDeRutaMicroAlmacen.HojasDeRutaMicro
-                    .SelectMany(hoja => hoja.Guias.Select(nroGuia => new { hoja, nroGuia }))
-                    .Select(x => new GuiasMicros(
-                        x.nroGuia,
-                        "EnTransitoPorMicro",
-                        MicroAlmacen.Micros.FirstOrDefault(m => m.HojasDeRuta.Contains(x.hoja.IdHDRMicro))?.Patente
-                    ))
-                    .ToList();
+                var estadoObjetivo = TipoEstadoGuiaEnum.AdmitidoCDDestino;
+
+                // Une Hojas de Ruta con sus guías y trae el estado real desde GuiaAlmacen
+                var query =
+                    from hoja in HojaDeRutaMicroAlmacen.HojasDeRutaMicro
+                    from nroGuia in hoja.Guias
+                    let entidad = GuiaAlmacen.Guias.FirstOrDefault(g => g.NumeroGuia == nroGuia)
+                    where entidad != null
+                    let estadoReal = (entidad.EstadoActual != null ? entidad.EstadoActual.Estado : entidad.Estado)
+                    where estadoReal == estadoObjetivo
+                    let patente = MicroAlmacen.Micros
+                        .FirstOrDefault(m => m.HojasDeRuta != null && m.HojasDeRuta.Contains(hoja.IdHDRMicro))?.Patente
+                    select new GuiasMicros(
+                        nroGuia,
+                        estadoReal.ToString(),
+                        patente
+                    );
+
+                return query.ToList();
             }
         }
-
-        // Faltaría arreglar la selección de guías con el check para que guardarlas
 
         // --- Métodos públicos ---
         public List<Micro> ObtenerMicros() => Micros;
@@ -48,14 +58,16 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Model
                 return false;
             }
 
-            // 🔍 Filtrar guías solo de ese micro
-            Guias = _guiasDemo
-                .Where(g => g.PatenteAsignada == micro.Patente && g.Estado == "EnTransito")
+            var estadoObjetivoStr = TipoEstadoGuiaEnum.AdmitidoCDDestino.ToString();
+
+            // Filtrar guías solo de ese micro y en el estado objetivo
+            Guias = GuiasMicros
+                .Where(g => g.PatenteAsignada == micro.Patente && g.Estado == estadoObjetivoStr)
                 .ToList();
 
             if (Guias.Count == 0)
             {
-                MessageBox.Show("No hay encomiendas en tránsito asociadas a esta patente.",
+                MessageBox.Show("No hay encomiendas en admisión asociadas a esta patente.",
                     "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
@@ -82,9 +94,10 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Model
             if (confirmSave != DialogResult.Yes)
                 return false;
 
-            // Cambiar el estado de las guías seleccionadas
+            // Nota: aquí solo se actualiza el estado mostrado en la UI.
+            // Si necesitás persistir el cambio en GuiaAlmacen, hay que buscar cada guía por NumeroGuia y grabar.
             foreach (var g in Guias.Where(g => g.Seleccionada))
-                g.Estado = "Admitida en CD Destino";
+                g.Estado = TipoEstadoGuiaEnum.Recepcionado.ToString();
 
             MessageBox.Show("Las guías fueron recepcionadas correctamente.", "Éxito",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -93,6 +106,5 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Model
             Guias = new List<GuiasMicros>();
             return true;
         }
-
     }
 }

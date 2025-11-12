@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using CAI_Proyecto.Almacenes.Almacen;
+using CAI_Proyecto.Almacenes.Entidad;
 
 namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Model
 {
@@ -9,15 +11,9 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Model
         public IReadOnlyList<GuiaRendir> Retiros { get; private set; } = new List<GuiaRendir>();
         public IReadOnlyList<GuiaRendir> Entregas { get; private set; } = new List<GuiaRendir>();
 
-        // Datos de prueba 
-        private readonly List<Fletero> _fleterosDemo = new List<Fletero>
-        {
-            new Fletero("José Pérez", "AA123BB", "F001"),
-            new Fletero("Lucía Gómez", "AB456CD", "F002"),
-            new Fletero("Carlos Ruiz", "AC789EF", "F003"),
-        };
+        public List<Fletero> Fleteros = new List<Fletero>();
 
-        private readonly List<GuiaRendir> _guiasDemo = new List<GuiaRendir>
+        public List<GuiaRendir> Guias = new List<GuiaRendir>
         {
             new GuiaRendir("1001", "En Proceso De Retiro", "F001"),
             new GuiaRendir("1002", "En Proceso De Entrega", "F001"),
@@ -27,9 +23,46 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Model
             new GuiaRendir("3002", "En Proceso De Entrega", "F003"),
         };
 
-        // --- Métodos públicos ---
+        public RendirEncomiendasModel()
+        {
+            CargarFleterosSegunContexto();
+        }
 
-        public List<Fletero> ObtenerFleteros() => _fleterosDemo;
+        /// <summary>
+        /// Devuelve la lista de fleteros vigente. Recalcula cada vez para reflejar cambios
+        /// en la agencia seleccionada en InicioForm.
+        /// </summary>
+        public List<Fletero> ObtenerFleteros()
+        {
+            CargarFleterosSegunContexto();
+            return Fleteros;
+        }
+
+        /// <summary>
+        /// Carga los fleteros filtrando por la agencia actual (AgenciaAlmacen.AgenciaActual).
+        /// Si no hay agencia seleccionada, queda la lista vacía.
+        /// </summary>
+        private void CargarFleterosSegunContexto()
+        {
+            var agencia = AgenciaAlmacen.AgenciaActual;
+
+            if (agencia == null)
+            {
+                Fleteros = new List<Fletero>();
+                return;
+            }
+
+            // Fleteros del almacén que pertenecen a la agencia actual.
+            // Se proyectan a la clase Fletero utilizada en este módulo.
+            Fleteros = FleteroAlmacen.Fleteros
+                .Where(f => f.IdAgenciaAsignada == agencia.IdAgencia)
+                .OrderBy(f => f.Nombre)
+                .Select(f => new Fletero(
+                    nombre: f.Nombre,
+                    patente: f.CuitEmpresaFlete ?? string.Empty,
+                    nroFlete: f.IdFletero))
+                .ToList();
+        }
 
         public bool BuscarPorFletero(Fletero fletero)
         {
@@ -40,8 +73,7 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Model
                 return false;
             }
 
-            // Filtrar solo las guías de ese fletero
-            var guiasFletero = _guiasDemo
+            var guiasFletero = Guias
                 .Where(g => g.NroFleteAsignado == fletero.NroFlete)
                 .ToList();
 
@@ -65,7 +97,6 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Model
 
         public bool GuardarCambios()
         {
-            // Validación: no se seleccionó ninguna guía
             if (!Retiros.Any(r => r.Seleccionada) && !Entregas.Any(e => e.Seleccionada))
             {
                 var confirm = MessageBox.Show(
@@ -77,14 +108,12 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Model
                     return false;
             }
 
-            // Confirmación final
             var confirmSave = MessageBox.Show(
                 "¿Está seguro de que desea guardar los cambios realizados?",
                 "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirmSave != DialogResult.Yes)
                 return false;
 
-            // Actualizar estados según el caso
             foreach (var g in Retiros.Where(r => r.Seleccionada))
                 g.Estado = "Admitida en CD Origen";
 
@@ -94,11 +123,9 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Model
             MessageBox.Show("Datos guardados correctamente.", "Éxito",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Limpiar datos internos (volver al estado inicial)
             Retiros = new List<GuiaRendir>();
             Entregas = new List<GuiaRendir>();
             return true;
         }
-
     }
 }

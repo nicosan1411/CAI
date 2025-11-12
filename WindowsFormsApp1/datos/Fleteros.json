@@ -1,50 +1,106 @@
 [
-  {
-    "IdFletero": "F001",
-    "CuitEmpresaFlete": "30-20404040-1",
-    "Nombre": "Transporte R�pido S.R.L.",
-    "IdCDAsignado": "CABA",
-    "CuitClienteAsignado": "20-12345678-3",
-    "IdAgenciaAsignada": 1
-  },
-  {
-    "IdFletero": "F002",
-    "CuitEmpresaFlete": "30-55667788-9",
-    "Nombre": "Fletes del Norte",
-    "IdCDAsignado": "ROS",
-    "CuitClienteAsignado": "27-98765432-1",
-    "IdAgenciaAsignada": 2
-  },
-  {
-    "IdFletero": "F003",
-    "CuitEmpresaFlete": "30-99887766-5",
-    "Nombre": "Envios C�rdoba",
-    "IdCDAsignado": "CBA",
-    "CuitClienteAsignado": null,
-    "IdAgenciaAsignada": 0
-  },
-  {
-    "IdFletero": "F004",
-    "CuitEmpresaFlete": "30-11223344-7",
-    "Nombre": "Fletero Oeste",
-    "IdCDAsignado": "LP",
-    "CuitClienteAsignado": "20-44556677-2",
-    "IdAgenciaAsignada": 3
-  },
-  {
-    "IdFletero": "F005",
-    "CuitEmpresaFlete": "30-66778899-0",
-    "Nombre": "Servicios de Flete Central",
-    "IdCDAsignado": "MDP",
-    "CuitClienteAsignado": null,
-    "IdAgenciaAsignada": 4
-  },
-  {
-    "IdFletero": "F006",
-    "CuitEmpresaFlete": "30-12349876-5",
-    "Nombre": "Logistica Express Capital",
-    "IdCDAsignado": "CABA",
-    "CuitClienteAsignado": null,
-    "IdAgenciaAsignada": 1
-  }
+  { "IdFletero": "F0001", "CuitEmpresaFlete": "30-71122334-1", "Nombre": "Juan Pérez",         "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 1 },
+  { "IdFletero": "F0002", "CuitEmpresaFlete": "30-72233445-2", "Nombre": "Carlos Gómez",       "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 1 },
+  { "IdFletero": "F0003", "CuitEmpresaFlete": "30-73344556-3", "Nombre": "Luis Fernández",     "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 1 },
+  { "IdFletero": "F0004", "CuitEmpresaFlete": "30-74455667-4", "Nombre": "Diego Romero",       "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 2 },
+  { "IdFletero": "F0005", "CuitEmpresaFlete": "30-75566778-5", "Nombre": "Marcelo Ruiz",       "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 2 },
+  { "IdFletero": "F0006", "CuitEmpresaFlete": "30-76677889-6", "Nombre": "Federico Sosa",      "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 2 },
+  { "IdFletero": "F0007", "CuitEmpresaFlete": "30-77788990-7", "Nombre": "Gustavo Castro",     "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 3 },
+  { "IdFletero": "F0008", "CuitEmpresaFlete": "30-78899001-8", "Nombre": "Hernán Cabrera",     "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 3 },
+  { "IdFletero": "F0009", "CuitEmpresaFlete": "30-79900112-9", "Nombre": "Raúl Medina",        "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 3 },
+  { "IdFletero": "F0010", "CuitEmpresaFlete": "30-80112233-0", "Nombre": "Sergio Aguilar",     "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 1 },
+  { "IdFletero": "F0011", "CuitEmpresaFlete": "30-81223344-1", "Nombre": "Matías Delgado",     "IdCDAsignado": "CD-BA",   "IdAgenciaAsignada": 3 },
+
+  { "IdFletero": "F0012", "CuitEmpresaFlete": "30-82334455-2", "Nombre": "Nicolás Rivas",      "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 4 },
+  { "IdFletero": "F0013", "CuitEmpresaFlete": "30-83445566-3", "Nombre": "Pablo Ferreira",     "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 4 },
+  { "IdFletero": "F0014", "CuitEmpresaFlete": "30-84556677-4", "Nombre": "Julián Duarte",      "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 4 },
+  { "IdFletero": "F0015", "CuitEmpresaFlete": "30-85667788-5", "Nombre": "Tomás Benítez",      "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 5 },
+  { "IdFletero": "F0016", "CuitEmpresaFlete": "30-86778899-6", "Nombre": "Iván Escobar",       "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 5 },
+  { "IdFletero": "F0017", "CuitEmpresaFlete": "30-87889900-7", "Nombre": "Damián Peralta",     "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 5 },
+  { "IdFletero": "F0018", "CuitEmpresaFlete": "30-88990011-8", "Nombre": "Jorge Serrano",      "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 6 },
+  { "IdFletero": "F0019", "CuitEmpresaFlete": "30-89112233-9", "Nombre": "Gabriel Cabrera",    "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 6 },
+  { "IdFletero": "F0020", "CuitEmpresaFlete": "30-89223344-0", "Nombre": "Fernando Acosta",    "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 6 },
+  { "IdFletero": "F0021", "CuitEmpresaFlete": "30-89334455-1", "Nombre": "Sebastián Moyano",   "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 7 },
+  { "IdFletero": "F0022", "CuitEmpresaFlete": "30-89445566-2", "Nombre": "Emiliano Pardo",     "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 7 },
+  { "IdFletero": "F0023", "CuitEmpresaFlete": "30-89556677-3", "Nombre": "Leandro Molina",     "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 7 },
+  { "IdFletero": "F0024", "CuitEmpresaFlete": "30-89667788-4", "Nombre": "Cristian Varela",    "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 7 },
+  { "IdFletero": "F0025", "CuitEmpresaFlete": "30-89778899-5", "Nombre": "Agustín Villalba",   "IdCDAsignado": "CD-CABA", "IdAgenciaAsignada": 5 },
+
+  { "IdFletero": "F0026", "CuitEmpresaFlete": "30-90112233-6", "Nombre": "Franco Oliva",       "IdCDAsignado": "CD-CO",   "IdAgenciaAsignada": 8 },
+  { "IdFletero": "F0027", "CuitEmpresaFlete": "30-90223344-7", "Nombre": "Ricardo Zapata",     "IdCDAsignado": "CD-CO",   "IdAgenciaAsignada": 8 },
+  { "IdFletero": "F0028", "CuitEmpresaFlete": "30-90334455-8", "Nombre": "Mario Figueroa",     "IdCDAsignado": "CD-CO",   "IdAgenciaAsignada": 9 },
+  { "IdFletero": "F0029", "CuitEmpresaFlete": "30-90445566-9", "Nombre": "Adrián Castillo",    "IdCDAsignado": "CD-CO",   "IdAgenciaAsignada": 9 },
+  { "IdFletero": "F0030", "CuitEmpresaFlete": "30-90556677-0", "Nombre": "Pablo Arroyo",       "IdCDAsignado": "CD-CO",   "IdAgenciaAsignada": 8 },
+
+  { "IdFletero": "F0031", "CuitEmpresaFlete": "30-90667788-1", "Nombre": "Mariano Silva",      "IdCDAsignado": "CD-SF",   "IdAgenciaAsignada": 10 },
+  { "IdFletero": "F0032", "CuitEmpresaFlete": "30-90778899-2", "Nombre": "Andrés Pineda",      "IdCDAsignado": "CD-SF",   "IdAgenciaAsignada": 10 },
+  { "IdFletero": "F0033", "CuitEmpresaFlete": "30-90889900-3", "Nombre": "Claudio Valle",      "IdCDAsignado": "CD-SF",   "IdAgenciaAsignada": 11 },
+  { "IdFletero": "F0034", "CuitEmpresaFlete": "30-90990011-4", "Nombre": "Javier Pacheco",     "IdCDAsignado": "CD-SF",   "IdAgenciaAsignada": 11 },
+  { "IdFletero": "F0035", "CuitEmpresaFlete": "30-91001122-5", "Nombre": "Marcelo Domínguez",  "IdCDAsignado": "CD-SF",   "IdAgenciaAsignada": 11 },
+
+  { "IdFletero": "F0036", "CuitEmpresaFlete": "30-91112233-6", "Nombre": "Oscar Leiva",        "IdCDAsignado": "CD-ME",   "IdAgenciaAsignada": 12 },
+  { "IdFletero": "F0037", "CuitEmpresaFlete": "30-91223344-7", "Nombre": "Hugo Páez",          "IdCDAsignado": "CD-ME",   "IdAgenciaAsignada": 12 },
+
+  { "IdFletero": "F0038", "CuitEmpresaFlete": "30-91334455-8", "Nombre": "José Navarro",       "IdCDAsignado": "CD-TU",   "IdAgenciaAsignada": 13 },
+  { "IdFletero": "F0039", "CuitEmpresaFlete": "30-91445566-9", "Nombre": "Ramiro Quiroga",     "IdCDAsignado": "CD-TU",   "IdAgenciaAsignada": 13 },
+
+  { "IdFletero": "F0040", "CuitEmpresaFlete": "30-91556677-0", "Nombre": "Ezequiel Farías",    "IdCDAsignado": "CD-SA",   "IdAgenciaAsignada": 14 },
+  { "IdFletero": "F0041", "CuitEmpresaFlete": "30-91667788-1", "Nombre": "Alejandro Montoya",  "IdCDAsignado": "CD-SA",   "IdAgenciaAsignada": 14 },
+
+  { "IdFletero": "F0042", "CuitEmpresaFlete": "30-91778899-2", "Nombre": "Bruno Tevez",        "IdCDAsignado": "CD-CA",   "IdAgenciaAsignada": 15 },
+  { "IdFletero": "F0043", "CuitEmpresaFlete": "30-91889900-3", "Nombre": "Lucas Maldonado",    "IdCDAsignado": "CD-CA",   "IdAgenciaAsignada": 15 },
+
+  { "IdFletero": "F0044", "CuitEmpresaFlete": "30-91990011-4", "Nombre": "Rodrigo Bravo",      "IdCDAsignado": "CD-CH",   "IdAgenciaAsignada": 16 },
+  { "IdFletero": "F0045", "CuitEmpresaFlete": "30-92001122-5", "Nombre": "Mauricio Cabrera",   "IdCDAsignado": "CD-CH",   "IdAgenciaAsignada": 17 },
+  { "IdFletero": "F0046", "CuitEmpresaFlete": "30-92112233-6", "Nombre": "Daniel Pizarro",     "IdCDAsignado": "CD-CH",   "IdAgenciaAsignada": 16 },
+
+  { "IdFletero": "F0047", "CuitEmpresaFlete": "30-92223344-7", "Nombre": "Adolfo Segovia",     "IdCDAsignado": "CD-CHU",  "IdAgenciaAsignada": 18 },
+  { "IdFletero": "F0048", "CuitEmpresaFlete": "30-92334455-8", "Nombre": "Javier Carrillo",    "IdCDAsignado": "CD-CHU",  "IdAgenciaAsignada": 18 },
+
+  { "IdFletero": "F0049", "CuitEmpresaFlete": "30-92445566-9", "Nombre": "Héctor Barrios",     "IdCDAsignado": "CD-CR",   "IdAgenciaAsignada": 19 },
+  { "IdFletero": "F0050", "CuitEmpresaFlete": "30-92556677-0", "Nombre": "Edgardo Tapia",      "IdCDAsignado": "CD-CR",   "IdAgenciaAsignada": 20 },
+  { "IdFletero": "F0051", "CuitEmpresaFlete": "30-92667788-1", "Nombre": "Pedro Luna",         "IdCDAsignado": "CD-CR",   "IdAgenciaAsignada": 20 },
+
+  { "IdFletero": "F0052", "CuitEmpresaFlete": "30-92778899-2", "Nombre": "Cristian Salas",     "IdCDAsignado": "CD-ER",   "IdAgenciaAsignada": 21 },
+  { "IdFletero": "F0053", "CuitEmpresaFlete": "30-92889900-3", "Nombre": "Nelson Godoy",       "IdCDAsignado": "CD-ER",   "IdAgenciaAsignada": 22 },
+  { "IdFletero": "F0054", "CuitEmpresaFlete": "30-92990011-4", "Nombre": "Hugo Olivera",       "IdCDAsignado": "CD-ER",   "IdAgenciaAsignada": 21 },
+
+  { "IdFletero": "F0055", "CuitEmpresaFlete": "30-93001122-5", "Nombre": "Carlos Maidana",     "IdCDAsignado": "CD-FO",   "IdAgenciaAsignada": 23 },
+  { "IdFletero": "F0056", "CuitEmpresaFlete": "30-93112233-6", "Nombre": "Alejandro Suárez",   "IdCDAsignado": "CD-FO",   "IdAgenciaAsignada": 23 },
+
+  { "IdFletero": "F0057", "CuitEmpresaFlete": "30-93223344-7", "Nombre": "Santiago Palacios",  "IdCDAsignado": "CD-JU",   "IdAgenciaAsignada": 24 },
+  { "IdFletero": "F0058", "CuitEmpresaFlete": "30-93334455-8", "Nombre": "Facundo Ibarra",     "IdCDAsignado": "CD-JU",   "IdAgenciaAsignada": 24 },
+
+  { "IdFletero": "F0059", "CuitEmpresaFlete": "30-93445566-9", "Nombre": "Jorge Miranda",      "IdCDAsignado": "CD-LP",   "IdAgenciaAsignada": 25 },
+  { "IdFletero": "F0060", "CuitEmpresaFlete": "30-93556677-0", "Nombre": "Claudio Ponce",      "IdCDAsignado": "CD-LP",   "IdAgenciaAsignada": 25 },
+
+  { "IdFletero": "F0061", "CuitEmpresaFlete": "30-93667788-1", "Nombre": "Guillermo Correa",   "IdCDAsignado": "CD-LR",   "IdAgenciaAsignada": 26 },
+  { "IdFletero": "F0062", "CuitEmpresaFlete": "30-93778899-2", "Nombre": "Adrián Vázquez",     "IdCDAsignado": "CD-LR",   "IdAgenciaAsignada": 26 },
+
+  { "IdFletero": "F0063", "CuitEmpresaFlete": "30-93889900-3", "Nombre": "Pablo Giménez",      "IdCDAsignado": "CD-MI",   "IdAgenciaAsignada": 27 },
+  { "IdFletero": "F0064", "CuitEmpresaFlete": "30-93990011-4", "Nombre": "Gonzalo Franco",     "IdCDAsignado": "CD-MI",   "IdAgenciaAsignada": 28 },
+  { "IdFletero": "F0065", "CuitEmpresaFlete": "30-94001122-5", "Nombre": "Luciano Barboza",    "IdCDAsignado": "CD-MI",   "IdAgenciaAsignada": 27 },
+
+  { "IdFletero": "F0066", "CuitEmpresaFlete": "30-94112233-6", "Nombre": "Maximiliano Roldán", "IdCDAsignado": "CD-NE",   "IdAgenciaAsignada": 29 },
+  { "IdFletero": "F0067", "CuitEmpresaFlete": "30-94223344-7", "Nombre": "Iván Mansilla",      "IdCDAsignado": "CD-NE",   "IdAgenciaAsignada": 30 },
+  { "IdFletero": "F0068", "CuitEmpresaFlete": "30-94334455-8", "Nombre": "Ramiro Toledo",      "IdCDAsignado": "CD-NE",   "IdAgenciaAsignada": 30 },
+
+  { "IdFletero": "F0069", "CuitEmpresaFlete": "30-94445566-9", "Nombre": "Sergio Fonseca",     "IdCDAsignado": "CD-RN",   "IdAgenciaAsignada": 31 },
+  { "IdFletero": "F0070", "CuitEmpresaFlete": "30-94556677-0", "Nombre": "Walter Benítez",     "IdCDAsignado": "CD-RN",   "IdAgenciaAsignada": 32 },
+  { "IdFletero": "F0071", "CuitEmpresaFlete": "30-94667788-1", "Nombre": "Héctor Bustos",      "IdCDAsignado": "CD-RN",   "IdAgenciaAsignada": 31 },
+
+  { "IdFletero": "F0072", "CuitEmpresaFlete": "30-94778899-2", "Nombre": "Martín Cabrera",     "IdCDAsignado": "CD-SJ",   "IdAgenciaAsignada": 33 },
+  { "IdFletero": "F0073", "CuitEmpresaFlete": "30-94889900-3", "Nombre": "Victor Prieto",      "IdCDAsignado": "CD-SJ",   "IdAgenciaAsignada": 33 },
+
+  { "IdFletero": "F0074", "CuitEmpresaFlete": "30-94990011-4", "Nombre": "Rodrigo Páez",       "IdCDAsignado": "CD-SL",   "IdAgenciaAsignada": 34 },
+  { "IdFletero": "F0075", "CuitEmpresaFlete": "30-95001122-5", "Nombre": "Mauricio Gallardo",  "IdCDAsignado": "CD-SL",   "IdAgenciaAsignada": 34 },
+
+  { "IdFletero": "F0076", "CuitEmpresaFlete": "30-95112233-6", "Nombre": "Esteban Reinoso",    "IdCDAsignado": "CD-SCZ",  "IdAgenciaAsignada": 35 },
+  { "IdFletero": "F0077", "CuitEmpresaFlete": "30-95223344-7", "Nombre": "Andrés Hurtado",     "IdCDAsignado": "CD-SCZ",  "IdAgenciaAsignada": 35 },
+
+  { "IdFletero": "F0078", "CuitEmpresaFlete": "30-95334455-8", "Nombre": "Joaquín Alderete",   "IdCDAsignado": "CD-SE",   "IdAgenciaAsignada": 36 },
+  { "IdFletero": "F0079", "CuitEmpresaFlete": "30-95445566-9", "Nombre": "Diego Argañaraz",    "IdCDAsignado": "CD-SE",   "IdAgenciaAsignada": 36 },
+
+  { "IdFletero": "F0080", "CuitEmpresaFlete": "30-95556677-0", "Nombre": "Matías Coronel",     "IdCDAsignado": "CD-TF",   "IdAgenciaAsignada": 37 },
+  { "IdFletero": "F0081", "CuitEmpresaFlete": "30-95667788-1", "Nombre": "Ignacio Villarraza", "IdCDAsignado": "CD-TF",   "IdAgenciaAsignada": 37 }
 ]

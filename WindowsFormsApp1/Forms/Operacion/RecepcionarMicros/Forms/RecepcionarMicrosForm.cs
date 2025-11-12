@@ -41,6 +41,11 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Forms
             lvRecepciones.GridLines = true;
             lvRecepciones.View = View.Details;
             lvRecepciones.MultiSelect = false;
+
+            // Ensure checkbox appears in "Entregado en CD Destino" column
+            // by making it the first displayed column.
+            columnEntregadoEnCD.DisplayIndex = 0;
+            columnNroGuia.DisplayIndex = 1;
         }
 
         private void WireHandlers()
@@ -65,11 +70,15 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Forms
 
             foreach (var guia in _modelo.Guias)
             {
-                var item = new ListViewItem(guia.NroGuia)
+                // First displayed column (Entregado) stays empty, only shows the checkbox.
+                var item = new ListViewItem(string.Empty)
                 {
                     Checked = guia.Seleccionada
                 };
-                item.SubItems.Add(""); // Columna “Entregado en CD Destino”
+
+                // Second column (N° de guía) shows the guide number.
+                item.SubItems.Add(guia.NroGuia);
+
                 lvRecepciones.Items.Add(item);
             }
 
@@ -81,7 +90,8 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Forms
             // Actualizar selección en el modelo según los checks del ListView
             foreach (ListViewItem item in lvRecepciones.Items)
             {
-                var nroGuia = item.Text.Trim();
+                // The guide number is now in SubItems[1]
+                var nroGuia = item.SubItems.Count > 1 ? item.SubItems[1].Text.Trim() : string.Empty;
                 var guia = _modelo.Guias.FirstOrDefault(g => g.NroGuia == nroGuia);
                 if (guia != null)
                     guia.Seleccionada = item.Checked;

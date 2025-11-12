@@ -6,7 +6,7 @@
   },
   {
     "IdProvincia": "CABA",
-    "Nombre": "Ciudad Aut�noma de Buenos Aires",
+    "Nombre": "Ciudad Autónoma de Buenos Aires",
     "IdCD": "CD-CABA"
   },
   {
@@ -26,7 +26,7 @@
   },
   {
     "IdProvincia": "CO",
-    "Nombre": "C�rdoba",
+    "Nombre": "Córdoba",
     "IdCD": "CD-CO"
   },
   {
@@ -36,7 +36,7 @@
   },
   {
     "IdProvincia": "ER",
-    "Nombre": "Entre R�os",
+    "Nombre": "Entre Ríos",
     "IdCD": "CD-ER"
   },
   {
@@ -71,12 +71,12 @@
   },
   {
     "IdProvincia": "NE",
-    "Nombre": "Neuqu�n",
+    "Nombre": "Neuquén",
     "IdCD": "CD-NE"
   },
   {
     "IdProvincia": "RN",
-    "Nombre": "R�o Negro",
+    "Nombre": "Río Negro",
     "IdCD": "CD-RN"
   },
   {
@@ -111,12 +111,12 @@
   },
   {
     "IdProvincia": "TF",
-    "Nombre": "Tierra del Fuego, Ant�rtida e Islas del Atl�ntico Sur",
+    "Nombre": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
     "IdCD": "CD-TF"
   },
   {
     "IdProvincia": "TU",
-    "Nombre": "Tucum�n",
+    "Nombre": "Tucumán",
     "IdCD": "CD-TU"
   }
 ]

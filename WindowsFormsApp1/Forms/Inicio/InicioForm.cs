@@ -110,17 +110,53 @@ namespace CAI_Proyecto.Forms.Inicio
             CDActualCombo.DisplayMember = "Nombre";
             CDActualCombo.Items.AddRange(CentroDeDistribucionAlmacen.CentrosDeDistribucion.OrderBy(cd => cd.Nombre).ToArray());
 
+            // Agencia: inicialmente deshabilitada y vacía
             AgenciaActualCombo.DisplayMember = "Nombre";
-            AgenciaActualCombo.Items.AddRange(AgenciaAlmacen.Agencias.OrderBy(a => a.Nombre).ToArray());
+            AgenciaActualCombo.Enabled = false;
+            AgenciaActualCombo.Items.Clear();
         }
 
         private void CDActualCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CentroDeDistribucionAlmacen.CentroDeDistribucionActual = (CentroDeDistribucionEntidad)CDActualCombo.SelectedItem;
+            var cdSeleccionado = (CentroDeDistribucionEntidad)CDActualCombo.SelectedItem;
+            CentroDeDistribucionAlmacen.CentroDeDistribucionActual = cdSeleccionado;
+
+            AgenciaActualCombo.BeginUpdate();
+            try
+            {
+                // Refrescar items según CD elegido
+                AgenciaActualCombo.Items.Clear();
+                if (cdSeleccionado != null)
+                {
+                    var agenciasFiltradas = AgenciaAlmacen.Agencias
+                        .Where(a => string.Equals(a.CDAsignado, cdSeleccionado.IdCD, StringComparison.OrdinalIgnoreCase))
+                        .OrderBy(a => a.Nombre)
+                        .ToArray();
+
+                    AgenciaActualCombo.Items.AddRange(agenciasFiltradas);
+                }
+
+                // Siempre resetear la selección de agencia
+                AgenciaActualCombo.SelectedIndex = -1;
+                AgenciaAlmacen.AgenciaActual = null;
+
+                // Habilitar solo si hay un CD seleccionado (independiente de si hay agencias o no)
+                AgenciaActualCombo.Enabled = cdSeleccionado != null;
+            }
+            finally
+            {
+                AgenciaActualCombo.EndUpdate();
+            }
         }
 
         private void AgenciaActualCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!AgenciaActualCombo.Enabled || AgenciaActualCombo.SelectedIndex < 0)
+            {
+                AgenciaAlmacen.AgenciaActual = null;
+                return;
+            }
+
             AgenciaAlmacen.AgenciaActual = (AgenciaEntidad)AgenciaActualCombo.SelectedItem;
         }
     }
