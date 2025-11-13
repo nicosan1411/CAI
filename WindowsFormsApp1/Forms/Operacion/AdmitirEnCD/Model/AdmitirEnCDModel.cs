@@ -79,10 +79,6 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
         {
             if (pedido == null) return;
 
-            // Asegura que existan hojas de ruta vacías para cada parada (IdCDOrigen -> IdCDDestino) de cada micro,
-            // incluida la recién agregada (p.ej. IdMicro = 4 con recorrido CD-BA -> CD-TU).
-            SincronizarHojasDeRutaConMicros();
-
             var provEntidad = ProvinciaAlmacen.Provincias
                 .FirstOrDefault(px => pedido.ProvinciaEnvio != null && px.IdProvincia == pedido.ProvinciaEnvio.Codigo);
 
@@ -171,18 +167,18 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
 
             var gruposPorDestino = guiasCreadas
                 .Where(g => !string.IsNullOrWhiteSpace(g.IdCDDestino))
-                .GroupBy(g => g.IdCDDestino);
+                .GroupBy(g => new { g.IdCDOrigen, g.IdCDDestino });
 
             foreach (var grp in gruposPorDestino)
             {
-                var idCDDestino = grp.Key;
-                var idCDOrigenHoja = grp.First().IdCDOrigen;
+                var idCDDestino = grp.Key.IdCDDestino;
+                var idCDOrigenHoja = grp.Key.IdCDOrigen;
                 var numeros = grp.Select(g => g.NumeroGuia).Distinct().ToList();
 
-                // Crear / actualizar hoja por ORIGEN+DESTINO (no sólo destino)
+                // Sólo crear hoja si hay guías y NO crear hojas vacías.
                 var hojaId = CrearHojaMicroSiNoExiste(idCDOrigenHoja, idCDDestino, numeros);
 
-                // Normalizar estado 2 de las guías
+                // Normalizar estado
                 var nowUpdate = DateTime.Now;
                 foreach (var n in numeros)
                 {
@@ -202,10 +198,12 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                     });
                 }
                 GuiaAlmacen.Grabar();
+
+                // Asignar micro sólo si existe un recorrido exacto
+                AsignarMicroParaRuta(idCDOrigenHoja, idCDDestino, hojaId);
             }
         }
 
-        // Reemplazar el método AsignarMicroParaRuta por esta versión estricta:
         private void AsignarMicroParaRuta(string idCDOrigen, string idCDDestino, int idHDRMicro)
         {
             if (idHDRMicro <= 0 || string.IsNullOrWhiteSpace(idCDOrigen) || string.IsNullOrWhiteSpace(idCDDestino))
@@ -220,34 +218,19 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
             IEnumerable<HojaDeRutaMicroEntidad> HojasDe(MicroEntidad m) =>
                 (m.HojasDeRuta ?? new List<int>()).Select(HojaPorId).Where(h => h != null);
 
-            // Candidatos: solo micros cuyo recorrido incluye EXACTAMENTE el tramo origen->destino
             var candidatos = micros
                 .Where(m => (m.Recorrido ?? new List<Parada>())
                     .Any(p => p.IdCDOrigen == idCDOrigen && p.IdCDDestino == idCDDestino))
                 .ToList();
 
-            if (!candidatos.Any())
-            {
-                // No se asigna ningún micro si no hay uno que haga explícitamente el tramo solicitado.
-                return;
-            }
+            if (!candidatos.Any()) return;
 
-            // Prioridad 1: micro que ya tenga una hoja (entre sus HojasDeRuta) con ese origen/destino
             var microConHojaPair = candidatos.FirstOrDefault(m =>
                 HojasDe(m).Any(h => h.IdCDOrigen == idCDOrigen && h.IdCDDestino == idCDDestino));
 
-            MicroEntidad elegido;
-            if (microConHojaPair != null)
-            {
-                elegido = microConHojaPair;
-            }
-            else
-            {
-                // Prioridad 2: menor cantidad de hojas (balanceo) entre los candidatos estrictos
-                elegido = candidatos
-                    .OrderBy(m => (m.HojasDeRuta ?? new List<int>()).Count)
-                    .First();
-            }
+            MicroEntidad elegido = microConHojaPair ?? candidatos
+                .OrderBy(m => (m.HojasDeRuta ?? new List<int>()).Count)
+                .First();
 
             elegido.HojasDeRuta ??= new List<int>();
             if (!elegido.HojasDeRuta.Contains(idHDRMicro))
@@ -257,7 +240,6 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
             }
         }
 
-        // (Opcional) Ajusta CrearHojaMicroSiNoExiste para NO intentar asignar micro si no existe tramo exacto:
         private int CrearHojaMicroSiNoExiste(string idCDOrigen, string idCDDestino, List<string> numerosGuias)
         {
             if (string.IsNullOrWhiteSpace(idCDOrigen) || string.IsNullOrWhiteSpace(idCDDestino) ||
@@ -288,60 +270,10 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                 }
             }
 
-            // Asignar solo si existe un micro con recorrido exacto
-            AsignarMicroParaRuta(idCDOrigen, idCDDestino, hoja.IdHDRMicro);
             return hoja.IdHDRMicro;
         }
 
         private string GenerarNumeroGuia() =>
             DateTime.Now.ToString("yyyyMMddHHmmssfff") + new Random().Next(100, 999).ToString();
-
-        private void SincronizarHojasDeRutaConMicros()
-        {
-            var micros = MicroAlmacen.Micros;
-            if (!micros.Any()) return;
-
-            bool huboCambioHoja = false;
-            bool huboCambioMicro = false;
-
-            foreach (var micro in micros)
-            {
-                var paradas = micro.Recorrido ?? new List<Parada>();
-                foreach (var parada in paradas)
-                {
-                    if (string.IsNullOrWhiteSpace(parada.IdCDOrigen) || string.IsNullOrWhiteSpace(parada.IdCDDestino))
-                        continue;
-
-                    // Buscar hoja existente ORIGEN+DESTINO
-                    var hoja = HojaDeRutaMicroAlmacen.HojasDeRutaMicro.FirstOrDefault(h =>
-                        string.Equals(h.IdCDOrigen, parada.IdCDOrigen, StringComparison.OrdinalIgnoreCase) &&
-                        string.Equals(h.IdCDDestino, parada.IdCDDestino, StringComparison.OrdinalIgnoreCase));
-
-                    if (hoja == null)
-                    {
-                        hoja = new HojaDeRutaMicroEntidad
-                        {
-                            IdCDOrigen = parada.IdCDOrigen,
-                            IdCDDestino = parada.IdCDDestino,
-                            Guias = new List<string>() // se llenará luego al admitir
-                        };
-                        HojaDeRutaMicroAlmacen.Agregar(hoja);
-                        huboCambioHoja = true;
-                    }
-
-                    // Vincular hoja al micro si aún no está
-                    micro.HojasDeRuta ??= new List<int>();
-                    if (!micro.HojasDeRuta.Contains(hoja.IdHDRMicro))
-                    {
-                        micro.HojasDeRuta.Add(hoja.IdHDRMicro);
-                        huboCambioMicro = true;
-                    }
-                }
-            }
-
-            if (huboCambioMicro)
-                MicroAlmacen.Grabar();
-            // HojaDeRutaMicroAlmacen.Agregar ya graba cada nueva hoja.
-        }
     }
 }
