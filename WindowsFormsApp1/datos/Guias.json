@@ -1,6 +1,6 @@
 [
   {
-    "NumeroGuia": "G-20251112160000001",
+    "NumeroGuia": "CD-BA-000003",
     "Estado": 0,
     "FechaIngreso": "2025-11-12T16:00:00.0000000-03:00",
     "CuitCliente": "20-12345678-3",
@@ -36,7 +36,7 @@
     "NumeroFactura": 0
   },
   {
-    "NumeroGuia": "TEST-ENT-0001",
+    "NumeroGuia": "CD-BA-000001",
     "Estado": 3,
     "FechaIngreso": "2025-11-12T10:00:00.0000000-03:00",
     "CuitCliente": "20-99999999-9",
@@ -77,7 +77,7 @@
     "NumeroFactura": 0
   },
   {
-    "NumeroGuia": "TEST-ENT-0002",
+    "NumeroGuia": "CD-BA-000002",
     "Estado": 3,
     "FechaIngreso": "2025-11-12T11:00:00.0000000-03:00",
     "CuitCliente": "20-99999999-9",
@@ -118,7 +118,7 @@
     "NumeroFactura": 0
   },
   {
-    "NumeroGuia": "20251113174240716499",
+    "NumeroGuia": "CD-JU-000001",
     "Estado": 2,
     "FechaIngreso": "2025-11-13T17:42:40.7137785-03:00",
     "CuitCliente": "30-84561729-3",

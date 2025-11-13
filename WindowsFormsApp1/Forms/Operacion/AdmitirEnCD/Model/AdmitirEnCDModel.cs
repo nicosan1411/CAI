@@ -127,7 +127,7 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                     };
                     return new GuiaEntidad
                     {
-                        NumeroGuia = GenerarNumeroGuia(),
+                        NumeroGuia = GenerarNumeroGuiaPorCD(cdOrigen),
                         FechaIngreso = now,
                         CuitCliente = pedido.Cliente?.Cuit,
                         TipoRetiro = tipoRetiroEnum,
@@ -175,10 +175,8 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                 var idCDOrigenHoja = grp.Key.IdCDOrigen;
                 var numeros = grp.Select(g => g.NumeroGuia).Distinct().ToList();
 
-                // Sólo crear hoja si hay guías y NO crear hojas vacías.
                 var hojaId = CrearHojaMicroSiNoExiste(idCDOrigenHoja, idCDDestino, numeros);
 
-                // Normalizar estado
                 var nowUpdate = DateTime.Now;
                 foreach (var n in numeros)
                 {
@@ -199,7 +197,6 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                 }
                 GuiaAlmacen.Grabar();
 
-                // Asignar micro sólo si existe un recorrido exacto
                 AsignarMicroParaRuta(idCDOrigenHoja, idCDDestino, hojaId);
             }
         }
@@ -273,7 +270,27 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
             return hoja.IdHDRMicro;
         }
 
-        private string GenerarNumeroGuia() =>
-            DateTime.Now.ToString("yyyyMMddHHmmssfff") + new Random().Next(100, 999).ToString();
+        // Reemplazo del método anterior basado en timestamp
+        private string GenerarNumeroGuiaPorCD(string idCDOrigen)
+        {
+            var prefix = string.IsNullOrWhiteSpace(idCDOrigen) ? "SIN-CD" : idCDOrigen.Trim();
+            var prefixDash = prefix + "-";
+
+            var max = GuiaAlmacen.Guias
+                .Where(g => !string.IsNullOrWhiteSpace(g.IdCDOrigen) &&
+                            string.Equals(g.IdCDOrigen, prefix, StringComparison.OrdinalIgnoreCase))
+                .Select(g =>
+                {
+                    var nro = g.NumeroGuia;
+                    if (string.IsNullOrWhiteSpace(nro) || !nro.StartsWith(prefixDash, StringComparison.OrdinalIgnoreCase))
+                        return 0;
+                    var tail = nro.Substring(prefixDash.Length);
+                    return int.TryParse(tail, out var n) ? n : 0;
+                })
+                .DefaultIfEmpty(0)
+                .Max();
+
+            return $"{prefixDash}{(max + 1):000000}";
+        }
     }
 }
