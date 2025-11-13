@@ -8,7 +8,6 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Forms
 {
     public partial class EntregarEncomiendaAClienteCDForm : Form
     {
-        // Modelo del formulario
         internal EntregarEncomiendaClienteCDModel modelo = new EntregarEncomiendaClienteCDModel();
 
         public EntregarEncomiendaAClienteCDForm()
@@ -19,45 +18,37 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Forms
 
         private void InicializarFormulario()
         {
-            // Configuración del ListView
             lvGuias.FullRowSelect = true;
             lvGuias.GridLines = true;
             lvGuias.View = View.Details;
             lvGuias.MultiSelect = false;
 
-            
             if (lvGuias.Columns.Count == 0)
             {
-                lvGuias.Columns.Add("N° Guía", 120);
-                lvGuias.Columns.Add("Destinatario", 180);
-                lvGuias.Columns.Add("DNI", 120);
-                lvGuias.Columns.Add("Estado", 160);
+                // Se asume que columnGuiaNumero y columnDNI existen en el diseñador;
+                // si no, se agregan aquí para garantizar funcionamiento.
+                lvGuias.Columns.Add("N° Guía", 140);      // columnGuiaNumero
+                lvGuias.Columns.Add("DNI", 120);          // columnDNI
             }
 
-            // Eventos
             btnBuscar.Click += BtnBuscar_Click;
             btnEntregar.Click += BtnEntregar_Click;
-            
         }
 
         public static bool EsDniValido(string dni, out string error)
         {
             error = null;
-
             if (string.IsNullOrWhiteSpace(dni))
             {
                 error = "Ingresá el DNI del destinatario.";
                 return false;
             }
-
-            // Normalizo a dígitos y valido largo exacto
             var limpio = new string(dni.Where(char.IsDigit).ToArray());
             if (limpio.Length != 8)
             {
                 error = "El DNI debe tener exactamente 8 dígitos.";
                 return false;
             }
-
             return true;
         }
 
@@ -65,7 +56,6 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Forms
         {
             string dni = txtDNI.Text.Trim();
 
-            // Validación de DNI
             if (!EsDniValido(dni, out string error))
             {
                 MessageBox.Show(error, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -73,34 +63,23 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Forms
                 return;
             }
 
-            var ok = modelo.BuscarPorDni(dni);
-            if (!ok) return;
+            if (!modelo.BuscarPorDni(dni))
+                return;
 
             lvGuias.Items.Clear();
 
-            if (modelo.Guias.Count == 0)
-            {
-                MessageBox.Show("No se encontraron encomiendas admitidas en CD destino para el DNI ingresado.",
-                    "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            foreach (var g in modelo.Encomiendas)
+            foreach (var g in modelo.Guias)  // solo resultados filtrados
             {
                 var item = new ListViewItem(g.NumeroGuia);
                 item.SubItems.Add(g.DniDestinatario);
-                item.SubItems.Add(g.Estado);
                 lvGuias.Items.Add(item);
             }
         }
 
         private void BtnEntregar_Click(object sender, EventArgs e)
         {
-            // Entrega TODAS las listadas 
-            var ok = modelo.EntregarTodas();
-            if (ok)
+            if (modelo.EntregarTodas())
             {
-                // Limpiar la vista según el caso de uso (paso 15)
                 lvGuias.Items.Clear();
                 txtDNI.Clear();
                 txtDNI.Focus();

@@ -13,36 +13,48 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Model
         {
             get
             {
-
                 if (Guias != null && Guias.Count > 0)
                     return Guias.ToArray();
 
                 return GuiaAlmacen.Guias
                   .Select(g => new Encomienda(
                       g.NumeroGuia,
-                      g.DniDestinatario.ToString(),   
-                      g.Estado.ToString()             
+                      g.DniDestinatario.ToString(),
+                      g.Estado.ToString()
                   ))
                   .ToArray();
             }
         }
 
-        // Resultado de la última búsqueda (listas mapeadas a Encomienda)
+        // Resultado de la última búsqueda (mapeadas a Encomienda)
         public IReadOnlyList<Encomienda> Guias { get; private set; } = new List<Encomienda>();
 
-        // Buscar por DNI solo "Admitida en CD destino"
+        // Buscar por DNI considerando CD actual y TipoEnvio = VaACD (valor enum 1)
         public bool BuscarPorDni(int dni)
         {
-            // Buscar guías cuyo DniDestinatario coincide y que estén admitidas en CD destino
+            var cdActual = CentroDeDistribucionAlmacen.CentroDeDistribucionActual?.IdCD;
+            if (string.IsNullOrWhiteSpace(cdActual))
+            {
+                MessageBox.Show("Debe seleccionar el Centro de Distribución actual en el menú principal.",
+                    "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
             Guias = GuiaAlmacen.Guias
-               .Where(g => g.DniDestinatario == dni && g.Estado == TipoEstadoGuiaEnum.AdmitidoCDDestino)
-               .Select(g => new Encomienda(g.NumeroGuia, g.DniDestinatario.ToString(), g.Estado.ToString()))
+               .Where(g =>
+                      g.DniDestinatario == dni &&
+                      string.Equals(g.IdCDDestino, cdActual, StringComparison.OrdinalIgnoreCase) &&
+                      g.TipoEnvio == TipoEnvioEnum.VaACD)  // TipoEnvio = 1
+               .Select(g => new Encomienda(
+                   g.NumeroGuia,
+                   g.DniDestinatario.ToString(),
+                   g.Estado.ToString()))
                .ToList();
 
             if (Guias == null || Guias.Count == 0)
             {
-                MessageBox.Show("No se encontraron encomiendas admitidas en CD destino para ese DNI.",
-                    "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No se encontraron guías para ese DNI en el CD actual con TipoEnvio = Centro de distribución.",
+                    "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -53,44 +65,43 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Model
         {
             if (string.IsNullOrWhiteSpace(dni))
             {
-                MessageBox.Show("Debe ingresar un DNI para realizar una búsqueda.",
+                MessageBox.Show("Debe ingresar un DNI para realizar la búsqueda.",
                     "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (!int.TryParse(dni, out var dniInt))
             {
-                MessageBox.Show("DNI inválido. Ingrese solo números.", "Atención",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("DNI inválido. Ingrese solo números.",
+                    "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             return BuscarPorDni(dniInt);
         }
 
-        // Entregar TODAS las listadas
+        // Entregar TODAS las guías listadas (Estado -> 8 = Entregado)
         public bool EntregarTodas()
         {
             if (Guias == null || Guias.Count == 0)
             {
-                MessageBox.Show("No hay encomiendas para entregar.",
+                MessageBox.Show("No hay guías listadas para entregar.",
                     "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            var confirm = MessageBox.Show("¿Estás seguro que querés realizar esta acción?",
+            var confirm = MessageBox.Show("¿Confirmás la entrega de todas las guías listadas?",
                 "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirm != DialogResult.Yes) return false;
 
-            // Números a entregar
-            var aEntregar = new HashSet<string>(Guias.Select(g => g.NumeroGuia));
+            var numeros = new HashSet<string>(Guias.Select(g => g.NumeroGuia));
 
-            // 1) Actualizar las Encomienda que se muestran en la UI
-            foreach (var enc in Guias.Where(x => aEntregar.Contains(x.NumeroGuia)))
-                enc.Estado = TipoEstadoGuiaEnum.Entregado.ToString();
+            // Actualizar objetos de la lista (UI)
+            foreach (var enc in Guias.Where(x => numeros.Contains(x.NumeroGuia)))
+                enc.Estado = TipoEstadoGuiaEnum.Entregado.ToString(); // 8
 
-            // 2) Actualizar las entidades en el almacén (referencias dentro de GuiaAlmacen.guias)
-            var entidades = GuiaAlmacen.Guias.Where(g => aEntregar.Contains(g.NumeroGuia)).ToList();
+            // Actualizar entidades persistidas
+            var entidades = GuiaAlmacen.Guias.Where(g => numeros.Contains(g.NumeroGuia)).ToList();
             foreach (var entidad in entidades)
             {
                 entidad.Estado = TipoEstadoGuiaEnum.Entregado;
@@ -102,20 +113,18 @@ namespace CAI_Proyecto.Forms.Operacion.EntregarEncomiendaClienteCD.Model
                 {
                     Estado = TipoEstadoGuiaEnum.Entregado,
                     Fecha = DateTime.Now,
-                    IdCentroDistribucion = entidad.IdCDDestino
+                    IdCentroDistribucion = entidad.IdCDDestino // entrega en CD destino
                 };
 
                 entidad.Historial.Add(nuevoEstado);
                 entidad.EstadoActual = nuevoEstado;
             }
 
-            // 3) Persistir los cambios en el JSON
             GuiaAlmacen.Grabar();
 
-            MessageBox.Show("¡Su pedido fue entregado!", "Éxito",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Las guías fueron marcadas como entregadas.",
+                "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Limpiar resultados de búsqueda en el modelo
             Guias = new List<Encomienda>();
             return true;
         }

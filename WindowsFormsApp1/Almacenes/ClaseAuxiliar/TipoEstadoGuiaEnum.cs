@@ -8,19 +8,19 @@ namespace CAI_Proyecto.Almacenes.ClaseAuxiliar
 {
     public enum TipoEstadoGuiaEnum
     {
-        EnBusquedaRetiroDomicilio,
-        EnBusquedaRetiroAgencia,
-        AdmitidoCDOrigen,
-        AdmitidoCDDestino,
-        EnTransitoPorMicro,
-        Recepcionado,
-        EnTransitoADomicilio,
-        EnTransitoAAgencia,
-        Entregado,
-        EntregadoClienteDomicilio,
-        EntregadoAgencia,
-        Devuelto,
-        Facturado,
-        Pagado
+        EnBusquedaRetiroDomicilio,      // 0
+        EnBusquedaRetiroAgencia,        // 1
+        AdmitidoCDOrigen,               // 2
+        AdmitidoCDDestino,              // 3
+        EnTransitoPorMicro,             // 4
+        Recepcionado,                   // 5
+        EnTransitoADomicilio,           // 6
+        EnTransitoAAgencia,             // 7
+        Entregado,                      // 8
+        EntregadoClienteDomicilio,      // 9
+        EntregadoAgencia,               // 10
+        Devuelto,                       // 11
+        Facturado,                      // 12
+        Pagado                          // 13
     }
 }

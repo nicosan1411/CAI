@@ -84,5 +84,11 @@
     "IdCDOrigen": "CD-CA",
     "IdCDDestino": "CD-BA",
     "Guias": []
+  },
+  {
+    "IdHDRMicro": 13,
+    "IdCDOrigen": "CD-JU",
+    "IdCDDestino": "CD-SE",
+    "Guias": [ "20251113174240716499" ]
   }
 ]

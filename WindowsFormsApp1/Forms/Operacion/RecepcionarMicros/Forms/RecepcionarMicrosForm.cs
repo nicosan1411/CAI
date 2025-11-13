@@ -25,25 +25,20 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Forms
             cbPatente.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPatente.Items.Clear();
 
-            // Cargar micros desde el modelo
-            foreach (var m in _modelo.ObtenerMicros())
+            foreach (var m in _modelo.Micros)
                 cbPatente.Items.Add(m);
 
-            if (cbPatente.Items.Count > 0)
-                cbPatente.SelectedIndex = -1; // Ninguno seleccionado inicialmente
+            cbPatente.SelectedIndex = -1;
         }
 
         private void InitListViews()
         {
-            // Configurar apariencia general del ListView
             lvRecepciones.FullRowSelect = true;
             lvRecepciones.CheckBoxes = true;
             lvRecepciones.GridLines = true;
             lvRecepciones.View = View.Details;
             lvRecepciones.MultiSelect = false;
 
-            // Ensure checkbox appears in "Entregado en CD Destino" column
-            // by making it the first displayed column.
             columnEntregadoEnCD.DisplayIndex = 0;
             columnNroGuia.DisplayIndex = 1;
         }
@@ -51,7 +46,7 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Forms
         private void WireHandlers()
         {
             cbPatente.SelectedIndexChanged += (_, __) => CargarGuiasPorMicro();
-            btnGuardar.Click += (_, __) => GuardarRecepcion();
+            btnGuardar.Click += (_, __) => GuardarAccion();
             btnVolverMenuPrincipal.Click += (_, __) => InicioForm.VolverAlMenu(this);
         }
 
@@ -62,46 +57,70 @@ namespace CAI_Proyecto.Forms.Operacion.RecepcionarMicros.Forms
             lvRecepciones.BeginUpdate();
             lvRecepciones.Items.Clear();
 
-            if (!_modelo.BuscarPorMicro(micro))
-            {
-                lvRecepciones.EndUpdate();
-                return;
-            }
+            // Nuevo: usar PrepararMicro en lugar de BuscarPorMicro
+            var hayRecepcion = _modelo.PrepararMicro(micro);
 
-            foreach (var guia in _modelo.Guias)
+            if (hayRecepcion)
             {
-                // First displayed column (Entregado) stays empty, only shows the checkbox.
-                var item = new ListViewItem(string.Empty)
+                // Mostrar guías en tránsito (estado 4) para recepcionar
+                foreach (var guia in _modelo.Guias)
                 {
-                    Checked = guia.Seleccionada
-                };
-
-                // Second column (N° de guía) shows the guide number.
-                item.SubItems.Add(guia.NroGuia);
-
-                lvRecepciones.Items.Add(item);
+                    var item = new ListViewItem(string.Empty)
+                    {
+                        Checked = guia.Seleccionada
+                    };
+                    item.SubItems.Add(guia.NroGuia);
+                    lvRecepciones.Items.Add(item);
+                }
+            }
+            else
+            {
+                // No hay guías de recepción; si hay para carga avisar
+                if (_modelo.HayGuiasParaCarga)
+                {
+                    MessageBox.Show(
+                        "No hay guías para recepcionar de este micro.\n" +
+                        "Hay guías admitidas (Estado 2) disponibles para cargar a este micro.",
+                        "Información",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
             }
 
             lvRecepciones.EndUpdate();
         }
 
-        private void GuardarRecepcion()
+        private void GuardarAccion()
         {
-            // Actualizar selección en el modelo según los checks del ListView
-            foreach (ListViewItem item in lvRecepciones.Items)
-            {
-                // The guide number is now in SubItems[1]
-                var nroGuia = item.SubItems.Count > 1 ? item.SubItems[1].Text.Trim() : string.Empty;
-                var guia = _modelo.Guias.FirstOrDefault(g => g.NroGuia == nroGuia);
-                if (guia != null)
-                    guia.Seleccionada = item.Checked;
-            }
+            var micro = cbPatente.SelectedItem as Micro;
 
-            // Guardar y validar resultados
-            if (_modelo.GuardarCambios())
+            // Si hay guías en el ListView estamos en modo recepción
+            if (_modelo.Guias.Any())
             {
-                // Recargar la lista luego de guardar (para reflejar cambios)
-                CargarGuiasPorMicro();
+                foreach (ListViewItem item in lvRecepciones.Items)
+                {
+                    var nroGuia = item.SubItems.Count > 1 ? item.SubItems[1].Text.Trim() : string.Empty;
+                    var guia = _modelo.Guias.FirstOrDefault(g => g.NroGuia == nroGuia);
+                    if (guia != null)
+                        guia.Seleccionada = item.Checked;
+                }
+
+                if (_modelo.GuardarRecepcion())
+                    CargarGuiasPorMicro();
+            }
+            else
+            {
+                // No hay guías para recepción; si hay para carga ejecutamos la carga (2 -> 4)
+                if (_modelo.HayGuiasParaCarga)
+                {
+                    if (_modelo.CargarGuiasPendientes(micro))
+                        CargarGuiasPorMicro();
+                }
+                else
+                {
+                    MessageBox.Show("No hay acciones disponibles (ni recepción ni carga).",
+                        "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }
