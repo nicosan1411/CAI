@@ -70,5 +70,123 @@
     "ComisionesFleteroOrigen": 0,
     "ComisionesFleteroDestino": 0,
     "NumeroFactura": 0
+  },
+  {
+    "NumeroGuia": "G-20251112160000001",
+    "Estado": 0,
+    "FechaIngreso": "2025-11-12T16:00:00.0000000-03:00",
+    "CuitCliente": "20-12345678-3",
+    "AgenciaOrigen": 0,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-BA",
+    "IdCDDestino": "CD-BA",
+    "TipoRetiro": 0,
+    "TipoEnvio": 0,
+    "DniDestinatario": 12345678,
+    "IdProvinciaDestino": "CABA",
+    "LocalidadDestino": "Buenos Aires",
+    "DomicilioDestino": "Av. Siempre Viva 123",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 0,
+      "Fecha": "2025-11-12T16:00:00.0000000-03:00",
+      "IdCentroDistribucion": null
+    },
+    "Historial": [
+      {
+        "Estado": 0,
+        "Fecha": "2025-11-12T16:00:00.0000000-03:00",
+        "IdCentroDistribucion": null
+      }
+    ],
+    "Precio": 0,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  },
+  {
+    "NumeroGuia": "TEST-ENT-0001",
+    "Estado": 3,
+    "FechaIngreso": "2025-11-12T10:00:00.0000000-03:00",
+    "CuitCliente": "20-99999999-9",
+    "AgenciaOrigen": 1,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-BA",
+    "IdCDDestino": "CD-BA",
+    "TipoRetiro": 1,
+    "TipoEnvio": 0,
+    "DniDestinatario": 44556677,
+    "IdProvinciaDestino": "CABA",
+    "LocalidadDestino": "CABA",
+    "DomicilioDestino": "Av. Prueba 123",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 3,
+      "Fecha": "2025-11-12T10:30:00.0000000-03:00",
+      "IdCentroDistribucion": "CD-BA"
+    },
+    "Historial": [
+      {
+        "Estado": 0,
+        "Fecha": "2025-11-12T09:50:00.0000000-03:00",
+        "IdCentroDistribucion": null
+      },
+      {
+        "Estado": 3,
+        "Fecha": "2025-11-12T10:30:00.0000000-03:00",
+        "IdCentroDistribucion": "CD-BA"
+      }
+    ],
+    "Precio": 0,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  },
+  {
+    "NumeroGuia": "TEST-ENT-0002",
+    "Estado": 3,
+    "FechaIngreso": "2025-11-12T11:00:00.0000000-03:00",
+    "CuitCliente": "20-99999999-9",
+    "AgenciaOrigen": 1,
+    "AgenciaDestino": 1,
+    "IdCDOrigen": "CD-BA",
+    "IdCDDestino": "CD-BA",
+    "TipoRetiro": 0,
+    "TipoEnvio": 2,
+    "DniDestinatario": 55667788,
+    "IdProvinciaDestino": "CABA",
+    "LocalidadDestino": "CABA",
+    "DomicilioDestino": "Calle Ficticia 456",
+    "Dimension": 1,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 3,
+      "Fecha": "2025-11-12T11:20:00.0000000-03:00",
+      "IdCentroDistribucion": "CD-BA"
+    },
+    "Historial": [
+      {
+        "Estado": 1,
+        "Fecha": "2025-11-12T10:45:00.0000000-03:00",
+        "IdCentroDistribucion": null
+      },
+      {
+        "Estado": 3,
+        "Fecha": "2025-11-12T11:20:00.0000000-03:00",
+        "IdCentroDistribucion": "CD-BA"
+      }
+    ],
+    "Precio": 0,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
   }
 ]

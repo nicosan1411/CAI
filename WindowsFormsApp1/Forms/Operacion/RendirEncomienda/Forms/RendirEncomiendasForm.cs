@@ -6,7 +6,6 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Forms
 {
     public partial class RendirEncomiendasForm : Form
     {
-        // Modelo de negocio (reemplaza al RendicionService)
         private readonly RendirEncomiendasModel _modelo;
 
         public RendirEncomiendasForm()
@@ -20,9 +19,6 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Forms
             WireHandlers();
         }
 
-        // =========================
-        // Inicialización de combos
-        // =========================
         private void InitCombos()
         {
             cbFletero.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -34,27 +30,23 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Forms
             cbFletero.SelectedIndex = -1;
         }
 
-        // =========================
-        // Inicialización de ListViews
-        // =========================
         private void InitListViews()
         {
-            // Retiros
             InicioForm.ConfigureListView(lvRetirosDomicilioAdmitir, true);
-            lvRetirosDomicilioAdmitir.Columns.Clear();
-            lvRetirosDomicilioAdmitir.Columns.Add("N° Guía", 120);
-            lvRetirosDomicilioAdmitir.Columns.Add("Estado", 180);
-
-            // Entregas
             InicioForm.ConfigureListView(lvEntregasDomicilioRealizadas, true);
-            lvEntregasDomicilioRealizadas.Columns.Clear();
-            lvEntregasDomicilioRealizadas.Columns.Add("N° Guía", 120);
-            lvEntregasDomicilioRealizadas.Columns.Add("Estado", 180);
+
+            if (lvRetirosDomicilioAdmitir.Columns.Count >= 2)
+            {
+                lvRetirosDomicilioAdmitir.Columns[0].Width = 133;
+                lvRetirosDomicilioAdmitir.Columns[1].Width = 168;
+            }
+            if (lvEntregasDomicilioRealizadas.Columns.Count >= 2)
+            {
+                lvEntregasDomicilioRealizadas.Columns[0].Width = 180;
+                lvEntregasDomicilioRealizadas.Columns[1].Width = 120;
+            }
         }
 
-        // =========================
-        // Asociar eventos
-        // =========================
         private void WireHandlers()
         {
             cbFletero.SelectedIndexChanged += (_, __) => CargarAsignacionesParaFletero();
@@ -62,9 +54,6 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Forms
             btnVolverMenuPrincipal.Click += (_, __) => VolverMenuPrincipal();
         }
 
-        // =========================
-        // Cargar guías del fletero
-        // =========================
         private void CargarAsignacionesParaFletero()
         {
             var fletero = cbFletero.SelectedItem as Fletero;
@@ -77,28 +66,23 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Forms
 
             if (!ok) return;
 
-            // --- RETIROS ---
             foreach (var g in _modelo.Retiros)
             {
-                var item = new ListViewItem(g.NroGuia);
-                item.SubItems.Add(g.Estado);
+                var item = new ListViewItem(string.Empty);
+                item.SubItems.Add(g.NroGuia);
                 item.Checked = false;
                 lvRetirosDomicilioAdmitir.Items.Add(item);
             }
 
-            // --- ENTREGAS ---
             foreach (var g in _modelo.Entregas)
             {
-                var item = new ListViewItem(g.NroGuia);
-                item.SubItems.Add(g.Estado);
+                var item = new ListViewItem(string.Empty);
+                item.SubItems.Add(g.NroGuia);
                 item.Checked = false;
                 lvEntregasDomicilioRealizadas.Items.Add(item);
             }
         }
 
-        // =========================
-        // Guardar rendición
-        // =========================
         private void GuardarYRefrescar()
         {
             var fletero = cbFletero.SelectedItem as Fletero;
@@ -109,32 +93,47 @@ namespace CAI_Proyecto.Forms.Operacion.RendirEncomienda.Forms
                 return;
             }
 
-            // Actualizar selección en el modelo según los checkboxes
+            // Mapear checks a selección
             for (int i = 0; i < _modelo.Retiros.Count; i++)
                 _modelo.Retiros[i].Seleccionada = lvRetirosDomicilioAdmitir.Items[i].Checked;
 
             for (int i = 0; i < _modelo.Entregas.Count; i++)
                 _modelo.Entregas[i].Seleccionada = lvEntregasDomicilioRealizadas.Items[i].Checked;
 
-            // Ejecutar la lógica de guardado
             var ok = _modelo.GuardarCambios();
             if (!ok) return;
 
-            // Refrescar vista
+            // REFRESCAR manteniendo fletero seleccionado
+            var nroFlete = fletero.NroFlete;
+            _modelo.BuscarPorFletero(fletero); // recarga colecciones filtrando por nuevos estados
+
+            // Repoblar ListViews con las guías restantes (las que cambiaron de estado ya no cumplen el filtro)
             lvRetirosDomicilioAdmitir.Items.Clear();
+            foreach (var g in _modelo.Retiros)
+            {
+                var item = new ListViewItem(string.Empty);
+                item.SubItems.Add(g.NroGuia);
+                item.Checked = false;
+                lvRetirosDomicilioAdmitir.Items.Add(item);
+            }
+
             lvEntregasDomicilioRealizadas.Items.Clear();
-            cbFletero.SelectedIndex = -1;
+            foreach (var g in _modelo.Entregas)
+            {
+                var item = new ListViewItem(string.Empty);
+                item.SubItems.Add(g.NroGuia);
+                item.Checked = false;
+                lvEntregasDomicilioRealizadas.Items.Add(item);
+            }
+
+            // Mantener selección y foco
+            cbFletero.SelectedItem = fletero;
             cbFletero.Focus();
         }
 
-        // =========================
-        // Volver al menú principal
-        // =========================
         private void VolverMenuPrincipal()
         {
             InicioForm.VolverAlMenu(this);
         }
-
     }
-
 }

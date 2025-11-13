@@ -31,15 +31,15 @@
             this.lblFletero = new System.Windows.Forms.Label();
             this.cbFletero = new System.Windows.Forms.ComboBox();
             this.gbRetirosDomicilioAgenciaAdmitir = new System.Windows.Forms.GroupBox();
-            this.lvRetirosDomicilioAdmitir = new System.Windows.Forms.ListView();
-            this.columnEntregadoEnCD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnNroGuiaAdmitir = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbEntregasDomicilioAgenciaRealizadas = new System.Windows.Forms.GroupBox();
             this.lvEntregasDomicilioRealizadas = new System.Windows.Forms.ListView();
             this.columnEntregadoDomicilio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnNroGuiaRealizado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVolverMenuPrincipal = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.lvRetirosDomicilioAdmitir = new System.Windows.Forms.ListView();
+            this.columnEntregadoEnCD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnNroGuiaAdmitir = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbRetirosDomicilioAgenciaAdmitir.SuspendLayout();
             this.gbEntregasDomicilioAgenciaRealizadas.SuspendLayout();
             this.SuspendLayout();
@@ -75,36 +75,6 @@
             this.gbRetirosDomicilioAgenciaAdmitir.TabStop = false;
             this.gbRetirosDomicilioAgenciaAdmitir.Text = "Retiros a domicilio o agencia a admitir";
             // 
-            // lvRetirosDomicilioAdmitir
-            // 
-            this.lvRetirosDomicilioAdmitir.BackColor = System.Drawing.Color.Gainsboro;
-            this.lvRetirosDomicilioAdmitir.CheckBoxes = true;
-            this.lvRetirosDomicilioAdmitir.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnEntregadoEnCD,
-            this.columnNroGuiaAdmitir});
-            this.lvRetirosDomicilioAdmitir.FullRowSelect = true;
-            this.lvRetirosDomicilioAdmitir.GridLines = true;
-            this.lvRetirosDomicilioAdmitir.HideSelection = false;
-            this.lvRetirosDomicilioAdmitir.Location = new System.Drawing.Point(10, 23);
-            this.lvRetirosDomicilioAdmitir.MultiSelect = false;
-            this.lvRetirosDomicilioAdmitir.Name = "lvRetirosDomicilioAdmitir";
-            this.lvRetirosDomicilioAdmitir.Size = new System.Drawing.Size(304, 148);
-            this.lvRetirosDomicilioAdmitir.TabIndex = 0;
-            this.lvRetirosDomicilioAdmitir.UseCompatibleStateImageBehavior = false;
-            this.lvRetirosDomicilioAdmitir.View = System.Windows.Forms.View.Details;
-            // 
-            // columnEntregadoEnCD
-            // 
-            this.columnEntregadoEnCD.DisplayIndex = 1;
-            this.columnEntregadoEnCD.Text = "Entregado en CD Origen";
-            this.columnEntregadoEnCD.Width = 180;
-            // 
-            // columnNroGuiaAdmitir
-            // 
-            this.columnNroGuiaAdmitir.DisplayIndex = 0;
-            this.columnNroGuiaAdmitir.Text = "N° de guía";
-            this.columnNroGuiaAdmitir.Width = 120;
-            // 
             // gbEntregasDomicilioAgenciaRealizadas
             // 
             this.gbEntregasDomicilioAgenciaRealizadas.Controls.Add(this.lvEntregasDomicilioRealizadas);
@@ -137,13 +107,11 @@
             // 
             // columnEntregadoDomicilio
             // 
-            this.columnEntregadoDomicilio.DisplayIndex = 1;
             this.columnEntregadoDomicilio.Text = "Entregado en Domicilio/Agencia";
             this.columnEntregadoDomicilio.Width = 180;
             // 
             // columnNroGuiaRealizado
             // 
-            this.columnNroGuiaRealizado.DisplayIndex = 0;
             this.columnNroGuiaRealizado.Text = "N° de guía";
             this.columnNroGuiaRealizado.Width = 120;
             // 
@@ -166,6 +134,34 @@
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // lvRetirosDomicilioAdmitir
+            // 
+            this.lvRetirosDomicilioAdmitir.BackColor = System.Drawing.Color.Gainsboro;
+            this.lvRetirosDomicilioAdmitir.CheckBoxes = true;
+            this.lvRetirosDomicilioAdmitir.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnEntregadoEnCD,
+            this.columnNroGuiaAdmitir});
+            this.lvRetirosDomicilioAdmitir.FullRowSelect = true;
+            this.lvRetirosDomicilioAdmitir.GridLines = true;
+            this.lvRetirosDomicilioAdmitir.HideSelection = false;
+            this.lvRetirosDomicilioAdmitir.Location = new System.Drawing.Point(10, 23);
+            this.lvRetirosDomicilioAdmitir.MultiSelect = false;
+            this.lvRetirosDomicilioAdmitir.Name = "lvRetirosDomicilioAdmitir";
+            this.lvRetirosDomicilioAdmitir.Size = new System.Drawing.Size(304, 148);
+            this.lvRetirosDomicilioAdmitir.TabIndex = 8;
+            this.lvRetirosDomicilioAdmitir.UseCompatibleStateImageBehavior = false;
+            this.lvRetirosDomicilioAdmitir.View = System.Windows.Forms.View.Details;
+            // 
+            // columnEntregadoEnCD
+            // 
+            this.columnEntregadoEnCD.Text = "Entregado en CD Origen";
+            this.columnEntregadoEnCD.Width = 133;
+            // 
+            // columnNroGuiaAdmitir
+            // 
+            this.columnNroGuiaAdmitir.Text = "N° Guía";
+            this.columnNroGuiaAdmitir.Width = 168;
             // 
             // RendirEncomiendasForm
             // 
@@ -197,12 +193,12 @@
         private System.Windows.Forms.GroupBox gbRetirosDomicilioAgenciaAdmitir;
         private System.Windows.Forms.GroupBox gbEntregasDomicilioAgenciaRealizadas;
         private System.Windows.Forms.Button btnVolverMenuPrincipal;
-        private System.Windows.Forms.ListView lvRetirosDomicilioAdmitir;
-        private System.Windows.Forms.ColumnHeader columnEntregadoEnCD;
-        private System.Windows.Forms.ColumnHeader columnNroGuiaAdmitir;
         private System.Windows.Forms.ListView lvEntregasDomicilioRealizadas;
         private System.Windows.Forms.ColumnHeader columnEntregadoDomicilio;
         private System.Windows.Forms.ColumnHeader columnNroGuiaRealizado;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.ListView lvRetirosDomicilioAdmitir;
+        private System.Windows.Forms.ColumnHeader columnEntregadoEnCD;
+        private System.Windows.Forms.ColumnHeader columnNroGuiaAdmitir;
     }
 }

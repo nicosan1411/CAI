@@ -1,6 +1,8 @@
 ﻿using CAI_Proyecto.Almacenes.Entidad;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System;
 
 namespace CAI_Proyecto.Almacenes.Almacen
 {
@@ -23,6 +25,14 @@ namespace CAI_Proyecto.Almacenes.Almacen
         {
             var HojaDeRutaMicroJson = System.Text.Json.JsonSerializer.Serialize(hojasderutamicro);
             File.WriteAllText(@"Datos\HojasDeRutaMicro.json", HojaDeRutaMicroJson);
+        }
+
+        public static void Agregar(HojaDeRutaMicroEntidad hoja)
+        {
+            if (hoja == null) throw new ArgumentNullException(nameof(hoja));
+            hoja.IdHDRMicro = hojasderutamicro.Any() ? hojasderutamicro.Max(h => h.IdHDRMicro) + 1 : 1;
+            hojasderutamicro.Add(hoja);
+            Grabar();
         }
     }
 }

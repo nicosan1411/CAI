@@ -1,41 +1,25 @@
-﻿using CAI_Proyecto.Almacenes.Almacen;
-using CAI_Proyecto.Almacenes.Entidad;
-using CAI_Proyecto.Almacenes.ClaseAuxiliar;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CAI_Proyecto.Almacenes.Almacen;
+using CAI_Proyecto.Almacenes.Entidad;
+using CAI_Proyecto.Almacenes.ClaseAuxiliar;
 
 namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
 {
     public class AdmitirEnCDModel
     {
-        public Cliente[] Clientes
-        {
-            get
-            {
-                return ClienteAlmacen.Clientes
-                    .Select(c => new Cliente
-                    {
-                        Cuit = c.Cuit,
-                        RazonSocial = c.RazonSocial,
-                    }).ToArray();
-            }
-        }
+        public Cliente[] Clientes =>
+            ClienteAlmacen.Clientes
+                .Select(c => new Cliente { Cuit = c.Cuit, RazonSocial = c.RazonSocial })
+                .ToArray();
 
-        public Provincia[] Provincias
-        {
-            get
-            {
-                return ProvinciaAlmacen.Provincias
-                    .Select(p => new Provincia
-                    {
-                        Codigo = p.IdProvincia,
-                        Nombre = p.Nombre,
-                    }).ToArray();
-            }
-        }
+        public Provincia[] Provincias =>
+            ProvinciaAlmacen.Provincias
+                .Select(p => new Provincia { Codigo = p.IdProvincia, Nombre = p.Nombre })
+                .ToArray();
 
-        public Dimension[] Dimensiones => new Dimension[]
+        public Dimension[] Dimensiones => new[]
         {
             new Dimension{ Tamaño = "S" },
             new Dimension{ Tamaño = "M" },
@@ -46,38 +30,26 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
         public IEnumerable<AgenciaEnvio> AgenciasEnvioPorProvincia(string provinciaCodigo)
         {
             var provincia = ProvinciaAlmacen.Provincias.Single(p => p.IdProvincia == provinciaCodigo);
-            var cd = CentroDeDistribucionAlmacen.CentrosDeDistribucion.Single(cd => cd.IdCD == provincia.IdCD);
+            var cd = CentroDeDistribucionAlmacen.CentrosDeDistribucion.Single(x => x.IdCD == provincia.IdCD);
 
             return AgenciaAlmacen.Agencias
-                                 .Where(a => a.CDAsignado == cd.IdCD)
-                                 .Select(a => new AgenciaEnvio
-                                 {
-                                     Id = a.IdAgencia,
-                                     Nombre = a.Nombre,
-                                     ProvinciaCodigo = provinciaCodigo,
-                                 });
+                .Where(a => a.CDAsignado == cd.IdCD)
+                .Select(a => new AgenciaEnvio
+                {
+                    Id = a.IdAgencia,
+                    Nombre = a.Nombre,
+                    ProvinciaCodigo = provinciaCodigo
+                });
         }
 
         public List<EncomiendaItem> Encomiendas { get; } = new List<EncomiendaItem>();
-
-        public void AgregarEncomienda(EncomiendaItem encomienda)
-        {
-            Encomiendas.Add(encomienda);
-        }
-
-        public void QuitarEncomienda(EncomiendaItem encomienda)
-        {
-            Encomiendas.Remove(encomienda);
-        }
+        public void AgregarEncomienda(EncomiendaItem e) => Encomiendas.Add(e);
+        public void QuitarEncomienda(EncomiendaItem e) => Encomiendas.Remove(e);
 
         public List<string> ValidarPedido(Pedido p)
         {
             var errores = new List<string>();
-
-            if (p.Cliente == null)
-                errores.Add("Debe seleccionar un cliente.");
-
-            // Tipo de envío
+            if (p.Cliente == null) errores.Add("Debe seleccionar un cliente.");
             switch (p.TipoEnvio)
             {
                 case "Domicilio":
@@ -86,26 +58,20 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                     if (string.IsNullOrWhiteSpace(p.LocalidadDestinatario)) errores.Add("Debe ingresar la localidad del destinatario.");
                     if (string.IsNullOrWhiteSpace(p.DomicilioDestinatario)) errores.Add("Debe ingresar el domicilio del destinatario.");
                     break;
-
                 case "Centro de distribución":
                     if (p.ProvinciaEnvio == null) errores.Add("Debe seleccionar la provincia del centro de distribución.");
                     if (string.IsNullOrWhiteSpace(p.DniDestinatario)) errores.Add("Debe ingresar el DNI del destinatario.");
                     break;
-
                 case "Agencia":
                     if (p.ProvinciaEnvio == null) errores.Add("Debe seleccionar la provincia de la agencia de envío.");
                     if (p.AgenciaEnvio == null) errores.Add("Debe seleccionar la agencia de envío.");
                     if (string.IsNullOrWhiteSpace(p.DniDestinatario)) errores.Add("Debe ingresar el DNI del destinatario.");
                     break;
-
                 default:
                     errores.Add("Debe seleccionar un tipo de envío.");
                     break;
             }
-
-            if (p.Encomiendas == null || p.Encomiendas.Count == 0)
-                errores.Add("Debe agregar al menos una encomienda.");
-
+            if (p.Encomiendas == null || p.Encomiendas.Count == 0) errores.Add("Debe agregar al menos una encomienda.");
             return errores;
         }
 
@@ -113,18 +79,34 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
         {
             if (pedido == null) return;
 
-            // Provincia destino (puede ser null si no aplica)
+            // Asegura que existan hojas de ruta vacías para cada parada (IdCDOrigen -> IdCDDestino) de cada micro,
+            // incluida la recién agregada (p.ej. IdMicro = 4 con recorrido CD-BA -> CD-TU).
+            SincronizarHojasDeRutaConMicros();
+
             var provEntidad = ProvinciaAlmacen.Provincias
-                .FirstOrDefault(p => pedido.ProvinciaEnvio != null &&
-                                     p.IdProvincia == pedido.ProvinciaEnvio.Codigo);
+                .FirstOrDefault(px => pedido.ProvinciaEnvio != null && px.IdProvincia == pedido.ProvinciaEnvio.Codigo);
 
-            // En el caso de "Admitir en CD" no existe retiro: se fija en SinRetiro.
-            var tipoRetiroEnum = TipoRetiroEnum.SinRetiro;
+            string cdOrigen = null;
+            var clienteEntidad = ClienteAlmacen.Clientes.FirstOrDefault(c => c.Cuit == pedido.Cliente?.Cuit);
+            if (clienteEntidad?.AgenciasAsociadas != null && clienteEntidad.AgenciasAsociadas.Count > 0)
+            {
+                cdOrigen = clienteEntidad.AgenciasAsociadas
+                    .Select(id => AgenciaAlmacen.Agencias.FirstOrDefault(a => a.IdAgencia == id)?.CDAsignado)
+                    .Where(x => !string.IsNullOrWhiteSpace(x))
+                    .Distinct()
+                    .FirstOrDefault();
+            }
+            if (string.IsNullOrWhiteSpace(cdOrigen))
+                cdOrigen = CentroDeDistribucionAlmacen.CentroDeDistribucionActual?.IdCD;
+            if (string.IsNullOrWhiteSpace(cdOrigen) && pedido.AgenciaEnvio != null)
+                cdOrigen = AgenciaAlmacen.Agencias.FirstOrDefault(a => a.IdAgencia == pedido.AgenciaEnvio.Id)?.CDAsignado;
+            if (string.IsNullOrWhiteSpace(cdOrigen))
+                cdOrigen = provEntidad?.IdCD;
+            if (string.IsNullOrWhiteSpace(cdOrigen))
+                cdOrigen = "SIN-CD";
 
-            // Estado inicial al admitir en el CD origen.
             var estadoInicial = TipoEstadoGuiaEnum.AdmitidoCDOrigen;
-
-            // Mapeo del tipo de envío (igual que en ImponerCallCenterModel).
+            var tipoRetiroEnum = TipoRetiroEnum.SinRetiro;
             var tipoEnvioEnum = pedido.TipoEnvio switch
             {
                 "Domicilio" => TipoEnvioEnum.VaADomicilio,
@@ -132,16 +114,13 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                 "Agencia" => TipoEnvioEnum.VaAAgencia,
                 _ => TipoEnvioEnum.VaADomicilio
             };
-
             var dniDestinatario = int.TryParse(pedido.DniDestinatario, out var dniParsed) ? dniParsed : 0;
 
-            var guias =
-                (pedido.Encomiendas ?? Enumerable.Empty<EncomiendaItem>())
+            var guiasCreadas = (pedido.Encomiendas ?? Enumerable.Empty<EncomiendaItem>())
                 .Where(enc => enc != null && enc.Cantidad > 0)
                 .SelectMany(enc => Enumerable.Range(0, enc.Cantidad).Select(_ =>
                 {
                     var now = DateTime.Now;
-
                     var dimEnum = (enc.Dimension?.Tamaño ?? "S") switch
                     {
                         "S" => TipoBultoEnum.S,
@@ -150,7 +129,6 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                         "XL" => TipoBultoEnum.XL,
                         _ => TipoBultoEnum.S
                     };
-
                     return new GuiaEntidad
                     {
                         NumeroGuia = GenerarNumeroGuia(),
@@ -158,13 +136,13 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                         CuitCliente = pedido.Cliente?.Cuit,
                         TipoRetiro = tipoRetiroEnum,
                         TipoEnvio = tipoEnvioEnum,
-                        AgenciaOrigen = 0, // No hay agencia de retiro en este flujo.
+                        AgenciaOrigen = 0,
                         AgenciaDestino = pedido.AgenciaEnvio?.Id ?? 0,
                         LocalidadDestino = pedido.LocalidadDestinatario,
                         DomicilioDestino = pedido.DomicilioDestinatario,
                         IdProvinciaDestino = provEntidad?.IdProvincia,
                         IdCDDestino = provEntidad?.IdCD,
-                        IdCDOrigen = provEntidad?.IdCD,
+                        IdCDOrigen = cdOrigen,
                         DniDestinatario = dniDestinatario,
                         Dimension = dimEnum,
                         Estado = estadoInicial,
@@ -173,7 +151,7 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                         {
                             Estado = estadoInicial,
                             Fecha = now,
-                            IdCentroDistribucion = provEntidad?.IdCD
+                            IdCentroDistribucion = cdOrigen
                         },
                         Historial = new List<EstadoGuia>
                         {
@@ -181,27 +159,189 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                             {
                                 Estado = estadoInicial,
                                 Fecha = now,
-                                IdCentroDistribucion = provEntidad?.IdCD
+                                IdCentroDistribucion = cdOrigen
                             }
                         },
-                        Precio = 0m,
-                        ComisionesAgenciaOrigen = 0m,
-                        ComisionesAgenciaDestino = 0m,
-                        ComisionesFleteroOrigen = 0m,
-                        ComisionesFleteroDestino = 0m,
-                        NumeroFactura = 0
+                        Precio = 0m
                     };
-                }));
+                }))
+                .ToList();
 
-            foreach (var guia in guias)
+            foreach (var g in guiasCreadas) GuiaAlmacen.Agregar(g);
+
+            var gruposPorDestino = guiasCreadas
+                .Where(g => !string.IsNullOrWhiteSpace(g.IdCDDestino))
+                .GroupBy(g => g.IdCDDestino);
+
+            foreach (var grp in gruposPorDestino)
             {
-                GuiaAlmacen.Agregar(guia);
+                var idCDDestino = grp.Key;
+                var idCDOrigenHoja = grp.First().IdCDOrigen;
+                var numeros = grp.Select(g => g.NumeroGuia).Distinct().ToList();
+
+                // Crear / actualizar hoja por ORIGEN+DESTINO (no sólo destino)
+                var hojaId = CrearHojaMicroSiNoExiste(idCDOrigenHoja, idCDDestino, numeros);
+
+                // Normalizar estado 2 de las guías
+                var nowUpdate = DateTime.Now;
+                foreach (var n in numeros)
+                {
+                    var entidad = GuiaAlmacen.Guias.FirstOrDefault(x => x.NumeroGuia == n);
+                    if (entidad == null) continue;
+                    entidad.Estado = TipoEstadoGuiaEnum.AdmitidoCDOrigen;
+                    entidad.EstadoActual ??= new EstadoGuia();
+                    entidad.EstadoActual.Estado = TipoEstadoGuiaEnum.AdmitidoCDOrigen;
+                    entidad.EstadoActual.Fecha = nowUpdate;
+                    entidad.EstadoActual.IdCentroDistribucion = entidad.IdCDOrigen;
+                    entidad.Historial ??= new List<EstadoGuia>();
+                    entidad.Historial.Add(new EstadoGuia
+                    {
+                        Estado = TipoEstadoGuiaEnum.AdmitidoCDOrigen,
+                        Fecha = nowUpdate,
+                        IdCentroDistribucion = entidad.IdCDOrigen
+                    });
+                }
+                GuiaAlmacen.Grabar();
             }
         }
 
-        private string GenerarNumeroGuia()
+        // Reemplazar el método AsignarMicroParaRuta por esta versión estricta:
+        private void AsignarMicroParaRuta(string idCDOrigen, string idCDDestino, int idHDRMicro)
         {
-            return DateTime.Now.ToString("yyyyMMddHHmmssfff") + new Random().Next(100, 999).ToString();
+            if (idHDRMicro <= 0 || string.IsNullOrWhiteSpace(idCDOrigen) || string.IsNullOrWhiteSpace(idCDDestino))
+                return;
+
+            var micros = MicroAlmacen.Micros;
+            if (!micros.Any()) return;
+
+            HojaDeRutaMicroEntidad HojaPorId(int id) =>
+                HojaDeRutaMicroAlmacen.HojasDeRutaMicro.FirstOrDefault(h => h.IdHDRMicro == id);
+
+            IEnumerable<HojaDeRutaMicroEntidad> HojasDe(MicroEntidad m) =>
+                (m.HojasDeRuta ?? new List<int>()).Select(HojaPorId).Where(h => h != null);
+
+            // Candidatos: solo micros cuyo recorrido incluye EXACTAMENTE el tramo origen->destino
+            var candidatos = micros
+                .Where(m => (m.Recorrido ?? new List<Parada>())
+                    .Any(p => p.IdCDOrigen == idCDOrigen && p.IdCDDestino == idCDDestino))
+                .ToList();
+
+            if (!candidatos.Any())
+            {
+                // No se asigna ningún micro si no hay uno que haga explícitamente el tramo solicitado.
+                return;
+            }
+
+            // Prioridad 1: micro que ya tenga una hoja (entre sus HojasDeRuta) con ese origen/destino
+            var microConHojaPair = candidatos.FirstOrDefault(m =>
+                HojasDe(m).Any(h => h.IdCDOrigen == idCDOrigen && h.IdCDDestino == idCDDestino));
+
+            MicroEntidad elegido;
+            if (microConHojaPair != null)
+            {
+                elegido = microConHojaPair;
+            }
+            else
+            {
+                // Prioridad 2: menor cantidad de hojas (balanceo) entre los candidatos estrictos
+                elegido = candidatos
+                    .OrderBy(m => (m.HojasDeRuta ?? new List<int>()).Count)
+                    .First();
+            }
+
+            elegido.HojasDeRuta ??= new List<int>();
+            if (!elegido.HojasDeRuta.Contains(idHDRMicro))
+            {
+                elegido.HojasDeRuta.Add(idHDRMicro);
+                MicroAlmacen.Grabar();
+            }
+        }
+
+        // (Opcional) Ajusta CrearHojaMicroSiNoExiste para NO intentar asignar micro si no existe tramo exacto:
+        private int CrearHojaMicroSiNoExiste(string idCDOrigen, string idCDDestino, List<string> numerosGuias)
+        {
+            if (string.IsNullOrWhiteSpace(idCDOrigen) || string.IsNullOrWhiteSpace(idCDDestino) ||
+                numerosGuias == null || numerosGuias.Count == 0)
+                return 0;
+
+            var hoja = HojaDeRutaMicroAlmacen.HojasDeRutaMicro
+                .FirstOrDefault(h => h.IdCDOrigen == idCDOrigen && h.IdCDDestino == idCDDestino);
+
+            if (hoja == null)
+            {
+                hoja = new HojaDeRutaMicroEntidad
+                {
+                    IdCDOrigen = idCDOrigen,
+                    IdCDDestino = idCDDestino,
+                    Guias = new List<string>(numerosGuias)
+                };
+                HojaDeRutaMicroAlmacen.Agregar(hoja);
+            }
+            else
+            {
+                hoja.Guias ??= new List<string>();
+                var nuevos = numerosGuias.Where(g => !hoja.Guias.Contains(g)).ToList();
+                if (nuevos.Any())
+                {
+                    hoja.Guias.AddRange(nuevos);
+                    HojaDeRutaMicroAlmacen.Grabar();
+                }
+            }
+
+            // Asignar solo si existe un micro con recorrido exacto
+            AsignarMicroParaRuta(idCDOrigen, idCDDestino, hoja.IdHDRMicro);
+            return hoja.IdHDRMicro;
+        }
+
+        private string GenerarNumeroGuia() =>
+            DateTime.Now.ToString("yyyyMMddHHmmssfff") + new Random().Next(100, 999).ToString();
+
+        private void SincronizarHojasDeRutaConMicros()
+        {
+            var micros = MicroAlmacen.Micros;
+            if (!micros.Any()) return;
+
+            bool huboCambioHoja = false;
+            bool huboCambioMicro = false;
+
+            foreach (var micro in micros)
+            {
+                var paradas = micro.Recorrido ?? new List<Parada>();
+                foreach (var parada in paradas)
+                {
+                    if (string.IsNullOrWhiteSpace(parada.IdCDOrigen) || string.IsNullOrWhiteSpace(parada.IdCDDestino))
+                        continue;
+
+                    // Buscar hoja existente ORIGEN+DESTINO
+                    var hoja = HojaDeRutaMicroAlmacen.HojasDeRutaMicro.FirstOrDefault(h =>
+                        string.Equals(h.IdCDOrigen, parada.IdCDOrigen, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(h.IdCDDestino, parada.IdCDDestino, StringComparison.OrdinalIgnoreCase));
+
+                    if (hoja == null)
+                    {
+                        hoja = new HojaDeRutaMicroEntidad
+                        {
+                            IdCDOrigen = parada.IdCDOrigen,
+                            IdCDDestino = parada.IdCDDestino,
+                            Guias = new List<string>() // se llenará luego al admitir
+                        };
+                        HojaDeRutaMicroAlmacen.Agregar(hoja);
+                        huboCambioHoja = true;
+                    }
+
+                    // Vincular hoja al micro si aún no está
+                    micro.HojasDeRuta ??= new List<int>();
+                    if (!micro.HojasDeRuta.Contains(hoja.IdHDRMicro))
+                    {
+                        micro.HojasDeRuta.Add(hoja.IdHDRMicro);
+                        huboCambioMicro = true;
+                    }
+                }
+            }
+
+            if (huboCambioMicro)
+                MicroAlmacen.Grabar();
+            // HojaDeRutaMicroAlmacen.Agregar ya graba cada nueva hoja.
         }
     }
 }

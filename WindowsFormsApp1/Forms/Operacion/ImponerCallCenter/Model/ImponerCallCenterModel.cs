@@ -155,6 +155,48 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 
             var dniDestinatario = int.TryParse(pedido.DniDestinatario, out var dniParsed) ? dniParsed : 0;
 
+            // Determinar CD de origen según agencias asociadas del cliente.
+            string cdOrigen = null;
+            var clienteEntidad = ClienteAlmacen.Clientes.FirstOrDefault(c => c.Cuit == pedido.Cliente?.Cuit);
+            if (clienteEntidad?.AgenciasAsociadas != null && clienteEntidad.AgenciasAsociadas.Count > 0)
+            {
+                var cdsCliente = clienteEntidad.AgenciasAsociadas
+                    .Select(id => AgenciaAlmacen.Agencias.FirstOrDefault(a => a.IdAgencia == id))
+                    .Where(a => a != null && !string.IsNullOrWhiteSpace(a.CDAsignado))
+                    .Select(a => a.CDAsignado)
+                    .Distinct()
+                    .ToList();
+
+                if (cdsCliente.Count == 1)
+                    cdOrigen = cdsCliente[0];
+                else if (cdsCliente.Count > 1)
+                    cdOrigen = cdsCliente[0]; // Si hubiera más de uno, se toma el primero (ajustar si se requiere otra regla).
+            }
+
+            // Fallbacks si no se obtuvo por agencias del cliente.
+            if (string.IsNullOrWhiteSpace(cdOrigen) && pedido.AgenciaRetiro != null)
+            {
+                var agRetiro = AgenciaAlmacen.Agencias.FirstOrDefault(a => a.IdAgencia == pedido.AgenciaRetiro.Id);
+                cdOrigen = agRetiro?.CDAsignado;
+            }
+            if (string.IsNullOrWhiteSpace(cdOrigen))
+            {
+                cdOrigen = CentroDeDistribucionAlmacen.CentroDeDistribucionActual?.IdCD;
+            }
+            if (string.IsNullOrWhiteSpace(cdOrigen) && pedido.AgenciaEnvio != null)
+            {
+                var agEnvio = AgenciaAlmacen.Agencias.FirstOrDefault(a => a.IdAgencia == pedido.AgenciaEnvio.Id);
+                cdOrigen = agEnvio?.CDAsignado;
+            }
+            if (string.IsNullOrWhiteSpace(cdOrigen))
+            {
+                cdOrigen = provEntidad?.IdCD;
+            }
+            if (string.IsNullOrWhiteSpace(cdOrigen))
+            {
+                cdOrigen = "SIN-CD";
+            }
+
             var guias =
                 (pedido.Encomiendas ?? Enumerable.Empty<EncomiendaItem>())
                 .Where(enc => enc != null && enc.Cantidad > 0)
@@ -184,7 +226,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
                         DomicilioDestino = pedido.DomicilioDestinatario,
                         IdProvinciaDestino = provEntidad?.IdProvincia,
                         IdCDDestino = provEntidad?.IdCD,
-                        IdCDOrigen = provEntidad?.IdCD,
+                        IdCDOrigen = cdOrigen,
                         DniDestinatario = dniDestinatario,
                         Dimension = dimEnum,
                         Estado = estadoInicial,
@@ -193,7 +235,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
                         {
                             Estado = estadoInicial,
                             Fecha = now,
-                            IdCentroDistribucion = null
+                            IdCentroDistribucion = cdOrigen
                         },
                         Historial = new List<EstadoGuia>
                         {
@@ -201,7 +243,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
                             {
                                 Estado = estadoInicial,
                                 Fecha = now,
-                                IdCentroDistribucion = null
+                                IdCentroDistribucion = cdOrigen
                             }
                         },
                         Precio = 0m,

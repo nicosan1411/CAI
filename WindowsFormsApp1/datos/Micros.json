@@ -55,5 +55,35 @@
     ],
     "TipoTarifa": 2,
     "HojasDeRuta": [4, 5, 6]
+  },
+  {
+    "IdMicro": 4,
+    "CuitEmpresaMicro": "30-12345678-0",
+    "Patente": "AD111ZZ",
+    "Recorrido": [
+      {
+        "IdCDOrigen": "CD-BA",
+        "IdCDDestino": "CD-TU",
+        "Llegada": "2025-11-13T14:00:00-03:00",
+        "Salida": "2025-11-13T14:30:00-03:00"
+      }
+    ],
+    "TipoTarifa": 0,
+    "HojasDeRuta": []
+  },
+  {
+    "IdMicro": 5,
+    "CuitEmpresaMicro": "30-12345678-1",
+    "Patente": "AD222ZZ",
+    "Recorrido": [
+      {
+        "IdCDOrigen": "CD-BA",
+        "IdCDDestino": "CD-BA",
+        "Llegada": "2025-11-13T14:00:00-03:00",
+        "Salida": "2025-11-13T14:30:00-03:00"
+      }
+    ],
+    "TipoTarifa": 0,
+    "HojasDeRuta": []
   }
 ]
