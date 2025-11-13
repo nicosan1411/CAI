@@ -1,0 +1,85 @@
+Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Agencia
+
+- Pantalla Inicio
+
+- Seleccionar Cd Actual: Centro Logístico Capital - CABA (CD-CABA)
+
+- Seleccionar Agencia actual: Agencia CABA - Belgrano
+
+- Presionar Botón: "Imponer Call Center"
+
+- Pantalla Imponer Call Center
+
+- Seleccionar Empresa/Cliente: (30-71456321-2) Distribuidora Capital SA
+
+- Seleccionar Tipo de servicio: Retiro en domicilio
+
+- Seleccionar Provincia de envío: Córdoba
+
+- Seleccionar Tipo de servicio: Envio a Agencia
+
+- Seleccionar agencia: Agencia CO - Nueva Córdoba
+
+- Seleccionar Dimensión: S
+
+- Ingresar Cantidad: 1
+
+- Presionar Botón: "Guardar"
+
+- Presionar Botón: "Aceptar Pedido"
+
+- Mensaje: "Pedido impuesto correctamente (demo)."
+
+- Cerrar el sistema
+
+- Verificar archivo bin: Guias.json:
+
+{
+    "NumeroGuia": "20251113190915466966",
+    "Estado": 0,
+    "FechaIngreso": "2025-11-13T19:09:15.4623004-03:00",
+    "CuitCliente": "30-71456321-2",
+    "AgenciaOrigen": 0,
+    "AgenciaDestino": 8,
+    "IdCDOrigen": "CD-CABA",
+    "IdCDDestino": "CD-CO",
+    "TipoRetiro": 0,
+    "TipoEnvio": 2,
+    "DniDestinatario": 12345678,
+    "IdProvinciaDestino": "CO",
+    "LocalidadDestino": "",
+    "DomicilioDestino": "",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 0,
+      "Fecha": "2025-11-13T19:09:15.4623004-03:00",
+      "IdCentroDistribucion": "CD-CABA"
+    },
+    "Historial": [
+      {
+        "Estado": 0,
+        "Fecha": "2025-11-13T19:09:15.4623004-03:00",
+        "IdCentroDistribucion": "CD-CABA"
+      }
+    ],
+    "Precio": 0,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  }
+
+- Verificar archivo bin: HojasDeRutaFlete.json:
+
+   {
+    "IdHDRFlete": 3004,
+    "Tipo": 0,
+    "IdFletero": "F0012",
+    "CuitCliente": null,
+    "IdAgencia": 0,
+    "DomicilioDestino": "",
+    "Cumplida": false,
+    "Guias": [ "20251113190915466966" ]
+  }
