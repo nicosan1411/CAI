@@ -5,8 +5,8 @@
     "Patente": "AB123CD",
     "Recorrido": [
       {
-        "IdCDOrigen": "CD-SE",
-        "IdCDDestino": "CD-BA",
+        "IdCDOrigen": "CD-BA",
+        "IdCDDestino": "CD-CO",
         "Llegada": "2025-11-13T08:00:00-03:00",
         "Salida": "2025-11-13T08:30:00-03:00"
       }

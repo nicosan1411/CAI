@@ -1,13 +1,13 @@
 [
   {
     "NumeroGuia": "CD-BA-000003",
-    "Estado": 0,
+    "Estado": 2,
     "FechaIngreso": "2025-11-12T16:00:00.0000000-03:00",
     "CuitCliente": "20-12345678-3",
     "AgenciaOrigen": 0,
     "AgenciaDestino": 0,
     "IdCDOrigen": "CD-BA",
-    "IdCDDestino": "CD-BA",
+    "IdCDDestino": "CD-CO",
     "TipoRetiro": 0,
     "TipoEnvio": 0,
     "DniDestinatario": 12345678,
@@ -17,15 +17,15 @@
     "Dimension": 0,
     "Recorrido": [],
     "EstadoActual": {
-      "Estado": 0,
+      "Estado": 2,
       "Fecha": "2025-11-12T16:00:00.0000000-03:00",
-      "IdCentroDistribucion": null
+      "IdCentroDistribucion": "CD-BA"
     },
     "Historial": [
       {
-        "Estado": 0,
+        "Estado": 2,
         "Fecha": "2025-11-12T16:00:00.0000000-03:00",
-        "IdCentroDistribucion": null
+        "IdCentroDistribucion": "CD-BA"
       }
     ],
     "Precio": 0,
@@ -157,9 +157,7 @@
     "ComisionesFleteroOrigen": 0,
     "ComisionesFleteroDestino": 0,
     "NumeroFactura": 0
-  }
-
-  ,
+  },
 
   {
     "NumeroGuia": "N-20251112100000000",
@@ -196,8 +194,7 @@
     "ComisionesFleteroOrigen": 0,
     "ComisionesFleteroDestino": 0,
     "NumeroFactura": 0
-  }
-  ,
+  },
 
   {
     "NumeroGuia": "N-20251112100000001",

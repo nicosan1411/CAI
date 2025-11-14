@@ -1,0 +1,112 @@
+Recepción Micros
+
+Datos iniciales: Guias (NumeroGuia:"CD-BA-000003")
+
+- Pantalla Inicio
+
+- Seleccionar Centro de Distribución actual: Hub Central - Buenos Aires (CD-BA)
+
+- Seleccionar agencia actual: Agencia BA - Zona Norte
+
+- Presionar botón: "Recepcionar Micros"
+
+- Pantalla Recepción Micros  
+
+- Seleccionar patente: AB123CD
+
+- Mensaje :No hay guías para recepcionar de este micro. Hay guías admitidas (Estado 2) disponibles para cargar a este micro.
+
+- Presionar Botón: "Aceptar"
+
+- Presionar Botón: "Guardar"
+
+- Mensaje: Confirmar carga. Se van a cargar 1 guía(s) al micro. ¿Desea continuar?
+
+- Presionar Botón: "Sí"
+
+- Presionar Botón: "Volver al Menú Principal"
+
+- Pantalla Inicio
+
+- Seleccionar CD Actual: Hub Córdoba - Polo Logístico (CD-CO)
+
+- Seleccionar agencia actual: Agencia CO - Nueva Cordoba
+
+- Presionar botón: "Recepcionar Micros"
+
+- Pantalla Recepción Micros  
+
+- Seleccionar patente: AB123CD
+
+- Tildar la guía CD-BA-000003
+
+- Presionar botón: "Guardar"
+
+- Mensaje: Se van a recepcionar 1 guía(s) ¿Desea continuar?
+
+- Presionar botón: "Si"
+
+- Mensaje: Guías recepcionadas correctamente.
+
+- Presionar botón: "Aceptar"
+
+- Cerrar el sistema
+
+- Verificar archivo bin: Guias.JSON
+  
+  {
+    "NumeroGuia": "CD-BA-000003",
+    "Estado": 3,
+    "FechaIngreso": "2025-11-12T16:00:00-03:00",
+    "CuitCliente": "20-12345678-3",
+    "AgenciaOrigen": 0,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-BA",
+    "IdCDDestino": "CD-CO",
+    "TipoRetiro": 0,
+    "TipoEnvio": 0,
+    "DniDestinatario": 12345678,
+    "IdProvinciaDestino": "CABA",
+    "LocalidadDestino": "Buenos Aires",
+    "DomicilioDestino": "Av. Siempre Viva 123",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 3,
+      "Fecha": "2025-11-13T23:48:50.5601773-03:00",
+      "IdCentroDistribucion": "CD-CO"
+    },
+    "Historial": [
+      {
+        "Estado": 2,
+        "Fecha": "2025-11-12T16:00:00-03:00",
+        "IdCentroDistribucion": "CD-BA"
+      },
+      {
+        "Estado": 4,
+        "Fecha": "2025-11-13T23:41:08.2387041-03:00",
+        "IdCentroDistribucion": "CD-BA"
+      },
+      {
+        "Estado": 3,
+        "Fecha": "2025-11-13T23:48:50.5601773-03:00",
+        "IdCentroDistribucion": "CD-CO"
+      }
+    ],
+    "Precio": 0,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  }
+
+  - Verificar archivo bin: HojasDeRutaMicro.json:
+
+  {
+    "IdHDRMicro": 14,
+    "IdCDOrigen": "CD-BA",
+    "IdCDDestino": "CD-CO",
+    "Guias": [ "CD-BA-000003" ]
+  }
+

@@ -361,6 +361,7 @@
     <Content Include="Pruebas\2. ImponerYAdmitirEnCD1.txt" />
     <Content Include="Pruebas\11. Rendicion de Encomiendas.txt" />
     <Content Include="Pruebas\2. ImponerYAdmitirEnCD2.txt" />
+    <Content Include="Pruebas\4. RecepcionarMicros.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
