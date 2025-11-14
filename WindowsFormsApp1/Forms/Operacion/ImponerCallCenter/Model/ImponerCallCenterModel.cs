@@ -256,12 +256,114 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 
             foreach (var guia in guias)
             {
+                // Reset comisiones
+                guia.ComisionesAgenciaOrigen = 0m;
+                guia.ComisionesAgenciaDestino = 0m;
+                guia.ComisionesFleteroOrigen = 0m;
+                guia.ComisionesFleteroDestino = 0m;
+
+                // Origen
+                var origen =
+                    guia.TipoRetiro == TipoRetiroEnum.DesdeDomicilio ? "Domicilio" :
+                    (guia.TipoRetiro == TipoRetiroEnum.DesdeAgencia && guia.AgenciaOrigen != 0) ? "Agencia" :
+                    "CD";
+
+                // Destino
+                var destino = guia.TipoEnvio switch
+                {
+                    TipoEnvioEnum.VaACD => "CD",
+                    TipoEnvioEnum.VaAAgencia => "Agencia",
+                    _ => "Domicilio"
+                };
+
+                // Base
+                var basePrice = TarifarioAlmacen.Tarifarios
+                    .FirstOrDefault(t =>
+                        t.Tamaño == guia.Dimension &&
+                        string.Equals(t.IdCDOrigen ?? string.Empty, guia.IdCDOrigen ?? string.Empty, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(t.IdCDDestino ?? string.Empty, guia.IdCDDestino ?? string.Empty, StringComparison.OrdinalIgnoreCase))
+                    ?.Precio ?? 0m;
+
+                decimal Extra(TipoExtraEnum tipo) =>
+                    ExtrasAlmacen.Extras.FirstOrDefault(x => x.TipoExtra == tipo)?.Precio ?? 0m;
+
+                var extraRetiroDomicilio = Extra(TipoExtraEnum.RetiroDomicilio);
+                var extraEntregaDomicilio = Extra(TipoExtraEnum.EntregaDomicilio);
+                var extraEntregaAgencia = Extra(TipoExtraEnum.EntregaAgencia);
+
+                var comisionAgencia = AgenciaComisionAlmacen.AgenciaComisiones
+                    .FirstOrDefault(c => c.TipoBulto == guia.Dimension)?.Comision ?? 0m;
+
+                var comisionFletero = FleteroComisionAlmacen.FleteroComisiones
+                    .FirstOrDefault(c => c.TipoBulto == guia.Dimension)?.Comision ?? 0m;
+
+                var precio = basePrice;
+
+                // Casuísticas
+                if (origen == "CD" && destino == "CD")
+                {
+                    // 1. CD → CD
+                }
+                else if (origen == "CD" && destino == "Agencia")
+                {
+                    // 2. CD → Agencia
+                    precio += extraEntregaAgencia;
+                    guia.ComisionesAgenciaDestino = comisionAgencia;
+                }
+                else if (origen == "CD" && destino == "Domicilio")
+                {
+                    // 3. CD → Domicilio
+                    precio += extraEntregaDomicilio;
+                    guia.ComisionesFleteroDestino = comisionFletero;
+                }
+                else if (origen == "Agencia" && destino == "CD")
+                {
+                    // 4. Agencia → CD
+                    guia.ComisionesAgenciaOrigen = comisionAgencia;
+                }
+                else if (origen == "Agencia" && destino == "Agencia")
+                {
+                    // 5. Agencia → Agencia
+                    precio += extraEntregaAgencia;
+                    guia.ComisionesAgenciaOrigen = comisionAgencia;
+                    guia.ComisionesAgenciaDestino = comisionAgencia;
+                }
+                else if (origen == "Agencia" && destino == "Domicilio")
+                {
+                    // 6. Agencia → Domicilio
+                    precio += extraEntregaDomicilio;
+                    guia.ComisionesAgenciaOrigen = comisionAgencia;
+                    guia.ComisionesFleteroDestino = comisionFletero;
+                }
+                else if (origen == "Domicilio" && destino == "CD")
+                {
+                    // 7. Domicilio → CD
+                    precio += extraRetiroDomicilio;
+                    guia.ComisionesFleteroOrigen = comisionFletero;
+                }
+                else if (origen == "Domicilio" && destino == "Agencia")
+                {
+                    // 8. Domicilio → Agencia
+                    precio += (extraRetiroDomicilio + extraEntregaAgencia);
+                    guia.ComisionesFleteroOrigen = comisionFletero;
+                    guia.ComisionesAgenciaDestino = comisionAgencia;
+                }
+                else if (origen == "Domicilio" && destino == "Domicilio")
+                {
+                    // 9. Domicilio → Domicilio
+                    precio += (extraRetiroDomicilio + extraEntregaDomicilio);
+                    guia.ComisionesFleteroOrigen = comisionFletero;
+                    guia.ComisionesFleteroDestino = comisionFletero;
+                }
+
+                guia.Precio = precio;
+
+                // Persistir
                 GuiaAlmacen.Agregar(guia);
             }
             // Luego de agregar todas las guías
             var hojasGeneradas = GenerarHojasDeRutaFleteRetiro();
             var fleterosAsignados = AsignarFleterosAHojasDeRutaRetiro();
-            // (Opcional) mostrar cantidad generada
         }
 
         /// <summary>
