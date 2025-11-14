@@ -355,7 +355,11 @@
     <Content Include="Pruebas\1. ImponerCallCenter1.txt" />
     <Content Include="Pruebas\1. ImponerCallCenter2.txt" />
     <Content Include="Pruebas\1. ImponerCallCenter3.txt" />
+    <Content Include="Pruebas\14.Costo vs Ventas.txt" />
+    <Content Include="Pruebas\15.Emitir Factura.txt" />
+    <Content Include="Pruebas\15.Cuenta Corriente .txt" />
     <Content Include="Pruebas\2. ImponerYAdmitirEnCD1.txt" />
+    <Content Include="Pruebas\11. Rendicion de Encomiendas.txt" />
     <Content Include="Pruebas\2. ImponerYAdmitirEnCD2.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

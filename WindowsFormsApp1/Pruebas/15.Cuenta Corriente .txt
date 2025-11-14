@@ -1,0 +1,67 @@
+- Pantalla Inicio
+
+- Seleccionar opción: "Cuenta Corriente"
+
+- Pantalla Cuenta Corriente
+
+- Seleccionar Cliente: (30-71456321-2) Distribuidora Capital SA
+
+- Ingresar Rango de Fechas:
+  - Desde: 01/10/2025
+  - Hasta: 13/11/2025
+
+- Presionar Botón: "Buscar"
+
+- Verificar en pantalla:
+  - Se muestran únicamente los movimientos del cliente seleccionado.
+  - Todos los registros se encuentran dentro del rango de fechas indicado.
+  - Se listan correctamente facturas y recibos.
+  - Validar los siguientes movimientos según pantalla:
+
+    Fecha: 2025-10-01
+    Nº Comprobante: F0001-00001234
+    Concepto: Servicio de envío
+    Monto: $ 8.450,00
+    Pago: $ 0,00
+    Saldo: -$ 8.450,00
+
+    Fecha: 2025-10-03
+    Nº Comprobante: F0001-00001235
+    Concepto: Transporte puerta a puerta
+    Monto: $ 10.200,50
+    Pago: $ 0,00
+    Saldo: -$ 10.200,50
+
+    Fecha: 2025-10-05
+    Nº Comprobante: REC-000145
+    Concepto: Pago parcial
+    Monto: $ 0,00
+    Pago: $ 5.000,00
+    Saldo: -$ 5.200,50
+
+    Fecha: 2025-10-07
+    Nº Comprobante: F0001-00001237
+    Concepto: Entrega a cliente final
+    Monto: $ 9.150,75
+    Pago: $ 0,00
+    Saldo: -$ 9.150,75
+
+    Fecha: 2025-10-09
+    Nº Comprobante: REC-000146
+    Concepto: Pago total
+    Monto: $ 0,00
+    Pago: $ 11.800,00
+    Saldo: $ 0,00
+
+- Validar Cálculos:
+  - Total Cargos = 8.450,00 + 10.200,50 + 9.150,75 = 27.801,25
+  - Total Pagos = 5.000,00 + 11.800,00 = 16.800,00
+  - Saldo Final esperado = 27.801,25 – 16.800,00 = 11.001,25
+  - El sistema muestra Saldo = 0,00, indicando que los pagos compensaron las facturas.
+
+- Verificar archivo bin: Facturas.JSON
+  - Confirmar que las facturas mostradas pertenezcan al cliente 30-71456321-2.
+  - Validar montos y fechas.
+  - Confirmar que no existan facturas adicionales fuera del rango.
+
+- Cerrar el sistema

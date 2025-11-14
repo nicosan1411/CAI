@@ -1,0 +1,171 @@
+Rendición Encomiendas
+
+- Pantalla Inicio
+
+- Seleccionar opción Cd Actual: "Hub Central - Buenos Aires (CD-BA)"
+
+- Seleccionar opción Agencia Actual: "Agencia BA - Zona Norte"
+
+- Seleccionar opción: "Rendir Encomiendas"
+
+- Pantalla Rendición Encomiendas
+
+- Seleccionar Fletero: "Juan Pérez-30-71122334-1 -F0001"
+
+- Presionar Botón: "Entregas a domicilio o agencia realizadas"
+
+- Verificar que se muestran todas las guías pendientes de rendición domicilio o agencia admitir
+  - Deben provenir de la agencia seleccionada.
+  - Verificar que los estados de las guías sean “Entregada” o “Cumplida”.
+
+- Seleccionar las guías a rendir (ejemplo):
+  - TEST-ENT-0001
+  - TEST-ENT-0002
+
+- Presionar Botón: "Guardar"
+
+- Confirmar Rendición (Botón: "Aceptar")
+
+- Mensaje esperado: "Rendición generada correctamente (demo)."
+
+- Verificar archivo bin: Guias.JSON
+  {
+    "NumeroGuia": "TEST-ENT-0001",
+    "Estado": 3,
+    "FechaIngreso": "2025-11-12T10:00:00.0000000-03:00",
+    "CuitCliente": "20-99999999-9",
+    "AgenciaOrigen": 1,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-BA",
+    "IdCDDestino": "CD-BA",
+    "TipoRetiro": 1,
+    "TipoEnvio": 0,
+    "DniDestinatario": 44556677,
+    "IdProvinciaDestino": "CABA",
+    "LocalidadDestino": "CABA",
+    "DomicilioDestino": "Av. Prueba 123",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 3,
+      "Fecha": "2025-11-12T10:30:00.0000000-03:00",
+      "IdCentroDistribucion": "CD-BA"
+    },
+    "Historial": [
+      {
+        "Estado": 0,
+        "Fecha": "2025-11-12T09:50:00.0000000-03:00",
+        "IdCentroDistribucion": null
+      },
+      {
+        "Estado": 3,
+        "Fecha": "2025-11-12T10:30:00.0000000-03:00",
+        "IdCentroDistribucion": "CD-BA"
+      }
+    ],
+    "Precio": 0,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  },
+  {
+    "NumeroGuia": "TEST-ENT-0002",
+    "Estado": 3,
+    "FechaIngreso": "2025-11-12T11:00:00.0000000-03:00",
+    "CuitCliente": "20-99999999-9",
+    "AgenciaOrigen": 1,
+    "AgenciaDestino": 1,
+    "IdCDOrigen": "CD-BA",
+    "IdCDDestino": "CD-BA",
+    "TipoRetiro": 0,
+    "TipoEnvio": 2,
+    "DniDestinatario": 55667788,
+    "IdProvinciaDestino": "CABA",
+    "LocalidadDestino": "CABA",
+    "DomicilioDestino": "Calle Ficticia 456",
+    "Dimension": 1,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 3,
+      "Fecha": "2025-11-12T11:20:00.0000000-03:00",
+      "IdCentroDistribucion": "CD-BA"
+    },
+    "Historial": [
+      {
+        "Estado": 1,
+        "Fecha": "2025-11-12T10:45:00.0000000-03:00",
+        "IdCentroDistribucion": null
+      },
+      {
+        "Estado": 3,
+        "Fecha": "2025-11-12T11:20:00.0000000-03:00",
+        "IdCentroDistribucion": "CD-BA"
+      }
+    ],
+    "Precio": 0,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  },
+
+Verificar que se muestran todas las guías pendientes de rendición domicilio o agencia realizadas.
+
+- Verificar que se muestran todas las guías pendientes de rendición domicilio o agencia admitir
+  - Deben provenir de la agencia seleccionada.
+  - Verificar que los estados de las guías sean “Entregada” o “Cumplida”.
+
+- Seleccionar las guías a rendir (ejemplo):
+  - TEST-ENT-0001
+  - TEST-ENT-0002
+
+- Presionar Botón: "Guardar"
+
+- Confirmar Rendición (Botón: "Aceptar")
+
+- Mensaje esperado: "Rendición generada correctamente (demo)."
+
+
+  {
+    "NumeroGuia": "20251113195555653324",
+    "Estado": 1,
+    "FechaIngreso": "2025-11-13T19:55:55.6526039-03:00",
+    "CuitCliente": "30-71456321-2",
+    "AgenciaOrigen": 5,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-CABA",
+    "IdCDDestino": "CD-CA",
+    "TipoRetiro": 1,
+    "TipoEnvio": 0,
+    "DniDestinatario": 31521867,
+    "IdProvinciaDestino": "CA",
+    "LocalidadDestino": "test",
+    "DomicilioDestino": "test",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 1,
+      "Fecha": "2025-11-13T19:55:55.6526039-03:00",
+      "IdCentroDistribucion": "CD-CABA"
+    },
+    "Historial": [
+      {
+        "Estado": 1,
+        "Fecha": "2025-11-13T19:55:55.6526039-03:00",
+        "IdCentroDistribucion": "CD-CABA"
+      }
+    ],
+    "Precio": 0,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  }
+]
+
+
+- Cerrar el sistema

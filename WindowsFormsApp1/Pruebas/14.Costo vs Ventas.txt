@@ -1,0 +1,91 @@
+Costo vs Ventas
+
+- Pantalla Inicio
+
+- Seleccionar opción: "Costo vs Ventas"
+
+- Pantalla Costo vs Ventas
+
+- Ingresar Rango de Fechas:
+  - Desde: 01/11/2025
+  - Hasta: 30/11/2025
+
+
+- Presionar Botón: "Buscar"
+
+- Verificar en pantalla:
+  - Se listan todas las facturas emitidas dentro del rango de fechas.
+  - Se muestran columnas: N° Factura, Fecha, Cliente, Total Venta, Costo Operativo, Margen, % Rentabilidad.
+
+  Distribuidora Capital SA
+
+Envíos: 13
+
+Costo Total: $ 880.000,00
+
+Ventas Totales: $ 1.160.000,00
+
+Resultado (Margen):
+1.160.000 – 880.000 = $ 280.000
+
+% Rentabilidad:
+(280.000 / 1.160.000) × 100 = 24,14%
+
+Servicios Urbanos SRL
+
+Envíos: 7
+
+Costo Total: $ 350.000,00
+
+Ventas Totales: $ 490.000,00
+
+Resultado (Margen):
+490.000 – 350.000 = $ 140.000
+
+% Rentabilidad:
+(140.000 / 490.000) × 100 = 28,57%
+
+Retail Centro SA
+
+Envíos: 16
+
+Costo Total: $ 1.030.000,00
+
+Ventas Totales: $ 1.475.000,00
+
+Resultado (Margen):
+1.475.000 – 1.030.000 = $ 445.000
+
+% Rentabilidad:
+(445.000 / 1.475.000) × 100 = 30,17%
+
+
+- Validar datos:
+  - Total Venta = suma de precios de guías facturadas según Empresa en el rango determinado.
+  - Costo Operativo = suma de costos base para el rango determinado
+  - Margen = Total Venta - Costo Operativo.
+  - % Rentabilidad = (Margen / Total Venta) * 100.
+
+- Verificar archivo bin: Facturas.JSON
+  - Confirmar que las facturas listadas pertenecen al rango indicado.
+  - Validar que los totales coincidan con los de la pantalla.
+
+- Verificar archivo bin: Guias.JSON
+  - Corroborar que las guías asociadas a las facturas sean las correctas.
+  - Confirmar sus precios unitarios y dimensiones.
+
+- Verificar archivo bin: Tarifarios.JSON
+  - Validar que los costos base por dimensión (S, M, L) sean los aplicados en los cálculos.
+  - Confirmar que los valores coincidan con los costos cargados en el sistema.
+
+- Verificar archivo bin: Agencias.JSON
+  - Revisar que las comisiones correspondientes se calculen correctamente según los valores de venta.
+  - Validar que no se dupliquen registros ni montos.
+
+- Verificar archivo bin: FleteroComisiones.JSON
+  - Confirmar que los pagos de comisión al fletero estén reflejados correctamente en el cálculo del costo total.
+
+- Comparar resultado final:
+
+
+- Cerrar el sistema

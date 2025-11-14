@@ -1,0 +1,51 @@
+- Pantalla Inicio
+
+- Seleccionar opción: "Emisión de Facturas"
+
+- Pantalla Emisión de Factura
+
+- Seleccionar Cliente: (30-71456321-2) Distribuidora Capital SA
+
+- Ingresar Rango de Fechas:
+  - Desde: 01/11/2025
+  - Hasta: 30/11/2025
+
+- Presionar Botón: "Seleccionar"
+
+- Verificar que se listan únicamente las guías del cliente que aún no tienen número de factura asignado.
+  - Revisar en Guias.JSON que el campo “NumeroFactura” esté en 0 o vacío.
+
+- Seleccionar Guías a Facturar (ejemplo):
+  - CD-BA-000003
+  - CD-BA-000001
+
+- Presionar Botón: "Emitir Factura"
+
+- Verificar datos generados:
+  - Número de Factura asignado (ejemplo: 1001)
+  - Fecha de Emisión = fecha actual del sistema
+  - Total = suma de precios de las guías seleccionadas
+
+- Confirmar Emisión (Botón: "Aceptar")
+
+- Mensaje esperado: "Factura emitida Correctamente."
+
+- Verificar archivo bin: Facturas.JSON
+  - Se debe haber agregado una nueva factura con:
+    - CuitCliente: 30-71456321-2
+    - FechaEmision: 30/11/2025
+    - Lista de guías incluidas
+    - Total calculado correctamente
+  - Confirmar que el campo “NumeroFactura” coincide con el mostrado en pantalla.
+
+- Verificar archivo bin: Guias.JSON
+  - Cada guía facturada debe tener actualizado el campo “NumeroFactura” con el número asignado.
+  - Confirmar cambio de estado a “Facturada”.
+
+- Verificar archivo bin: Clientes.JSON
+  - Confirmar que el cliente tenga registrado el nuevo movimiento de factura en su cuenta corriente.
+
+- Verificar archivo bin: Agencias.JSON
+  - Validar que se actualicen las comisiones correspondientes a las guías facturadas, si aplica.
+
+- Cerrar el sistema
