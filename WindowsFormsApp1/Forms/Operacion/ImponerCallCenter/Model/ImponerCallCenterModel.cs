@@ -203,7 +203,6 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
                 .SelectMany(enc => Enumerable.Range(0, enc.Cantidad).Select(_ =>
                 {
                     var now = DateTime.Now;
-
                     var dimEnum = (enc.Dimension?.Tamaño ?? "S") switch
                     {
                         "S" => TipoBultoEnum.S,
@@ -215,7 +214,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 
                     return new GuiaEntidad
                     {
-                        NumeroGuia = GenerarNumeroGuia(),
+                        NumeroGuia = GenerarNumeroGuiaPorCD(cdOrigen),
                         FechaIngreso = now,
                         CuitCliente = pedido.Cliente?.Cuit,
                         TipoRetiro = tipoRetiroEnum,
@@ -257,17 +256,114 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
 
             foreach (var guia in guias)
             {
+                // Reset comisiones
+                guia.ComisionesAgenciaOrigen = 0m;
+                guia.ComisionesAgenciaDestino = 0m;
+                guia.ComisionesFleteroOrigen = 0m;
+                guia.ComisionesFleteroDestino = 0m;
+
+                // Origen
+                var origen =
+                    guia.TipoRetiro == TipoRetiroEnum.DesdeDomicilio ? "Domicilio" :
+                    (guia.TipoRetiro == TipoRetiroEnum.DesdeAgencia && guia.AgenciaOrigen != 0) ? "Agencia" :
+                    "CD";
+
+                // Destino
+                var destino = guia.TipoEnvio switch
+                {
+                    TipoEnvioEnum.VaACD => "CD",
+                    TipoEnvioEnum.VaAAgencia => "Agencia",
+                    _ => "Domicilio"
+                };
+
+                // Base
+                var basePrice = TarifarioAlmacen.Tarifarios
+                    .FirstOrDefault(t =>
+                        t.Tamaño == guia.Dimension &&
+                        string.Equals(t.IdCDOrigen ?? string.Empty, guia.IdCDOrigen ?? string.Empty, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(t.IdCDDestino ?? string.Empty, guia.IdCDDestino ?? string.Empty, StringComparison.OrdinalIgnoreCase))
+                    ?.Precio ?? 0m;
+
+                decimal Extra(TipoExtraEnum tipo) =>
+                    ExtrasAlmacen.Extras.FirstOrDefault(x => x.TipoExtra == tipo)?.Precio ?? 0m;
+
+                var extraRetiroDomicilio = Extra(TipoExtraEnum.RetiroDomicilio);
+                var extraEntregaDomicilio = Extra(TipoExtraEnum.EntregaDomicilio);
+                var extraEntregaAgencia = Extra(TipoExtraEnum.EntregaAgencia);
+
+                var comisionAgencia = AgenciaComisionAlmacen.AgenciaComisiones
+                    .FirstOrDefault(c => c.TipoBulto == guia.Dimension)?.Comision ?? 0m;
+
+                var comisionFletero = FleteroComisionAlmacen.FleteroComisiones
+                    .FirstOrDefault(c => c.TipoBulto == guia.Dimension)?.Comision ?? 0m;
+
+                var precio = basePrice;
+
+                // Casuísticas
+                if (origen == "CD" && destino == "CD")
+                {
+                    // 1. CD → CD
+                }
+                else if (origen == "CD" && destino == "Agencia")
+                {
+                    // 2. CD → Agencia
+                    precio += extraEntregaAgencia;
+                    guia.ComisionesAgenciaDestino = comisionAgencia;
+                }
+                else if (origen == "CD" && destino == "Domicilio")
+                {
+                    // 3. CD → Domicilio
+                    precio += extraEntregaDomicilio;
+                    guia.ComisionesFleteroDestino = comisionFletero;
+                }
+                else if (origen == "Agencia" && destino == "CD")
+                {
+                    // 4. Agencia → CD
+                    guia.ComisionesAgenciaOrigen = comisionAgencia;
+                }
+                else if (origen == "Agencia" && destino == "Agencia")
+                {
+                    // 5. Agencia → Agencia
+                    precio += extraEntregaAgencia;
+                    guia.ComisionesAgenciaOrigen = comisionAgencia;
+                    guia.ComisionesAgenciaDestino = comisionAgencia;
+                }
+                else if (origen == "Agencia" && destino == "Domicilio")
+                {
+                    // 6. Agencia → Domicilio
+                    precio += extraEntregaDomicilio;
+                    guia.ComisionesAgenciaOrigen = comisionAgencia;
+                    guia.ComisionesFleteroDestino = comisionFletero;
+                }
+                else if (origen == "Domicilio" && destino == "CD")
+                {
+                    // 7. Domicilio → CD
+                    precio += extraRetiroDomicilio;
+                    guia.ComisionesFleteroOrigen = comisionFletero;
+                }
+                else if (origen == "Domicilio" && destino == "Agencia")
+                {
+                    // 8. Domicilio → Agencia
+                    precio += (extraRetiroDomicilio + extraEntregaAgencia);
+                    guia.ComisionesFleteroOrigen = comisionFletero;
+                    guia.ComisionesAgenciaDestino = comisionAgencia;
+                }
+                else if (origen == "Domicilio" && destino == "Domicilio")
+                {
+                    // 9. Domicilio → Domicilio
+                    precio += (extraRetiroDomicilio + extraEntregaDomicilio);
+                    guia.ComisionesFleteroOrigen = comisionFletero;
+                    guia.ComisionesFleteroDestino = comisionFletero;
+                }
+
+                guia.Precio = precio;
+
+                // Persistir
                 GuiaAlmacen.Agregar(guia);
             }
             // Luego de agregar todas las guías
             var hojasGeneradas = GenerarHojasDeRutaFleteRetiro();
             var fleterosAsignados = AsignarFleterosAHojasDeRutaRetiro();
-            // (Opcional) mostrar cantidad generada
-        }
-
-        private string GenerarNumeroGuia()
-        {
-            return DateTime.Now.ToString("yyyyMMddHHmmssfff") + new Random().Next(100, 999).ToString();
         }
 
         /// <summary>
@@ -518,6 +614,29 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
                 HojaDeRutaFleteAlmacen.Grabar();
 
             return modificadas.Distinct().ToList();
+        }
+
+        // Reemplazo del método anterior GenerarNumeroGuia()
+        private string GenerarNumeroGuiaPorCD(string idCDOrigen)
+        {
+            var prefix = string.IsNullOrWhiteSpace(idCDOrigen) ? "SIN-CD" : idCDOrigen.Trim();
+            var prefixDash = prefix + "-";
+
+            var max = GuiaAlmacen.Guias
+                .Where(g => !string.IsNullOrWhiteSpace(g.IdCDOrigen) &&
+                            string.Equals(g.IdCDOrigen, prefix, StringComparison.OrdinalIgnoreCase))
+                .Select(g =>
+                {
+                    var nro = g.NumeroGuia;
+                    if (string.IsNullOrWhiteSpace(nro) || !nro.StartsWith(prefixDash, StringComparison.OrdinalIgnoreCase))
+                        return 0;
+                    var tail = nro.Substring(prefixDash.Length);
+                    return int.TryParse(tail, out var n) ? n : 0;
+                })
+                .DefaultIfEmpty(0)
+                .Max();
+
+            return $"{prefixDash}{(max + 1):000000}";
         }
     }
 }

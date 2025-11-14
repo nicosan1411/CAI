@@ -9,17 +9,13 @@
     "IdHDRMicro": 2,
     "IdCDOrigen": "CD-CO",
     "IdCDDestino": "CD-SF",
-    "Guias": [
-      "G-20251105172158076"
-    ]
+    "Guias": []
   },
   {
     "IdHDRMicro": 3,
     "IdCDOrigen": "CD-ME",
     "IdCDDestino": "CD-MI",
-    "Guias": [
-      "R-20251105172158077"
-    ]
+    "Guias": []
   },
   {
     "IdHDRMicro": 4,
@@ -31,10 +27,7 @@
     "IdHDRMicro": 5,
     "IdCDOrigen": "CD-JU",
     "IdCDDestino": "CD-SA",
-    "Guias": [
-      "G-20251106120000001",
-      "G-20251106120000002"
-    ]
+    "Guias": []
   },
   {
     "IdHDRMicro": 6,
@@ -46,9 +39,7 @@
     "IdHDRMicro": 7,
     "IdCDOrigen": "CD-NE",
     "IdCDDestino": "CD-RN",
-    "Guias": [
-      "R-20251106120010001"
-    ]
+    "Guias": []
   },
   {
     "IdHDRMicro": 8,
@@ -60,9 +51,7 @@
     "IdHDRMicro": 9,
     "IdCDOrigen": "CD-CHU",
     "IdCDDestino": "CD-SCZ",
-    "Guias": [
-      "G-20251106120100001"
-    ]
+    "Guias": []
   },
   {
     "IdHDRMicro": 10,
@@ -74,10 +63,7 @@
     "IdHDRMicro": 11,
     "IdCDOrigen": "CD-ER",
     "IdCDDestino": "CD-FO",
-    "Guias": [
-      "G-20251106120200001",
-      "R-20251106120200002"
-    ]
+    "Guias": []
   },
   {
     "IdHDRMicro": 12,
@@ -89,6 +75,6 @@
     "IdHDRMicro": 13,
     "IdCDOrigen": "CD-JU",
     "IdCDDestino": "CD-SE",
-    "Guias": [ "20251113174240716499" ]
+    "Guias": []
   }
 ]

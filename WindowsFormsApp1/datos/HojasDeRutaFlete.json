@@ -27,7 +27,7 @@
     "IdAgencia": 0,
     "DomicilioDestino": "",
     "Cumplida": true,
-    "Guias": [ "20251111234752894187" ]
+    "Guias": []
   },
   {
     "IdHDRFlete": 2005,
@@ -37,7 +37,7 @@
     "IdAgencia": 0,
     "DomicilioDestino": "Av. Siempre Viva 123",
     "Cumplida": false,
-    "Guias": [ "G-20251112160000001" ]
+    "Guias": []
   },
   {
     "IdHDRFlete": 2006,
@@ -47,7 +47,7 @@
     "IdAgencia": 0,
     "DomicilioDestino": "Av. Siempre Viva 123",
     "Cumplida": false,
-    "Guias": [ "G-20251112160000002" ]
+    "Guias": []
   },
   {
     "IdHDRFlete": 3001,
@@ -57,7 +57,7 @@
     "IdAgencia": 0,
     "DomicilioDestino": "Av. Prueba 123",
     "Cumplida": false,
-    "Guias": [ "TEST-ENT-0001" ]
+    "Guias": []
   },
   {
     "IdHDRFlete": 3002,
@@ -67,7 +67,7 @@
     "IdAgencia": 1,
     "DomicilioDestino": "Agencia Central",
     "Cumplida": false,
-    "Guias": [ "TEST-ENT-0002" ]
+    "Guias": []
   },
   {
     "IdHDRFlete": 3003,
@@ -77,6 +77,6 @@
     "IdAgencia": 0,
     "DomicilioDestino": "Av. Prueba 123",
     "Cumplida": false,
-    "Guias": [ "TEST-RET-0001", "TEST-RET-0002" ]
+    "Guias": []
   }
 ]

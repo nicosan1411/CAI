@@ -127,7 +127,7 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                     };
                     return new GuiaEntidad
                     {
-                        NumeroGuia = GenerarNumeroGuia(),
+                        NumeroGuia = GenerarNumeroGuiaPorCD(cdOrigen),
                         FechaIngreso = now,
                         CuitCliente = pedido.Cliente?.Cuit,
                         TipoRetiro = tipoRetiroEnum,
@@ -163,7 +163,114 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                 }))
                 .ToList();
 
-            foreach (var g in guiasCreadas) GuiaAlmacen.Agregar(g);
+            // Calcular Precio y Comisiones para cada guía antes de persistir
+            foreach (var g in guiasCreadas)
+            {
+                // Reset comisiones
+                g.ComisionesAgenciaOrigen = 0m;
+                g.ComisionesAgenciaDestino = 0m;
+                g.ComisionesFleteroOrigen = 0m;
+                g.ComisionesFleteroDestino = 0m;
+
+                // Determinar origen (en AdmitirEnCD siempre es CD, pero se respeta la casuística general)
+                var origen =
+                    g.TipoRetiro == TipoRetiroEnum.DesdeDomicilio ? "Domicilio" :
+                    (g.TipoRetiro == TipoRetiroEnum.DesdeAgencia && g.AgenciaOrigen != 0) ? "Agencia" :
+                    "CD";
+
+                // Determinar destino
+                var destino = g.TipoEnvio switch
+                {
+                    TipoEnvioEnum.VaACD => "CD",
+                    TipoEnvioEnum.VaAAgencia => "Agencia",
+                    _ => "Domicilio"
+                };
+
+                // Base
+                var basePrice = TarifarioAlmacen.Tarifarios
+                    .FirstOrDefault(t =>
+                        t.Tamaño == g.Dimension &&
+                        string.Equals(t.IdCDOrigen ?? string.Empty, g.IdCDOrigen ?? string.Empty, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(t.IdCDDestino ?? string.Empty, g.IdCDDestino ?? string.Empty, StringComparison.OrdinalIgnoreCase))
+                    ?.Precio ?? 0m;
+
+                decimal Extra(TipoExtraEnum tipo) =>
+                    ExtrasAlmacen.Extras.FirstOrDefault(x => x.TipoExtra == tipo)?.Precio ?? 0m;
+
+                var extraRetiroDomicilio = Extra(TipoExtraEnum.RetiroDomicilio);
+                var extraEntregaDomicilio = Extra(TipoExtraEnum.EntregaDomicilio);
+                var extraEntregaAgencia = Extra(TipoExtraEnum.EntregaAgencia);
+
+                var comisionAgencia = AgenciaComisionAlmacen.AgenciaComisiones
+                    .FirstOrDefault(c => c.TipoBulto == g.Dimension)?.Comision ?? 0m;
+
+                var comisionFletero = FleteroComisionAlmacen.FleteroComisiones
+                    .FirstOrDefault(c => c.TipoBulto == g.Dimension)?.Comision ?? 0m;
+
+                var precio = basePrice;
+
+                // Casuísticas
+                if (origen == "CD" && destino == "CD")
+                {
+                    // 1. CD → CD: sin extras ni comisiones
+                }
+                else if (origen == "CD" && destino == "Agencia")
+                {
+                    // 2. CD → Agencia
+                    precio += extraEntregaAgencia;
+                    g.ComisionesAgenciaDestino = comisionAgencia;
+                }
+                else if (origen == "CD" && destino == "Domicilio")
+                {
+                    // 3. CD → Domicilio
+                    precio += extraEntregaDomicilio;
+                    g.ComisionesFleteroDestino = comisionFletero;
+                }
+                else if (origen == "Agencia" && destino == "CD")
+                {
+                    // 4. Agencia → CD
+                    g.ComisionesAgenciaOrigen = comisionAgencia;
+                }
+                else if (origen == "Agencia" && destino == "Agencia")
+                {
+                    // 5. Agencia → Agencia
+                    precio += extraEntregaAgencia;
+                    g.ComisionesAgenciaOrigen = comisionAgencia;
+                    g.ComisionesAgenciaDestino = comisionAgencia;
+                }
+                else if (origen == "Agencia" && destino == "Domicilio")
+                {
+                    // 6. Agencia → Domicilio
+                    precio += extraEntregaDomicilio;
+                    g.ComisionesAgenciaOrigen = comisionAgencia;
+                    g.ComisionesFleteroDestino = comisionFletero;
+                }
+                else if (origen == "Domicilio" && destino == "CD")
+                {
+                    // 7. Domicilio → CD
+                    precio += extraRetiroDomicilio;
+                    g.ComisionesFleteroOrigen = comisionFletero;
+                }
+                else if (origen == "Domicilio" && destino == "Agencia")
+                {
+                    // 8. Domicilio → Agencia
+                    precio += (extraRetiroDomicilio + extraEntregaAgencia);
+                    g.ComisionesFleteroOrigen = comisionFletero;
+                    g.ComisionesAgenciaDestino = comisionAgencia;
+                }
+                else if (origen == "Domicilio" && destino == "Domicilio")
+                {
+                    // 9. Domicilio → Domicilio
+                    precio += (extraRetiroDomicilio + extraEntregaDomicilio);
+                    g.ComisionesFleteroOrigen = comisionFletero;
+                    g.ComisionesFleteroDestino = comisionFletero;
+                }
+
+                g.Precio = precio;
+
+                // Persistir
+                GuiaAlmacen.Agregar(g);
+            }
 
             var gruposPorDestino = guiasCreadas
                 .Where(g => !string.IsNullOrWhiteSpace(g.IdCDDestino))
@@ -175,10 +282,8 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                 var idCDOrigenHoja = grp.Key.IdCDOrigen;
                 var numeros = grp.Select(g => g.NumeroGuia).Distinct().ToList();
 
-                // Sólo crear hoja si hay guías y NO crear hojas vacías.
                 var hojaId = CrearHojaMicroSiNoExiste(idCDOrigenHoja, idCDDestino, numeros);
 
-                // Normalizar estado
                 var nowUpdate = DateTime.Now;
                 foreach (var n in numeros)
                 {
@@ -199,7 +304,6 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                 }
                 GuiaAlmacen.Grabar();
 
-                // Asignar micro sólo si existe un recorrido exacto
                 AsignarMicroParaRuta(idCDOrigenHoja, idCDDestino, hojaId);
             }
         }
@@ -273,7 +377,27 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
             return hoja.IdHDRMicro;
         }
 
-        private string GenerarNumeroGuia() =>
-            DateTime.Now.ToString("yyyyMMddHHmmssfff") + new Random().Next(100, 999).ToString();
+        // Reemplazo del método anterior basado en timestamp
+        private string GenerarNumeroGuiaPorCD(string idCDOrigen)
+        {
+            var prefix = string.IsNullOrWhiteSpace(idCDOrigen) ? "SIN-CD" : idCDOrigen.Trim();
+            var prefixDash = prefix + "-";
+
+            var max = GuiaAlmacen.Guias
+                .Where(g => !string.IsNullOrWhiteSpace(g.IdCDOrigen) &&
+                            string.Equals(g.IdCDOrigen, prefix, StringComparison.OrdinalIgnoreCase))
+                .Select(g =>
+                {
+                    var nro = g.NumeroGuia;
+                    if (string.IsNullOrWhiteSpace(nro) || !nro.StartsWith(prefixDash, StringComparison.OrdinalIgnoreCase))
+                        return 0;
+                    var tail = nro.Substring(prefixDash.Length);
+                    return int.TryParse(tail, out var n) ? n : 0;
+                })
+                .DefaultIfEmpty(0)
+                .Max();
+
+            return $"{prefixDash}{(max + 1):000000}";
+        }
     }
 }
