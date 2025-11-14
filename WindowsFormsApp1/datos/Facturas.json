@@ -12,29 +12,5 @@
     "Concepto": "Desde CD a domicilio",
     "Monto": 8200.00,
     "NumeroFactura": 1002
-<<<<<<< HEAD
-=======
-  },
-  {
-    "CuitCliente": "30-50361405-3",
-    "NumeroGuia": [],
-    "Concepto": "Desde CD a CD",
-    "Monto": 6500.00,
-    "NumeroFactura": 1003
-  },
-  {
-    "CuitCliente": "30-70752101-7",
-    "NumeroGuia": [],
-    "Concepto": "Desde agencia a domicilio",
-    "Monto": 9700.00,
-    "NumeroFactura": 1004
-  },
-  {
-    "CuitCliente": "30-50033372-9",
-    "NumeroGuia": [],
-    "Concepto": "Consolidado: entregas múltiples",
-    "Monto": 19500.00,
-    "NumeroFactura": 1005
->>>>>>> eea5118e5a7ba6c931b173510e2c8d3eb1eac30f
   }
 ]
