@@ -158,4 +158,81 @@
     "ComisionesFleteroDestino": 0,
     "NumeroFactura": 0
   }
+
+  ,
+
+  {
+    "NumeroGuia": "N-20251112100000000",
+    "Estado": 0,
+    "FechaIngreso": "2025-11-12T16:00:00.0000000-03:00",
+    "CuitCliente": "30-71456321-2",
+    "AgenciaOrigen": 0,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-BA",
+    "IdCDDestino": "CD-BA",
+    "TipoRetiro": 0,
+    "TipoEnvio": 0,
+    "DniDestinatario": 12345678,
+    "IdProvinciaDestino": "CABA",
+    "LocalidadDestino": "Buenos Aires",
+    "DomicilioDestino": "Av. Siempre Viva 123",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 9,
+      "Fecha": "2025-11-12T16:00:00.0000000-03:00",
+      "IdCentroDistribucion": null
+    },
+    "Historial": [
+      {
+        "Estado": 5,
+        "Fecha": "2025-11-12T16:00:00.0000000-03:00",
+        "IdCentroDistribucion": null
+      }
+    ],
+    "Precio": 50000,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  }
+  ,
+
+  {
+    "NumeroGuia": "N-20251112100000001",
+    "Estado": 0,
+    "FechaIngreso": "2025-11-12T16:00:00.0000000-03:00",
+    "CuitCliente": "30-71456321-2",
+    "AgenciaOrigen": 0,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-BA",
+    "IdCDDestino": "CD-BA",
+    "TipoRetiro": 1,
+    "TipoEnvio": 1,
+    "DniDestinatario": 12345678,
+    "IdProvinciaDestino": "CABA",
+    "LocalidadDestino": "Buenos Aires",
+    "DomicilioDestino": "Av. Siempre Viva 123",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 8,
+      "Fecha": "2025-11-12T16:00:00.0000000-03:00",
+      "IdCentroDistribucion": null
+    },
+    "Historial": [
+      {
+        "Estado": 5,
+        "Fecha": "2025-11-12T16:00:00.0000000-03:00",
+        "IdCentroDistribucion": null
+      }
+    ],
+    "Precio": 25000,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": 0
+  }
 ]
