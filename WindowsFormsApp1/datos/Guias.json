@@ -84,19 +84,19 @@
     "AgenciaOrigen": 1,
     "AgenciaDestino": 1,
     "IdCDOrigen": "CD-BA",
-    "IdCDDestino": "CD-BA",
+    "IdCDDestino": "CD-CO",
     "TipoRetiro": 0,
-    "TipoEnvio": 2,
+    "TipoEnvio": 1,
     "DniDestinatario": 55667788,
-    "IdProvinciaDestino": "CABA",
-    "LocalidadDestino": "CABA",
+    "IdProvinciaDestino": "CO",
+    "LocalidadDestino": "Cordoba",
     "DomicilioDestino": "Calle Ficticia 456",
     "Dimension": 1,
     "Recorrido": [],
     "EstadoActual": {
       "Estado": 3,
       "Fecha": "2025-11-12T11:20:00.0000000-03:00",
-      "IdCentroDistribucion": "CD-BA"
+      "IdCentroDistribucion": "CD-CO"
     },
     "Historial": [
       {
@@ -107,7 +107,7 @@
       {
         "Estado": 3,
         "Fecha": "2025-11-12T11:20:00.0000000-03:00",
-        "IdCentroDistribucion": "CD-BA"
+        "IdCentroDistribucion": "CD-CO"
       }
     ],
     "Precio": 0,

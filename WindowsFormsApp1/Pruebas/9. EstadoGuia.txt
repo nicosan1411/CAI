@@ -1,0 +1,27 @@
+﻿Entregar Estado Guia
+
+- Pantalla Inicio
+
+- Presionar Botón: "Estado de Guía"
+
+- Pantalla Consulta Estado Guia
+
+- Seleccionar Guía: CD-BA-000003
+
+- Presionar Botón: "Seleccionar"
+
+- Columna N° Guía: CD-BA-000003
+
+- Columna Dimensión: S
+
+- Columna CD Destino: CD-BA
+
+- Columna Tipo de Envío: VaADomicilio
+
+- Columna DNI Destinatario: 12345678
+
+- Columna Fecha de Ingreso: 12-11-2025
+
+- Columna Estado: EnBusquedaRetiroDomicilio
+
+- Cerrar el sistema

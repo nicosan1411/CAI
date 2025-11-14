@@ -1,0 +1,129 @@
+﻿Imponer Pedido en Call Center - Retiro en Agencia - Envio a Domicilio
+
+- Pantalla Inicio
+
+- Seleccionar Cd Actual: Centro Logístico Capital - CABA (CD-CABA)
+
+- Seleccionar Agencia actual: Agencia CABA - Belgrano
+
+- Presionar Botón: "Imponer Call Center"
+
+- Pantalla Imponer Call Center
+
+- Seleccionar Empresa/Cliente: (30-71456321-2) Distribuidora Capital SA
+
+- Seleccionar Tipo de servicio: Retiro en agencia
+
+- Seleccionar Agencia: Agencia CABA - Microcentro
+
+- Seleccionar Provincia de envío: Córdoba
+
+- Seleccionar Tipo de servicio: Envio a domicilio
+
+- Ingresar DNI: 12345678
+
+- Ingresar Localidad: Rio Cuarto
+
+- Ingresar Domicilio: Belgrano 1200
+
+- Seleccionar Dimensión: S
+
+- Ingresar Cantidad: 2
+
+- Presionar Botón: "Guardar"
+
+- Presionar Botón: "Aceptar Pedido"
+
+- Mensaje: "Pedido impuesto correctamente (demo)."
+
+- Cerrar el sistema
+
+- Verificar archivo bin: Guias.JSON:
+
+{
+NumeroGuia: "CD-CABA-000001",
+Estado: 1,
+FechaIngreso: "2025-11-13T23:27:14.9436611-03:00",
+CuitCliente: "30-71456321-2",
+AgenciaOrigen: 4,
+AgenciaDestino: 0,
+IdCDOrigen: "CD-CABA",
+IdCDDestino: "CD-CO",
+TipoRetiro: 1,
+TipoEnvio: 0,
+DniDestinatario: 12345678,
+IdProvinciaDestino: "CO",
+LocalidadDestino: "Rio Cuarto",
+DomicilioDestino: "Belgrano 1200",
+Dimension: 0,
+Recorrido: [],
+EstadoActual: {
+Estado: 1,
+Fecha: "2025-11-13T23:27:14.9436611-03:00",
+IdCentroDistribucion: "CD-CABA"
+},
+Historial: [
+{
+Estado: 1,
+Fecha: "2025-11-13T23:27:14.9436611-03:00",
+IdCentroDistribucion: "CD-CABA"
+}
+],
+Precio: 0,
+ComisionesAgenciaOrigen: 0,
+ComisionesAgenciaDestino: 0,
+ComisionesFleteroOrigen: 0,
+ComisionesFleteroDestino: 0,
+NumeroFactura: 0
+},
+{
+NumeroGuia: "CD-CABA-000002",
+Estado: 1,
+FechaIngreso: "2025-11-13T23:27:15.042119-03:00",
+CuitCliente: "30-71456321-2",
+AgenciaOrigen: 4,
+AgenciaDestino: 0,
+IdCDOrigen: "CD-CABA",
+IdCDDestino: "CD-CO",
+TipoRetiro: 1,
+TipoEnvio: 0,
+DniDestinatario: 12345678,
+IdProvinciaDestino: "CO",
+LocalidadDestino: "Rio Cuarto",
+DomicilioDestino: "Belgrano 1200",
+Dimension: 0,
+Recorrido: [],
+EstadoActual: {
+Estado: 1,
+Fecha: "2025-11-13T23:27:15.042119-03:00",
+IdCentroDistribucion: "CD-CABA"
+},
+Historial: [
+{
+Estado: 1,
+Fecha: "2025-11-13T23:27:15.042119-03:00",
+IdCentroDistribucion: "CD-CABA"
+}
+],
+Precio: 0,
+ComisionesAgenciaOrigen: 0,
+ComisionesAgenciaDestino: 0,
+ComisionesFleteroOrigen: 0,
+ComisionesFleteroDestino: 0,
+NumeroFactura: 0
+}
+
+- Verificar archivo bin: HojasDeRutaFlete.JSON:
+{
+IdHDRFlete: 3004,
+Tipo: 0,
+IdFletero: "F0012",
+CuitCliente: null,
+IdAgencia: 4,
+DomicilioDestino: null,
+Cumplida: false,
+Guias: [
+CD-CABA-000001,
+CD-CABA-000002
+]
+}
