@@ -26,16 +26,16 @@ Imponer Y Admitir CD - Envio a Centro de Distribución
 
 - Presionar Botón: "Admitir Encomienda"
 
-- Mensaje: "Pedido impuesto correctamente (demo)."
+- Mensaje: "Pedido admitido correctamente."
 
 - Cerrar el sistema
 
 - Verificar archivo bin: Guias.JSON:
 
 {
-    "NumeroGuia": "20251113205219927788",
+    "NumeroGuia": "CD-CABA-000006",
     "Estado": 2,
-    "FechaIngreso": "2025-11-13T20:52:19.9252967-03:00",
+    "FechaIngreso": "2025-11-15T16:02:08.8818698-03:00",
     "CuitCliente": "30-71456321-2",
     "AgenciaOrigen": 0,
     "AgenciaDestino": 0,
@@ -51,27 +51,27 @@ Imponer Y Admitir CD - Envio a Centro de Distribución
     "Recorrido": [],
     "EstadoActual": {
       "Estado": 2,
-      "Fecha": "2025-11-13T20:52:20.0479034-03:00",
+      "Fecha": "2025-11-15T16:02:09.0753026-03:00",
       "IdCentroDistribucion": "CD-CABA"
     },
     "Historial": [
       {
         "Estado": 2,
-        "Fecha": "2025-11-13T20:52:19.9252967-03:00",
+        "Fecha": "2025-11-15T16:02:08.8818698-03:00",
         "IdCentroDistribucion": "CD-CABA"
       },
       {
         "Estado": 2,
-        "Fecha": "2025-11-13T20:52:20.0479034-03:00",
+        "Fecha": "2025-11-15T16:02:09.0753026-03:00",
         "IdCentroDistribucion": "CD-CABA"
       }
     ],
-    "Precio": 0,
+    "Precio": 2400,
     "ComisionesAgenciaOrigen": 0,
     "ComisionesAgenciaDestino": 0,
     "ComisionesFleteroOrigen": 0,
     "ComisionesFleteroDestino": 0,
-    "NumeroFactura": 0
+    "NumeroFactura": null
   }
 
   - Verificar archivo bin: HojasDeRutaMicro.json
@@ -79,5 +79,5 @@ Imponer Y Admitir CD - Envio a Centro de Distribución
     "IdHDRMicro": 14,
     "IdCDOrigen": "CD-CABA",
     "IdCDDestino": "CD-CO",
-    "Guias": [ "20251113205219927788" ]
+    "Guias": [ "CD-CABA-000006" ]
   }
