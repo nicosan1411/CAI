@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Encodings.Web; // ← agregar
 
 namespace CAI_Proyecto.Almacenes.Almacen
 {
@@ -25,7 +26,11 @@ namespace CAI_Proyecto.Almacenes.Almacen
         public static void Grabar()
         {
             var ruta = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, @"Datos\Facturas.json");
-            var opciones = new JsonSerializerOptions { WriteIndented = true };
+            var opciones = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping // ← evita \u00F3, etc.
+            };
             var FacturaJson = JsonSerializer.Serialize(facturas, opciones);
             File.WriteAllText(ruta, FacturaJson);
         }

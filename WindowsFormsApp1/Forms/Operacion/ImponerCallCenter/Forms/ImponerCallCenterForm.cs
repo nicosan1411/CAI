@@ -253,7 +253,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Forms
             modelo.Aceptar(pedido);
 
 
-            MessageBox.Show("Pedido impuesto correctamente (demo).", "OK",
+            MessageBox.Show("Pedido impuesto correctamente.", "OK",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             LimpiarFormulario();

@@ -1,18 +1,18 @@
 [
   {
     "TipoBulto": 0,
-    "Comision": 800
+    "Comision": 80
   },
   {
     "TipoBulto": 1,
-    "Comision": 1200
+    "Comision": 120
   },
   {
     "TipoBulto": 2,
-    "Comision": 1600
+    "Comision": 160
   },
   {
     "TipoBulto": 3,
-    "Comision": 2000
+    "Comision": 200
   }
 ]

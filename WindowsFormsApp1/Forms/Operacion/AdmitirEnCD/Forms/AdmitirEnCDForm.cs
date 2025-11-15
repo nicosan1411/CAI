@@ -239,7 +239,7 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Forms
 
             modelo.Aceptar(pedido);
 
-            MessageBox.Show("Pedido admitido correctamente (demo).", "OK",
+            MessageBox.Show("Pedido admitido correctamente.", "OK",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             LimpiarFormulario();

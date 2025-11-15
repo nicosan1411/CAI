@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Encodings.Web;
 
 namespace CAI_Proyecto.Almacenes.Almacen
 {
@@ -26,7 +27,12 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         public static void Grabar()
         {
-            var GuiaJson = System.Text.Json.JsonSerializer.Serialize(guias);
+            var opciones = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            };
+            var GuiaJson = System.Text.Json.JsonSerializer.Serialize(guias, opciones);
             File.WriteAllText(@"Datos\Guias.json", GuiaJson);
         }
 
