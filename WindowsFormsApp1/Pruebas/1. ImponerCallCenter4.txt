@@ -41,89 +41,90 @@
 - Verificar archivo bin: Guias.JSON:
 
 {
-NumeroGuia: "CD-CABA-000001",
-Estado: 1,
-FechaIngreso: "2025-11-13T23:27:14.9436611-03:00",
-CuitCliente: "30-71456321-2",
-AgenciaOrigen: 4,
-AgenciaDestino: 0,
-IdCDOrigen: "CD-CABA",
-IdCDDestino: "CD-CO",
-TipoRetiro: 1,
-TipoEnvio: 0,
-DniDestinatario: 12345678,
-IdProvinciaDestino: "CO",
-LocalidadDestino: "Rio Cuarto",
-DomicilioDestino: "Belgrano 1200",
-Dimension: 0,
-Recorrido: [],
-EstadoActual: {
-Estado: 1,
-Fecha: "2025-11-13T23:27:14.9436611-03:00",
-IdCentroDistribucion: "CD-CABA"
-},
-Historial: [
-{
-Estado: 1,
-Fecha: "2025-11-13T23:27:14.9436611-03:00",
-IdCentroDistribucion: "CD-CABA"
-}
-],
-Precio: 0,
-ComisionesAgenciaOrigen: 0,
-ComisionesAgenciaDestino: 0,
-ComisionesFleteroOrigen: 0,
-ComisionesFleteroDestino: 0,
-NumeroFactura: 0
-},
-{
-NumeroGuia: "CD-CABA-000002",
-Estado: 1,
-FechaIngreso: "2025-11-13T23:27:15.042119-03:00",
-CuitCliente: "30-71456321-2",
-AgenciaOrigen: 4,
-AgenciaDestino: 0,
-IdCDOrigen: "CD-CABA",
-IdCDDestino: "CD-CO",
-TipoRetiro: 1,
-TipoEnvio: 0,
-DniDestinatario: 12345678,
-IdProvinciaDestino: "CO",
-LocalidadDestino: "Rio Cuarto",
-DomicilioDestino: "Belgrano 1200",
-Dimension: 0,
-Recorrido: [],
-EstadoActual: {
-Estado: 1,
-Fecha: "2025-11-13T23:27:15.042119-03:00",
-IdCentroDistribucion: "CD-CABA"
-},
-Historial: [
-{
-Estado: 1,
-Fecha: "2025-11-13T23:27:15.042119-03:00",
-IdCentroDistribucion: "CD-CABA"
-}
-],
-Precio: 0,
-ComisionesAgenciaOrigen: 0,
-ComisionesAgenciaDestino: 0,
-ComisionesFleteroOrigen: 0,
-ComisionesFleteroDestino: 0,
-NumeroFactura: 0
-}
+    "NumeroGuia": "CD-CABA-000006",
+    "Estado": 1,
+    "FechaIngreso": "2025-11-14T23:47:11.614322-03:00",
+    "CuitCliente": "30-71456321-2",
+    "AgenciaOrigen": 4,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-CABA",
+    "IdCDDestino": "CD-CO",
+    "TipoRetiro": 1,
+    "TipoEnvio": 0,
+    "DniDestinatario": 12345678,
+    "IdProvinciaDestino": "CO",
+    "LocalidadDestino": "Rio Cuarto",
+    "DomicilioDestino": "Belgrano 1200",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 1,
+      "Fecha": "2025-11-14T23:47:11.614322-03:00",
+      "IdCentroDistribucion": "CD-CABA"
+    },
+    "Historial": [
+      {
+        "Estado": 1,
+        "Fecha": "2025-11-14T23:47:11.614322-03:00",
+        "IdCentroDistribucion": "CD-CABA"
+      }
+    ],
+    "Precio": 1900,
+    "ComisionesAgenciaOrigen": 1000,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 800,
+    "NumeroFactura": null
+  },
+  {
+    "NumeroGuia": "CD-CABA-000007",
+    "Estado": 1,
+    "FechaIngreso": "2025-11-14T23:47:11.8086297-03:00",
+    "CuitCliente": "30-71456321-2",
+    "AgenciaOrigen": 4,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-CABA",
+    "IdCDDestino": "CD-CO",
+    "TipoRetiro": 1,
+    "TipoEnvio": 0,
+    "DniDestinatario": 12345678,
+    "IdProvinciaDestino": "CO",
+    "LocalidadDestino": "Rio Cuarto",
+    "DomicilioDestino": "Belgrano 1200",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 1,
+      "Fecha": "2025-11-14T23:47:11.8086297-03:00",
+      "IdCentroDistribucion": "CD-CABA"
+    },
+    "Historial": [
+      {
+        "Estado": 1,
+        "Fecha": "2025-11-14T23:47:11.8086297-03:00",
+        "IdCentroDistribucion": "CD-CABA"
+      }
+    ],
+    "Precio": 1900,
+    "ComisionesAgenciaOrigen": 1000,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 800,
+    "NumeroFactura": null
+  }
 
 - Verificar archivo bin: HojasDeRutaFlete.JSON:
+
 {
-IdHDRFlete: 3004,
-Tipo: 0,
-IdFletero: "F0012",
-CuitCliente: null,
-IdAgencia: 4,
-DomicilioDestino: null,
-Cumplida: false,
-Guias: [
-CD-CABA-000001,
-CD-CABA-000002
-]
-}
+    "IdHDRFlete": 3005,
+    "Tipo": 0,
+    "IdFletero": null,
+    "CuitCliente": null,
+    "IdAgencia": 4,
+    "DomicilioDestino": null,
+    "Cumplida": true,
+    "Guias": [
+      "CD-CABA-000006",
+      "CD-CABA-000007"
+    ]
+  }

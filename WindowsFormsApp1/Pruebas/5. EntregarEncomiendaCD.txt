@@ -10,13 +10,17 @@
 
 - Pantalla Entregar Encomienda a Cliente - Centro de Distribución
 
-- Ingresar DNI: 55667788
+- Ingresar DNI: 12345678
 
 - Presionar Botón: "Buscar"
 
+- Columna N° de guia: CD-CABA-000005
+
+- DNI Destinatario: 12345678
+
 - Presionar Botón: "Entregar"
 
-- Mensaje: "Confirmás la entrega de todas las guías listadas?"
+- Mensaje: "¿Confirmás la entrega de todas las guías listadas?"
 
 - Presionar Botón: "Si"
 
@@ -27,48 +31,44 @@
 - Verificar archivo bin: Guias.JSON:
 
 {
-NumeroGuia: "CD-BA-000002",
-Estado: 8,
-FechaIngreso: "2025-11-12T11:00:00-03:00",
-CuitCliente: "20-99999999-9",
-AgenciaOrigen: 1,
-AgenciaDestino: 1,
-IdCDOrigen: "CD-BA",
-IdCDDestino: "CD-CO",
-TipoRetiro: 0,
-TipoEnvio: 1,
-DniDestinatario: 55667788,
-IdProvinciaDestino: "CO",
-LocalidadDestino: "Cordoba",
-DomicilioDestino: "Calle Ficticia 456",
-Dimension: 1,
-Recorrido: [],
-EstadoActual: {
-Estado: 8,
-Fecha: "2025-11-13T23:07:32.9588235-03:00",
-IdCentroDistribucion: "CD-CO"
-},
-Historial: [
-{
-Estado: 1,
-Fecha: "2025-11-12T10:45:00-03:00",
-IdCentroDistribucion: null
-},
-{
-Estado: 3,
-Fecha: "2025-11-12T11:20:00-03:00",
-IdCentroDistribucion: "CD-CO"
-},
-{
-Estado: 8,
-Fecha: "2025-11-13T23:07:32.9588235-03:00",
-IdCentroDistribucion: "CD-CO"
-}
-],
-Precio: 0,
-ComisionesAgenciaOrigen: 0,
-ComisionesAgenciaDestino: 0,
-ComisionesFleteroOrigen: 0,
-ComisionesFleteroDestino: 0,
-NumeroFactura: 0
-}
+    "NumeroGuia": "CD-CABA-000005",
+    "Estado": 8,
+    "FechaIngreso": "2025-11-14T23:52:19.0777451-03:00",
+    "CuitCliente": "30-71456321-2",
+    "AgenciaOrigen": 4,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-CABA",
+    "IdCDDestino": "CD-CO",
+    "TipoRetiro": 1,
+    "TipoEnvio": 1,
+    "DniDestinatario": 12345678,
+    "IdProvinciaDestino": "CO",
+    "LocalidadDestino": "",
+    "DomicilioDestino": "",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 8,
+      "Fecha": "2025-11-15T00:16:21.6916808-03:00",
+      "IdCentroDistribucion": "CD-CO"
+    },
+    "Historial": [
+      {
+        "Estado": 1,
+        "Fecha": "2025-11-14T23:52:19.0777451-03:00",
+        "IdCentroDistribucion": "CD-CABA"
+      },
+      {
+        "Estado": 8,
+        "Fecha": "2025-11-15T00:16:21.6916808-03:00",
+        "IdCentroDistribucion": "CD-CO"
+      }
+    ],
+    "Precio": 1400,
+    "ComisionesAgenciaOrigen": 1000,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": null
+  }
+

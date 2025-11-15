@@ -6,21 +6,21 @@
 
 - Pantalla Consulta Estado Guia
 
-- Seleccionar Guía: CD-BA-000003
+- Seleccionar Guía: CD-CABA-000003
 
 - Presionar Botón: "Seleccionar"
 
-- Columna N° Guía: CD-BA-000003
+- Columna N° Guía: CD-CABA-000003
 
-- Columna Dimensión: S
+- Columna Dimensión: L
 
-- Columna CD Destino: CD-BA
+- Columna CD Destino: CD-CABA
 
-- Columna Tipo de Envío: VaADomicilio
+- Columna Tipo de Envío: VaACD
 
-- Columna DNI Destinatario: 12345678
+- Columna DNI Destinatario: 11111111
 
-- Columna Fecha de Ingreso: 12-11-2025
+- Columna Fecha de Ingreso: 14-11-2025
 
 - Columna Estado: EnBusquedaRetiroDomicilio
 

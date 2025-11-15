@@ -143,6 +143,44 @@
     "ComisionesFleteroDestino": 0,
     "NumeroFactura": null
   },
+
+  {
+    "NumeroGuia": "CD-CABA-000005",
+    "Estado": 3,
+    "FechaIngreso": "2025-11-14T23:52:19.0777451-03:00",
+    "CuitCliente": "30-71456321-2",
+    "AgenciaOrigen": 4,
+    "AgenciaDestino": 0,
+    "IdCDOrigen": "CD-CABA",
+    "IdCDDestino": "CD-CO",
+    "TipoRetiro": 1,
+    "TipoEnvio": 1,
+    "DniDestinatario": 12345678,
+    "IdProvinciaDestino": "CO",
+    "LocalidadDestino": "",
+    "DomicilioDestino": "",
+    "Dimension": 0,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 1,
+      "Fecha": "2025-11-14T23:52:19.0777451-03:00",
+      "IdCentroDistribucion": "CD-CABA"
+    },
+    "Historial": [
+      {
+        "Estado": 1,
+        "Fecha": "2025-11-14T23:52:19.0777451-03:00",
+        "IdCentroDistribucion": "CD-CABA"
+      }
+    ],
+    "Precio": 1400,
+    "ComisionesAgenciaOrigen": 1000,
+    "ComisionesAgenciaDestino": 0,
+    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": null
+  },
+
   {
     "NumeroGuia": "CD-CA-000001",
     "Estado": 12,
@@ -448,5 +486,42 @@
     "ComisionesFleteroOrigen": 0,
     "ComisionesFleteroDestino": 0,
     "NumeroFactura": 1005
+  },
+
+  {
+    "NumeroGuia": "CD-CO-000001",
+    "Estado": 12,
+    "FechaIngreso": "2025-11-14T22:26:55.7972638-03:00",
+    "CuitCliente": "30-78321459-4",
+    "AgenciaOrigen": 0,
+    "AgenciaDestino": 16,
+    "IdCDOrigen": "CD-CA",
+    "IdCDDestino": "CD-CH",
+    "TipoRetiro": 0,
+    "TipoEnvio": 2,
+    "DniDestinatario": 11111111,
+    "IdProvinciaDestino": "CH",
+    "LocalidadDestino": "",
+    "DomicilioDestino": "",
+    "Dimension": 2,
+    "Recorrido": [],
+    "EstadoActual": {
+      "Estado": 0,
+      "Fecha": "2025-11-14T22:26:55.7972638-03:00",
+      "IdCentroDistribucion": "CD-CA"
+    },
+    "Historial": [
+      {
+        "Estado": 12,
+        "Fecha": "2025-11-14T22:26:55.7972638-03:00",
+        "IdCentroDistribucion": "CD-CA"
+      }
+    ],
+    "Precio": 80000,
+    "ComisionesAgenciaOrigen": 0,
+    "ComisionesAgenciaDestino": 2000,
+    "ComisionesFleteroOrigen": 1600,
+    "ComisionesFleteroDestino": 0,
+    "NumeroFactura": null
   }
 ]
