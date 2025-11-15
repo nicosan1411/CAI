@@ -47,7 +47,7 @@ namespace CAI_Proyecto.Forms.Consultas.CuentaCorriente.Forms
             }
 
             Filtros filtros = new Filtros();
-            filtros.CuitCliente = cbCliente.SelectedItem?.ToString();
+            filtros.CuitCliente = cbCliente.SelectedValue?.ToString();
             filtros.FechaDesde = dtpDesde.Value.Date;
             filtros.FechaHasta = dtpHasta.Value.Date;
             var ok = modelo.CargarEstadoCuenta(filtros);

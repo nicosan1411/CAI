@@ -1,9 +1,9 @@
 [
   {
-    "CuitCliente": "20-12345678-3",
+    "CuitCliente": "30-71456321-2",
     "NumeroGuia": [],
     "Concepto": "Traslado desde CD a domicilio",
-    "Monto": 1500.50,
+    "Monto": 1000,
     "NumeroFactura": 1001
   },
   {
@@ -12,5 +12,33 @@
     "Concepto": "Desde CD a domicilio",
     "Monto": 8200.00,
     "NumeroFactura": 1002
+  },
+  {
+    "CuitCliente": "30-85624973-9",
+    "NumeroGuia": [
+      "CD-LP-000001",
+      "CD-LP-000002"
+    ],
+    "Concepto": "Se realiz\u00F3 la entrega de 1 Gu\u00EDas para la empresa 30-85624973-9 Oleaginosa Pampa SA",
+    "Monto": 11100,
+    "NumeroFactura": 1003
+  },
+  {
+    "CuitCliente": "30-75846912-9",
+    "NumeroGuia": [
+      "CD-TU-000001"
+    ],
+    "Concepto": "Se realiz\u00F3 la entrega de 1 Gu\u00EDas para la empresa 30-75846912-9 Citric Tucum\u00E1n SRL",
+    "Monto": 2200,
+    "NumeroFactura": 1004
+  },
+  {
+    "CuitCliente": "30-75846912-9",
+    "NumeroGuia": [
+      "CD-TU-000003"
+    ],
+    "Concepto": "Se realiz\u00F3 la entrega de 1 Gu\u00EDas para la empresa 30-75846912-9 Citric Tucum\u00E1n SRL",
+    "Monto": 2200,
+    "NumeroFactura": 1005
   }
 ]
