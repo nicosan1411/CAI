@@ -34,9 +34,9 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Centro de Distribu
 
 - Verificar archivo bin: Guias.json:
 {
-    "NumeroGuia": "20251113181613393877",
+    "NumeroGuia": "CD-CABA-000006",
     "Estado": 0,
-    "FechaIngreso": "2025-11-13T18:16:13.3913619-03:00",
+    "FechaIngreso": "2025-11-15T15:26:02.1916339-03:00",
     "CuitCliente": "30-71456321-2",
     "AgenciaOrigen": 0,
     "AgenciaDestino": 0,
@@ -52,22 +52,22 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Centro de Distribu
     "Recorrido": [],
     "EstadoActual": {
       "Estado": 0,
-      "Fecha": "2025-11-13T18:16:13.3913619-03:00",
+      "Fecha": "2025-11-15T15:26:02.1916339-03:00",
       "IdCentroDistribucion": "CD-CABA"
     },
     "Historial": [
       {
         "Estado": 0,
-        "Fecha": "2025-11-13T18:16:13.3913619-03:00",
+        "Fecha": "2025-11-15T15:26:02.1916339-03:00",
         "IdCentroDistribucion": "CD-CABA"
       }
     ],
-    "Precio": 0,
+    "Precio": 5400,
     "ComisionesAgenciaOrigen": 0,
     "ComisionesAgenciaDestino": 0,
-    "ComisionesFleteroOrigen": 0,
+    "ComisionesFleteroOrigen": 200,
     "ComisionesFleteroDestino": 0,
-    "NumeroFactura": 0
+    "NumeroFactura": null
   }
 
   - Verificar archivo bin: HojasDeRutaFletes.json
@@ -80,5 +80,5 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Centro de Distribu
     "IdAgencia": 0,
     "DomicilioDestino": "",
     "Cumplida": false,
-    "Guias": [ "20251113181613393877" ]
+    "Guias": [ "CD-CABA-000001", "CD-CABA-000002", "CD-CABA-000003", "CD-CABA-000004", "CD-CA-000001", "CD-CA-000002", "CD-CO-000001", "CD-CABA-000006", "CD-CABA-000005" ]
   }

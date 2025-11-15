@@ -32,19 +32,19 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Domicilio
 
 - Presionar Botón: "Aceptar Pedido"
 
-- Mensaje: "Pedido impuesto correctamente (demo)."
+- Mensaje: "Pedido impuesto correctamente."
 
 - Cerrar el sistema
 
 - Verificar archivo bin: Guias.JSON:
 {
-    "NumeroGuia": "20251113002303519368",
+    "NumeroGuia": "CD-CABA-000006",
     "Estado": 0,
-    "FechaIngreso": "2025-11-13T00:23:03.518515-03:00",
+    "FechaIngreso": "2025-11-15T15:06:01.8764716-03:00",
     "CuitCliente": "30-71456321-2",
     "AgenciaOrigen": 0,
     "AgenciaDestino": 0,
-    "IdCDOrigen": "CD-CO",
+    "IdCDOrigen": "CD-CABA",
     "IdCDDestino": "CD-CO",
     "TipoRetiro": 0,
     "TipoEnvio": 0,
@@ -56,32 +56,31 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Domicilio
     "Recorrido": [],
     "EstadoActual": {
       "Estado": 0,
-      "Fecha": "2025-11-13T00:23:03.518515-03:00",
-      "IdCentroDistribucion": null
+      "Fecha": "2025-11-15T15:06:01.8764716-03:00",
+      "IdCentroDistribucion": "CD-CABA"
     },
     "Historial": [
       {
         "Estado": 0,
-        "Fecha": "2025-11-13T00:23:03.518515-03:00",
-        "IdCentroDistribucion": null
+        "Fecha": "2025-11-15T15:06:01.8764716-03:00",
+        "IdCentroDistribucion": "CD-CABA"
       }
     ],
-    "Precio": 0,
+    "Precio": 2900,
     "ComisionesAgenciaOrigen": 0,
     "ComisionesAgenciaDestino": 0,
-    "ComisionesFleteroOrigen": 0,
-    "ComisionesFleteroDestino": 0,
-    "NumeroFactura": 0
+    "ComisionesFleteroOrigen": 80,
+    "ComisionesFleteroDestino": 80,
+    "NumeroFactura": null
   },
-
-{
-    "NumeroGuia": "20251113002303757590",
+  {
+    "NumeroGuia": "CD-CABA-000007",
     "Estado": 0,
-    "FechaIngreso": "2025-11-13T00:23:03.7576708-03:00",
+    "FechaIngreso": "2025-11-15T15:06:02.0689183-03:00",
     "CuitCliente": "30-71456321-2",
     "AgenciaOrigen": 0,
     "AgenciaDestino": 0,
-    "IdCDOrigen": "CD-CO",
+    "IdCDOrigen": "CD-CABA",
     "IdCDDestino": "CD-CO",
     "TipoRetiro": 0,
     "TipoEnvio": 0,
@@ -93,34 +92,33 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Domicilio
     "Recorrido": [],
     "EstadoActual": {
       "Estado": 0,
-      "Fecha": "2025-11-13T00:23:03.7576708-03:00",
-      "IdCentroDistribucion": null
+      "Fecha": "2025-11-15T15:06:02.0689183-03:00",
+      "IdCentroDistribucion": "CD-CABA"
     },
     "Historial": [
       {
         "Estado": 0,
-        "Fecha": "2025-11-13T00:23:03.7576708-03:00",
-        "IdCentroDistribucion": null
+        "Fecha": "2025-11-15T15:06:02.0689183-03:00",
+        "IdCentroDistribucion": "CD-CABA"
       }
     ],
-    "Precio": 0,
+    "Precio": 2900,
     "ComisionesAgenciaOrigen": 0,
     "ComisionesAgenciaDestino": 0,
-    "ComisionesFleteroOrigen": 0,
-    "ComisionesFleteroDestino": 0,
-    "NumeroFactura": 0
+    "ComisionesFleteroOrigen": 80,
+    "ComisionesFleteroDestino": 80,
+    "NumeroFactura": null
   }
-
   - Verificar archivo bin: HojasDeRutaFlete.JSON:
   {
-    "IdHDRFlete": 2005,
+    "IdHDRFlete": 3005,
     "Tipo": 0,
-    "IdFletero": "F0026",
+    "IdFletero": "F0013",
     "CuitCliente": null,
     "IdAgencia": 0,
     "DomicilioDestino": "Belgrano 1200",
     "Cumplida": false,
-    "Guias": [ "20251113002303519368", "20251113002303757590" ]
+    "Guias": [ "CD-CABA-000006", "CD-CABA-000007" ]
   }
 
 

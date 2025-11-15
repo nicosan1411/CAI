@@ -18,6 +18,8 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Agencia
 
 - Seleccionar Tipo de servicio: Envio a Agencia
 
+- Ingresar DNI: 12345678
+
 - Seleccionar agencia: Agencia CO - Nueva Córdoba
 
 - Seleccionar Dimensión: S
@@ -35,9 +37,9 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Agencia
 - Verificar archivo bin: Guias.json:
 
 {
-    "NumeroGuia": "20251113190915466966",
+    "NumeroGuia": "CD-CABA-000006",
     "Estado": 0,
-    "FechaIngreso": "2025-11-13T19:09:15.4623004-03:00",
+    "FechaIngreso": "2025-11-15T15:32:40.8790631-03:00",
     "CuitCliente": "30-71456321-2",
     "AgenciaOrigen": 0,
     "AgenciaDestino": 8,
@@ -53,27 +55,27 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Agencia
     "Recorrido": [],
     "EstadoActual": {
       "Estado": 0,
-      "Fecha": "2025-11-13T19:09:15.4623004-03:00",
+      "Fecha": "2025-11-15T15:32:40.8790631-03:00",
       "IdCentroDistribucion": "CD-CABA"
     },
     "Historial": [
       {
         "Estado": 0,
-        "Fecha": "2025-11-13T19:09:15.4623004-03:00",
+        "Fecha": "2025-11-15T15:32:40.8790631-03:00",
         "IdCentroDistribucion": "CD-CABA"
       }
     ],
-    "Precio": 0,
+    "Precio": 2800,
     "ComisionesAgenciaOrigen": 0,
-    "ComisionesAgenciaDestino": 0,
-    "ComisionesFleteroOrigen": 0,
+    "ComisionesAgenciaDestino": 100,
+    "ComisionesFleteroOrigen": 80,
     "ComisionesFleteroDestino": 0,
-    "NumeroFactura": 0
+    "NumeroFactura": null
   }
 
 - Verificar archivo bin: HojasDeRutaFlete.json:
 
-   {
+  {
     "IdHDRFlete": 3004,
     "Tipo": 0,
     "IdFletero": "F0012",
@@ -81,5 +83,5 @@ Imponer Pedido en Call Center - Retiro en Domicilio - Envio a Agencia
     "IdAgencia": 0,
     "DomicilioDestino": "",
     "Cumplida": false,
-    "Guias": [ "20251113190915466966" ]
+    "Guias": [ "CD-CABA-000001", "CD-CABA-000002", "CD-CABA-000003", "CD-CABA-000004", "CD-CA-000001", "CD-CA-000002", "CD-CO-000001", "CD-CABA-000006", "CD-CABA-000005" ]
   }
