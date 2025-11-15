@@ -86,22 +86,36 @@ namespace CAI_Proyecto.Forms.Operacion.EmitirFactura.Forms
 
             if (confirm == DialogResult.Yes)
             {
-                // ✅ Identificar las guías facturadas
+                // Identificar las guías facturadas
                 var guiasFacturadas = lvFacturasClientes.Items
                     .Cast<ListViewItem>()
                     .Select(i => i.Text) // el NroGuia está en la columna principal
                     .ToList();
 
-                // ✅ Eliminar esas guías del modelo (de la "base de datos" temporal)
-                var listaEditable = modelo.ListadoFacturacion.ToList();
-                listaEditable.RemoveAll(f => guiasFacturadas.Contains(f.NroGuia));
-                modelo.ListadoFacturacion = listaEditable;
+                // Obtener CUIT seleccionado
+                var clienteSeleccionado = (dynamic)cbCliente.SelectedItem; // evita dependencias de tipo rígidas
+                var cuit = (string)(clienteSeleccionado?.Cuit ?? clienteSeleccionado?.Value ?? string.Empty);
+                if (string.IsNullOrWhiteSpace(cuit))
+                {
+                    MessageBox.Show("Cliente inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                MessageBox.Show("Factura emitida correctamente para el cliente.",
-                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    // Llamar al modelo para facturar y persistir cambios
+                    var facturaCreada = modelo.FacturarGuias(cuit, guiasFacturadas);
 
-                // ✅ Limpiar la vista
-                lvFacturasClientes.Items.Clear();
+                    MessageBox.Show($"Factura {facturaCreada.NumeroFactura} emitida correctamente para el cliente.",
+                        "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Limpiar la vista
+                    lvFacturasClientes.Items.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al emitir la factura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

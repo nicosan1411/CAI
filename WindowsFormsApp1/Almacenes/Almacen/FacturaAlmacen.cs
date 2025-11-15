@@ -1,6 +1,8 @@
 ﻿using CAI_Proyecto.Almacenes.Entidad;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text.Json;
 
 namespace CAI_Proyecto.Almacenes.Almacen
 {
@@ -12,17 +14,35 @@ namespace CAI_Proyecto.Almacenes.Almacen
 
         static FacturaAlmacen()
         {
-            if (File.Exists(@"Datos\Facturas.json"))
+            var ruta = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, @"Datos\Facturas.json");
+            if (File.Exists(ruta))
             {
-                var FacturaJson = File.ReadAllText(@"Datos\Facturas.json");
-                facturas = System.Text.Json.JsonSerializer.Deserialize<List<FacturaEntidad>>(FacturaJson);
+                var FacturaJson = File.ReadAllText(ruta);
+                facturas = JsonSerializer.Deserialize<List<FacturaEntidad>>(FacturaJson) ?? new List<FacturaEntidad>();
             }
         }
 
         public static void Grabar()
         {
-            var FacturaJson = System.Text.Json.JsonSerializer.Serialize(facturas);
-            File.WriteAllText(@"Datos\Facturas.json", FacturaJson);
+            var ruta = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, @"Datos\Facturas.json");
+            var opciones = new JsonSerializerOptions { WriteIndented = true };
+            var FacturaJson = JsonSerializer.Serialize(facturas, opciones);
+            File.WriteAllText(ruta, FacturaJson);
+        }
+
+        // Nuevo: agrega una factura a la lista en memoria y persiste inmediatamente
+        public static void Agregar(FacturaEntidad factura)
+        {
+            if (factura == null) return;
+            facturas.Add(factura);
+            Grabar();
+        }
+
+        // Nuevo: devuelve el siguiente número de factura (max + 1)
+        public static int ObtenerSiguienteNumeroFactura()
+        {
+            if (!facturas.Any()) return 1;
+            return facturas.Max(f => f.NumeroFactura) + 1;
         }
     }
 }
