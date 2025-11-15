@@ -120,7 +120,7 @@
     "Cumplida": true,
     "Guias": [
       "CD-CABA-000006",
-      "CD-CABA-000006"
+      "CD-CABA-000007"
     7
   }
 
