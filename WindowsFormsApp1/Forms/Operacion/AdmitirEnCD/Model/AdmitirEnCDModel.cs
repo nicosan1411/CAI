@@ -158,7 +158,8 @@ namespace CAI_Proyecto.Forms.Operacion.AdmitirEnCD.Model
                                 IdCentroDistribucion = cdOrigen
                             }
                         },
-                        Precio = 0m
+                        Precio = 0m,
+                        NumeroFactura = null
                     };
                 }))
                 .ToList();

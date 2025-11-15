@@ -32,6 +32,6 @@ namespace CAI_Proyecto.Almacenes.Entidad
         public decimal ComisionesAgenciaDestino { get; set; }
         public decimal ComisionesFleteroOrigen { get; set; }
         public decimal ComisionesFleteroDestino { get; set; }
-        public int NumeroFactura { get; set; }
+        public int? NumeroFactura { get; set; }
     }
 }

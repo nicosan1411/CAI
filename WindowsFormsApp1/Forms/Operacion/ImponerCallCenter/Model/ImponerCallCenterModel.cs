@@ -250,7 +250,7 @@ namespace CAI_Proyecto.Forms.Operacion.ImponerCallCenter.Model
                         ComisionesAgenciaDestino = 0m,
                         ComisionesFleteroOrigen = 0m,
                         ComisionesFleteroDestino = 0m,
-                        NumeroFactura = 0
+                        NumeroFactura = null
                     };
                 }));
 
