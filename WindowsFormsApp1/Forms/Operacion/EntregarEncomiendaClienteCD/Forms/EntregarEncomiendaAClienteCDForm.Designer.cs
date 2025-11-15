@@ -114,6 +114,7 @@
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(136, 20);
             this.txtDNI.TabIndex = 1;
+            this.txtDNI.MaxLength = 8;
             this.toolTip1.SetToolTip(this.txtDNI, "Ingrese el DNI del destinatario y presione Enter o Entregar.");
             // 
             // lblDni
